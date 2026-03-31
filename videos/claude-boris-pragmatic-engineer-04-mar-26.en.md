@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/videos/claude-boris-pragmatic-engineer-04-mar-26.md -->
 # Building Claude Code with Boris Cherny — The Pragmatic Engineer
 
 Transcript of the interview with Boris Cherny ([@bcherny](https://x.com/bcherny)), creator of Claude Code, on The Pragmatic Engineer podcast, published March 4, 2026.
@@ -5,7 +6,7 @@ Transcript of the interview with Boris Cherny ([@bcherny](https://x.com/bcherny)
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 

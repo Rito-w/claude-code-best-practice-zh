@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/reports/claude-skills-for-larger-mono-repos.en.md -->
 # Understanding Claude Skills Discovery in Large Monorepos
 
 When working with Claude Code in a monorepo, understanding how skills are discovered and loaded into context is crucial for organizing your project-specific capabilities effectively.
@@ -5,7 +6,7 @@ When working with Claude Code in a monorepo, understanding how skills are discov
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 

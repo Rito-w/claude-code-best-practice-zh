@@ -1,9 +1,10 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/reports/claude-agent-sdk-vs-cli-system-prompts.en.md -->
 # Claude Agent SDK vs Claude CLI: System Prompts and Output Consistency
 
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 

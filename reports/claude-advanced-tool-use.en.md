@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/reports/claude-advanced-tool-use.en.md -->
 # Claude Advanced Tool Use Patterns
 
 API-level features (now GA) that reduce token consumption, latency, and improve tool accuracy. Released with Opus/Sonnet 4.6.
@@ -5,7 +6,7 @@ API-level features (now GA) that reduce token consumption, latency, and improve 
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 

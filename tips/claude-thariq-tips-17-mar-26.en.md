@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/tips/claude-thariq-tips-17-mar-26.md -->
 # Lessons from Building Claude Code: How We Use Skills — Thariq
 
 A comprehensive guide on how Anthropic uses skills internally, shared by Thariq ([@trq212](https://x.com/trq212)) on March 17, 2026.
@@ -5,7 +6,7 @@ A comprehensive guide on how Anthropic uses skills internally, shared by Thariq 
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
