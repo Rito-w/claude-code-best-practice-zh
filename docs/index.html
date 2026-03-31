@@ -16,6 +16,7 @@
         .markdown-section table { border-collapse: collapse; width: 100%; }
         .markdown-section th, .markdown-section td { border: 1px solid #ddd; padding: 8px; }
         .markdown-section th { background-color: #f2f2f2; font-weight: bold; }
+        .markdown-section img { max-width: 100%; }
     </style>
 </head>
 <body>
@@ -32,7 +33,8 @@
                 placeholder: '搜索...'
             },
             formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
-            executeScript: true
+            relativePath: true,
+            loadNavbar: false
         }
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
