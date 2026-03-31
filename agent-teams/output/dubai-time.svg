@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="timebg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#134e5e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#71b280;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" fill="url(#timebg)"/>
+  <text x="200" y="60" font-size="14" text-anchor="middle" font-family="Arial" fill="#fff" opacity="0.8">Dubai Time</text>
+  <text x="200" y="120" font-size="36" text-anchor="middle" font-family="Arial" font-weight="bold" fill="#fff">14:30 PKT</text>
+  <text x="200" y="150" font-size="16" text-anchor="middle" font-family="Arial" fill="#fff">Tuesday, March 31</text>
+  <text x="200" y="180" font-size="12" text-anchor="middle" font-family="Arial" fill="#fff" opacity="0.6">UTC+5</text>
+</svg>
