@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/best-practice/concepts/verification-checklist.en.md -->
 # Verification Checklist — README CONCEPTS Section
 
 Rules for verifying CONCEPTS table accuracy. Each rule is checked during every workflow run.

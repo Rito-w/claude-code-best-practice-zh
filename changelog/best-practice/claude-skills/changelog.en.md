@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/best-practice/claude-skills/changelog.en.md -->
 # Skills Report Changelog
 
 **Status Legend:**

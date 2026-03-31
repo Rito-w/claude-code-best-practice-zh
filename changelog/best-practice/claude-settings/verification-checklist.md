@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/best-practice/claude-settings/verification-checklist.md -->
 
 # Verification Checklist — Settings Report（验证清单 — Settings 报告）
 

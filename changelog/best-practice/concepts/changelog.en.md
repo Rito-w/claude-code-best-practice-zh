@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/best-practice/concepts/changelog.en.md -->
 # Changelog — README CONCEPTS Section
 
 Tracks drift between the README CONCEPTS table and official Claude Code documentation.

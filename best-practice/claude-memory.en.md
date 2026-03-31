@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/best-practice/claude-memory.md -->
 # Claude Memory
 
 Persistent context via CLAUDE.md files — how to write them and how they load in monorepos.

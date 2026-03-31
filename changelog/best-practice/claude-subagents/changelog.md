@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/best-practice/claude-subagents/changelog.md -->
 
 # Subagents Report — Changelog History（Subagents 报告 — 变更日志历史）
 

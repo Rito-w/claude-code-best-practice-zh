@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/best-practice/claude-settings/changelog.en.md -->
 # Settings Report — Changelog History
 
 ## Status Legend

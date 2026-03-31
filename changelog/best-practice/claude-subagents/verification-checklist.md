@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/best-practice/claude-subagents/verification-checklist.md -->
 
 # Verification Checklist — Subagents Report（验证清单 — Subagents 报告）
 

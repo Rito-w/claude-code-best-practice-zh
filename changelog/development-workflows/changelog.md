@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/development-workflows/changelog.md -->
 
 # Development Workflows Changelog（开发工作流变更日志）
 

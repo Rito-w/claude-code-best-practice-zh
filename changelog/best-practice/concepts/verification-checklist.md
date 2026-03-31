@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/best-practice/concepts/verification-checklist.md -->
 
 # Verification Checklist — README CONCEPTS Section（验证清单 — README CONCEPTS 部分）
 
