@@ -5,13 +5,13 @@
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
 ---
 
-<a href="#time-orchestration"><img src="../!/tags/implemented-hd.svg" alt="Implemented"></a>
+<a href="#time-orchestration"><img src="../_media/tags/implemented-hd.svg" alt="Implemented"></a>
 
 <p align="center">
   <img src="assets/impl-agent-teams.png" alt="Agent Teams in action — split pane mode with tmux" width="100%">
@@ -21,7 +21,7 @@ Agent Teams spawn **multiple independent Claude Code sessions** that coordinate 
 
 ---
 
-## ![How to Use](../!/tags/how-to-use.svg)
+## ![How to Use](../_media/tags/how-to-use.svg)
 
 The time orchestration workflow was built entirely by an agent team. To run the finished product:
 
@@ -35,7 +35,7 @@ This invokes the **Command → Agent → Skill** pipeline: the agent fetches Dub
 
 ---
 
-## ![How to Implement](../!/tags/how-to-implement.svg)
+## ![How to Implement](../_media/tags/how-to-implement.svg)
 
 You can create a replica of the weather orchestration workflow using agent teams — in this example, the time orchestration workflow was built entirely by an agent team.
 

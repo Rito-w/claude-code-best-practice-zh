@@ -71,7 +71,7 @@
 | 4 | MED | Missing Inline Link | 添加 Costs（`/costs`）作为内联链接到 Settings 行 — 涵盖 /usage, billing, pay-as-you-go | ❌ INVALID (user chose to skip) |
 | 5 | LOW | Missing Concept | 考虑在 Best Practices 中添加 IDE Integrations 行（VS Code, JetBrains, Desktop App, Web）或内联链接 | ❌ INVALID (user chose to skip — platform surfaces, not configuration concepts) |
 | 6 | HIGH | Missing Concept | 在 Hot 表格中添加 Code Review 行 — 多 Agent PR 分析（research preview, Teams & Enterprise） | ✅ COMPLETE (row added as first Hot entry with blog link and best practice tweet) |
-| 7 | MED | New Badge | 创建 `!/tags/beta.svg` 徽章（黄色，38x20px）并添加到 Hot 表格中的 Code Review 和 Agent Teams | ✅ COMPLETE (beta.svg created; added to Code Review and Agent Teams rows) |
+| 7 | MED | New Badge | 创建 `_media/tags/beta.svg` 徽章（黄色，38x20px）并添加到 Hot 表格中的 Code Review 和 Agent Teams | ✅ COMPLETE (beta.svg created; added to Code Review and Agent Teams rows) |
 | 8 | MED | Reorder | 按发布日期排序 Hot 表格（最近优先）：Code Review → Scheduled Tasks → Voice Mode → Agent Teams → Remote Control → Git Worktrees → Ralph Wiggum | ✅ COMPLETE (Voice Mode and Agent Teams swapped to match chronological order) |
 
 ---

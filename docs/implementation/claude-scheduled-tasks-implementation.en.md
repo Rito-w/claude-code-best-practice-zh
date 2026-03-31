@@ -5,13 +5,13 @@
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
 ---
 
-<a href="#loop-demo"><img src="../!/tags/implemented-hd.svg" alt="Implemented"></a>
+<a href="#loop-demo"><img src="../_media/tags/implemented-hd.svg" alt="Implemented"></a>
 
 The `/loop` skill is used to schedule recurring tasks on a cron interval. Below is a demo of `/loop 1m "tell current time"` — a simple recurring task that fires every minute.
 
@@ -44,7 +44,7 @@ The task fires every minute, running `date` and reporting the current time. Each
 
 ---
 
-## ![How to Use](../!/tags/how-to-use.svg)
+## ![How to Use](../_media/tags/how-to-use.svg)
 
 ```bash
 $ claude
@@ -55,6 +55,6 @@ $ claude
 
 ---
 
-## ![How to Implement](../!/tags/how-to-implement.svg)
+## ![How to Implement](../_media/tags/how-to-implement.svg)
 
 `/loop` is a built-in Claude Code skill — no setup required. It uses the cron tools (`CronCreate`, `CronList`, `CronDelete`) under the hood to manage recurring schedules.

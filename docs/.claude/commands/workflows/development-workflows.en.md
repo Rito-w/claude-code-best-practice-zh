@@ -29,13 +29,13 @@ Update the DEVELOPMENT WORKFLOWS table in `README.md` by researching 9 repos in 
 The README table has these columns:
 
 ```markdown
-| Name | ★ | Uniqueness | Plan | <img src="!/tags/a.svg" height="14"> | <img src="!/tags/c.svg" height="14"> | <img src="!/tags/s.svg" height="14"> |
+| Name | ★ | Uniqueness | Plan | <img src="_media/tags/a.svg" height="14"> | <img src="_media/tags/c.svg" height="14"> | <img src="_media/tags/s.svg" height="14"> |
 ```
 
 - **Name**: `[Short Name](github-url)` — use project name, not owner/repo
 - **★**: Star count rounded to `k` (e.g., 98k, 10k, 4.1k). Under 1000 show exact number
 - **Uniqueness**: 2-3 shields.io badge tags using `![tag](https://img.shields.io/badge/TAG-ddf4ff)`. Underscores for spaces, `--` for hyphens, `%2B` for `+`, `%2F` for `/`
-- **Plan**: Icon + linked name of the Plan implementation. Icon is `<img src="!/tags/c.svg" height="14">` for command, `<img src="!/tags/a.svg" height="14">` for agent, `<img src="!/tags/s.svg" height="14">` for skill. Name links to the actual file in the repo
+- **Plan**: Icon + linked name of the Plan implementation. Icon is `<img src="_media/tags/c.svg" height="14">` for command, `<img src="_media/tags/a.svg" height="14">` for agent, `<img src="_media/tags/s.svg" height="14">` for skill. Name links to the actual file in the repo
 - **Agent/Command/Skill counts**: Just the number (e.g., `25`, `0`, `108+`)
 
 **Sort order**: Sorted by stars descending (highest first). Do NOT group by Plan type.
