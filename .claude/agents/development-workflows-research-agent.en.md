@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/agents/development-workflows-research-agent.en.md -->
 ---
 name: development-workflows-research-agent
 description: Research agent that fetches GitHub repos, counts agents/skills/commands, gets star counts, and analyzes Claude Code workflow repositories

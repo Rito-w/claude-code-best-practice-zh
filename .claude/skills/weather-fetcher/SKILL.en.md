@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/weather-fetcher/SKILL.en.md -->
 ---
 name: weather-fetcher
 description: Instructions for fetching current weather temperature data for Dubai, UAE from Open-Meteo API

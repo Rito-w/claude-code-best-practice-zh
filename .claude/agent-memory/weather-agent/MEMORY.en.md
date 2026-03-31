@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/agent-memory/weather-agent/MEMORY.en.md -->
 # Weather Agent Memory
 
 ## API Configuration

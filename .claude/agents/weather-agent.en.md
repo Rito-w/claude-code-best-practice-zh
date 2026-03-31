@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/agents/weather-agent.en.md -->
 ---
 name: weather-agent
 description: Use this agent PROACTIVELY when you need to fetch weather data for Dubai, UAE. This agent fetches real-time temperature from Open-Meteo using its preloaded weather-fetcher skill.

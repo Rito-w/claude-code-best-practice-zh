@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/time-skill/SKILL.en.md -->
 ---
 name: time-skill
 description: Display the current time in Pakistan Standard Time (PKT, UTC+5). Use when the user asks for the current time, Pakistan time, or PKT.

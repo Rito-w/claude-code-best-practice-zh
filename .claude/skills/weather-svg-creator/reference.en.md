@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/weather-svg-creator/reference.en.md -->
 # Weather SVG Creator — Reference
 
 ## SVG Template

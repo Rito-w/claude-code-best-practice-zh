@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/commands/time-command.en.md -->
 ---
 description: Display the current time in Pakistan Standard Time (PKT, UTC+5)
 ---

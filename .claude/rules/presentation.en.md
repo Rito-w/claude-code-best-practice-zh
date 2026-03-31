@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/rules/presentation.en.md -->
 # Glob: presentation/**
 
 ## Delegation Rule

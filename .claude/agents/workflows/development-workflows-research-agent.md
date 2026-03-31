@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/agents/workflows/development-workflows-research-agent.md -->
 
 ---
 name: development-workflows-research-agent

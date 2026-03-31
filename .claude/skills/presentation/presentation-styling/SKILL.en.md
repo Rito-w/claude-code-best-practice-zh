@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/presentation/presentation-styling/SKILL.en.md -->
 ---
 name: presentation-styling
 description: Knowledge about CSS classes, component patterns, and syntax highlighting in the presentation

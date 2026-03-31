@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/commands/weather-orchestrator.en.md -->
 ---
 description: Fetch weather data for Dubai and create an SVG weather card
 model: haiku

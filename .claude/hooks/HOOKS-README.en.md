@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/hooks/HOOKS-README.en.md -->
 # HOOKS-README
 contains all the details, scripts, and instructions for the hooks
 

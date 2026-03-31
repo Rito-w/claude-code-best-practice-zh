@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/weather-svg-creator/examples.en.md -->
 # Weather SVG Creator — Examples
 
 ## Example 1: Celsius

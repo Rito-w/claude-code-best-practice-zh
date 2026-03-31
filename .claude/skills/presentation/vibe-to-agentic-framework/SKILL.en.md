@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/presentation/vibe-to-agentic-framework/SKILL.en.md -->
 ---
 name: vibe-to-agentic-framework
 description: The conceptual framework behind the presentation — what "Vibe Coding to Agentic Engineering" means, why the journey is structured the way it is, and how every slide fits the narrative arc

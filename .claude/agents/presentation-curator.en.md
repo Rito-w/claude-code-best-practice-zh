@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/agents/presentation-curator.en.md -->
 ---
 name: presentation-curator
 description: PROACTIVELY use this agent whenever the user wants to update, modify, or fix the presentation slides, structure, styling, or weights

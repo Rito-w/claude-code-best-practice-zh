@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/presentation/presentation-structure/SKILL.en.md -->
 ---
 name: presentation-structure
 description: Knowledge about the presentation slide format, weight system, navigation, and section structure

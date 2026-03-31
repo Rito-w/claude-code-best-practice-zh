@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/weather-fetcher/SKILL.md -->
 ---
 name: weather-fetcher
 description: 从 Open-Meteo API 获取迪拜，阿联酋的当前天气温度数据的指令
