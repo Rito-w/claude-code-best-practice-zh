@@ -1,4 +1,4 @@
-- [🏠 首页](/)
+- [🏠 首页](README.md)
 - **📖 最佳实践**
   - [Commands](best-practice/claude-commands.md)
   - [Skills](best-practice/claude-skills.md)
