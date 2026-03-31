@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/commands/rpi/research.en.md -->
 ---
 description: Research and analyze feature viability - GO/NO-GO decision gate
 argument-hint: "<feature-slug>"

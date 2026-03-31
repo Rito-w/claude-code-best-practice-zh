@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/ux-designer.en.md -->
 ---
 name: ux-designer
 description: Produces a concise, accessible UX brief with flows, states, and annotations.

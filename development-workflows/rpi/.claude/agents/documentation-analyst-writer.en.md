@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/documentation-analyst-writer.en.md -->
 ---
 name: documentation-analyst-writer
 description: Use this agent when you need to analyze existing documentation and create new or updated documentation that strictly adheres to project-specific documentation standards defined in claude.md. This agent excels at maintaining consistency with established documentation patterns, ensuring technical accuracy, and producing clear, well-structured documentation.

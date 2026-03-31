@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/code-reviewer.en.md -->
 ---
 name: code-reviewer
 description: Meticulous, constructive reviewer for correctness, clarity, security, and maintainability.

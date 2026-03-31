@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/commands/workflows/best-practice/workflow-claude-skills.en.md -->
 ---
 description: Track Claude Code skills report changes and find what needs updating
 argument-hint: [number of versions to check, default 10]

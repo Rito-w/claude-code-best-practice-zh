@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/requirement-parser.en.md -->
 ---
 name: requirement-parser
 description: Analyzes feature request descriptions and extracts structured requirements, goals, constraints, and metadata for downstream planning agents.

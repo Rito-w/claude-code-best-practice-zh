@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/product-manager.en.md -->
 ---
 name: product-manager
 description: Turns a high-level ask into a crisp, exec-ready PRD with acceptance criteria and scope.

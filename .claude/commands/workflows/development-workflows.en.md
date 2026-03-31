@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/commands/workflows/development-workflows.en.md -->
 ---
 description: Update the DEVELOPMENT WORKFLOWS table by researching all 9 workflow repos in parallel
 ---

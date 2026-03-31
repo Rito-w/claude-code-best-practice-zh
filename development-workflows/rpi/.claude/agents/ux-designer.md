@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/ux-designer.md -->
 <!-- 翻译标记：development-workflows/rpi/.claude/agents/ux-designer.md - 已翻译 -->
 
 ---

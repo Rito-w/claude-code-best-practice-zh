@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/commands/rpi/implement.en.md -->
 ---
 description: Execute phased implementation with validation gates
 argument-hint: "<feature-slug> [--phase N] [--validate-only]"

@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/senior-software-engineer.en.md -->
 ---
 name: senior-software-engineer
 description: Pragmatic IC who plans sanely, ships small reversible slices with tests, and writes clear PRs.

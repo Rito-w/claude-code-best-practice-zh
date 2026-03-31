@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/code-reviewer.md -->
 <!-- 翻译标记：development-workflows/rpi/.claude/agents/code-reviewer.md - 已翻译 -->
 
 ---

@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/commands/rpi/plan.en.md -->
 ---
 description: Create comprehensive planning documentation for a feature
 argument-hint: "<feature-slug>"

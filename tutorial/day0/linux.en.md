@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/tutorial/day0/linux.en.md -->
 # Linux Setup
 
 [Back to Day 0](README.md)

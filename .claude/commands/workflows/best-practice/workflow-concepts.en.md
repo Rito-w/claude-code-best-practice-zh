@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/commands/workflows/best-practice/workflow-concepts.en.md -->
 ---
 description: Update the README CONCEPTS section with the latest Claude Code features and concepts
 argument-hint: [number of changelog versions to check, default 10]

@@ -1,3 +1,4 @@
+<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/rpi/.claude/agents/constitutional-validator.en.md -->
 ---
 name: constitutional-validator
 description: Validates roadmap items, features, and technical decisions against the project's constitution, principles, and core values. Ensures all proposals align with the mission, established methodology, and design principles before implementation proceeds.
