@@ -5,13 +5,13 @@
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
 ---
 
-<a href="#weather-agent"><img src="../!/tags/implemented-hd.svg" alt="Implemented"></a>
+<a href="#weather-agent"><img src="../_media/tags/implemented-hd.svg" alt="Implemented"></a>
 
 The weather agent is implemented in this repo as an example of the **Command → Agent → Skill** architecture pattern, demonstrating two distinct skill patterns.
 
@@ -60,7 +60,7 @@ The agent has one preloaded skill (`weather-fetcher`) that provides instructions
 
 ---
 
-## ![How to Use](../!/tags/how-to-use.svg)
+## ![How to Use](../_media/tags/how-to-use.svg)
 
 ```bash
 $ claude
@@ -69,7 +69,7 @@ $ claude
 
 ---
 
-## ![How to Implement](../!/tags/how-to-implement.svg)
+## ![How to Implement](../_media/tags/how-to-implement.svg)
 
 You can create an agent using the `/agents` command, 
 ```bash
@@ -81,7 +81,7 @@ or ask Claude to create one for you — it will generate the markdown file with 
 
 ---
 
-<a href="https://github.com/shanraisshan/claude-code-best-practice#orchestration-workflow"><img src="../!/tags/orchestration-workflow-hd.svg" alt="Orchestration Workflow"></a>
+<a href="https://github.com/shanraisshan/claude-code-best-practice#orchestration-workflow"><img src="../_media/tags/orchestration-workflow-hd.svg" alt="Orchestration Workflow"></a>
 
 The weather agent is the **Agent** in the Command → Agent → Skill orchestration pattern. It receives the workflow from the `/weather-orchestrator` command and fetches temperature using its preloaded skill (`weather-fetcher`). The command then invokes the standalone `weather-svg-creator` skill to create the visual output.
 

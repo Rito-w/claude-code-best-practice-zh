@@ -5,13 +5,13 @@
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
 ---
 
-<a href="#weather-orchestrator"><img src="../!/tags/implemented-hd.svg" alt="Implemented"></a>
+<a href="#weather-orchestrator"><img src="../_media/tags/implemented-hd.svg" alt="Implemented"></a>
 
 The weather orchestrator command is implemented in this repo as the entry point of the **Command → Agent → Skill** architecture pattern, demonstrating how commands orchestrate multi-step workflows.
 
@@ -53,7 +53,7 @@ The command orchestrates the entire workflow: it asks the user for their tempera
 
 ---
 
-## ![How to Use](../!/tags/how-to-use.svg)
+## ![How to Use](../_media/tags/how-to-use.svg)
 
 ```bash
 $ claude
@@ -62,13 +62,13 @@ $ claude
 
 ---
 
-## ![How to Implement](../!/tags/how-to-implement.svg)
+## ![How to Implement](../_media/tags/how-to-implement.svg)
 
 Ask Claude to create one for you — it will generate the markdown file with YAML frontmatter and body in `.claude/commands/<name>.md`
 
 ---
 
-<a href="https://github.com/shanraisshan/claude-code-best-practice#orchestration-workflow"><img src="../!/tags/orchestration-workflow-hd.svg" alt="Orchestration Workflow"></a>
+<a href="https://github.com/shanraisshan/claude-code-best-practice#orchestration-workflow"><img src="../_media/tags/orchestration-workflow-hd.svg" alt="Orchestration Workflow"></a>
 
 The weather orchestrator is the **Command** in the Command → Agent → Skill orchestration pattern. It serves as the entry point — handling user interaction (temperature unit preference), delegating data fetching to the `weather-agent`, and invoking the `weather-svg-creator` skill for visual output.
 
