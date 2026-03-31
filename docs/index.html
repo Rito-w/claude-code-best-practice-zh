@@ -6,10 +6,11 @@
     <title>Claude Code 最佳实践</title>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
     <style>
-        .sidebar { background-color: #f8f9fa; }
-        .sidebar-nav { margin-top: 0; }
-        .sidebar-nav ul { padding-left: 15px; }
-        .sidebar-nav li { margin: 8px 0; }
+        .sidebar { background-color: #f8f9fa; border-right: 1px solid #ddd; }
+        .sidebar-nav { margin-top: 0 !important; }
+        .sidebar-nav ul { padding-left: 20px !important; }
+        .sidebar-nav li { margin: 10px 0 !important; }
+        main { margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -18,15 +19,17 @@
         window.$docsify = {
             name: '📖 Claude Code',
             repo: 'https://github.com/Rito-w/claude-code-best-practice-zh',
-            loadSidebar: true,
-            loadNavbar: false,
+            homepage: '/README.md',
+            loadSidebar: '_sidebar.md',
+            maxLevel: 3,
             subMaxLevel: 2,
             auto2top: true,
-            search: 'auto',
-            themeColor: '#42b983'
+            search: {
+                placeholder: '搜索...'
+            }
         }
     </script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
 </body>
 </html>
