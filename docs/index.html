@@ -25,16 +25,23 @@
         window.$docsify = {
             name: '📖 Claude Code',
             repo: 'https://github.com/Rito-w/claude-code-best-practice-zh',
+            basePath: '/',
             loadSidebar: '_sidebar.md',
+            loadSidebar: true,
             maxLevel: 3,
             subMaxLevel: 2,
             auto2top: true,
             search: {
-                placeholder: '搜索...'
+                placeholder: '搜索...',
+                depth: 3,
+                maxResults: 50
             },
             formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
             relativePath: true,
-            loadNavbar: false
+            loadNavbar: false,
+            homepage: 'README.md',
+            catchNotFound: false,
+            routerMode: 'hash'
         }
     </script>
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
