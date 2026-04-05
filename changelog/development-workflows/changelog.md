@@ -1,182 +1,257 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/development-workflows/changelog.md -->
+# Development Workflows Changelog
 
-# Development Workflows Changelog（开发工作流变更日志）
+**Status Legend:**
 
-**状态图例：**
-
-| 状态 | 含义 |
+| Status | Meaning |
 |--------|---------|
-| `COMPLETE (reason)` | 操作已成功执行并解决 |
-| `INVALID (reason)` | 发现不正确、不适用或有意为之 |
-| `ON HOLD (reason)` | 操作已推迟，等待外部依赖或用户决策 |
+| `COMPLETE (reason)` | Action was taken and resolved successfully |
+| `INVALID (reason)` | Finding was incorrect, not applicable, or intentional |
+| `ON HOLD (reason)` | Action deferred, waiting on external dependency or user decision |
 
 ---
 
 ## [2026-03-19 05:25 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Repo Change | 将 humanlayer 从仅文章 repo 更改为 humanlayer/humanlayer（★ 10k, 6 agents, 27 commands） | COMPLETE (user requested, repo has actual implementation) |
-| 2 | HIGH | Count Update | 为 context-hub 添加计数：0 agents · 7 skills · 7 commands | COMPLETE (was showing —) |
-| 3 | HIGH | Count Update | 为 agent-os 添加计数：0 agents · 0 skills · 5 commands | COMPLETE (was showing —) |
-| 4 | MED | Count Update | 将 spec-kit commands 从 14 更新为 9+（9 个核心，扩展由社区贡献） | COMPLETE (agents confirmed 9 core command templates) |
-| 5 | MED | Count Update | 将 OpenSpec commands 从 10+ 更新为 11（确认确切计数） | COMPLETE (agents confirmed 11 commands) |
-| 6 | MED | Count Update | 将 gstack 从 "21 skills · 21 commands" 更新为 "21 skills/commands"（skills 作为 command 表面） | COMPLETE (no separate commands/ directory, skills ARE commands) |
-| 7 | MED | Description | 为 context-hub, agent-os, humanlayer 添加唯一性描述 | COMPLETE (was showing generic descriptions) |
-| 8 | LOW | Sort Order | 将 humanlayer 从 ★ 1.6k 位置上移到 ★ 10k 位置（在 context-hub 之后） | COMPLETE (repo change resulted in higher star count) |
-| 9 | LOW | Report Update | 更新跨工作流分析报告 "Workflows at a Glance" 表格，包含所有 9 个工作流 | COMPLETE (was only 6, now includes all 9 sorted by stars) |
+| 1 | HIGH | Repo Change | Changed humanlayer from article-only repo to humanlayer/humanlayer (★ 10k, 6 agents, 27 commands) | COMPLETE (user requested, repo has actual implementation) |
+| 2 | HIGH | Count Update | Added counts for context-hub: 0 agents · 7 skills · 7 commands | COMPLETE (was showing —) |
+| 3 | HIGH | Count Update | Added counts for agent-os: 0 agents · 0 skills · 5 commands | COMPLETE (was showing —) |
+| 4 | MED | Count Update | Updated spec-kit commands from 14 to 9+ (9 core, extensions are community-contributed) | COMPLETE (agents confirmed 9 core command templates) |
+| 5 | MED | Count Update | Updated OpenSpec commands from 10+ to 11 (confirmed exact count) | COMPLETE (agents confirmed 11 commands) |
+| 6 | MED | Count Update | Updated gstack from "21 skills · 21 commands" to "21 skills/commands" (skills serve as command surface) | COMPLETE (no separate commands/ directory, skills ARE commands) |
+| 7 | MED | Description | Added uniqueness descriptions for context-hub, agent-os, humanlayer | COMPLETE (was showing generic descriptions) |
+| 8 | LOW | Sort Order | Moved humanlayer up from ★ 1.6k to ★ 10k position (after context-hub) | COMPLETE (repo change resulted in higher star count) |
+| 9 | LOW | Report Update | Updated cross-workflow analysis report "Workflows at a Glance" table with all 9 workflows | COMPLETE (was only 6, now includes all 9 sorted by stars) |
 
 ---
 
 ## [2026-03-19 05:29 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Count Update | 将 obra/superpowers agents 从 7 更新为 5（v5.0.4 将 review loop 整合为 whole-plan 评估，移除 2 个隐式 agents） | COMPLETE (updated README table and report) |
-| 2 | HIGH | Count Update | 将 obra/superpowers skills 从 44+ 更新为 14 个核心（社区 repo obra/superpowers-skills 于 2025 年 10 月归档） | COMPLETE (updated README table and report) |
-| 3 | HIGH | Count Update | 更新 spec-kit: skills 10→0（v0.3.0 替换为 preset 系统），commands 保持 9+ 并在报告中注明 22 个扩展 | COMPLETE (updated README table and report) |
-| 4 | HIGH | Count Update | 将 context-hub 计数从 7 skills · 7 commands 更新为：0 agents · 1 skill · 0 commands | COMPLETE (corrected previous run's inaccurate counts; only 1 SKILL.md in cli/skills/get-api-docs/) |
-| 5 | MED | Star Update | 将 spec-kit stars 从 78k 更新为 79k（显示 78.5k） | COMPLETE (updated README table and report) |
-| 6 | MED | Count Update | agent-os 计数在上次运行中已在 README 中：0 agents · 0 skills · 5 commands | COMPLETE (verified counts match) |
-| 7 | MED | Star Update | 将 agent-os stars 从 4.1k 更新为 4k（实际 4,100） | COMPLETE (updated README table and report) |
-| 8 | MED | Report Update | 使用当前计数更新 context-hub, agent-os, obra, spec-kit 的跨工作流分析报告 | COMPLETE (updated Workflows at a Glance table) |
-| 9 | LOW | Count Update | OpenSpec commands: 表格显示 11，研究发现根据计数方式为 9-11 | INVALID (11 is within range of findings, keeping current value) |
-| 10 | LOW | Uniqueness | 更新 spec-kit 唯一性以提及可插拔扩展/preset 生态系统（v0.3.0） | COMPLETE (replaced "pre-implementation gates" with "pluggable extension/preset ecosystem") |
+| 1 | HIGH | Count Update | Update obra/superpowers agents from 7 to 5 (v5.0.4 consolidated review loop to whole-plan evaluation, removed 2 implicit agents) | COMPLETE (updated README table and report) |
+| 2 | HIGH | Count Update | Update obra/superpowers skills from 44+ to 14 core (community repo obra/superpowers-skills archived Oct 2025) | COMPLETE (updated README table and report) |
+| 3 | HIGH | Count Update | Update spec-kit: skills 10→0 (v0.3.0 replaced with preset system), commands kept at 9+ with 22 extensions noted in report | COMPLETE (updated README table and report) |
+| 4 | HIGH | Count Update | Update context-hub counts from 7 skills · 7 commands to: 0 agents · 1 skill · 0 commands | COMPLETE (corrected previous run's inaccurate counts; only 1 SKILL.md in cli/skills/get-api-docs/) |
+| 5 | MED | Star Update | Update spec-kit stars from 78k to 79k (78.5k displayed) | COMPLETE (updated README table and report) |
+| 6 | MED | Count Update | agent-os counts already in README from previous run: 0 agents · 0 skills · 5 commands | COMPLETE (verified counts match) |
+| 7 | MED | Star Update | Update agent-os stars from 4.1k to 4k (4,100 actual) | COMPLETE (updated README table and report) |
+| 8 | MED | Report Update | Update cross-workflow analysis report with current counts for obra, spec-kit, context-hub, agent-os | COMPLETE (updated Workflows at a Glance table) |
+| 9 | LOW | Count Update | OpenSpec commands: table shows 11, research found 9-11 depending on counting | INVALID (11 is within range of findings, keeping current value) |
+| 10 | LOW | Uniqueness | Updated spec-kit uniqueness to mention pluggable extension/preset ecosystem (v0.3.0) | COMPLETE (replaced "pre-implementation gates" with "pluggable extension/preset ecosystem") |
 
 ---
 
 ## [2026-03-20 08:37 AM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 98k 更新为 100k（实际 99,603 — 接近 100k 里程碑） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 Everything Claude Code ★ 从 87k 更新为 89k（实际 88,580） | COMPLETE (updated README table and report) |
-| 3 | HIGH | Star Update | 将 Get Shit Done ★ 从 35k 更新为 36k（实际 36,307） | COMPLETE (updated README table) |
-| 4 | HIGH | Count Update | 将 Get Shit Done commands 从 46 更新为 50（v1.26.0 新增 /gsd:ship, /gsd:next, /gsd:do, /gsd:ui-phase） | COMPLETE (updated README table) |
-| 5 | MED | Star Update | 将 gstack ★ 从 26k 更新为 29k（实际 28,889 — v0.9.0 多 AI 扩展） | COMPLETE (updated README table and report) |
-| 6 | MED | Count Update | 将 BMAD-METHOD skills 从 43 更新为 42（v6.2.0 重计：30 bmm-skills + 12 core-skills） | COMPLETE (updated README table) |
-| 7 | LOW | Sort Order | 按 Plan 类型组重新排序表格（commands → agents → skills，每组内按 stars 降序） | COMPLETE (commands: Spec Kit, OpenSpec, HumanLayer; agents: ECC, GSD; skills: Superpowers, BMAD, gstack) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 98k to 100k (99,603 actual — approaching 100k milestone) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update Everything Claude Code ★ from 87k to 89k (88,580 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update Get Shit Done ★ from 35k to 36k (36,307 actual) | COMPLETE (updated README table) |
+| 4 | HIGH | Count Update | Update Get Shit Done commands from 46 to 50 (v1.26.0 added /gsd:ship, /gsd:next, /gsd:do, /gsd:ui-phase) | COMPLETE (updated README table) |
+| 5 | MED | Star Update | Update gstack ★ from 26k to 29k (28,889 actual — v0.9.0 multi-AI expansion) | COMPLETE (updated README table) |
+| 6 | MED | Count Update | Update BMAD-METHOD skills from 43 to 42 (v6.2.0 recount: 30 bmm-skills + 12 core-skills) | COMPLETE (updated README table) |
+| 7 | LOW | Sort Order | Reorder table by Plan type groups (commands → agents → skills, stars descending within) | COMPLETE (commands: Spec Kit, OpenSpec, HumanLayer; agents: ECC, GSD; skills: Superpowers, BMAD, gstack) |
 
 ---
 
 ## [2026-03-21 09:20 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 100k 更新为 103k（实际 102,767） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 Everything Claude Code ★ 从 89k 更新为 93k（实际 93,145） | COMPLETE (updated README table) |
-| 3 | HIGH | Count Update | 更新 ECC agents 25→28, commands 57→59, skills 108+→116（v1.9.0: 选择性安装，ECC Tools Pro, 12 个语言生态系统） | COMPLETE (updated README table) |
-| 4 | HIGH | Star Update | 将 Get Shit Done ★ 从 36k 更新为 38k（实际 37,748） | COMPLETE (updated README table) |
-| 5 | HIGH | Count Update | 更新 GSD agents 16→18, commands 50→52（v1.27.0: advisor mode, 多 repo 工作区，/gsd:fast, /gsd:review） | COMPLETE (updated README table) |
-| 6 | HIGH | Star Update | 将 gstack ★ 从 29k 更新为 34k（实际 34,456 — v0.9.4 Codex reviews, Windows 11 支持） | COMPLETE (updated README table) |
-| 7 | HIGH | Architecture | 更新 BMAD agents 从 9 到 0（v6.x 纯 skills 重写 — agent personas 现在作为 skills 实现在 bmm-skills/ 中） | COMPLETE (updated README table) |
-| 8 | MED | Star Update | 将 BMAD ★ 从 41k 更新为 42k（实际 41,629） | COMPLETE (updated README table) |
-| 9 | MED | Star Update | 将 OpenSpec ★ 从 32k 更新为 33k（实际 32,862） | COMPLETE (updated README table) |
-| 10 | MED | Sort Order | 交换 gstack (34k) 到 OpenSpec (33k) 上方 — stars 降序 | COMPLETE (updated README table) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 100k to 103k (102,767 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update Everything Claude Code ★ from 89k to 93k (93,145 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Count Update | Update ECC agents 25→28, commands 57→59, skills 108+→116 (v1.9.0: selective install, ECC Tools Pro, 12 lang ecosystems) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update Get Shit Done ★ from 36k to 38k (37,748 actual) | COMPLETE (updated README table) |
+| 5 | HIGH | Count Update | Update GSD agents 16→18, commands 50→52 (v1.27.0: advisor mode, multi-repo workspaces, /gsd:fast, /gsd:review) | COMPLETE (updated README table) |
+| 6 | HIGH | Star Update | Update gstack ★ from 29k to 34k (34,456 actual — v0.9.4 Codex reviews, Windows 11 support) | COMPLETE (updated README table) |
+| 7 | HIGH | Architecture | Update BMAD agents from 9 to 0 (v6.x pure skills rewrite — agent personas now implemented as skills in bmm-skills/) | COMPLETE (updated README table) |
+| 8 | MED | Star Update | Update BMAD ★ from 41k to 42k (41,629 actual) | COMPLETE (updated README table) |
+| 9 | MED | Star Update | Update OpenSpec ★ from 32k to 33k (32,862 actual) | COMPLETE (updated README table) |
+| 10 | MED | Sort Order | Swap gstack (34k) above OpenSpec (33k) — stars descending order | COMPLETE (updated README table) |
 
 ---
 
 ## [2026-03-23 09:53 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 103k 更新为 107k（实际 107,308） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 ECC ★ 从 93k 更新为 101k（实际 101,098 — 突破 100k 里程碑！） | COMPLETE (updated README table) |
-| 3 | HIGH | Count Update | 更新 ECC commands 59→60, skills 116→125（v1.9.0 持续更新：新 skills pytorch-patterns, documentation-lookup, claude-devfleet, prompt-optimizer） | COMPLETE (updated README table) |
-| 4 | HIGH | Star Update | 将 gstack ★ 从 34k 更新为 41k（实际 41,224 — v0.9.x 多 AI 扩展，CSO 安全审计） | COMPLETE (updated README table) |
-| 5 | HIGH | Count Update | 更新 gstack skills 21→27（6 个新增：gstack-autoplan, gstack-benchmark, gstack-cso, gstack-design-consultation, gstack-office-hours, gstack-freeze/unfreeze） | COMPLETE (updated README table) |
-| 6 | HIGH | Sort Order | 将 gstack (41k) 移到 GSD (40k) 上方 — stars 降序 | COMPLETE (updated README table) |
-| 7 | HIGH | Star Update | 将 GSD ★ 从 38k 更新为 40k（实际 39,588） | COMPLETE (updated README table) |
-| 8 | HIGH | Count Update | 更新 GSD commands 52→57（v1.28.0: /gsd:forensics, /gsd:milestone-summary, /gsd:plant-seed, /gsd:profile-user, /gsd:workstreams） | COMPLETE (updated README table) |
-| 9 | MED | Star Update | 将 Spec Kit ★ 从 79k 更新为 81k（实际 81,349 — v0.4.0 嵌入核心包，24 个平台支持） | COMPLETE (updated README table) |
-| 10 | MED | Plan Update | 将 gstack Plan 从 plan-eng-review 更新为 autoplan（更高级的编排器，按顺序读取 CEO, design, eng review） | COMPLETE (updated README table) |
-| 11 | LOW | Count Update | 更新 OpenSpec commands 11→10（重计：/opsx:propose, apply, archive, new, continue, ff, verify, sync, bulk-archive, onboard） | COMPLETE (updated README table) |
-| 12 | LOW | Count Correction | 更正 OpenSpec skills 11→0（不存在 skills/ 或 .claude/skills/ 目录 — OpenSpec 是 CLI 工具，非基于 skills） | COMPLETE (updated README table) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 103k to 107k (107,308 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 93k to 101k (101,098 actual — crossed 100k milestone!) | COMPLETE (updated README table) |
+| 3 | HIGH | Count Update | Update ECC commands 59→60, skills 116→125 (v1.9.0 continued: new skills pytorch-patterns, documentation-lookup, claude-devfleet, prompt-optimizer) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update gstack ★ from 34k to 41k (41,224 actual — v0.9.x multi-AI expansion, CSO security audit) | COMPLETE (updated README table) |
+| 5 | HIGH | Count Update | Update gstack skills 21→27 (6 new: gstack-autoplan, gstack-benchmark, gstack-cso, gstack-design-consultation, gstack-office-hours, gstack-freeze/unfreeze) | COMPLETE (updated README table) |
+| 6 | HIGH | Sort Order | Move gstack (41k) above GSD (40k) — stars descending order | COMPLETE (updated README table) |
+| 7 | HIGH | Star Update | Update GSD ★ from 38k to 40k (39,588 actual) | COMPLETE (updated README table) |
+| 8 | HIGH | Count Update | Update GSD commands 52→57 (v1.28.0: /gsd:forensics, /gsd:milestone-summary, /gsd:plant-seed, /gsd:profile-user, /gsd:workstreams) | COMPLETE (updated README table) |
+| 9 | MED | Star Update | Update Spec Kit ★ from 79k to 81k (81,349 actual — v0.4.0 embedded core pack, 24 platform support) | COMPLETE (updated README table) |
+| 10 | MED | Plan Update | Update gstack Plan from plan-eng-review to autoplan (higher-level orchestrator that reads CEO, design, eng review sequentially) | COMPLETE (updated README table) |
+| 11 | LOW | Count Update | Update OpenSpec commands 11→10 (recount: /opsx:propose, apply, archive, new, continue, ff, verify, sync, bulk-archive, onboard) | COMPLETE (updated README table) |
+| 12 | LOW | Count Correction | Correct OpenSpec skills 11→0 (no skills/ or .claude/skills/ directory exists — OpenSpec is a CLI tool, not skills-based) | COMPLETE (updated README table) |
 
 ---
 
 ## [2026-03-24 08:12 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 107k 更新为 110k（实际 109,846） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 ECC ★ 从 101k 更新为 104k（实际 103,960） | COMPLETE (updated README table) |
-| 3 | HIGH | Star Update | 将 gstack ★ 从 41k 更新为 44k（实际 44,300 — v0.11.x triple-voice 多模型 review） | COMPLETE (updated README table) |
-| 4 | HIGH | Sort Order | 将 gstack (44k) 移到 BMAD (42k) 上方 — stars 降序 | COMPLETE (updated README table) |
-| 5 | HIGH | Count Update | 将 BMAD skills 从 42 更新为 44（重计：32 bmm-skills + 12 core-skills，包括 3 个嵌套 research sub-skills） | COMPLETE (updated README table) |
-| 6 | HIGH | Count Update | 将 gstack skills 从 27 更新为 28（README 声明 28；单独确认 27） | COMPLETE (updated README table) |
-| 7 | MED | Star Update | 将 Spec Kit ★ 从 81k 更新为 82k（实际 81,780） | COMPLETE (updated README table) |
-| 8 | MED | Star Update | 将 GSD ★ 从 40k 更新为 41k（实际 40,500） | COMPLETE (updated README table) |
-| 9 | MED | Star Update | 将 OpenSpec ★ 从 33k 更新为 34k（实际 33,800） | COMPLETE (updated README table) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 107k to 110k (109,846 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 101k to 104k (103,960 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update gstack ★ from 41k to 44k (44,300 actual — v0.11.x triple-voice multi-model review) | COMPLETE (updated README table) |
+| 4 | HIGH | Sort Order | Move gstack (44k) above BMAD (42k) — stars descending order | COMPLETE (updated README table) |
+| 5 | HIGH | Count Update | Update BMAD skills from 42 to 44 (recount: 32 bmm-skills + 12 core-skills, including 3 nested research sub-skills) | COMPLETE (updated README table) |
+| 6 | HIGH | Count Update | Update gstack skills from 27 to 28 (README states 28; 27 confirmed individually) | COMPLETE (updated README table) |
+| 7 | MED | Star Update | Update Spec Kit ★ from 81k to 82k (81,780 actual) | COMPLETE (updated README table) |
+| 8 | MED | Star Update | Update GSD ★ from 40k to 41k (40,500 actual) | COMPLETE (updated README table) |
+| 9 | MED | Star Update | Update OpenSpec ★ from 33k to 34k (33,800 actual) | COMPLETE (updated README table) |
 
 ---
 
 ## [2026-03-25 08:12 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 110k 更新为 112k（实际 112,163） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 ECC ★ 从 104k 更新为 107k（实际 106,913） | COMPLETE (updated README table) |
-| 3 | HIGH | Count Update | 将 ECC commands 从 60 更新为 63（.claude/commands/ 中新增 3 个：add-language-rules, database-migration, feature-development） | COMPLETE (updated README table) |
-| 4 | HIGH | Star Update | 将 gstack ★ 从 44k 更新为 47k（实际 46,703 — 基础设施加固，测试覆盖率门禁） | COMPLETE (updated README table) |
-| 5 | MED | Count Update | 将 BMAD skills 从 44 更新为 42（重计：30 bmm-skills + 12 core-skills；v6.2.1 整合 2 个子 skills） | COMPLETE (updated README table) |
-| 6 | LOW | Count Update | 将 gstack skills 从 28 更新为 27（确认 27 个根级别目录；第 28 个可能是根 SKILL.md 模板） | COMPLETE (updated README table) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 110k to 112k (112,163 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 104k to 107k (106,913 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Count Update | Update ECC commands from 60 to 63 (3 new in .claude/commands/: add-language-rules, database-migration, feature-development) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update gstack ★ from 44k to 47k (46,703 actual — infrastructure hardening, test coverage gates) | COMPLETE (updated README table) |
+| 5 | MED | Count Update | Update BMAD skills from 44 to 42 (recount: 30 bmm-skills + 12 core-skills; v6.2.1 consolidated 2 sub-skills) | COMPLETE (updated README table) |
+| 6 | LOW | Count Update | Update gstack skills from 28 to 27 (27 root-level dirs confirmed; 28th may be root SKILL.md template) | COMPLETE (updated README table) |
 
 ---
 
 ## [2026-03-26 01:05 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 112k 更新为 114k（实际 114,107） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 ECC ★ 从 107k 更新为 109k（实际 108,839） | COMPLETE (updated README table) |
-| 3 | HIGH | Star Update | 将 gstack ★ 从 47k 更新为 48k（实际 48,303） | COMPLETE (updated README table) |
-| 4 | HIGH | Star Update | 将 GSD ★ 从 41k 更新为 42k（实际 42,092） | COMPLETE (updated README table) |
-| 5 | MED | Count Update | 将 OpenSpec commands 从 10 更新为 11（v1.2.0 新增 /opsx:explore） | COMPLETE (updated README table) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 112k to 114k (114,107 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 107k to 109k (108,839 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update gstack ★ from 47k to 48k (48,303 actual) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update GSD ★ from 41k to 42k (42,092 actual) | COMPLETE (updated README table) |
+| 5 | MED | Count Update | Update OpenSpec commands from 10 to 11 (v1.2.0 added /opsx:explore) | COMPLETE (updated README table) |
 
 ---
 
 ## [2026-03-27 06:32 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 114k 更新为 118k（实际 117,568） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 ECC ★ 从 109k 更新为 111k（实际 111,487） | COMPLETE (updated README table) |
-| 3 | HIGH | Star Update | 将 gstack ★ 从 48k 更新为 52k（实际 51,544 — v0.12.x skill 命名空间，Codex fallback, worktree 并行化） | COMPLETE (updated README table) |
-| 4 | HIGH | Count Update | 将 gstack skills 从 27 更新为 31（4 个新增：canary, codex, connect-chrome, land-and-deploy 等） | COMPLETE (updated README table) |
-| 5 | HIGH | Star Update | 将 GSD ★ 从 42k 更新为 43k（实际 43,136） | COMPLETE (updated README table) |
-| 6 | HIGH | Sort Order | 交换 GSD (43,136) 到 BMAD (42,529) 上方 — 都约等于 43k 但 GSD stars 更多 | COMPLETE (updated README table) |
-| 7 | MED | Star Update | 将 Spec Kit ★ 从 82k 更新为 83k（实际 82,878） | COMPLETE (updated README table) |
-| 8 | MED | Star Update | 将 BMAD ★ 从 42k 更新为 43k（实际 42,529） | COMPLETE (updated README table) |
-| 9 | MED | Star Update | 将 OpenSpec ★ 从 34k 更新为 35k（实际 34,821） | COMPLETE (updated README table) |
-| 10 | MED | Count Update | 将 Compound Engineering agents 从 43 更新为 47（4 个新的 review/workflow agents） | COMPLETE (updated README table) |
-| 11 | MED | Count Update | 将 Compound Engineering skills 从 44 更新为 42（重计：41 compound-engineering + 1 coding-tutor） | COMPLETE (updated README table) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 114k to 118k (117,568 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 109k to 111k (111,487 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update gstack ★ from 48k to 52k (51,544 actual — v0.12.x skill namespacing, Codex fallback, worktree parallelization) | COMPLETE (updated README table) |
+| 4 | HIGH | Count Update | Update gstack skills from 27 to 31 (4 new: canary, codex, connect-chrome, land-and-deploy among others) | COMPLETE (updated README table) |
+| 5 | HIGH | Star Update | Update GSD ★ from 42k to 43k (43,136 actual) | COMPLETE (updated README table) |
+| 6 | HIGH | Sort Order | Swap GSD (43,136) above BMAD (42,529) — both round to 43k but GSD has more stars | COMPLETE (updated README table) |
+| 7 | MED | Star Update | Update Spec Kit ★ from 82k to 83k (82,878 actual) | COMPLETE (updated README table) |
+| 8 | MED | Star Update | Update BMAD ★ from 42k to 43k (42,529 actual) | COMPLETE (updated README table) |
+| 9 | MED | Star Update | Update OpenSpec ★ from 34k to 35k (34,821 actual) | COMPLETE (updated README table) |
+| 10 | MED | Count Update | Update Compound Engineering agents from 43 to 47 (4 new review/workflow agents) | COMPLETE (updated README table) |
+| 11 | MED | Count Update | Update Compound Engineering skills from 44 to 42 (recount: 41 compound-engineering + 1 coding-tutor) | COMPLETE (updated README table) |
 
 ---
 
 ## [2026-03-28 09:29 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 118k 更新为 120k（实际 120,147） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 ECC ★ 从 111k 更新为 114k（实际 114,134） | COMPLETE (updated README table) |
-| 3 | HIGH | Star Update | 将 gstack ★ 从 52k 更新为 54k（实际 53,533 — v0.13.x design binary, security audit） | COMPLETE (updated README table) |
-| 4 | HIGH | Star Update | 将 GSD ★ 从 43k 更新为 44k（实际 43,816 — v1.30.0 GSD SDK headless CLI） | COMPLETE (updated README table) |
-| 5 | MED | Count Update | 将 gstack skills 从 31 更新为 29（确认 29 个根级别 SKILL.md 目录；v0.13.x 中移除/整合 2 个） | COMPLETE (updated README table) |
-| 6 | MED | Count Update | 将 BMAD skills 从 42 更新为 43（31 bmm-skills + 12 core-skills） | COMPLETE (updated README table) |
-| 7 | MED | Count Update | 将 Compound Engineering skills 从 42 更新为 43（42 compound-eng + 1 coding-tutor） | COMPLETE (updated README table) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 118k to 120k (120,147 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 111k to 114k (114,134 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update gstack ★ from 52k to 54k (53,533 actual — v0.13.x design binary, security audit) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update GSD ★ from 43k to 44k (43,816 actual — v1.30.0 GSD SDK headless CLI) | COMPLETE (updated README table) |
+| 5 | MED | Count Update | Update gstack skills from 31 to 29 (29 root-level SKILL.md dirs confirmed; 2 removed/consolidated in v0.13.x) | COMPLETE (updated README table) |
+| 6 | MED | Count Update | Update BMAD skills from 42 to 43 (31 bmm-skills + 12 core-skills) | COMPLETE (updated README table) |
+| 7 | MED | Count Update | Update Compound Engineering skills from 42 to 43 (42 compound-eng + 1 coding-tutor) | COMPLETE (updated README table) |
 
 ---
 
 ## [2026-03-29 08:00 PM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Star Update | 将 Superpowers ★ 从 120k 更新为 122k（实际 122,129） | COMPLETE (updated README table) |
-| 2 | HIGH | Star Update | 将 ECC ★ 从 114k 更新为 116k（实际 115,898） | COMPLETE (updated README table) |
-| 3 | HIGH | Count Update | 更新 ECC agents 从 28 到 30, skills 从 125 到 135（healthcare agent, token-budget-advisor 等新加入） | COMPLETE (updated README table) |
-| 4 | HIGH | Star Update | 将 gstack ★ 从 54k 更新为 55k（实际 55,000） | COMPLETE (updated README table) |
-| 5 | MED | Count Update | 将 gstack skills 从 29 更新为 28（README 确认 28 个根级别 SKILL.md 目录） | COMPLETE (updated README table) |
-| 6 | MED | Count Update | 将 BMAD skills 从 43 更新为 40（重计：29 bmm-skills + 11 core-skills；近期补丁中的整合） | COMPLETE (updated README table) |
-| 7 | MED | Star Update | 将 Compound Engineering ★ 从 11k 更新为 12k（实际 11,500） | COMPLETE (updated README table) |
-| 8 | MED | Count Update | 更新 Compound Eng agents 从 47 到 48（新增 1 个）, skills 从 43 到 42（41 compound-eng + 1 coding-tutor） | COMPLETE (updated README table) |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 120k to 122k (122,129 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 114k to 116k (115,898 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Count Update | Update ECC agents from 28 to 30, skills from 125 to 135 (healthcare agent, token-budget-advisor among new additions) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update gstack ★ from 54k to 55k (55,000 actual) | COMPLETE (updated README table) |
+| 5 | MED | Count Update | Update gstack skills from 29 to 28 (28 root-level SKILL.md dirs confirmed by README) | COMPLETE (updated README table) |
+| 6 | MED | Count Update | Update BMAD skills from 43 to 40 (recount: 29 bmm-skills + 11 core-skills; consolidation in recent patches) | COMPLETE (updated README table) |
+| 7 | MED | Star Update | Update Compound Engineering ★ from 11k to 12k (11,500 actual) | COMPLETE (updated README table) |
+| 8 | MED | Count Update | Update Compound Eng agents from 47 to 48 (1 new), skills from 43 to 42 (41 compound-eng + 1 coding-tutor) | COMPLETE (updated README table) |
+
+---
+
+## [2026-03-31 07:43 PM PKT] Development Workflows Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Star Update | Update Superpowers ★ from 122k to 127k (127,473 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 116k to 124k (124,279 actual) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update gstack ★ from 55k to 59k (59,046 actual — v0.14.x Review Army, composable skills, adversarial review) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update GSD ★ from 44k to 46k (45,773 actual) | COMPLETE (updated README table) |
+| 5 | HIGH | Count Update | Update gstack skills from 28 to 32 (4 new: design-html, sidebar CSS inspector, composable skill resolver, scope drift detection) | COMPLETE (updated README table) |
+| 6 | MED | Star Update | Update Spec Kit ★ from 83k to 84k (84,042 actual) | COMPLETE (updated README table) |
+| 7 | MED | Star Update | Update OpenSpec ★ from 35k to 36k (35,985 actual) | COMPLETE (updated README table) |
+| 8 | MED | Count Update | Update BMAD skills from 40 to 43 (32 bmm-skills + 11 core-skills; 3 new bmm-skills added including PRFAQ) | COMPLETE (updated README table) |
+| 9 | LOW | Count Verify | ECC commands 63→3, skills 135→30 — research agent only checked .claude/ dirs, missed root commands/ and .agents/skills/ breadth | INVALID (agent undercounting — keeping current values 63 commands, 135 skills) |
+| 10 | LOW | Count Verify | Superpowers agents 5→8 — agent counted 1 explicit + 7 implicit sub-agents, but v5.0.6 replaced subagent review loops with inline self-review | ON HOLD (contradictory signals — v5.0.6 reduced review agents while brainstorm added new ones, needs manual verification) |
+
+---
+
+## [2026-04-01 12:35 PM PKT] Development Workflows Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Star Update | Update Superpowers ★ from 127k to 129k (128,925 actual) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 124k to 129k (128,606 actual — neck-and-neck with Superpowers) | COMPLETE (updated README table) |
+| 3 | HIGH | Count Update | Update ECC agents 30→36, commands 63→71, skills 135→143 (6 new agents incl. gan-evaluator/generator/planner, cpp/kotlin/flutter reviewers; 8 new commands; 8 new skills) | COMPLETE (updated README table) |
+| 4 | MED | Star Update | Update gstack ★ from 59k to 60k (60,036 actual — v0.15.0 /checkpoint, /health, cross-session timeline) | COMPLETE (updated README table) |
+| 5 | MED | Count Update | Update gstack skills 32→33 (v0.15.0 added /checkpoint and /health, but some consolidated — net +1) | COMPLETE (updated README table) |
+| 6 | LOW | Count Update | Update CE commands 4→3 (.claude/commands/ now empty; 3 coding-tutor commands remain), skills 42→40 (39 CE + 1 CT) | COMPLETE (updated README table) |
+| 7 | LOW | Count Verify | BMAD skills 43→34 — agent counted from module-help.csv (25 bmm + 9 core), previous directory counts found 43 (32 bmm + 11 core) | ON HOLD (agent likely undercounting — module-help.csv may not list all skills; keeping 43 until manual verification) |
+
+---
+
+## [2026-04-02 09:22 PM PKT] Development Workflows Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Sort Order | Move ECC (133k) above Superpowers (132k) — ECC now has more stars | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update ECC ★ from 129k to 133k (133,114 actual — overtook Superpowers) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update Superpowers ★ from 129k to 132k (131,818 actual) | COMPLETE (updated README table) |
+| 4 | HIGH | Count Update | Update ECC commands 71→68, skills 143→152 (legacy commands collapsed into skills; +9 new skills incl. brand-voice, network-ops) | COMPLETE (updated README table) |
+| 5 | HIGH | Star Update | Update gstack ★ from 60k to 62k (61,800 actual — v0.15.1 design-html routing, Session Intelligence Layer) | COMPLETE (updated README table) |
+| 6 | HIGH | Count Update | Update GSD agents 18→21, commands 57→59 (v1.31.0: 3 new agents, skills discovery, Gemini CLI fix) | COMPLETE (updated README table) |
+| 7 | MED | Star Update | Update Spec Kit ★ from 84k to 85k (84,701 actual) | COMPLETE (updated README table) |
+| 8 | MED | Star Update | Update GSD ★ from 46k to 47k (46,900 actual) | COMPLETE (updated README table) |
+| 9 | MED | Count Update | Update BMAD skills 43→40 (29 bmm-skills + 11 core-skills; removed QA Quinn + Barry solo-dev, added checkpoint-preview) | COMPLETE (updated README table) |
+| 10 | MED | Star Update | Update OpenSpec ★ from 36k to 37k (36,600 actual) | COMPLETE (updated README table) |
+| 11 | MED | Star Update | Update CE ★ from 12k to 13k (12,600 actual) | COMPLETE (updated README table) |
+| 12 | MED | Count Update | Update CE agents 48→49, commands 3→4, skills 40→42 (triage-prs command added; +1 agent, +2 skills) | COMPLETE (updated README table) |
+
+---
+
+## [2026-04-03 10:56 PM PKT] Development Workflows Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Star Update | Update ECC ★ from 133k to 136k (135,765 actual — widening lead over Superpowers) | COMPLETE (updated README table) |
+| 2 | HIGH | Count Update | Update ECC agents 36→38, commands 68→75, skills 152→156 (NestJS patterns, Jira integration, C#/Dart support, web frontend rules) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update Superpowers ★ from 132k to 134k (133,718 actual — v5.0.7 Copilot CLI support, contributor guardrails) | COMPLETE (updated README table) |
+| 4 | MED | Star Update | Update gstack ★ from 62k to 63k (63,065 actual — Session Intelligence Layer, AquaVoice aliases) | COMPLETE (updated README table) |
+| 5 | MED | Count Update | Update gstack skills from 33 to 31 (31 root-level SKILL.md dirs confirmed; checkpoint/health may be subcommands) | COMPLETE (updated README table) |
+| 6 | LOW | Count Update | Update GSD commands from 59 to 60 (v1.31.0: /gsd:docs-update added) | COMPLETE (updated README table) |
+| 7 | LOW | Count Update | Update BMAD skills from 40 to 39 (28 bmm-skills + 11 core-skills; minor consolidation) | COMPLETE (updated README table) |
+
+---
+
+## [2026-04-04 10:45 PM PKT] Development Workflows Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | MED | Star Update | Update ECC ★ from 136k to 137k (137,404 actual) | COMPLETE (updated README table) |
+| 2 | MED | Star Update | Update Superpowers ★ from 134k to 135k (134,933 actual) | COMPLETE (updated README table) |
+| 3 | MED | Star Update | Update gstack ★ from 63k to 64k (63,841 actual — GStack Browser .app with CDP, anti-bot stealth) | COMPLETE (updated README table) |
+| 4 | MED | Star Update | Update GSD ★ from 47k to 48k (47,705 actual — v1.32.0 Trae/Kilo/Augment/Cline runtimes) | COMPLETE (updated README table) |
+| 5 | LOW | Star Update | Update BMAD ★ from 43k to 44k (43,538 actual) | COMPLETE (updated README table) |
+| 6 | LOW | Star Update | Update oh-my-claudecode ★ from 23k to 24k (23,709 actual — v4.10.2 HUD, Bedrock hardening) | COMPLETE (updated README table) |

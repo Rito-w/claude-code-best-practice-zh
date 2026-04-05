@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 ---
 name: time-agent
 description: Use this agent to fetch the current time for Dubai, UAE (Asia/Dubai timezone, UTC+4). This agent fetches real-time Dubai time using its preloaded time-fetcher skill.

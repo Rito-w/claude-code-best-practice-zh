@@ -1,44 +1,42 @@
 ---
 name: presentation-styling
-description: 关于 Presentation 中的 CSS 类、组件模式和语法高亮的知识
+description: Knowledge about CSS classes, component patterns, and syntax highlighting in the presentation
 ---
-
-<!-- 翻译标记：.claude/skills/presentation/presentation-styling/SKILL.md - 已翻译 -->
 
 # Presentation Styling Skill
 
-`presentation/index.html` 中使用的 CSS 类和 HTML 模式。
+CSS classes and HTML patterns used in `presentation/index.html`.
 
-## CSS 组件类
+## CSS Component Classes
 
-### 布局
+### Layout
 
-- `.two-col` — 带 24px 间隙的 2 列网格布局
-- `.info-grid` — 用于信息卡的 2 列网格
-- `.col-card` — 列内的卡片（添加 `.good` 用于绿色边框，`.bad` 用于红色边框）
-- `.info-card` — 信息网格中的卡片
+- `.two-col` — 2-column grid layout with 24px gap
+- `.info-grid` — 2-column grid for info cards
+- `.col-card` — Card inside a column (add `.good` for green border, `.bad` for red border)
+- `.info-card` — Card in an info grid
 
-### 内容块
+### Content Blocks
 
-- `.trigger-box` — 带深色左边框的灰色框（用于关键概念、先决条件）
-- `.how-to-trigger` — 带绿色边框的绿色框（用于 "Try This" 操作）
-- `.warning-box` — 带警告边框的橙色框（用于重要警告）
-- `.code-block` — 带等宽字体的深色代码显示块
+- `.trigger-box` — Gray box with dark left border (for key concepts, prerequisites)
+- `.how-to-trigger` — Green box with green border (for "Try This" actions)
+- `.warning-box` — Orange box with warning border (for important warnings)
+- `.code-block` — Dark code display block with monospace font
 
-### 列表
+### Lists
 
-- `.use-cases` — 带图标 + 文本列表项的容器
-- `.use-case-item` — 带图标和文本的单个项
-- `.feature-list` — 简单的边框列表
+- `.use-cases` — Container for icon+text list items
+- `.use-case-item` — Individual item with icon and text
+- `.feature-list` — Simple bordered list
 
-### 标签和徽章
+### Tags & Badges
 
-- `.matcher-tag` — 灰色内联药丸标签
-- `.weight-badge` — 绿色药丸徽章（由 JS 自动注入到加权幻灯片）
+- `.matcher-tag` — Gray inline pill tag
+- `.weight-badge` — Green pill badge (auto-injected by JS for weighted slides)
 
-## 代码块语法高亮
+## Code Block Syntax Highlighting
 
-在 `.code-block` 内，使用这些 spans 进行语法着色：
+Inside `.code-block`, use these spans for syntax coloring:
 
 ```html
 <div class="code-block">
@@ -48,14 +46,14 @@ description: 关于 Presentation 中的 CSS 类、组件模式和语法高亮的
 </div>
 ```
 
-- `.comment` — 绿色 (#6a9955) 用于注释
-- `.key` — 蓝色 (#9cdcfe) 用于属性名/键
-- `.string` — 橙色 (#ce9178) 用于字符串值
-- `.cmd` — 黄色 (#dcdcaa) 用于命令/提示
+- `.comment` — Green (#6a9955) for comments
+- `.key` — Blue (#9cdcfe) for property names/keys
+- `.string` — Orange (#ce9178) for string values
+- `.cmd` — Yellow (#dcdcaa) for commands/prompts
 
-## 幻灯片类型模式
+## Slide Type Patterns
 
-### 带两列的内容幻灯片（好与坏）
+### Content Slide with Two Columns (Good vs Bad)
 ```html
 <div class="slide" data-slide="N" data-weight="5">
     <h1>Title</h1>
@@ -72,9 +70,9 @@ description: 关于 Presentation 中的 CSS 类、组件模式和语法高亮的
 </div>
 ```
 
-不要在幻灯片 HTML 中硬编码 `<span class="weight-badge">`。Presentation JavaScript 自动注入和移除权重徽章。
+Do not hardcode `<span class="weight-badge">` in slide HTML. The presentation JavaScript injects and removes weight badges automatically.
 
-### 带代码示例的内容幻灯片
+### Content Slide with Code Example
 ```html
 <div class="slide" data-slide="N">
     <h1>Title</h1>
@@ -87,7 +85,7 @@ description: 关于 Presentation 中的 CSS 类、组件模式和语法高亮的
 </div>
 ```
 
-### 图标列表模式
+### Icon List Pattern
 ```html
 <div class="use-cases">
     <div class="use-case-item">
@@ -100,9 +98,9 @@ description: 关于 Presentation 中的 CSS 类、组件模式和语法高亮的
 </div>
 ```
 
-## Journey Bar 特定
+## Journey Bar Specific
 
-- `.journey-bar` — 进度条下方的固定条
-- `.journey-bar.hidden` — 在标题幻灯片上隐藏
-- Journey bar 颜色通过 HSL 插值从红色（0%）过渡到绿色（100%）
-- 权重徽章由 JS 自动注入到加权幻灯片的 `h1` 元素中
+- `.journey-bar` — Fixed bar below progress bar
+- `.journey-bar.hidden` — Hidden on title slide
+- Journey bar color transitions from red (0%) to green (100%) via HSL interpolation
+- Weight badges are auto-injected by JS into `h1` elements of weighted slides

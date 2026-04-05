@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 ---
 model: haiku
 ---

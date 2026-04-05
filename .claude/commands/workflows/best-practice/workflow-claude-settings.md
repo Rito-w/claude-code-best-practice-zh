@@ -1,4 +1,3 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/commands/workflows/best-practice/workflow-claude-settings.md -->
 ---
 description: Track Claude Code settings report changes and find what needs updating
 argument-hint: [number of versions to check, default 10]

@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # Boris Cherny (Creator of Claude Code) On What Grew His Career — Ryan Peterman
 
 Transcript of the interview with Boris Cherny ([@bcherny](https://x.com/bcherny)), creator of Claude Code, on Ryan Peterman's channel, published December 15, 2025.
@@ -7,7 +5,7 @@ Transcript of the interview with Boris Cherny ([@bcherny](https://x.com/bcherny)
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 

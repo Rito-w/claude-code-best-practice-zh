@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # Agents vs Commands vs Skills — When to Use What
 
 A comparison of the three extension mechanisms in Claude Code: subagents, commands, and skills.
@@ -7,7 +5,7 @@ A comparison of the three extension mechanisms in Claude Code: subagents, comman
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
@@ -207,6 +205,6 @@ Then **nothing fires automatically**. Claude would fall back to its own general 
 - [Claude Code Skills — Docs](https://code.claude.com/docs/en/skills)
 - [Claude Code Sub-agents — Docs](https://code.claude.com/docs/en/sub-agents)
 - [Claude Code Slash Commands — Docs](https://code.claude.com/docs/en/slash-commands)
-- [Skills Best Practice](best-practice/claude-skills.md)
-- [Commands Best Practice](best-practice/claude-commands.md)
-- [Sub-agents Best Practice](best-practice/claude-subagents.md)
+- [Skills Best Practice](../best-practice/claude-skills.md)
+- [Commands Best Practice](../best-practice/claude-commands.md)
+- [Sub-agents Best Practice](../best-practice/claude-subagents.md)

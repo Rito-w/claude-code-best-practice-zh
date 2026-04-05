@@ -1,13 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
-  <defs>
-    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3c72;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2a5298;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="400" height="200" fill="url(#sky)"/>
-  <text x="200" y="60" font-size="14" text-anchor="middle" font-family="Arial" fill="#fff" opacity="0.8">Dubai Weather</text>
-  <text x="200" y="120" font-size="48" text-anchor="middle" font-family="Arial" font-weight="bold" fill="#fff">32°C</text>
-  <text x="200" y="150" font-size="16" text-anchor="middle" font-family="Arial" fill="#ffd700">☀️ Sunny</text>
-  <text x="200" y="180" font-size="12" text-anchor="middle" font-family="Arial" fill="#fff" opacity="0.6">Updated: 2026-03-31</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 160" width="300" height="160">
+  <rect width="300" height="160" rx="12" fill="#1a1a2e"/>
+  <text x="150" y="45" text-anchor="middle" fill="#8892b0" font-family="system-ui" font-size="14">Unit: Celsius</text>
+  <text x="150" y="100" text-anchor="middle" fill="#ccd6f6" font-family="system-ui" font-size="42" font-weight="bold">26.2°C</text>
+  <text x="150" y="140" text-anchor="middle" fill="#64ffda" font-family="system-ui" font-size="16">Dubai, UAE</text>
 </svg>

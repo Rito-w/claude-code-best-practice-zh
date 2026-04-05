@@ -1,13 +1,11 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # 10 Tips for Using Claude Code — From the Claude Code Team
 
-Boris Cherny ([@bcherny](https://x.com/bcherny)) 分享的团队技巧摘要，Claude Code 的创作者，2026 年 2 月 1 日。
+A summary of team tips shared by Boris Cherny ([@bcherny](https://x.com/bcherny)), creator of Claude Code, on February 1, 2026.
 
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
@@ -15,7 +13,7 @@ Boris Cherny ([@bcherny](https://x.com/bcherny)) 分享的团队技巧摘要，C
 
 ## Context
 
-Boris 分享了直接从 Claude Code 团队获取的使用 Claude Code 的技巧。团队使用 Claude 的方式与 Boris 个人使用方式不同。记住：使用 Claude Code 没有唯一正确的方式 — 每个人的设置都不同。你应该实验看看什么适合你！
+Boris shared tips for using Claude Code sourced directly from the Claude Code team. The way the team uses Claude is different than how Boris uses it personally. Remember: there is no one right way to use Claude Code — everyone's setup is different. You should experiment to see what works for you!
 
 <a href="https://x.com/bcherny/status/2017742741636321619"><img src="assets/boris-1-feb-26/0.png" alt="Boris Cherny intro tweet" width="50%" /></a>
 
@@ -23,11 +21,11 @@ Boris 分享了直接从 Claude Code 团队获取的使用 Claude Code 的技巧
 
 ## 1/ Do More in Parallel
 
-同时启动 3-5 个 git worktrees，每个运行自己的 Claude session 并行。这是最大的生产力提升，也是团队的首要考虑。个人而言，Boris 使用多个 git checkouts，但大多数 Claude Code 团队成员更喜欢 worktrees — 这就是为什么 `@amorisscode` 为 Claude Desktop app 构建了原生支持！
+Spin up 3–5 git worktrees at once, each running its own Claude session in parallel. It's the single biggest productivity unlock, and the top tip from the team. Personally, Boris uses multiple git checkouts, but most of the Claude Code team prefers worktrees — it's the reason `@amorisscode` built native support for them into the Claude Desktop app!
 
-有些人还命名他们的 worktrees 并设置 shell aliases（`2a`, `2b`, `2c`）这样他们可以在一次击键之间切换。其他人有专用的 "analysis" worktree 仅用于 reading logs 和 running BigQuery。
+Some people also name their worktrees and set up shell aliases (`2a`, `2b`, `2c`) so they can hop between them in one keystroke. Others have a dedicated "analysis" worktree that's only for reading logs and running BigQuery.
 
-参见：[Worktrees Docs](https://code.claude.com/docs/en/common...)
+See: [Worktrees Docs](https://code.claude.com/docs/en/common...)
 
 <a href="https://x.com/bcherny/status/2017742743125299476"><img src="assets/boris-1-feb-26/1.png" alt="Do more in parallel" width="50%" /></a>
 
@@ -35,11 +33,11 @@ Boris 分享了直接从 Claude Code 团队获取的使用 Claude Code 的技巧
 
 ## 2/ Start Every Complex Task in Plan Mode
 
-将精力投入到 plan 中，这样 Claude 可以 1-shot the implementation。
+Pour your energy into the plan so Claude can 1-shot the implementation.
 
-一个人让一个 Claude 编写 plan，然后他们启动第二个 Claude 作为 staff engineer 来 review。
+One person has one Claude write the plan, then they spin up a second Claude to review it as a staff engineer.
 
-另一个人说，一旦出现问题，他们就切换回 plan mode 并 re-plan。不要继续推进。他们还明确告诉 Claude 为 verification steps 进入 plan mode，而不仅仅是为 build。
+Another says the moment something goes sideways, they switch back to plan mode and re-plan. Don't keep pushing. They also explicitly tell Claude to enter plan mode for verification steps, not just for the build.
 
 <a href="https://x.com/bcherny/status/2017742745365057733"><img src="assets/boris-1-feb-26/2.png" alt="Start every complex task in plan mode" width="50%" /></a>
 
@@ -47,11 +45,11 @@ Boris 分享了直接从 Claude Code 团队获取的使用 Claude Code 的技巧
 
 ## 3/ Invest in Your CLAUDE.md
 
-每次 correction 后，以 "Update your CLAUDE.md so you don't make that mistake again" 结束。Claude 非常擅长为自己编写 rules。
+After every correction, end with: "Update your CLAUDE.md so you don't make that mistake again." Claude is eerily good at writing rules for itself.
 
-随着时间的推移无情地编辑你的 `CLAUDE.md`。持续迭代直到 Claude 的 mistake rate 明显下降。
+Ruthlessly edit your `CLAUDE.md` over time. Keep iterating until Claude's mistake rate measurably drops.
 
-一位工程师告诉 Claude 为每个 task/project 维护一个 notes directory，每次 PR 后更新。然后他们将 `CLAUDE.md` 指向它。
+One engineer tells Claude to maintain a notes directory for every task/project, updated after every PR. They then point `CLAUDE.md` at it.
 
 <a href="https://x.com/bcherny/status/2017742747067945390"><img src="assets/boris-1-feb-26/3.png" alt="Invest in your CLAUDE.md" width="50%" /></a>
 
@@ -59,14 +57,14 @@ Boris 分享了直接从 Claude Code 团队获取的使用 Claude Code 的技巧
 
 ## 4/ Create Your Own Skills and Commit Them to Git
 
-跨每个项目重用。来自团队的技巧：
+Reuse across every project. Tips from the team:
 
-- 如果你每天做某事超过一次，把它变成 skill 或 command
-- 构建一个 `/techdebt` slash command 并在每次 session 结束时运行它以查找和消除 duplicated code
-- 设置一个 slash command 将 7 天的 Slack、GDrive、Asana 和 GitHub 同步到一个 context dump 中
-- 构建 analytics-engineer-style agents 来编写 dbt models、review code 和 test changes in dev
+- If you do something more than once a day, turn it into a skill or command
+- Build a `/techdebt` slash command and run it at the end of every session to find and kill duplicated code
+- Set up a slash command that syncs 7 days of Slack, GDrive, Asana, and GitHub into one context dump
+- Build analytics-engineer-style agents that write dbt models, review code, and test changes in dev
 
-参见：[Extend Claude with Skills — Claude Code Docs](https://code.claude.com/docs/en/skills)
+See: [Extend Claude with Skills — Claude Code Docs](https://code.claude.com/docs/en/skills)
 
 <a href="https://x.com/bcherny/status/2017742748984742078"><img src="assets/boris-1-feb-26/4.png" alt="Create your own skills" width="50%" /></a>
 
@@ -74,13 +72,13 @@ Boris 分享了直接从 Claude Code 团队获取的使用 Claude Code 的技巧
 
 ## 5/ Claude Fixes Most Bugs by Itself
 
-这是团队的做法：
+Here's how the team does it:
 
-启用 Slack MCP，然后将 Slack bug thread 粘贴到 Claude 中并只说 "fix"。无需 context switching。
+Enable the Slack MCP, then paste a Slack bug thread into Claude and just say "fix." Zero context switching required.
 
-或者，只说 "Go fix the failing CI tests"。不要 micromanage how。
+Or, just say "Go fix the failing CI tests." Don't micromanage how.
 
-让 Claude 查看 docker logs 来 troubleshoot distributed systems — 它在这方面出奇地能干。
+Point Claude at docker logs to troubleshoot distributed systems — it's surprisingly capable at this.
 
 <a href="https://x.com/bcherny/status/2017742750473720121"><img src="assets/boris-1-feb-26/5.png" alt="Claude fixes most bugs by itself" width="50%" /></a>
 
@@ -88,11 +86,11 @@ Boris 分享了直接从 Claude Code 团队获取的使用 Claude Code 的技巧
 
 ## 6/ Level Up Your Prompting
 
-a. **Challenge Claude.** 说 "Grill me on these changes and don't make a PR until I pass your test." 让 Claude 成为你的 reviewer。或者，说 "Prove to me this works" 并让 Claude diff behavior between main and your feature branch。
+a. **Challenge Claude.** Say "Grill me on these changes and don't make a PR until I pass your test." Make Claude be your reviewer. Or, say "Prove to me this works" and have Claude diff behavior between main and your feature branch.
 
-b. **After a mediocre fix,** 说："Knowing everything you know now, scrap this and implement the elegant solution."
+b. **After a mediocre fix,** say: "Knowing everything you know now, scrap this and implement the elegant solution."
 
-c. **Write detailed specs** 并在 handing work off 之前减少 ambiguity。你越具体，output 就越好。
+c. **Write detailed specs** and reduce ambiguity before handing work off. The more specific you are, the better the output.
 
 <a href="https://x.com/bcherny/status/2017742752566632544"><img src="assets/boris-1-feb-26/6.png" alt="Level up your prompting" width="50%" /></a>
 
@@ -100,4 +98,56 @@ c. **Write detailed specs** 并在 handing work off 之前减少 ambiguity。你
 
 ## 7/ Terminal & Environment Setup
 
-（继续翻译其余内容...）
+The team loves Ghostty! Multiple people like its synchronized rendering, 24-bit color, and proper unicode support.
+
+For easier Claude-juggling, use `/statusline` to customize your status bar to always show context usage and current git branch. Many also color-code and name their terminal tabs, sometimes using tmux — one tab per task/worktree.
+
+Use voice dictation. You speak 3x faster than you type, and your prompts get way more detailed as a result. (hit fn x2 on macOS)
+
+See: [Terminal Setup Docs](https://code.claude.com/docs/en/termin...)
+
+<a href="https://x.com/bcherny/status/2017742753971769626"><img src="assets/boris-1-feb-26/7.png" alt="Terminal and environment setup" width="50%" /></a>
+
+---
+
+## 8/ Use Subagents
+
+a. Append "use subagents" to any request where you want Claude to throw more compute at the problem.
+
+b. Offload individual tasks to subagents to keep your main agent's context window clean and focused.
+
+c. Route permission requests to Opus 4.5 via a hook — let it scan for attacks and auto-approve the safe ones. See: [Hooks Docs](https://code.claude.com/docs/en/hooks#...)
+
+<a href="https://x.com/bcherny/status/2017742755737555434"><img src="assets/boris-1-feb-26/8.png" alt="Use subagents" width="50%" /></a>
+
+---
+
+## 9/ Use Claude for Data & Analytics
+
+Ask Claude Code to use the "bq" CLI to pull and analyze metrics on the fly. The team has a BigQuery skill checked into the codebase, and everyone uses it for analytics queries directly in Claude Code. Personally, Boris hasn't written a line of SQL in 6+ months.
+
+This works for any database that has a CLI, MCP, or API.
+
+<a href="https://x.com/bcherny/status/2017742757666902374"><img src="assets/boris-1-feb-26/9.png" alt="Use Claude for data and analytics" width="50%" /></a>
+
+---
+
+## 10/ Learning with Claude
+
+A few tips from the team to use Claude Code for learning:
+
+a. Enable the "Explanatory" or "Learning" output style in `/config` to have Claude explain the "why" behind its changes.
+
+b. Have Claude generate a visual HTML presentation explaining unfamiliar code. It makes surprisingly good slides!
+
+c. Ask Claude to draw ASCII diagrams of new protocols and codebases to help you understand them.
+
+d. Build a spaced-repetition learning skill: you explain your understanding, Claude asks follow-ups to fill gaps, stores the result.
+
+<a href="https://x.com/bcherny/status/2017742759218794768"><img src="assets/boris-1-feb-26/10.png" alt="Learning with Claude" width="50%" /></a>
+
+---
+
+## Sources
+
+- [Boris Cherny (@bcherny) on X — February 1, 2026](https://x.com/bcherny/status/2017742741636321619)

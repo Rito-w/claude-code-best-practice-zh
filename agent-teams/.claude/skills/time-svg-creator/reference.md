@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # Time SVG Creator — Reference
 
 ## SVG Template

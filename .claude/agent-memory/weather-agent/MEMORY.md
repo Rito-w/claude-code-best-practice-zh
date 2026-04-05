@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # Weather Agent Memory
 
 ## API Configuration

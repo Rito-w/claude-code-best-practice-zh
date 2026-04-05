@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 ---
 description: Research and analyze feature viability - GO/NO-GO decision gate
 argument-hint: "<feature-slug>"

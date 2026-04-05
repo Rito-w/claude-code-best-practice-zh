@@ -1,4 +1,3 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/implementation/claude-skills-implementation.md -->
 # Skills Implementation
 
 ![Last Updated](https://img.shields.io/badge/Last_Updated-Mar_02%2C_2026-white?style=flat&labelColor=555)

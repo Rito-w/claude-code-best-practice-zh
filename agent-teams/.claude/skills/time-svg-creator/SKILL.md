@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 ---
 name: time-svg-creator
 description: Creates an SVG time card showing the current time for Dubai. Writes the SVG to agent-teams/output/dubai-time.svg and updates agent-teams/output/output.md.

@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 ---
 description: Create comprehensive planning documentation for a feature
 argument-hint: "<feature-slug>"

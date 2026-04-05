@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # Dubai Time Card
 
 - **Time**: 17:24:20

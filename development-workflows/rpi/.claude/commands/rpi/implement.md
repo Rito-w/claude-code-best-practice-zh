@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 ---
 description: Execute phased implementation with validation gates
 argument-hint: "<feature-slug> [--phase N] [--validate-only]"

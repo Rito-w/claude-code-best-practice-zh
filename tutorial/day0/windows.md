@@ -1,4 +1,3 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/tutorial/day0/windows.md -->
 # Windows Setup
 
 [Back to Day 0](README.md)

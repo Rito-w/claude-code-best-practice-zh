@@ -1,53 +1,51 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # Claude Memory
 
-通过 CLAUDE.md files 实现 Persistent context — 如何编写它们以及它们在 monorepos 中如何加载。
+Persistent context via CLAUDE.md files — how to write them and how they load in monorepos.
 
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
 ---
 
-## 1. 编写一个好的 CLAUDE.md
+## 1. Writing a Good CLAUDE.md
 
-一个结构良好的 CLAUDE.md 是改善 Claude Code 对项目输出的最有效方法。Humanlayer 有一篇优秀的指南，涵盖了应该包含什么、如何结构化它以及常见陷阱。
+A well-structured CLAUDE.md is the single most impactful way to improve Claude Code's output for your project. Humanlayer has an excellent guide covering what to include, how to structure it, and common pitfalls.
 
 - [Humanlayer - Writing a good Claude.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md)
 
 ---
 
-## 2. 大型 Monorepos 中的 CLAUDE.md
+## 2. CLAUDE.md in Large Monorepos
 
-在 monorepo 中使用 Claude Code 时，了解 CLAUDE.md files 如何加载到 context 中对于有效组织项目指令至关重要。
+When working with Claude Code in a monorepo, understanding how CLAUDE.md files are loaded into context is crucial for organizing your project instructions effectively.
 
 <p align="center">
   <a href="https://x.com/bcherny/status/2016339448863355206"><img src="assets/claude-memory/claude-memory-monorepo.jpg" alt="CLAUDE.md loading in monorepos" width="600"></a>
 </p>
 
-### 两种加载机制
+### The Two Loading Mechanisms
 
-Claude Code 使用两种不同的机制来加载 CLAUDE.md files：
+Claude Code uses two distinct mechanisms for loading CLAUDE.md files:
 
-#### Ancestor Loading（向上遍历 directory tree）
+#### Ancestor Loading (UP the directory tree)
 
-当你启动 Claude Code 时，它从当前 working directory 向 filesystem root **向上**遍历，并加载沿途找到的每个 CLAUDE.md。这些文件在**启动时立即**加载。
+When you start Claude Code, it walks **upward** from your current working directory toward the filesystem root and loads every CLAUDE.md it finds along the way. These files are loaded **immediately at startup**.
 
-#### Descendant Loading（向下遍历 directory tree）
+#### Descendant Loading (DOWN the directory tree)
 
-当前 working directory 下方子目录中的 CLAUDE.md files **在启动时不加载**。它们仅在 session 期间 Claude 读取这些子目录中的文件时才被包含。这称为 **lazy loading**。
+CLAUDE.md files in subdirectories below your current working directory are **NOT loaded at launch**. They are only included when Claude reads files in those subdirectories during your session. This is known as **lazy loading**.
 
-### 示例 Monorepo Structure
+### Example Monorepo Structure
 
-考虑一个典型的 monorepo，为不同组件设有单独的目录：
+Consider a typical monorepo with separate directories for different components:
 
 ```
 /mymonorepo/
-├── CLAUDE.md          # Root-level instructions（所有组件共享）
+├── CLAUDE.md          # Root-level instructions (shared across all components)
 ├── frontend/
 │   └── CLAUDE.md      # Frontend-specific instructions
 ├── backend/
@@ -56,9 +54,9 @@ Claude Code 使用两种不同的机制来加载 CLAUDE.md files：
     └── CLAUDE.md      # API-specific instructions
 ```
 
-### Scenario 1: 从 Root Directory 运行 Claude Code
+### Scenario 1: Running Claude Code from the Root Directory
 
-当你从 `/mymonorepo/` 运行 Claude Code 时：
+When you run Claude Code from `/mymonorepo/`:
 
 ```bash
 cd /mymonorepo
@@ -67,14 +65,14 @@ claude
 
 | File | Loaded at Launch? | Reason |
 |------|-------------------|--------|
-| `/mymonorepo/CLAUDE.md` | Yes | 它是你的 current working directory |
-| `/mymonorepo/frontend/CLAUDE.md` | No | 仅在读取/编辑 `frontend/` 中的文件时加载 |
-| `/mymonorepo/backend/CLAUDE.md` | No | 仅在读取/编辑 `backend/` 中的文件时加载 |
-| `/mymonorepo/api/CLAUDE.md` | No | 仅在读取/编辑 `api/` 中的文件时加载 |
+| `/mymonorepo/CLAUDE.md` | Yes | It's your current working directory |
+| `/mymonorepo/frontend/CLAUDE.md` | No | Loaded only when you read/edit files in `frontend/` |
+| `/mymonorepo/backend/CLAUDE.md` | No | Loaded only when you read/edit files in `backend/` |
+| `/mymonorepo/api/CLAUDE.md` | No | Loaded only when you read/edit files in `api/` |
 
-### Scenario 2: 从 Component Directory 运行 Claude Code
+### Scenario 2: Running Claude Code from a Component Directory
 
-当你从 `/mymonorepo/frontend/` 运行 Claude Code 时：
+When you run Claude Code from `/mymonorepo/frontend/`:
 
 ```bash
 cd /mymonorepo/frontend
@@ -83,36 +81,36 @@ claude
 
 | File | Loaded at Launch? | Reason |
 |------|-------------------|--------|
-| `/mymonorepo/CLAUDE.md` | Yes | 它是 ancestor directory |
-| `/mymonorepo/frontend/CLAUDE.md` | Yes | 它是你的 current working directory |
-| `/mymonorepo/backend/CLAUDE.md` | No | directory tree 的不同分支 |
-| `/mymonorepo/api/CLAUDE.md` | No | directory tree 的不同分支 |
+| `/mymonorepo/CLAUDE.md` | Yes | It's an ancestor directory |
+| `/mymonorepo/frontend/CLAUDE.md` | Yes | It's your current working directory |
+| `/mymonorepo/backend/CLAUDE.md` | No | Different branch of the directory tree |
+| `/mymonorepo/api/CLAUDE.md` | No | Different branch of the directory tree |
 
-### 关键要点
+### Key Takeaways
 
-1. **Ancestors always load at startup** — Claude 向上遍历 directory tree 并加载找到的所有 CLAUDE.md files。这确保你始终可以访问 root-level, repository-wide instructions。
+1. **Ancestors always load at startup** — Claude walks UP the directory tree and loads all CLAUDE.md files it finds. This ensures you always have access to root-level, repository-wide instructions.
 
-2. **Descendants load lazily** — Subdirectory CLAUDE.md files 仅在你与这些子目录中的文件交互时加载。这防止无关 context 使 session 膨胀。
+2. **Descendants load lazily** — Subdirectory CLAUDE.md files only load when you interact with files in those subdirectories. This prevents irrelevant context from bloating your session.
 
-3. **Siblings never load** — 如果你在 `frontend/` 中工作，你不会得到 `backend/CLAUDE.md` 或 `api/CLAUDE.md` 加载到 context 中。
+3. **Siblings never load** — If you're working in `frontend/`, you won't get `backend/CLAUDE.md` or `api/CLAUDE.md` loaded into context.
 
-4. **Global CLAUDE.md** — 你也可以在 home folder 的 `~/.claude/CLAUDE.md` 放置 CLAUDE.md，它适用于所有 Claude Code sessions 而不管 project。
+4. **Global CLAUDE.md** — You can also place a CLAUDE.md at `~/.claude/CLAUDE.md` in your home folder, which applies to ALL Claude Code sessions regardless of project.
 
-### 为什么这种设计适用于 Monorepos
+### Why This Design Works for Monorepos
 
-- **Shared instructions propagate down** — Root-level CLAUDE.md 包含 repository-wide conventions、coding standards 和 common patterns，适用于所有地方。
+- **Shared instructions propagate down** — Root-level CLAUDE.md contains repository-wide conventions, coding standards, and common patterns that apply everywhere.
 
-- **Component-specific instructions stay isolated** — Frontend 开发者不需要 backend-specific instructions  cluttering their context，反之亦然。
+- **Component-specific instructions stay isolated** — Frontend developers don't need backend-specific instructions cluttering their context, and vice versa.
 
-- **Context is optimized** — 通过 lazily loading descendant CLAUDE.md files，Claude Code 避免在 startup 时加载 potentially hundreds of kilobytes of irrelevant instructions。
+- **Context is optimized** — By lazily loading descendant CLAUDE.md files, Claude Code avoids loading potentially hundreds of kilobytes of irrelevant instructions at startup.
 
-### 最佳实践
+### Best Practices
 
-1. **Put shared conventions in root CLAUDE.md** — Coding standards, commit message formats, PR templates, 和其他 repository-wide guidelines。
+1. **Put shared conventions in root CLAUDE.md** — Coding standards, commit message formats, PR templates, and other repository-wide guidelines.
 
-2. **Put component-specific instructions in component CLAUDE.md** — Framework-specific patterns, component architecture, testing conventions unique to that component。
+2. **Put component-specific instructions in component CLAUDE.md** — Framework-specific patterns, component architecture, testing conventions unique to that component.
 
-3. **Use CLAUDE.local.md for personal preferences** — 将它添加到 `.gitignore` 用于不应与团队共享的 instructions。
+3. **Use CLAUDE.local.md for personal preferences** — Add it to `.gitignore` for instructions that shouldn't be shared with the team.
 
 ---
 

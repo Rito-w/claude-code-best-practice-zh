@@ -1,75 +1,73 @@
 ---
 name: agent-browser
-description: 用于 AI Agent 的浏览器自动化 CLI。当用户需要与网站交互时使用，包括导航页面、填写表单、点击按钮、截图、提取数据、测试 Web 应用或自动化任何浏览器任务。触发条件包括请求"打开网站"、"填写表单"、"点击按钮"、"截图"、"从页面抓取数据"、"测试这个 Web 应用"、"登录网站"、"自动化浏览器操作"或任何需要程序化 Web 交互的任务。
+description: Browser automation CLI for AI agents. Use when the user needs to interact with websites, including navigating pages, filling forms, clicking buttons, taking screenshots, extracting data, testing web apps, or automating any browser task. Triggers include requests to "open a website", "fill out a form", "click a button", "take a screenshot", "scrape data from a page", "test this web app", "login to a site", "automate browser actions", or any task requiring programmatic web interaction.
 allowed-tools: Bash(agent-browser:*)
 ---
 
-<!-- 翻译标记：.claude/skills/agent-browser/SKILL.md - 已翻译 -->
+# Browser Automation with agent-browser
 
-# 使用 agent-browser 进行浏览器自动化
+## Core Workflow
 
-## 核心工作流
-
-每个浏览器自动化都遵循此模式：
+Every browser automation follows this pattern:
 
 1. **Navigate**: `agent-browser open <url>`
-2. **Snapshot**: `agent-browser snapshot -i`（获取元素引用如 `@e1`、`@e2`）
-3. **Interact**: 使用引用点击、填写、选择
-4. **Re-snapshot**: 导航或 DOM 更改后，获取新引用
+2. **Snapshot**: `agent-browser snapshot -i` (get element refs like `@e1`, `@e2`)
+3. **Interact**: Use refs to click, fill, select
+4. **Re-snapshot**: After navigation or DOM changes, get fresh refs
 
 ```bash
 agent-browser open https://example.com/form
 agent-browser snapshot -i
-# 输出：@e1 [input type="email"], @e2 [input type="password"], @e3 [button] "Submit"
+# Output: @e1 [input type="email"], @e2 [input type="password"], @e3 [button] "Submit"
 
 agent-browser fill @e1 "user@example.com"
 agent-browser fill @e2 "password123"
 agent-browser click @e3
 agent-browser wait --load networkidle
-agent-browser snapshot -i  # 检查结果
+agent-browser snapshot -i  # Check result
 ```
 
-## 基本命令
+## Essential Commands
 
 ```bash
-# 导航
-agent-browser open <url>              # 导航（别名：goto, navigate）
-agent-browser close                   # 关闭浏览器
+# Navigation
+agent-browser open <url>              # Navigate (aliases: goto, navigate)
+agent-browser close                   # Close browser
 
-# 快照
-agent-browser snapshot -i             # 带引用的交互元素（推荐）
-agent-browser snapshot -i -C          # 包括光标可交互元素（带 onclick 的 div、cursor:pointer）
-agent-browser snapshot -s "#selector" # 限定到 CSS 选择器
+# Snapshot
+agent-browser snapshot -i             # Interactive elements with refs (recommended)
+agent-browser snapshot -i -C          # Include cursor-interactive elements (divs with onclick, cursor:pointer)
+agent-browser snapshot -s "#selector" # Scope to CSS selector
 
-# 交互（使用快照中的 @refs）
-agent-browser click @e1               # 点击元素
-agent-browser fill @e2 "text"         # 清除并输入文本
-agent-browser type @e2 "text"         # 输入不清除
-agent-browser select @e1 "option"     # 选择下拉选项
-agent-browser check @e1               # 勾选复选框
-agent-browser press Enter             # 按键
-agent-browser scroll down 500         # 滚动页面
+# Interaction (use @refs from snapshot)
+agent-browser click @e1               # Click element
+agent-browser fill @e2 "text"         # Clear and type text
+agent-browser type @e2 "text"         # Type without clearing
+agent-browser select @e1 "option"     # Select dropdown option
+agent-browser check @e1               # Check checkbox
+agent-browser press Enter             # Press key
+agent-browser scroll down 500         # Scroll page
 
-# 获取信息
-agent-browser get text @e1            # 获取元素文本
-agent-browser get url                 # 获取当前 URL
-agent-browser get title               # 获取页面标题
+# Get information
+agent-browser get text @e1            # Get element text
+agent-browser get url                 # Get current URL
+agent-browser get title               # Get page title
 
-# 等待
-agent-browser wait @e1                # 等待元素
-agent-browser wait --load networkidle # 等待网络空闲
-agent-browser wait --url "**/page"    # 等待 URL 模式
-agent-browser wait 2000               # 等待毫秒
+# Wait
+agent-browser wait @e1                # Wait for element
+agent-browser wait --load networkidle # Wait for network idle
+agent-browser wait --url "**/page"    # Wait for URL pattern
+agent-browser wait 2000               # Wait milliseconds
 
-# 捕获
-agent-browser screenshot              # 截图到临时目录
-agent-browser screenshot --full       # 全页面截图
-agent-browser pdf output.pdf          # 保存为 PDF
+# Capture
+agent-browser screenshot              # Screenshot to temp dir
+agent-browser screenshot --full       # Full page screenshot
+agent-browser pdf output.pdf          # Save as PDF
 ```
 
-## 常见模式
+## Common Patterns
 
-### 表单提交
+### Form Submission
 
 ```bash
 agent-browser open https://example.com/signup
@@ -82,10 +80,10 @@ agent-browser click @e5
 agent-browser wait --load networkidle
 ```
 
-### 带状态持久化的认证
+### Authentication with State Persistence
 
 ```bash
-# 登录一次并保存状态
+# Login once and save state
 agent-browser open https://app.example.com/login
 agent-browser snapshot -i
 agent-browser fill @e1 "$USERNAME"
@@ -94,25 +92,25 @@ agent-browser click @e3
 agent-browser wait --url "**/dashboard"
 agent-browser state save auth.json
 
-# 在未来会话中重用
+# Reuse in future sessions
 agent-browser state load auth.json
 agent-browser open https://app.example.com/dashboard
 ```
 
-### 数据提取
+### Data Extraction
 
 ```bash
 agent-browser open https://example.com/products
 agent-browser snapshot -i
-agent-browser get text @e5           # 获取特定元素文本
-agent-browser get text body > page.txt  # 获取所有页面文本
+agent-browser get text @e5           # Get specific element text
+agent-browser get text body > page.txt  # Get all page text
 
-# 用于解析的 JSON 输出
+# JSON output for parsing
 agent-browser snapshot -i --json
 agent-browser get text @e1 --json
 ```
 
-### 并行会话
+### Parallel Sessions
 
 ```bash
 agent-browser --session site1 open https://site-a.com
@@ -124,66 +122,66 @@ agent-browser --session site2 snapshot -i
 agent-browser session list
 ```
 
-### 可视化浏览器（调试）
+### Visual Browser (Debugging)
 
 ```bash
 agent-browser --headed open https://example.com
-agent-browser highlight @e1          # 高亮元素
-agent-browser record start demo.webm # 录制会话
+agent-browser highlight @e1          # Highlight element
+agent-browser record start demo.webm # Record session
 ```
 
-### 本地文件（PDF、HTML）
+### Local Files (PDFs, HTML)
 
 ```bash
-# 使用 file:// URL 打开本地文件
+# Open local files with file:// URLs
 agent-browser --allow-file-access open file:///path/to/document.pdf
 agent-browser --allow-file-access open file:///path/to/page.html
 agent-browser screenshot output.png
 ```
 
-### iOS 模拟器（Mobile Safari）
+### iOS Simulator (Mobile Safari)
 
 ```bash
-# 列出可用的 iOS 模拟器
+# List available iOS simulators
 agent-browser device list
 
-# 在特定设备上启动 Safari
+# Launch Safari on a specific device
 agent-browser -p ios --device "iPhone 16 Pro" open https://example.com
 
-# 与桌面相同的工作流 — 快照、交互、重新快照
+# Same workflow as desktop - snapshot, interact, re-snapshot
 agent-browser -p ios snapshot -i
-agent-browser -p ios tap @e1          # 点击（click 的别名）
+agent-browser -p ios tap @e1          # Tap (alias for click)
 agent-browser -p ios fill @e2 "text"
-agent-browser -p ios swipe up         # 移动端特定手势
+agent-browser -p ios swipe up         # Mobile-specific gesture
 
-# 截图
+# Take screenshot
 agent-browser -p ios screenshot mobile.png
 
-# 关闭会话（关闭模拟器）
+# Close session (shuts down simulator)
 agent-browser -p ios close
 ```
 
-**要求：** macOS 带 Xcode，Appium（`npm install -g appium && appium driver install xcuitest`）
+**Requirements:** macOS with Xcode, Appium (`npm install -g appium && appium driver install xcuitest`)
 
-**真实设备：** 如果预配置，可与物理 iOS 设备一起使用。使用 `--device "<UDID>"`，其中 UDID 来自 `xcrun xctrace list devices`。
+**Real devices:** Works with physical iOS devices if pre-configured. Use `--device "<UDID>"` where UDID is from `xcrun xctrace list devices`.
 
-## 引用生命周期（重要）
+## Ref Lifecycle (Important)
 
-当页面更改时，引用（`@e1`、`@e2` 等）失效。始终在以下情况后重新快照：
+Refs (`@e1`, `@e2`, etc.) are invalidated when the page changes. Always re-snapshot after:
 
-- 点击导航的链接或按钮
-- 表单提交
-- 动态内容加载（下拉菜单、模态框）
+- Clicking links or buttons that navigate
+- Form submissions
+- Dynamic content loading (dropdowns, modals)
 
 ```bash
-agent-browser click @e5              # 导航到新页面
-agent-browser snapshot -i            # 必须重新快照
-agent-browser click @e1              # 使用新引用
+agent-browser click @e5              # Navigates to new page
+agent-browser snapshot -i            # MUST re-snapshot
+agent-browser click @e1              # Use new refs
 ```
 
-## 语义定位器（引用的替代方案）
+## Semantic Locators (Alternative to Refs)
 
-当引用不可用或不可靠时，使用语义定位器：
+When refs are unavailable or unreliable, use semantic locators:
 
 ```bash
 agent-browser find text "Sign In" click
@@ -193,24 +191,24 @@ agent-browser find placeholder "Search" type "query"
 agent-browser find testid "submit-btn" click
 ```
 
-## 深入文档
+## Deep-Dive Documentation
 
-| 参考 | 何时使用 |
+| Reference | When to Use |
 |-----------|-------------|
-| [references/commands.md](references/commands.md) | 带所有选项的完整命令参考 |
-| [references/snapshot-refs.md](references/snapshot-refs.md) | 引用生命周期、失效规则、故障排除 |
-| [references/session-management.md](references/session-management.md) | 并行会话、状态持久化、并发抓取 |
-| [references/authentication.md](references/authentication.md) | 登录流程、OAuth、2FA 处理、状态重用 |
-| [references/video-recording.md](references/video-recording.md) | 录制工作流用于调试和文档 |
-| [references/proxy-support.md](references/proxy-support.md) | 代理配置、地理测试、轮换代理 |
+| [references/commands.md](references/commands.md) | Full command reference with all options |
+| [references/snapshot-refs.md](references/snapshot-refs.md) | Ref lifecycle, invalidation rules, troubleshooting |
+| [references/session-management.md](references/session-management.md) | Parallel sessions, state persistence, concurrent scraping |
+| [references/authentication.md](references/authentication.md) | Login flows, OAuth, 2FA handling, state reuse |
+| [references/video-recording.md](references/video-recording.md) | Recording workflows for debugging and documentation |
+| [references/proxy-support.md](references/proxy-support.md) | Proxy configuration, geo-testing, rotating proxies |
 
-## 即用模板
+## Ready-to-Use Templates
 
-| 模板 | 描述 |
+| Template | Description |
 |----------|-------------|
-| [templates/form-automation.sh](templates/form-automation.sh) | 带验证的表单填写 |
-| [templates/authenticated-session.sh](templates/authenticated-session.sh) | 登录一次，重用状态 |
-| [templates/capture-workflow.sh](templates/capture-workflow.sh) | 带截图的内容提取 |
+| [templates/form-automation.sh](templates/form-automation.sh) | Form filling with validation |
+| [templates/authenticated-session.sh](templates/authenticated-session.sh) | Login once, reuse state |
+| [templates/capture-workflow.sh](templates/capture-workflow.sh) | Content extraction with screenshots |
 
 ```bash
 ./templates/form-automation.sh https://example.com/form

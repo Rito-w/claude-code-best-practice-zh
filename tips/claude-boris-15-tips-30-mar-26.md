@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # 15 Hidden & Under-Utilized Features in Claude Code — From Boris Cherny
 
 A summary of tips shared by Boris Cherny ([@bcherny](https://x.com/bcherny)), creator of Claude Code, on March 30, 2026.
@@ -7,7 +5,7 @@ A summary of tips shared by Boris Cherny ([@bcherny](https://x.com/bcherny)), cr
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 

@@ -1,4 +1,3 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/development-workflows/cross-model-workflow/cross-model-workflow.md -->
 # Cross-Model (Claude Code + Codex) Workflow
 
 based on [claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) and [codex-cli-best-practice](https://github.com/shanraisshan/codex-cli-best-practice)

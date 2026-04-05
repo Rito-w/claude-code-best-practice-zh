@@ -1,40 +1,38 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # MCP Servers Best Practice
 
 ![Last Updated](https://img.shields.io/badge/Last_Updated-Mar%2002%2C%202026%2012%3A30%20PM%20PKT-white?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.mcp.json)
 
-MCP (Model Context Protocol) servers 通过连接外部 tools、databases 和 APIs 来扩展 Claude Code。本指南涵盖日常使用的推荐 servers 和配置最佳实践。
+MCP (Model Context Protocol) servers extend Claude Code with connections to external tools, databases, and APIs. This guide covers recommended servers for daily use and configuration best practices.
 
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
 ---
 
-## 日常使用的 MCP Servers
+## MCP Servers for Daily Use
 
-> *"一开始装了 15 个 MCP servers 以为越多越好，结果每天只用 4 个。"* — [r/mcp](https://reddit.com/r/mcp/comments/1mj0fxs/) (682 upvotes)
+> *"Went overboard with 15 MCP servers thinking more = better. Ended up using only 4 daily."* — [r/mcp](https://reddit.com/r/mcp/comments/1mj0fxs/) (682 upvotes)
 
-| MCP Server | 作用 | Resources |
+| MCP Server | What It Does | Resources |
 |------------|-------------|-----------|
-| [**Context7**](https://github.com/upstash/context7) | 获取最新的 library docs 到 context 中。防止因过时的训练数据导致 APIs hallucinated | [Reddit: "by far the best MCP for coding"](https://reddit.com/r/mcp/comments/1qarjqm/) · [npm](https://www.npmjs.com/package/@upstash/context7-mcp) |
-| [**Playwright**](https://github.com/microsoft/playwright-mcp) | Browser automation — 自主实现、测试和验证 UI features。Screenshots, navigation, form testing | [Reddit: essential for frontend](https://reddit.com/r/mcp/comments/1m59pk0/) · [Docs](https://playwright.dev/) |
-| [**Claude in Chrome**](https://github.com/nicobailon/claude-code-in-chrome-mcp) | 将 Claude 连接到你的真实 Chrome browser — 检查 console, network, DOM。Debug what users actually see | [Reddit: "game changer" for debugging](https://reddit.com/r/mcp/comments/1qarjqm/5_mcps_that_have_genuinely_made_me_10x_faster/nza0i7t/) · [Comparison Report](../reports/claude-in-chrome-v-chrome-devtools-mcp.md) |
-| [**DeepWiki**](https://github.com/devanshusemwal/deepwiki-mcp) | 为任何 GitHub repo 获取 structured wiki-style documentation — architecture, API surface, relationships | [Reddit: "put it behind a gateway with Context7"](https://reddit.com/r/mcp/comments/1qarjqm/) |
-| [**Excalidraw**](https://github.com/antonpk1/excalidraw-mcp-app) | 从 prompts 生成 architecture diagrams, flowcharts, 和 system designs 作为手绘 Excalidraw sketches | [GitHub](https://github.com/antonpk1/excalidraw-mcp-app) |
+| [**Context7**](https://github.com/upstash/context7) | Fetches up-to-date library docs into context. Prevents hallucinated APIs from outdated training data | [Reddit: "by far the best MCP for coding"](https://reddit.com/r/mcp/comments/1qarjqm/) · [npm](https://www.npmjs.com/package/@upstash/context7-mcp) |
+| [**Playwright**](https://github.com/microsoft/playwright-mcp) | Browser automation — implement, test, and verify UI features autonomously. Screenshots, navigation, form testing | [Reddit: essential for frontend](https://reddit.com/r/mcp/comments/1m59pk0/) · [Docs](https://playwright.dev/) |
+| [**Claude in Chrome**](https://github.com/nicobailon/claude-code-in-chrome-mcp) | Connects Claude to your real Chrome browser — inspect console, network, DOM. Debug what users actually see | [Reddit: "game changer" for debugging](https://reddit.com/r/mcp/comments/1qarjqm/5_mcps_that_have_genuinely_made_me_10x_faster/nza0i7t/) · [Comparison Report](../reports/claude-in-chrome-v-chrome-devtools-mcp.md) |
+| [**DeepWiki**](https://github.com/devanshusemwal/deepwiki-mcp) | Fetches structured wiki-style documentation for any GitHub repo — architecture, API surface, relationships | [Reddit: "put it behind a gateway with Context7"](https://reddit.com/r/mcp/comments/1qarjqm/) |
+| [**Excalidraw**](https://github.com/antonpk1/excalidraw-mcp-app) | Generate architecture diagrams, flowcharts, and system designs as hand-drawn Excalidraw sketches from prompts | [GitHub](https://github.com/antonpk1/excalidraw-mcp-app) |
 
 Research (Context7/DeepWiki) -> Debug (Playwright/Chrome) -> Document (Excalidraw)
 
 ---
 
-## 配置
+## Configuration
 
-MCP servers 在项目 root 的 `.mcp.json`（project-scoped）或 `~/.claude.json`（user-scoped）中配置。
+MCP servers are configured in `.mcp.json` at the project root (project-scoped) or in `~/.claude.json` (user-scoped).
 
 ### Server Types
 
@@ -43,7 +41,7 @@ MCP servers 在项目 root 的 `.mcp.json`（project-scoped）或 `~/.claude.jso
 | **stdio** | Spawns a local process | `npx`, `python`, binary |
 | **http** | Connects to a remote URL | HTTP/SSE endpoint |
 
-### `.mcp.json` 示例
+### Example `.mcp.json`
 
 ```json
 {
@@ -68,7 +66,7 @@ MCP servers 在项目 root 的 `.mcp.json`（project-scoped）或 `~/.claude.jso
 }
 ```
 
-对环境变量使用 expansion 来处理 secrets，而不是将 API keys 提交到 `.mcp.json`：
+Use environment variable expansion for secrets instead of committing API keys in `.mcp.json`:
 
 ```json
 {
@@ -81,19 +79,19 @@ MCP servers 在项目 root 的 `.mcp.json`（project-scoped）或 `~/.claude.jso
 }
 ```
 
-### MCP Servers 的 Settings
+### Settings for MCP Servers
 
-`.claude/settings.json` 中的这些 settings 控制 MCP server approval：
+These settings in `.claude/settings.json` control MCP server approval:
 
 | Key | Type | Description |
 |-----|------|-------------|
-| `enableAllProjectMcpServers` | boolean | Auto-approve 所有 `.mcp.json` servers 而无需 prompting |
+| `enableAllProjectMcpServers` | boolean | Auto-approve all `.mcp.json` servers without prompting |
 | `enabledMcpjsonServers` | array | Allowlist of specific server names to auto-approve |
 | `disabledMcpjsonServers` | array | Blocklist of specific server names to reject |
 
-### MCP Tools 的 Permission Rules
+### Permission Rules for MCP Tools
 
-MCP tools 在 permission rules 中遵循 `mcp__<server>__<tool>` naming convention：
+MCP tools follow the `mcp__<server>__<tool>` naming convention in permission rules:
 
 ```json
 {
@@ -114,7 +112,7 @@ MCP tools 在 permission rules 中遵循 `mcp__<server>__<tool>` naming conventi
 
 ## MCP Scopes
 
-MCP servers 可以在三个级别定义：
+MCP servers can be defined at three levels:
 
 | Scope | Location | Purpose |
 |-------|----------|---------|
@@ -122,7 +120,7 @@ MCP servers 可以在三个级别定义：
 | **User** | `~/.claude.json` (`mcpServers` key) | Personal servers across all projects |
 | **Subagent** | Agent frontmatter (`mcpServers` field) | Servers scoped to a specific subagent |
 
-优先级：Subagent > Project > User
+Precedence: Subagent > Project > User
 
 ---
 

@@ -1,46 +1,45 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/.claude/skills/weather-fetcher/SKILL.md -->
 ---
 name: weather-fetcher
-description: 从 Open-Meteo API 获取迪拜，阿联酋的当前天气温度数据的指令
+description: Instructions for fetching current weather temperature data for Dubai, UAE from Open-Meteo API
 user-invocable: false
 ---
 
 # Weather Fetcher Skill
 
-此 Skill 提供获取当前天气数据的指令。
+This skill provides instructions for fetching current weather data.
 
-## 任务
+## Task
 
-以请求的单位（摄氏度或华氏度）获取迪拜，阿联酋的当前温度。
+Fetch the current temperature for Dubai, UAE in the requested unit (Celsius or Fahrenheit).
 
-## 指令
+## Instructions
 
-1. **获取天气数据**：使用 WebFetch 工具从 Open-Meteo API 获取迪拜的当前天气数据。
+1. **Fetch Weather Data**: Use the WebFetch tool to get current weather data for Dubai from the Open-Meteo API.
 
-   对于 **摄氏度**：
+   For **Celsius**:
    - URL: `https://api.open-meteo.com/v1/forecast?latitude=25.2048&longitude=55.2708&current=temperature_2m&temperature_unit=celsius`
 
-   对于 **华氏度**：
+   For **Fahrenheit**:
    - URL: `https://api.open-meteo.com/v1/forecast?latitude=25.2048&longitude=55.2708&current=temperature_2m&temperature_unit=fahrenheit`
 
-2. **提取温度**：从 JSON 响应中提取当前温度：
-   - 字段：`current.temperature_2m`
-   - 单位标签在：`current_units.temperature_2m`
+2. **Extract Temperature**: From the JSON response, extract the current temperature:
+   - Field: `current.temperature_2m`
+   - Unit label is in: `current_units.temperature_2m`
 
-3. **返回结果**：清晰地返回温度值和单位。
+3. **Return Result**: Return the temperature value and unit clearly.
 
-## 预期输出
+## Expected Output
 
-完成此 Skill 的指令后：
+After completing this skill's instructions:
 ```
 Current Dubai Temperature: [X]°[C/F]
 Unit: [Celsius/Fahrenheit]
 ```
 
-## 注意
+## Notes
 
-- 仅获取温度，不要执行任何转换或写入任何文件
-- Open-Meteo 是免费的，不需要 API key，使用基于坐标的查找以确保可靠性
-- 迪拜坐标：纬度 25.2048，经度 55.2708
-- 清晰地返回数值温度值和单位
-- 根据调用者的请求支持摄氏度和华氏度
+- Only fetch the temperature, do not perform any transformations or write any files
+- Open-Meteo is free, requires no API key, and uses coordinate-based lookups for reliability
+- Dubai coordinates: latitude 25.2048, longitude 55.2708
+- Return the numeric temperature value and unit clearly
+- Support both Celsius and Fahrenheit based on the caller's request

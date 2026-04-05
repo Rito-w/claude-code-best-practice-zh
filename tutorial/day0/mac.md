@@ -1,4 +1,3 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/tutorial/day0/mac.md -->
 # macOS Setup
 
 [Back to Day 0](README.md)

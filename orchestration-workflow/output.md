@@ -1,15 +1,13 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/orchestration-workflow/output.md -->
+# Weather Result
 
-# 天气结果
-
-## 温度
+## Temperature
 26.2°C
 
-## 位置
-迪拜，阿联酋
+## Location
+Dubai, UAE
 
-## 单位
-摄氏度
+## Unit
+Celsius
 
-## SVG 卡片
-![天气卡片](weather.svg)
+## SVG Card
+![Weather Card](weather.svg)

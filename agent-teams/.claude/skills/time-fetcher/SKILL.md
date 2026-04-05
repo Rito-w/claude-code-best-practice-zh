@@ -1,5 +1,3 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 ---
 name: time-fetcher
 description: Instructions for fetching current Dubai time via bash command

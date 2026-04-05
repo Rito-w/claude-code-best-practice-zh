@@ -1,11 +1,9 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # Claude Agent SDK vs Claude CLI: System Prompts and Output Consistency
 
 <table width="100%">
 <tr>
 <td><a href="../">← Back to Claude Code Best Practice</a></td>
-<td align="right"><img src="../_media/claude-jumping.svg" alt="Claude" width="60" /></td>
+<td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 

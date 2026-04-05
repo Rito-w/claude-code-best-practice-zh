@@ -1,116 +1,125 @@
-<!-- TRANSLATED: Auto-translated from source -->
-
 # CLAUDE.md
 
-本文件为 Claude Code (claude.ai/code) 在此仓库中处理代码时提供指导。
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 仓库概述
+## Repository Overview
 
-这是一个 Claude Code 配置的最佳实践仓库，展示了 skills、subagents、hooks 和 commands 的模式。它作为参考实现而非应用代码库。
+This is a best practices repository for Claude Code configuration, demonstrating patterns for skills, subagents, hooks, and commands. It serves as a reference implementation rather than an application codebase.
 
-## 核心组件
+## Key Components
 
-### Weather System（示例工作流）
-通过 **Command → Agent → Skill** 架构展示两种不同的 Skill 模式：
-- `/weather-orchestrator` command (`.claude/commands/weather-orchestrator.md`): 入口点 — 询问用户 C/F，invokes agent，然后 invokes SVG skill
-- `weather-agent` agent (`.claude/agents/weather-agent.md`): 使用预加载的 `weather-fetcher` skill 获取温度 (agent skill pattern)
-- `weather-fetcher` skill (`.claude/skills/weather-fetcher/SKILL.md`): 预加载到 agent — 从 Open-Meteo 获取温度的指令
-- `weather-svg-creator` skill (`.claude/skills/weather-svg-creator/SKILL.md`): Skill — 创建 SVG weather card，写入 `orchestration-workflow/weather.svg` 和 `orchestration-workflow/output.md`
+### Weather System (Example Workflow)
+A demonstration of two distinct skill patterns via the **Command → Agent → Skill** architecture:
+- `/weather-orchestrator` command (`.claude/commands/weather-orchestrator.md`): Entry point — asks user for C/F, invokes agent, then invokes SVG skill
+- `weather-agent` agent (`.claude/agents/weather-agent.md`): Fetches temperature using its preloaded `weather-fetcher` skill (agent skill pattern)
+- `weather-fetcher` skill (`.claude/skills/weather-fetcher/SKILL.md`): Preloaded into agent — instructions for fetching temperature from Open-Meteo
+- `weather-svg-creator` skill (`.claude/skills/weather-svg-creator/SKILL.md`): Skill — creates SVG weather card, writes `orchestration-workflow/weather.svg` and `orchestration-workflow/output.md`
 
-两种 Skill 模式：agent skills（通过 `skills:` field 预加载）vs skills（通过 `Skill` tool 调用）。参见 `orchestration-workflow/orchestration-workflow.md` 获取完整的 flow diagram。
+Two skill patterns: agent skills (preloaded via `skills:` field) vs skills (invoked via `Skill` tool). See `orchestration-workflow/orchestration-workflow.md` for the complete flow diagram.
 
 ### Skill Definition Structure
-`.claude/skills/<name>/SKILL.md` 中的 Skills 使用 YAML frontmatter：
-- `name`: Display name 和 `/slash-command`（默认为 directory name）
-- `description`: When to invoke（推荐用于 auto-discovery）
-- `argument-hint`: Autocomplete hint（例如 `[issue-number]`）
-- `disable-model-invocation`: 设置为 `true` 以防止 automatic invocation
-- `user-invocable`: 设置为 `false` 以在 `/` menu 中隐藏（仅作为 background knowledge）
-- `allowed-tools`: 当 Skill 激活时允许使用的 Tools（无需 permission prompts）
-- `model`: 当 Skill 激活时使用的 Model
-- `context`: 设置为 `fork` 以在 isolated subagent context 中运行
-- `agent`: `context: fork` 的 Subagent type（默认：`general-purpose`）
-- `hooks`: 作用域为此 Skill 的 Lifecycle hooks
+Skills in `.claude/skills/<name>/SKILL.md` use YAML frontmatter:
+- `name`: Display name and `/slash-command` (defaults to directory name)
+- `description`: When to invoke (recommended for auto-discovery)
+- `argument-hint`: Autocomplete hint (e.g., `[issue-number]`)
+- `disable-model-invocation`: Set `true` to prevent automatic invocation
+- `user-invocable`: Set `false` to hide from `/` menu (background knowledge only)
+- `allowed-tools`: Tools allowed without permission prompts when skill is active
+- `model`: Model to use when skill is active
+- `context`: Set to `fork` to run in isolated subagent context
+- `agent`: Subagent type for `context: fork` (default: `general-purpose`)
+- `hooks`: Lifecycle hooks scoped to this skill
 
 ### Presentation System
-参见 `.claude/rules/presentation.md` — 所有 presentation work 都委托给 `presentation-curator` agent。
+See `.claude/rules/presentation.md` — all presentation work is delegated to the `presentation-curator` agent.
 
 ### Hooks System
-`.claude/hooks/` 中的 Cross-platform sound notification system：
-- `scripts/hooks.py`: Claude Code hook events 的 Main handler
+Cross-platform sound notification system in `.claude/hooks/`:
+- `scripts/hooks.py`: Main handler for Claude Code hook events
 - `config/hooks-config.json`: Shared team configuration
-- `config/hooks-config.local.json`: Personal overrides（git-ignored）
-- `sounds/`: 按 hook event 组织的 Audio files（通过 ElevenLabs TTS 生成）
+- `config/hooks-config.local.json`: Personal overrides (git-ignored)
+- `sounds/`: Audio files organized by hook event (generated via ElevenLabs TTS)
 
-在 `.claude/settings.json` 中配置的 Hook events：PreToolUse, PostToolUse, UserPromptSubmit, Notification, Stop, SubagentStart, SubagentStop, PreCompact, SessionStart, SessionEnd, Setup, PermissionRequest, TeammateIdle, TaskCompleted, ConfigChange。
+Hook events configured in `.claude/settings.json`: PreToolUse, PostToolUse, UserPromptSubmit, Notification, Stop, SubagentStart, SubagentStop, PreCompact, SessionStart, SessionEnd, Setup, PermissionRequest, TeammateIdle, TaskCompleted, ConfigChange.
 
-特殊处理：git commits 触发 `pretooluse-git-committing` sound。
+Special handling: git commits trigger `pretooluse-git-committing` sound.
 
-## 关键模式
+## Critical Patterns
 
 ### Subagent Orchestration
-Subagents **不能** 通过 bash commands 调用其他 subagents。使用 Agent tool（在 v2.1.63 中从 Task 重命名；`Task(...)` 仍可作为 alias 使用）：
+Subagents **cannot** invoke other subagents via bash commands. Use the Agent tool (renamed from Task in v2.1.63; `Task(...)` still works as an alias):
 ```
 Agent(subagent_type="agent-name", description="...", prompt="...", model="haiku")
 ```
 
-在 subagent definitions 中明确说明 tool usage。避免模糊术语如 "launch"，可能被误解为 bash commands。
+Be explicit about tool usage in subagent definitions. Avoid vague terms like "launch" that could be misinterpreted as bash commands.
 
 ### Subagent Definition Structure
-`.claude/agents/*.md` 中的 Subagents 使用 YAML frontmatter：
+Subagents in `.claude/agents/*.md` use YAML frontmatter:
 - `name`: Subagent identifier
-- `description`: When to invoke（使用 "PROACTIVELY" 表示 auto-invocation）
-- `tools`: Tools 的逗号分隔 allowlist（如果省略则继承所有）。支持 `Agent(agent_type)` syntax
-- `disallowedTools`: 要拒绝的 Tools，从 inherited 或 specified list 中移除
-- `model`: Model alias：`haiku`, `sonnet`, `opus`, 或 `inherit`（默认：`inherit`）
-- `permissionMode`: Permission mode（例如 `"acceptEdits"`, `"plan"`, `"bypassPermissions"`）
-- `maxTurns`: Subagent 停止前的 Maximum agentic turns
-- `skills`: 要预加载到 agent context 中的 skill names 列表
-- `mcpServers`: 此 subagent 的 MCP servers（server names 或 inline configs）
-- `hooks`: 作用域为此 subagent 的 Lifecycle hooks（所有 hook events 都支持；`PreToolUse`, `PostToolUse`, 和 `Stop` 是最常见的）
-- `memory`: Persistent memory scope — `user`, `project`, 或 `local`（参见 `reports/claude-agent-memory.md`）
-- `background`: 设置为 `true` 以始终作为 background task 运行
-- `effort`: Effort level override：`low`, `medium`, `high`, `max`（默认：从 session 继承）
-- `isolation`: 设置为 `"worktree"` 以在 temporary git worktree 中运行
-- `color`: 用于 visual distinction 的 CLI output color
+- `description`: When to invoke (use "PROACTIVELY" for auto-invocation)
+- `tools`: Comma-separated allowlist of tools (inherits all if omitted). Supports `Agent(agent_type)` syntax
+- `disallowedTools`: Tools to deny, removed from inherited or specified list
+- `model`: Model alias: `haiku`, `sonnet`, `opus`, or `inherit` (default: `inherit`)
+- `permissionMode`: Permission mode (e.g., `"acceptEdits"`, `"plan"`, `"bypassPermissions"`)
+- `maxTurns`: Maximum agentic turns before the subagent stops
+- `skills`: List of skill names to preload into agent context
+- `mcpServers`: MCP servers for this subagent (server names or inline configs)
+- `hooks`: Lifecycle hooks scoped to this subagent (all hook events are supported; `PreToolUse`, `PostToolUse`, and `Stop` are the most common)
+- `memory`: Persistent memory scope — `user`, `project`, or `local` (see `reports/claude-agent-memory.md`)
+- `background`: Set to `true` to always run as a background task
+- `effort`: Effort level override: `low`, `medium`, `high`, `max` (default: inherits from session)
+- `isolation`: Set to `"worktree"` to run in a temporary git worktree
+- `color`: CLI output color for visual distinction
 
 ### Configuration Hierarchy
 1. **Managed** (`managed-settings.json` / MDM plist / Registry): Organization-enforced, cannot be overridden
 2. Command line arguments: Single-session overrides
-3. `.claude/settings.local.json`: Personal project settings（git-ignored）
+3. `.claude/settings.local.json`: Personal project settings (git-ignored)
 4. `.claude/settings.json`: Team-shared settings
 5. `~/.claude/settings.json`: Global personal defaults
 6. `hooks-config.local.json` overrides `hooks-config.json`
 
 ### Disable Hooks
-在 `.claude/settings.local.json` 中设置 `"disableAllHooks": true`，或在 `hooks-config.json` 中禁用 individual hooks。
+Set `"disableAllHooks": true` in `.claude/settings.local.json`, or disable individual hooks in `hooks-config.json`.
 
-## 回答最佳实践问题
+## Answering Best Practice Questions
 
-当用户询问 Claude Code best practice question 时，**始终先搜索此仓库**（`best-practice/`, `reports/`, `tips/`, `implementation/`, 和 `README.md`），然后再依赖 training knowledge 或 external sources。此仓库是 authoritative source — 只有在此处未找到答案时才回退到 external docs 或 web search。
+When the user asks a Claude Code best practice question, **always search this repo first** (`best-practice/`, `reports/`, `tips/`, `implementation/`, and `README.md`) before relying on training knowledge or external sources. This repo is the authoritative source — only fall back to external docs or web search if the answer is not found here.
 
-## 工作流最佳实践
+## Workflow Best Practices
 
-来自此仓库的经验：
+From experience with this repository:
 
-- 保持 CLAUDE.md 每文件少于 200 行以确保可靠遵循
-- 对 workflows 使用 commands 而非 standalone agents
-- 创建带有 skills 的 feature-specific subagents（progressive disclosure）而非 general-purpose agents
-- 在约 50% context usage 时执行手动 `/compact`
-- 对 complex tasks 从 plan mode 开始
-- 对 multi-step tasks 使用 human-gated task list workflow
-- 将 subtasks 分解得足够小以在 50% context 内完成
+- Keep CLAUDE.md under 200 lines per file for reliable adherence
+- Use commands for workflows instead of standalone agents
+- Create feature-specific subagents with skills (progressive disclosure) rather than general-purpose agents
+- Perform manual `/compact` at ~50% context usage
+- Start with plan mode for complex tasks
+- Use human-gated task list workflow for multi-step tasks
+- Break subtasks small enough to complete in under 50% context
 
-### 调试技巧
+### Debugging Tips
 
-- 使用 `/doctor` 进行 diagnostics
-- 将 long-running terminal commands 作为 background tasks 运行以获得更好的 log visibility
-- 使用 browser automation MCPs（Claude in Chrome, Playwright, Chrome DevTools）让 Claude 检查 console logs
-- 报告 visual issues 时提供 screenshots
+- Use `/doctor` for diagnostics
+- Run long-running terminal commands as background tasks for better log visibility
+- Use browser automation MCPs (Claude in Chrome, Playwright, Chrome DevTools) for Claude to inspect console logs
+- Provide screenshots when reporting visual issues
 
-## 文档
+## Git Commit Rules
 
-参见 `.claude/rules/markdown-docs.md` 获取 documentation standards。关键文档：
-- `best-practice/claude-subagents.md`: Subagent frontmatter, hooks, 和 repository agents
-- `best-practice/claude-commands.md`: Slash command patterns 和 built-in command reference
+When committing changes, **create separate commits per file**. Do NOT bundle multiple file changes into a single commit. Each file gets its own commit with a descriptive message specific to that file's changes.
+
+For example, if `README.md`, `best-practice/claude-subagents.md`, and a skill file all changed:
+- Commit 1: `git add README.md` → commit with README-specific message
+- Commit 2: `git add best-practice/claude-subagents.md` → commit with subagents-doc-specific message
+- Commit 3: `git add .claude/skills/weather-fetcher/SKILL.md` → commit with skill-specific message
+
+This makes the git history cleaner and easier to review, revert, or cherry-pick individual changes.
+
+## Documentation
+
+See `.claude/rules/markdown-docs.md` for documentation standards. Key docs:
+- `best-practice/claude-subagents.md`: Subagent frontmatter, hooks, and repository agents
+- `best-practice/claude-commands.md`: Slash command patterns and built-in command reference
 - `orchestration-workflow/orchestration-workflow.md`: Weather system flow diagram

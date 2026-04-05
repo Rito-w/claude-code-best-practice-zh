@@ -1,4 +1,3 @@
-<!-- 翻译自：https://github.com/shanraisshan/claude-code-best-practice/blob/main/tutorial/day0/README.md -->
 # Day 0 — Claude Code Setup
 
 This guide walks you through installing Claude Code on your machine and authenticating so you can start using it.
