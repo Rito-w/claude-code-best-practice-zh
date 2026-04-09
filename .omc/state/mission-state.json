@@ -1,0 +1,89 @@
+{
+  "updatedAt": "2026-03-31T15:15:09.650Z",
+  "missions": [
+    {
+      "id": "session:8179fc3a-5967-4591-87d3-75c0fcf65ff7:none",
+      "source": "session",
+      "name": "none",
+      "objective": "Session mission",
+      "createdAt": "2026-03-31T15:13:18.303Z",
+      "updatedAt": "2026-03-31T15:15:09.650Z",
+      "status": "done",
+      "workerCount": 3,
+      "taskCounts": {
+        "total": 3,
+        "pending": 0,
+        "blocked": 0,
+        "inProgress": 0,
+        "completed": 3,
+        "failed": 0
+      },
+      "agents": [
+        {
+          "name": "Plan:a9e3950",
+          "role": "Plan",
+          "ownership": "a9e3950",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-31T15:13:22.132Z"
+        },
+        {
+          "name": "Explore:aa18449",
+          "role": "Explore",
+          "ownership": "aa18449",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-31T15:13:19.263Z"
+        },
+        {
+          "name": "Explore:acf4835",
+          "role": "Explore",
+          "ownership": "acf4835",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-03-31T15:15:09.650Z"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "session-stop:aa18449:2026-03-31T15:13:19.263Z",
+          "at": "2026-03-31T15:13:19.263Z",
+          "kind": "completion",
+          "agent": "Explore:aa18449",
+          "detail": "completed",
+          "sourceKey": "session-stop:aa18449"
+        },
+        {
+          "id": "session-stop:a9e3950:2026-03-31T15:13:22.132Z",
+          "at": "2026-03-31T15:13:22.132Z",
+          "kind": "completion",
+          "agent": "Plan:a9e3950",
+          "detail": "completed",
+          "sourceKey": "session-stop:a9e3950"
+        },
+        {
+          "id": "session-start:acf4835:2026-03-31T15:15:09.010Z",
+          "at": "2026-03-31T15:15:09.010Z",
+          "kind": "update",
+          "agent": "Explore:acf4835",
+          "detail": "started Explore:acf4835",
+          "sourceKey": "session-start:acf4835"
+        },
+        {
+          "id": "session-stop:acf4835:2026-03-31T15:15:09.650Z",
+          "at": "2026-03-31T15:15:09.650Z",
+          "kind": "completion",
+          "agent": "Explore:acf4835",
+          "detail": "completed",
+          "sourceKey": "session-stop:acf4835"
+        }
+      ]
+    }
+  ]
+}
