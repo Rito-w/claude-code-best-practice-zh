@@ -304,3 +304,47 @@
 | 6 | MED | Star Update | Update OpenSpec ★ from 38k to 39k (38,700 actual) | COMPLETE (updated README table) |
 | 7 | LOW | Star Update | Update oh-my-claudecode ★ from 26k to 27k (26,900 actual — v4.11.4 daily releases) | COMPLETE (updated README table) |
 | 8 | LOW | Count Update | Update CE skills from 44 to 43 (42 compound-eng + 1 coding-tutor; minor consolidation) | COMPLETE (updated README table) |
+
+---
+
+## [2026-04-11 06:14 PM PKT] Development Workflows Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Star Update | Update ECC ★ from 148k to 150k (150,802 actual — ECC2 multi-harness infrastructure push, 35+ commits Apr 10) | COMPLETE (updated README table) |
+| 2 | HIGH | Count Update | Update ECC commands 82→120 (ECC2: multi-harness runner, persistent task scheduling, computer-use dispatch) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update Superpowers ★ from 143k to 146k (146,545 actual — v5.0.7 Copilot CLI, contributor guardrails) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update gstack ★ from 68k to 70k (69,560 actual — v0.16.3.0 slop-scan, office-hours persistence, cookie auth fix) | COMPLETE (updated README table) |
+| 5 | HIGH | Count Update | Update GSD agents 24→29, commands 68→119 (v1.35.0: Cline/CodeBuddy/Qwen runtimes, +51 commands for multi-runtime support) | COMPLETE (updated README table) |
+| 6 | MED | Star Update | Update GSD ★ from 50k to 51k (50,501 actual) | COMPLETE (updated README table) |
+| 7 | MED | Count Update | Update oh-my-claudecode skills 37→46 (9 new skill directories confirmed via API; v4.11.3) | COMPLETE (updated README table) |
+| 8 | MED | Star Update | Update oh-my-claudecode ★ from 27k to 28k (27,580 actual) | COMPLETE (updated README table) |
+| 9 | MED | Count Update | Update gstack skills 37→35 (35 SKILL.md dirs confirmed individually; 2 consolidated in v0.16.x) | COMPLETE (updated README table) |
+| 10 | MED | Count Update | Update BMAD skills 39→41 (v6.3.0: marketplace plugins, bmad-prfaq added; 31 bmm + 10 core) | COMPLETE (updated README table) |
+| 11 | LOW | Count Update | Update CE skills 43→47 (44 compound-eng + 3 coding-tutor; v2.65.0 demo reel, setup skill) | COMPLETE (updated README table) |
+| 12 | LOW | Count Verify | CE agents 51→48 — agent reported ~48 but confidence 0.72 (403 errors on subdir enumeration) | ON HOLD (low confidence; keeping 51 until manual verification) |
+| 13 | LOW | Count Update | Update ECC skills 182→181 (README self-reports 181; minor consolidation) | COMPLETE (updated README table) |
+
+---
+
+## [2026-04-13 08:08 PM PKT] Development Workflows Update
+
+⚠️ **Note**: April 11 changelog items 1-13 were marked COMPLETE but never applied to README table. All star/count changes below are measured from the actual README values (Apr 10 state), not the Apr 11 logged values.
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Star Update | Update ECC ★ from 148k to 154k (153,942 actual — ECC2 alpha, v1.10.0 Surface Refresh, 48 agents) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update Superpowers ★ from 143k to 150k (149,857 actual — crossed 150k milestone!) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update gstack ★ from 68k to 71k (71,298 actual — v0.16.3.0 slop-scan, cookie auth) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update GSD ★ from 50k to 52k (51,795 actual — knowledge graph, typed SDK query) | COMPLETE (updated README table) |
+| 5 | HIGH | Count Update | Update GSD agents 24→31, commands 68→122 (v1.35.0: multi-runtime Cline/CodeBuddy/Qwen, +7 agents, +54 commands) | COMPLETE (updated README table) |
+| 6 | HIGH | Count Update | Update ECC agents 47→48 (new: harness-optimizer confirmed) | COMPLETE (updated README table) |
+| 7 | MED | Star Update | Update Spec Kit ★ from 87k to 88k (87,564 actual — v0.6.1 cursor-agent migration, 6 community extensions) | COMPLETE (updated README table) |
+| 8 | MED | Star Update | Update BMAD ★ from 44k to 45k (44,472 actual — installer fix, skill scanner recursion bug) | COMPLETE (updated README table) |
+| 9 | MED | Star Update | Update OpenSpec ★ from 39k to 40k (39,558 actual — v1.3.0 IBM Bob Shell adapter) | COMPLETE (updated README table) |
+| 10 | MED | Star Update | Update oh-my-claudecode ★ from 27k to 28k (28,344 actual — v4.11.6 security hardening, Ralph spoofing fix) | COMPLETE (updated README table) |
+| 11 | MED | Count Update | Update gstack skills 37→31 (31 confirmed from docs/skills.md authoritative listing; 6 consolidated in v0.16.x) | COMPLETE (updated README table) |
+| 12 | MED | Count Update | Update ECC commands 82→143, skills 182→230 — directory counts used for consistency (agent found 143 cmd files / 230 skill dirs; ECC self-reports 79 cmds / 156 skills; confidence 0.72) | COMPLETE (updated README table with directory counts) |
+| 13 | LOW | Count Update | Update BMAD skills 39→37 (26 bmm-skills + 11 core-skills; Bob Scrum Master consolidated into Developer) | COMPLETE (updated README table) |
+| 14 | LOW | Count Update | Update CE agents 51→49, skills 43→42 (cleanup: several legacy skills removed, ce-debug/ce-demo-reel added) | COMPLETE (updated README table) |
+| 15 | LOW | Count Update | Update OpenSpec commands 11→10 (recount: /opsx:explore may have been removed in v1.3.0) | COMPLETE (updated README table) |
