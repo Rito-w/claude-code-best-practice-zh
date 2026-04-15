@@ -368,3 +368,18 @@
 | 5 | MED | Changed Description | Update `disableSkillShellExecution` — add ` ```! ` (triple-backtick shell) block syntax and "from user, project, plugin, or additional-directory sources" qualifier per official settings page | ✅ COMPLETE (description expanded per official docs) |
 | 6 | MED | Ownership Boundary | Add `DISABLE_AUTOUPDATER` to settings report env vars table — on official /en/env-vars page as configurable via `env` key, currently only in CLI startup flags file. Add with cross-reference to CLI flags file | ✅ COMPLETE (added to settings report before DISABLE_TELEMETRY; CLI flags file updated with cross-ref) |
 | 7 | MED | Ownership Boundary | Add `CCR_FORCE_BUNDLE` to settings report env vars table — on official /en/env-vars page as configurable via `env` key, currently only in CLI startup flags file. Add with cross-reference to CLI flags file | ✅ COMPLETE (added to settings report before CLAUDE_CODE_GIT_BASH_PATH; CLI flags file updated with cross-ref) |
+---
+
+## [2026-04-14 11:22 PM PKT] Claude Code v2.1.107
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | New Setting | Add `viewMode` to General Settings table — string, values `"default"`, `"verbose"`, `"focus"`. Default transcript view mode on startup, overrides sticky Ctrl+O selection. Confirmed on official settings page | ✅ COMPLETE (added after showClearContextOnPlanAccept in General Settings) |
+| 2 | HIGH | Missing Env Vars | Add 5 missing env vars confirmed on official /en/env-vars page: `ANTHROPIC_CUSTOM_MODEL_OPTION_SUPPORTED_CAPABILITIES`, `CLAUDE_CODE_DISABLE_VIRTUAL_SCROLL`, `CLAUDE_ENABLE_BYTE_WATCHDOG`, `CLAUDE_CODE_MAX_CONTEXT_TOKENS`, `CLAUDE_CODE_SKIP_PROMPT_HISTORY` | ✅ COMPLETE (added near related vars in env table) |
+| 3 | HIGH | Changed Description | Update `disableAllHooks` description — add "and any custom status line" per official settings page line 180 | ✅ COMPLETE (updated inline in hooks redirect section) |
+| 4 | HIGH | Changed Default | Fix `teammateMode` default from `"in-process"` to `"auto"` in Global Config Settings table. Official docs describe `auto` as primary behavior. Regressed during v2.1.86 file-scope move | ✅ COMPLETE (default updated to "auto" — recurring from 2026-03-07, regression from v2.1.86 move) |
+| 5 | MED | Changed Description | Update `CLAUDE_STREAM_IDLE_TIMEOUT_MS` description — distinguish byte watchdog (default/minimum 300000ms) from event watchdog (default 90000ms). Per official /en/env-vars page | ✅ COMPLETE (description expanded with dual-watchdog detail and cross-reference to CLAUDE_ENABLE_BYTE_WATCHDOG) |
+| 6 | MED | Annotation Fix | Remove "(startup-only)" from `CLAUDE_CODE_GIT_BASH_PATH` — official /en/env-vars page lists it as env-configurable | ✅ COMPLETE (description rewritten per official docs, startup-only annotation removed) |
+| 7 | MED | Example Update | Add `viewMode` to Quick Reference example after `showThinkingSummaries` | ✅ COMPLETE (added "viewMode": "default" to example) |
+| 8 | MED | Stale Annotation | `OTEL_LOG_TOOL_DETAILS` still marked "in v2.1.85 changelog, not yet on official env-vars page" — confirmed still absent from official page after 10+ versions and 7 consecutive runs | ✋ ON HOLD (annotation is accurate — keeping as-is pending official docs update) |
+| 7 | MED | Ownership Boundary | Add `CCR_FORCE_BUNDLE` to settings report env vars table — on official /en/env-vars page as configurable via `env` key, currently only in CLI startup flags file. Add with cross-reference to CLI flags file | ✅ COMPLETE (added to settings report before CLAUDE_CODE_GIT_BASH_PATH; CLI flags file updated with cross-ref) |
