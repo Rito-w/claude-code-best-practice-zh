@@ -362,3 +362,17 @@
 | 4 | MED | Count Update | Update gstack skills 31→36 (36 SKILL.md confirmed via per-file fetch; v0.17.0.0 additions including ux-audit, guard, gstack-upgrade) | COMPLETE (updated README table) |
 | 5 | MED | Star Update | Update GSD ★ from 52k to 53k (52,871 actual — v1.36.0 graphify, typed SDK query, stale worktree detection) | COMPLETE (updated README table) |
 | 6 | LOW | Star Update | Update oh-my-claudecode ★ from 28k to 29k (28,771 actual — v4.11.6 security hardening, Ralph spoofing fix) | COMPLETE (updated README table) |
+
+## [2026-04-17 06:37 AM PKT] Claude Code v2.1.112
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Star Update | Update Everything Claude Code ★ from 156k to 158k | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update Superpowers ★ from 152k to 156k | COMPLETE (updated README table) |
+| 3 | MED | Star Update | Update Spec Kit ★ from 88k to 89k | COMPLETE (updated README table) |
+| 4 | MED | Star Update | Update gstack ★ from 72k to 74k (74,086 actual) | COMPLETE (updated README table) |
+| 5 | MED | Count Update | Update gstack skills 36→46 | COMPLETE (updated README table) |
+| 6 | MED | Star Update | Update GSD ★ from 53k to 54k | COMPLETE (updated README table) |
+| 7 | MED | Count Update | Update BMAD skills 37→39 | COMPLETE (updated README table) |
+| 8 | MED | Star Update | Update OpenSpec ★ from 40k to 41k | COMPLETE (updated README table) |
+| 9 | MED | Count Update | Update Compound Engineering skills 42→51, commands 4→3 | COMPLETE (updated README table) |

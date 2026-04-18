@@ -380,3 +380,10 @@ Tracks drift between the README CONCEPTS table and official Claude Code document
 | 4 | HIGH | Stale URL | Commands URL `/slash-commands` not in official sitemap (119 pages) — redirects to `/skills`; canonical commands reference is `/en/commands` | ❌ INVALID (RECURRING from 2026-03-10; URL still resolves via redirect; user chose to keep as-is) |
 | 5 | MED | Changed Description | Update Scheduled Tasks description from "up to 3 days" to "up to 7 days" — docs now specify seven-day expiry for recurring tasks | ✅ COMPLETE (description updated to "up to 7 days") |
 | 6 | MED | Missing Concept | Add Devcontainers row to Hot table — preconfigured dev containers with security isolation and firewall rules (`/en/devcontainer`) | ✅ COMPLETE (row added after Routines with .devcontainer/ location) |
+
+## [2026-04-16 08:20 PM PKT] Claude Code v2.1.110
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | MED | Stale URL | Fix stale /schedule URL in TIPS — URL updated to current docs location | ✅ COMPLETE (URL fixed in concepts report) |
+| 2 | MED | Verification | Add TIPS URL consistency rule to verification checklist | ✅ COMPLETE (added to checklist) |

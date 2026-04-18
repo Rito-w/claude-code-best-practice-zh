@@ -383,3 +383,28 @@
 | 7 | MED | Example Update | Add `viewMode` to Quick Reference example after `showThinkingSummaries` | ✅ COMPLETE (added "viewMode": "default" to example) |
 | 8 | MED | Stale Annotation | `OTEL_LOG_TOOL_DETAILS` still marked "in v2.1.85 changelog, not yet on official env-vars page" — confirmed still absent from official page after 10+ versions and 7 consecutive runs | ✋ ON HOLD (annotation is accurate — keeping as-is pending official docs update) |
 | 7 | MED | Ownership Boundary | Add `CCR_FORCE_BUNDLE` to settings report env vars table — on official /en/env-vars page as configurable via `env` key, currently only in CLI startup flags file. Add with cross-reference to CLI flags file | ✅ COMPLETE (added to settings report before CLAUDE_CODE_GIT_BASH_PATH; CLI flags file updated with cross-ref) |
+## [2026-04-XX XX:XX PM PKT] Claude Code v2.1.108
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | MED | New Env Var (Changelog) | Add `ENABLE_PROMPT_CACHING_1H` — 1-hour prompt cache TTL, replaces deprecated `ENABLE_PROMPT_CACHING_1H_BEDROCK` | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
+| 2 | MED | New Env Var (Changelog) | Add `FORCE_PROMPT_CACHING_5M` — force 5-minute prompt cache TTL | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
+| 3 | MED | Deprecated Annotation | Update `ENABLE_PROMPT_CACHING_1H_BEDROCK` annotation to note it's deprecated, replaced by `ENABLE_PROMPT_CACHING_1H` | ✅ COMPLETE (annotation updated in env vars table) |
+
+## [2026-04-16 08:25 PM PKT] Claude Code v2.1.110
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | New Setting | Add `minimumVersion` to General Settings — string, prevent auto-updater from downgrading below specific version | ✅ COMPLETE (added after autoUpdatesChannel) |
+| 2 | HIGH | Changed Description | Update `sandbox.enableWeakerNestedSandbox` — add "(Linux and WSL2 only)" qualifier | ✅ COMPLETE (description updated in sandbox table) |
+| 3 | HIGH | Changed Description | Update `sandbox.network.allowUnixSockets` — add "(macOS only)" qualifier, note it's ignored on Linux/WSL2 | ✅ COMPLETE (description updated) |
+| 4 | HIGH | Changed Description | Update `sandbox.network.allowAllUnixSockets` — add Linux/WSL2 note about seccomp filter | ✅ COMPLETE (description updated) |
+| 5 | MED | New Setting (Changelog) | Add `autoScrollEnabled` — boolean, disable auto-scroll in fullscreen mode | ✅ COMPLETE (added before feedbackSurveyRate with changelog annotation) |
+| 6 | MED | New Setting (Changelog) | Add `tui` — string, switch rendering mode for flicker-free rendering | ✅ COMPLETE (added before feedbackSurveyRate with changelog annotation) |
+| 7 | MED | New Env Var (Changelog) | Add `ENABLE_PROMPT_CACHING_1H` — 1-hour prompt cache TTL (replaces deprecated `ENABLE_PROMPT_CACHING_1H_BEDROCK`) | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
+| 8 | MED | New Env Var (Changelog) | Add `FORCE_PROMPT_CACHING_5M` — force 5-minute prompt cache TTL | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
+| 9 | MED | New Env Var (Changelog) | Add `CLAUDE_CODE_REMOTE` — read-only, set to true in cloud sessions | ✅ COMPLETE (added near related env vars with changelog annotation) |
+| 10 | MED | New Env Var (Changelog) | Add `CLAUDE_CODE_REMOTE_SESSION_ID` — read-only, cloud session ID | ✅ COMPLETE (added near related env vars with changelog annotation) |
+| 11 | MED | New Env Var (Changelog) | Add `CLAUDE_CODE_TMUX_TRUECOLOR` — allow 24-bit truecolor in tmux | ✅ COMPLETE (added before CLAUDE_CODE_NO_FLICKER with changelog annotation) |
+| 12 | MED | Effort Level | Add Max effort level for Opus 4.6 to effort level table | ✅ COMPLETE (added before High in effort table) |
+| 13 | MED | Version Bump | Update version badge from v2.1.107 to v2.1.110 | ✅ COMPLETE (badge and header updated) |
