@@ -231,3 +231,12 @@ No priority action items — report is fully in sync with official documentation
 | # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
 | 1 | MED | New Alias | Add `/undo` alias to `/rewind` entry — added in v2.1.108 | ✅ COMPLETE (added /undo alongside existing /checkpoint alias) |
+
+---
+
+## [2026-04-18 08:22 PM PKT] Claude Code v2.1.114
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | MED | Version Bump | Update version badge and star counts in README | ✅ COMPLETE |
+| 2 | LOW | Feature Update | Add `/ultrareview` and `/tasks` feature rows to README | ✅ COMPLETE |

@@ -408,3 +408,21 @@
 | 11 | MED | New Env Var (Changelog) | Add `CLAUDE_CODE_TMUX_TRUECOLOR` — allow 24-bit truecolor in tmux | ✅ COMPLETE (added before CLAUDE_CODE_NO_FLICKER with changelog annotation) |
 | 12 | MED | Effort Level | Add Max effort level for Opus 4.6 to effort level table | ✅ COMPLETE (added before High in effort table) |
 | 13 | MED | Version Bump | Update version badge from v2.1.107 to v2.1.110 | ✅ COMPLETE (badge and header updated) |
+
+---
+
+## [2026-04-18 07:56 PM PKT] Claude Code v2.1.114
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Version Bump | Update report version badge from v2.1.110 to v2.1.114 and header "As of v2.1.110" → "As of v2.1.114" | ✅ COMPLETE |
+| 2 | HIGH | New Setting | Add `awaySummaryEnabled` to General Settings — boolean, controls idle-session recap ("away summary"), confirmed on official settings page. Paired with `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` env var | ✅ COMPLETE (added between `tui` and `feedbackSurveyRate`) |
+| 3 | HIGH | Missing Env Var | Add `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` to Common Environment Variables table — opt-out for away summary. Confirmed on official /en/env-vars page | ✅ COMPLETE (added after `FORCE_PROMPT_CACHING_5M`) |
+| 4 | HIGH | Missing Value | Add `xhigh` to `effortLevel` valid values — v2.1.111 introduced `xhigh` for Opus 4.7 | ✅ COMPLETE (description updated with `"xhigh"` value, Opus 4.7 support, fallback behavior) |
+| 5 | HIGH | Effort Level Table | Add `xhigh` row to Effort Level table — Opus 4.7 only, default on Opus 4.7 across all plans | ✅ COMPLETE (added between Max and High; default marker updated) |
+| 6 | HIGH | File Scope Move | Move `autoScrollEnabled` from General Settings to Global Config Settings (`~/.claude.json`) table — official docs list it as ~/.claude.json key | ✅ COMPLETE (removed from General Settings, added to Global Config Settings between `autoInstallIdeExtension` and `editorMode`) |
+| 7 | HIGH | Stale Annotation | Remove "(in v2.1.110 changelog...)" from `tui` — now officially documented. Update description per official docs | ✅ COMPLETE (annotation removed, description updated with values) |
+| 8 | HIGH | New Setting | Add `externalEditorContext` to Global Config Settings (`~/.claude.json`) — confirmed on official settings page | ✅ COMPLETE (added after `editorMode`) |
+| 9 | HIGH | Stale Annotation | Remove "(not in official docs — unverified)" from `sandbox.network.deniedDomains` — officially added in v2.1.113 | ✅ COMPLETE (annotation removed, description rewritten with precedence and glob support) |
+| 10 | MED | Example Update | Update Quick Reference example to include `awaySummaryEnabled`, `tui: "fullscreen"`, and `effortLevel: "xhigh"` | ✅ COMPLETE |
+| 11 | LOW | Cross-Link | Add cross-reference links for `CLAUDE_CODE_SIMPLE` and `CLAUDE_CODE_EFFORT_LEVEL` back to `claude-cli-startup-flags.md` | ✅ COMPLETE |

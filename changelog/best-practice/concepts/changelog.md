@@ -387,3 +387,11 @@ Tracks drift between the README CONCEPTS table and official Claude Code document
 |---|----------|------|--------|--------|
 | 1 | MED | Stale URL | Fix stale /schedule URL in TIPS — URL updated to current docs location | ✅ COMPLETE (URL fixed in concepts report) |
 | 2 | MED | Verification | Add TIPS URL consistency rule to verification checklist | ✅ COMPLETE (added to checklist) |
+
+---
+
+## [2026-04-18 08:22 PM PKT] Claude Code v2.1.114
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | INFO | Version Check | Scanned v2.1.114 source for changes to concepts — no material changes detected | ✅ COMPLETE (no updates needed) |
