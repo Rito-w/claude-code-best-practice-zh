@@ -1,155 +1,149 @@
-<!--
-  翻译来源：https://github.com/shanraisshan/claude-code-best-practice/blob/main/tutorial/day1/README.md
-  翻译时间：2026-04-16 02:00 CST
-  翻译版本：v2.1.101+ (8ebcacc)
--->
+# Day 1 — Your First Conversation with Claude Code
 
-# Day 1 — 与 Claude Code 的第一次对话
-
-[返回 Day 0（环境搭建）](../day0/README.md)
+[Back to Day 0 (Setup)](../day0/README.md)
 
 ---
 
-你已经安装好了 Claude Code。接下来做什么？本指南带你体验三种使用层级——每一层都让你对 Claude 的工作方式有更多掌控。
+You've installed Claude Code. Now what? This guide walks you through three levels of using it — each one gives you more control over **how** Claude does its work.
 
-可以这样类比：
-1. **Prompting（提示词）** = 在街上向陌生人问路
-2. **Agents（代理）** = 聘请一位总有固定做事方式的专家
-3. **Skills（技能）** = 那位专家接受过针对特定任务的专门训练
+Think of it like hiring someone:
+1. **Prompting** = asking a stranger on the street for directions
+2. **Agents** = hiring a specialist who always does things a certain way
+3. **Skills** = that specialist having specific training for specific tasks
 
 ---
 
-## Level 1：Prompting（直接问就行）
+## Level 1: Prompting (Just Ask)
 
-> 🧠 **想象一下** 给一个知识渊博的朋友发信息。你问"卡拉奇的天气怎么样？"，对方会给一个答案——但你不知道他是查了天气 App、看了看窗外，还是凭记忆猜的。
+> 🧠 **Think of it like** texting a friend who knows a lot. You ask "what's the weather in Karachi?" and they'll give you *an* answer — but you have no idea if they checked a weather app, looked out their window, or just guessed from memory.
 
-在终端中输入 `claude`。你现在进入了对话模式。试试输入：
+Open your terminal and type `claude`. You're now in a conversation. Try typing:
 
 ```
 what is the weather in Karachi?
 ```
 
-Claude 会回答——但它**如何**回答是不可预测的。它可能：
-- 依赖训练数据（可能已经过时）
-- 搜索网络（如果网络工具可用）
-- 给出一个笼统的答案而非实时数据
+Claude will answer — but **how** it answers is unpredictable. It might:
+- Pull from its training data (which could be outdated)
+- Search the web (if web tools are available)
+- Give you a general answer instead of real-time data
 
-对于快速提问来说这完全没问题！但如果你需要**一致、可靠的结果**，仅靠 prompting 是不够的。
+This is perfectly fine for quick questions! But if you need **consistent, reliable results**, prompting alone isn't enough.
 
-### Prompting 擅长的场景
+### When Prompting Works Great
 
-- 询问代码库相关问题（"这个文件做什么的？"）
-- 撰写或编辑文档（"把这封邮件改写得更专业"）
-- 头脑风暴（"给我 5 个营销标题方案"）
-- 解释说明（"像给非开发者一样解释这个错误信息"）
+- Asking questions about your codebase ("what does this file do?")
+- Writing or editing documents ("rewrite this email to sound more professional")
+- Brainstorming ideas ("give me 5 subject lines for this campaign")
+- Explaining things ("explain this error message like I'm not a developer")
 
-### 局限性
+### The Limitation
 
-每次你问"天气怎么样？"，Claude 获取数据的方式可能不同——或者根本不获取实时数据。无法保证它使用相同的来源或方法。
+Every time you ask "what's the weather?", Claude might fetch data differently — or not fetch real data at all. There's no guarantee it uses the same source or method twice.
 
 ---
 
-## Level 2：Agents（专家）
+## Level 2: Agents (The Specialist)
 
-**Agent** 就是 Claude 扮演特定角色——类似于分配一个职位。
+An **agent** is Claude playing a specific role — like assigning a job title.
 
-> 🧠 **想象一下** 一家餐厅厨房。没有 Agent 时，你走进一家陌生的厨房大喊"给我做意大利面！"——听到的人可能煮个速食面，也可能做一顿五道菜的意大利大餐。有了 Agent，你聘请的是一位**意大利面主厨**，其工作描述写着：*"始终使用新鲜食材，始终煮到 al dente，始终以相同方式摆盘。"* 这样你每次都能得到完全一样的品质。
+> 🧠 **Think of it like** a restaurant kitchen. Without an agent, you walk into a random kitchen and shout "make me pasta!" — whoever hears you might boil instant noodles or make a five-course Italian meal. With an agent, you hire a **Pasta Chef** whose job description says: *"Always use fresh ingredients, always cook al dente, always plate it the same way."* Now you know exactly what you're getting, every single time.
 
-将同样的思路应用到 Claude 上：
+Here's the same idea applied to Claude:
 
-> **不使用 Agent：** 你问 Claude "迪拜的天气怎么样？"
-> 它可能查训练数据、搜网络、或者猜一个。你不知道它会怎么做。
+> **Without an agent:** You ask Claude "What's the weather in Dubai?"
+> It might check its training data, search the web, or make a best guess. You don't know what it'll do.
 >
-> **使用 Agent：** 一个 `weather-agent` 有明确的职责描述：
-> *"始终通过 Open-Meteo API 查询迪拜。始终以指定格式返回温度。"*
-> 同样的问题，同样的处理方式，每次如此。
+> **With an agent:** A `weather-agent` has a clear job description:
+> *"Always check the Open-Meteo API for Dubai. Always return the temperature in a specific format."*
+> Same question, same approach, every time.
 
-### 来自本仓库的真实例子
+### Real Example from This Repo
 
-这个仓库里有一个 `weather-agent`——它唯一的工作就是获取迪拜的温度。它与普通 prompting 的区别：
+This repo has a `weather-agent` — its entire job is fetching Dubai's temperature. Here's what makes it different from just prompting:
 
 | | Prompting | Agent |
 |---|---|---|
-| **数据来源** | 不确定 | 始终使用 Open-Meteo API |
-| **位置** | Claude 自行选择 | 始终迪拜（lat: 25.2, lon: 55.3） |
-| **格式** | 随机段落 | 干净的温度值 + 单位 |
-| **一致性** | 每次不同 | 相同方法，每次一致 |
+| **Source** | Could be anywhere | Always Open-Meteo API |
+| **Location** | Whatever Claude picks | Always Dubai (lat: 25.2, lon: 55.3) |
+| **Format** | Random paragraph | Clean temperature + unit |
+| **Consistency** | Different every time | Same method, every time |
 
-### 要点
+### The Takeaway
 
-Agent 给你的是**可预测性**。同样的问题 → 同样的处理方式 → 同样的质量。优势不在于 Agent 更聪明，而在于它们**始终如一**。
+Agents give you **predictability**. Same question → same approach → same quality. That's the advantage — not that agents are smarter, but that they're **consistent**.
 
 ---
 
-## Level 3：Skills（训练）
+## Level 3: Skills (The Training)
 
-**Skill** 是 Agent（或 Claude 本身）可以使用的一项具体能力。
+A **skill** is a specific capability that an agent (or Claude itself) can use.
 
-> 🧠 **想象一下** 新员工的培训手册。当有人加入你的团队时，他们有一个角色（Agent），但他们还要参加具体的培训模块——如何使用 CRM、如何写提案、如何主持站会。每个培训模块就是一个 **Skill**。角色告诉他们*是什么*；技能告诉他们*怎么做*具体的事情。
+> 🧠 **Think of it like** a new employee's training manual. When someone joins your team, they have a role (agent), but they also go through specific training modules — how to use the CRM, how to write a proposal, how to run a standup. Each training module is a **skill**. The role tells them *what* they are; the skills tell them *how* to do specific things.
 
-现在想想一个真实的人：
+Now think about a real person:
 
-> **Shayan** 有很多技能：
-> - 工程技能——会写代码
-> - 游戏技能——了解游戏机制
-> - 阅读技能——能消化和总结长文档
+> **Shayan** has many skills:
+> - Engineering skill — can write code
+> - Gaming skill — knows game mechanics
+> - Reading skill — can digest and summarize long documents
 >
-> 每个技能有自己的知识体系和方法。Shayan 会根据任务使用正确的技能。
+> Each skill has its own knowledge and methods. Shayan uses the right skill for the right task.
 
-Claude 的工作方式也一样。`weather-agent` 有一个叫 `weather-fetcher` 的技能：
+Claude works the same way. The `weather-agent` has a skill called `weather-fetcher`:
 
-- **Agent**（`weather-agent`）= 职称为"天气报告员"的人
-- **Skill**（`weather-fetcher`）= 关于*如何*获取天气数据的具体训练
+- The **agent** (`weather-agent`) = the person with the job title "Weather Reporter"
+- The **skill** (`weather-fetcher`) = the specific training on *how* to fetch weather data
 
-技能包含精确的操作指引：
-1. 调用这个具体的 API URL
-2. 从响应的指定字段提取温度
-3. 以指定格式返回
+The skill contains exact instructions:
+1. Call this specific API URL
+2. Extract the temperature from this specific field in the response
+3. Return it in this specific format
 
-### 为什么要把 Agents 和 Skills 分开？
+### Why Separate Agents and Skills?
 
-因为 **一个 Agent 可以拥有多个 Skills**，而 **一个 Skill 可以被多个 Agents 使用**。
+Because **one agent can have multiple skills**, and **one skill can be used by multiple agents**.
 
-比如，你创建了：
-- 一个 `daily-report-agent` 来总结你的一天
-- 它可以同时使用 `weather-fetcher` 技能（天气）+ `calendar-reader` 技能（会议）+ `email-summarizer` 技能（邮件摘要）
+For example, imagine you create:
+- A `daily-report-agent` that summarizes your day
+- It could use a `weather-fetcher` skill (for weather) + a `calendar-reader` skill (for meetings) + a `email-summarizer` skill (for email highlights)
 
-Skills 是可复用的积木块。Agents 是使用它们的人。
+Skills are reusable building blocks. Agents are the people who use them.
 
 ---
 
-## 全景图
+## Putting It All Together
 
-完整的样子是这样的：
+Here's the full picture:
 
 ```
 Level 1: PROMPTING
-你 → "天气怎么样？" → Claude 自己想办法
-                        （不可预测的方式）
+You → "What's the weather?" → Claude figures it out somehow
+                                (unpredictable method)
 
 Level 2: AGENTS
-你 → Weather Agent → 始终使用相同的方式
-                      （可预测的方式）
+You → Weather Agent → Always uses the same approach
+                      (predictable method)
 
 Level 3: SKILLS
-你 → Weather Agent → 使用 weather-fetcher 技能
-                      （可预测的方式 + 具体指引）
+You → Weather Agent → Uses weather-fetcher skill
+                      (predictable method with specific instructions)
 ```
 
-每一层增加更多的控制：
+Each level adds more control:
 
-| 层级 | 你控制什么 | 适用于 |
+| Level | What You Control | Best For |
 |-------|-----------------|----------|
-| **Prompting** | 问题本身 | 快速的一次性提问 |
-| **Agents** | 问题 + 谁来回答 | 可重复的任务 |
-| **Skills** | 问题 + 谁来回答 + 怎么做 | 关键工作流 |
+| **Prompting** | The question | Quick one-off questions |
+| **Agents** | The question + who answers | Repeatable tasks |
+| **Skills** | The question + who answers + how they do it | Critical workflows |
 
 ---
 
-## 接下来做什么？
+## What's Next?
 
-目前，先在 **Level 1** 多花时间——就是直接提问。习惯在终端里向 Claude 提问。用得越多，你就越会发现哪些任务适合用 Agent 来处理。
+For now, spend time at **Level 1** — just prompt. Get comfortable asking Claude questions in the terminal. The more you use it, the more you'll notice tasks that would benefit from an agent.
 
 ---
 
-[返回 Day 0（环境搭建）](../day0/README.md)
+[Back to Day 0 (Setup)](../day0/README.md)

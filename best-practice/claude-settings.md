@@ -385,7 +385,7 @@ Configure bash command sandboxing for security.
 | `sandbox.network.allowAllUnixSockets` | boolean | `false` | Allow all Unix sockets (overrides `allowUnixSockets`). On Linux and WSL2 this is the only way to permit Unix sockets, since it skips the seccomp filter that otherwise blocks `socket(AF_UNIX, ...)` calls |
 | `sandbox.network.allowLocalBinding` | boolean | `false` | Allow binding to localhost ports (macOS) |
 | `sandbox.network.allowedDomains` | array | `[]` | Network domain allowlist for sandbox |
-| `sandbox.network.deniedDomains` | array | `[]` | Network domain denylist for bash sandbox. Takes precedence over wildcards in allowedDomains. Supports glob patterns (e.g., "*.example.com") (v2.1.113) |
+| `sandbox.network.deniedDomains` | array | `[]` | Network domain denylist for bash sandbox. Takes precedence over wildcards in `allowedDomains`. Supports glob patterns (e.g., `"*.example.com"`) (v2.1.113) |
 | `sandbox.network.httpProxyPort` | number | - | HTTP proxy port 1-65535 (custom proxy) |
 | `sandbox.network.socksProxyPort` | number | - | SOCKS5 proxy port 1-65535 (custom proxy) |
 | `sandbox.network.allowManagedDomainsOnly` | boolean | `false` | Only allow domains in managed allowlist (managed settings) |
@@ -494,7 +494,7 @@ Map Anthropic model IDs to provider-specific model IDs for Bedrock, Vertex, or F
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `effortLevel` | string | - | Persist the effort level across sessions. Accepts `"low"`, `"medium"`, `"high"`, or `"xhigh"` (Opus 4.7 only, v2.1.111). Written automatically when you run `/effort low`, `/effort medium`, `/effort high`, or `/effort xhigh`. Supported on Opus 4.6, Sonnet 4.6, and Opus 4.7. Unsupported levels fall back to highest supported |
+| `effortLevel` | string | - | Persist the effort level across sessions. Accepts `"low"`, `"medium"`, `"high"`, or `"xhigh"` (Opus 4.7 only, v2.1.111). Written automatically when you run `/effort low`, `/effort medium`, `/effort high`, or `/effort xhigh`. Supported on Opus 4.6, Sonnet 4.6, and Opus 4.7. Unsupported levels fall back to the highest supported level on the active model |
 | `modelOverrides` | object | - | Map model picker entries to provider-specific IDs (e.g., Bedrock inference profile ARNs). Each key is a model picker entry name, each value is the provider model ID |
 
 **Example:**
@@ -524,7 +524,7 @@ The `/model` command exposes an **effort level** control that adjusts how much r
 2. Or run `/model` → select a model → use **← →** arrow keys to adjust
 3. The setting persists via the `effortLevel` key in `settings.json`
 
-**Note:** Effort level is available for Opus 4.6, Sonnet 4.6, and Opus 4.7 on Max and Team plans. As of v2.1.111, `xhigh` was introduced for Opus 4.7 and is the default on Opus 4.7 across all plans. The default was changed from High to Medium in v2.1.68, then changed back to **High** for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users in v2.1.94. As of v2.1.75, 1M context window for Opus 4.6 is available by default on Max, Team, and Enterprise plans.
+**Note:** Effort level is available for Opus 4.6, Sonnet 4.6, and Opus 4.7 on Max and Team plans. The default was changed from High to Medium in v2.1.68, then changed back to **High** for API-key, Bedrock/Vertex/Foundry, Team, and Enterprise users in v2.1.94. v2.1.111 introduced **`xhigh`** (Opus 4.7 only) and made it the default effort level on Opus 4.7 across all plans. As of v2.1.75, 1M context window for Opus 4.6 is available by default on Max, Team, and Enterprise plans.
 
 ### Model Environment Variables
 
@@ -745,8 +745,8 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_USE_FOUNDRY` | Use Microsoft Foundry (`1` to enable) |
 | `CLAUDE_CODE_USE_MANTLE` | Use the Bedrock [Mantle endpoint](https://code.claude.com/docs/en/amazon-bedrock#use-the-mantle-endpoint) (`1` to enable) |
 | `CLAUDE_CODE_USE_POWERSHELL_TOOL` | Set to `1` to enable the PowerShell tool on Windows (opt-in preview). When enabled, Claude can run PowerShell commands natively instead of routing through Git Bash. Only supported on native Windows, not WSL (v2.1.84) |
-| `CLAUDE_CODE_REMOTE` | Read-only. Set automatically to `true` when Claude Code is running as a cloud session. Read this from a hook or setup script to detect whether you are in a cloud environment *(in v2.1.110 changelog, not yet on official env-vars page)* |
-| `CLAUDE_CODE_REMOTE_SESSION_ID` | Read-only. Set automatically in cloud sessions to the current session's ID. Read this to construct a link back to the session transcript *(in v2.1.110 changelog, not yet on official env-vars page)* |
+| `CLAUDE_CODE_REMOTE` | Read-only. Set automatically to `true` when Claude Code is running as a cloud session. Read this from a hook or setup script to detect whether you are in a cloud environment |
+| `CLAUDE_CODE_REMOTE_SESSION_ID` | Read-only. Set automatically in cloud sessions to the current session's ID. Read this to construct a link back to the session transcript |
 | `CLAUDE_REMOTE_CONTROL_SESSION_NAME_PREFIX` | Prefix for auto-generated Remote Control session names. Defaults to the machine hostname |
 | `CLAUDE_CODE_ENABLE_TELEMETRY` | Enable/disable telemetry (`0` or `1`) |
 | `DISABLE_ERROR_REPORTING` | Disable error reporting (`1` to disable) |
@@ -788,7 +788,7 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_NEW_INIT` | Set to `true` to make `/init` run an interactive setup flow. Asks which files to generate (CLAUDE.md, skills, hooks) before exploring the codebase. Without this, `/init` generates a CLAUDE.md automatically |
 | `CLAUDE_CODE_PLUGIN_SEED_DIR` | Path to one or more read-only plugin seed directories, separated by `:` on Unix or `;` on Windows. Bundle pre-populated plugins into a container image. Claude Code registers marketplaces from these directories at startup and uses pre-cached plugins without re-cloning |
 | `ENABLE_CLAUDEAI_MCP_SERVERS` | Enable Claude.ai MCP servers |
-| `CLAUDE_CODE_EFFORT_LEVEL` | Set effort level: `low`, `medium`, `high`, `max` (Opus 4.6 only), `xhigh` (Opus 4.7 only, v2.1.111), or `auto` (use model default). Takes precedence over `/effort` and the `effortLevel` setting. Also configurable as a startup-only var — see [CLI Startup Flags](./claude-cli-startup-flags.md#environment-variables) |
+| `CLAUDE_CODE_EFFORT_LEVEL` | Set effort level: `low`, `medium`, `high`, `xhigh` (Opus 4.7 only, v2.1.111), `max` (Opus 4.6 only), or `auto` (use model default). Takes precedence over `/effort` and the `effortLevel` setting. Also configurable as a startup-only var — see [CLI Startup Flags](./claude-cli-startup-flags.md#environment-variables) |
 | `CLAUDE_CODE_MAX_TURNS` | Maximum agentic turns before stopping *(not in official docs — unverified)* |
 | `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` | Equivalent of setting `DISABLE_AUTOUPDATER`, `DISABLE_FEEDBACK_COMMAND`, `DISABLE_ERROR_REPORTING`, and `DISABLE_TELEMETRY` |
 | `CLAUDE_CODE_SKIP_SETTINGS_SETUP` | Skip first-run settings setup flow *(not in official docs — unverified)* |
@@ -952,11 +952,11 @@ Set environment variables for all Claude Code sessions.
   "alwaysThinkingEnabled": true,
   "showThinkingSummaries": true,
   "viewMode": "default",
+  "tui": "fullscreen",
+  "awaySummaryEnabled": false,
   "includeGitInstructions": true,
   "defaultShell": "bash",
   "plansDirectory": "./plans",
-  "tui": "fullscreen",
-  "awaySummaryEnabled": false,
   "effortLevel": "xhigh",
 
   "worktree": {

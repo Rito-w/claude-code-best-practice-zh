@@ -367,7 +367,7 @@
 | 4 | HIGH | Version Bump | Update report version badge from v2.1.97 to v2.1.101 | ✅ COMPLETE (badge, header version, and header text updated in Phase 2.6) |
 | 5 | MED | Changed Description | Update `disableSkillShellExecution` — add ` ```! ` (triple-backtick shell) block syntax and "from user, project, plugin, or additional-directory sources" qualifier per official settings page | ✅ COMPLETE (description expanded per official docs) |
 | 6 | MED | Ownership Boundary | Add `DISABLE_AUTOUPDATER` to settings report env vars table — on official /en/env-vars page as configurable via `env` key, currently only in CLI startup flags file. Add with cross-reference to CLI flags file | ✅ COMPLETE (added to settings report before DISABLE_TELEMETRY; CLI flags file updated with cross-ref) |
-| 7 | MED | Ownership Boundary | Add `CCR_FORCE_BUNDLE` to settings report env vars table — on official /en/env-vars page as configurable via `env` key, currently only in CLI startup flags file. Add with cross-reference to CLI flags file | ✅ COMPLETE (added to settings report before CLAUDE_CODE_GIT_BASH_PATH; CLI flags file updated with cross-ref) |
+
 ---
 
 ## [2026-04-14 11:22 PM PKT] Claude Code v2.1.107
@@ -383,31 +383,25 @@
 | 7 | MED | Example Update | Add `viewMode` to Quick Reference example after `showThinkingSummaries` | ✅ COMPLETE (added "viewMode": "default" to example) |
 | 8 | MED | Stale Annotation | `OTEL_LOG_TOOL_DETAILS` still marked "in v2.1.85 changelog, not yet on official env-vars page" — confirmed still absent from official page after 10+ versions and 7 consecutive runs | ✋ ON HOLD (annotation is accurate — keeping as-is pending official docs update) |
 | 7 | MED | Ownership Boundary | Add `CCR_FORCE_BUNDLE` to settings report env vars table — on official /en/env-vars page as configurable via `env` key, currently only in CLI startup flags file. Add with cross-reference to CLI flags file | ✅ COMPLETE (added to settings report before CLAUDE_CODE_GIT_BASH_PATH; CLI flags file updated with cross-ref) |
-## [2026-04-XX XX:XX PM PKT] Claude Code v2.1.108
 
-| # | Priority | Type | Action | Status |
-|---|----------|------|--------|--------|
-| 1 | MED | New Env Var (Changelog) | Add `ENABLE_PROMPT_CACHING_1H` — 1-hour prompt cache TTL, replaces deprecated `ENABLE_PROMPT_CACHING_1H_BEDROCK` | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
-| 2 | MED | New Env Var (Changelog) | Add `FORCE_PROMPT_CACHING_5M` — force 5-minute prompt cache TTL | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
-| 3 | MED | Deprecated Annotation | Update `ENABLE_PROMPT_CACHING_1H_BEDROCK` annotation to note it's deprecated, replaced by `ENABLE_PROMPT_CACHING_1H` | ✅ COMPLETE (annotation updated in env vars table) |
+---
 
 ## [2026-04-16 08:25 PM PKT] Claude Code v2.1.110
 
 | # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | New Setting | Add `minimumVersion` to General Settings — string, prevent auto-updater from downgrading below specific version | ✅ COMPLETE (added after autoUpdatesChannel) |
-| 2 | HIGH | Changed Description | Update `sandbox.enableWeakerNestedSandbox` — add "(Linux and WSL2 only)" qualifier | ✅ COMPLETE (description updated in sandbox table) |
-| 3 | HIGH | Changed Description | Update `sandbox.network.allowUnixSockets` — add "(macOS only)" qualifier, note it's ignored on Linux/WSL2 | ✅ COMPLETE (description updated) |
-| 4 | HIGH | Changed Description | Update `sandbox.network.allowAllUnixSockets` — add Linux/WSL2 note about seccomp filter | ✅ COMPLETE (description updated) |
-| 5 | MED | New Setting (Changelog) | Add `autoScrollEnabled` — boolean, disable auto-scroll in fullscreen mode | ✅ COMPLETE (added before feedbackSurveyRate with changelog annotation) |
-| 6 | MED | New Setting (Changelog) | Add `tui` — string, switch rendering mode for flicker-free rendering | ✅ COMPLETE (added before feedbackSurveyRate with changelog annotation) |
-| 7 | MED | New Env Var (Changelog) | Add `ENABLE_PROMPT_CACHING_1H` — 1-hour prompt cache TTL (replaces deprecated `ENABLE_PROMPT_CACHING_1H_BEDROCK`) | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
-| 8 | MED | New Env Var (Changelog) | Add `FORCE_PROMPT_CACHING_5M` — force 5-minute prompt cache TTL | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
-| 9 | MED | New Env Var (Changelog) | Add `CLAUDE_CODE_REMOTE` — read-only, set to true in cloud sessions | ✅ COMPLETE (added near related env vars with changelog annotation) |
-| 10 | MED | New Env Var (Changelog) | Add `CLAUDE_CODE_REMOTE_SESSION_ID` — read-only, cloud session ID | ✅ COMPLETE (added near related env vars with changelog annotation) |
-| 11 | MED | New Env Var (Changelog) | Add `CLAUDE_CODE_TMUX_TRUECOLOR` — allow 24-bit truecolor in tmux | ✅ COMPLETE (added before CLAUDE_CODE_NO_FLICKER with changelog annotation) |
-| 12 | MED | Effort Level | Add Max effort level for Opus 4.6 to effort level table | ✅ COMPLETE (added before High in effort table) |
-| 13 | MED | Version Bump | Update version badge from v2.1.107 to v2.1.110 | ✅ COMPLETE (badge and header updated) |
+| 1 | HIGH | Missing Setting | Add `minimumVersion` to General Settings table — string, prevents auto-updater from downgrading below a specific version. Confirmed on official settings page | ✅ COMPLETE (added after autoUpdatesChannel in General Settings table) |
+| 2 | HIGH | Missing Env Var | Add `CLAUDE_CODE_TMUX_TRUECOLOR` to Common Environment Variables table — set to `1` to allow 24-bit truecolor output inside tmux. Confirmed on official /en/env-vars page | ✅ COMPLETE (added before CLAUDE_CODE_NO_FLICKER) |
+| 3 | HIGH | Missing Env Var | Add `CLAUDE_CODE_REMOTE` to Common Environment Variables table — read-only, set to `true` in cloud sessions. Confirmed on official /en/env-vars page | ✅ COMPLETE (added before CLAUDE_REMOTE_CONTROL_SESSION_NAME_PREFIX) |
+| 4 | HIGH | Missing Env Var | Add `CLAUDE_CODE_REMOTE_SESSION_ID` to Common Environment Variables table — read-only, cloud session ID. Confirmed on official /en/env-vars page | ✅ COMPLETE (added before CLAUDE_REMOTE_CONTROL_SESSION_NAME_PREFIX) |
+| 5 | HIGH | Inverse Env Var Check | Mark `ENABLE_PROMPT_CACHING_1H_BEDROCK` as "not in official docs — unverified". No longer on official /en/env-vars page. Per Rule 5D | ✅ COMPLETE (added unverified annotation with deprecation note) |
+| 6 | MED | New Setting (Changelog) | Add `autoScrollEnabled` to General Settings — boolean, disable conversation auto-scroll in fullscreen mode. v2.1.110 changelog only, not yet on official settings page | ✅ COMPLETE (added before feedbackSurveyRate with changelog annotation) |
+| 7 | MED | New Setting (Changelog) | Add `tui` to General Settings — setting for flicker-free rendering mode (`/tui fullscreen`). v2.1.110 changelog only, not yet on official settings page | ✅ COMPLETE (added before feedbackSurveyRate with changelog annotation) |
+| 8 | MED | New Env Var (Changelog) | Add `ENABLE_PROMPT_CACHING_1H` to env vars table — 1-hour prompt cache TTL (replaces deprecated `ENABLE_PROMPT_CACHING_1H_BEDROCK`). v2.1.108 changelog only, not yet on official /en/env-vars page | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
+| 9 | MED | New Env Var (Changelog) | Add `FORCE_PROMPT_CACHING_5M` to env vars table — force 5-minute TTL. v2.1.108 changelog only, not yet on official /en/env-vars page | ✅ COMPLETE (added before DISABLE_PROMPT_CACHING with changelog annotation) |
+| 10 | MED | Effort Level Table | Add `Max` row to Effort Level table — Opus 4.6 only, documented in env var but missing from table | ✅ COMPLETE (added as first row in Effort Level table) |
+| 11 | MED | Sandbox Descriptions | Add platform-specific notes: `allowUnixSockets` (macOS only), `allowAllUnixSockets` (Linux/WSL2 detail), `enableWeakerNestedSandbox` (Linux/WSL2 only) | ✅ COMPLETE (all 3 descriptions updated with platform-specific notes per official docs) |
+| 12 | LOW | Changelog-Only Env Vars | Consider adding `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` (v2.1.108), `OTEL_LOG_USER_PROMPTS` (v2.1.101), `OTEL_LOG_TOOL_CONTENT` (v2.1.101) — all changelog-only, not on official env-vars page. Defer per Rule 8A until official docs confirm | ✋ ON HOLD (deferred — changelog-only, not confirmed by official docs) |
 
 ---
 
@@ -415,14 +409,17 @@
 
 | # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Version Bump | Update report version badge from v2.1.110 to v2.1.114 and header "As of v2.1.110" → "As of v2.1.114" | ✅ COMPLETE |
-| 2 | HIGH | New Setting | Add `awaySummaryEnabled` to General Settings — boolean, controls idle-session recap ("away summary"), confirmed on official settings page. Paired with `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` env var | ✅ COMPLETE (added between `tui` and `feedbackSurveyRate`) |
-| 3 | HIGH | Missing Env Var | Add `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` to Common Environment Variables table — opt-out for away summary. Confirmed on official /en/env-vars page | ✅ COMPLETE (added after `FORCE_PROMPT_CACHING_5M`) |
-| 4 | HIGH | Missing Value | Add `xhigh` to `effortLevel` valid values — v2.1.111 introduced `xhigh` for Opus 4.7 | ✅ COMPLETE (description updated with `"xhigh"` value, Opus 4.7 support, fallback behavior) |
-| 5 | HIGH | Effort Level Table | Add `xhigh` row to Effort Level table — Opus 4.7 only, default on Opus 4.7 across all plans | ✅ COMPLETE (added between Max and High; default marker updated) |
-| 6 | HIGH | File Scope Move | Move `autoScrollEnabled` from General Settings to Global Config Settings (`~/.claude.json`) table — official docs list it as ~/.claude.json key | ✅ COMPLETE (removed from General Settings, added to Global Config Settings between `autoInstallIdeExtension` and `editorMode`) |
-| 7 | HIGH | Stale Annotation | Remove "(in v2.1.110 changelog...)" from `tui` — now officially documented. Update description per official docs | ✅ COMPLETE (annotation removed, description updated with values) |
-| 8 | HIGH | New Setting | Add `externalEditorContext` to Global Config Settings (`~/.claude.json`) — confirmed on official settings page | ✅ COMPLETE (added after `editorMode`) |
-| 9 | HIGH | Stale Annotation | Remove "(not in official docs — unverified)" from `sandbox.network.deniedDomains` — officially added in v2.1.113 | ✅ COMPLETE (annotation removed, description rewritten with precedence and glob support) |
-| 10 | MED | Example Update | Update Quick Reference example to include `awaySummaryEnabled`, `tui: "fullscreen"`, and `effortLevel: "xhigh"` | ✅ COMPLETE |
-| 11 | LOW | Cross-Link | Add cross-reference links for `CLAUDE_CODE_SIMPLE` and `CLAUDE_CODE_EFFORT_LEVEL` back to `claude-cli-startup-flags.md` | ✅ COMPLETE |
+| 1 | HIGH | Version Bump | Update report version badge from v2.1.110 to v2.1.114 and header "As of v2.1.110" → "As of v2.1.114" | ✅ COMPLETE (badge and header text updated) |
+| 2 | HIGH | New Setting | Add `awaySummaryEnabled` to General Settings table — boolean, controls whether idle-session recap ("away summary") is generated. Confirmed on official settings page. Paired with `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` env var | ✅ COMPLETE (added to General Settings table between `tui` and `feedbackSurveyRate` with pairing note) |
+| 3 | HIGH | Missing Env Var | Add `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` to Common Environment Variables table — opt-out for away summary/session recap. Confirmed on official /en/env-vars page | ✅ COMPLETE (added after `FORCE_PROMPT_CACHING_5M` — RECURRING resolved, first seen 2026-04-16) |
+| 4 | HIGH | Missing Value | Add `xhigh` to `effortLevel` valid values (line 497) — v2.1.111 introduced `xhigh` for Opus 4.7. Currently lists only `"low"`, `"medium"`, `"high"` | ✅ COMPLETE (description updated with `"xhigh"` value, Opus 4.7 support, and fallback behavior) |
+| 5 | HIGH | Effort Level Table | Add `xhigh` row to Effort Level table (between Max and High) — Opus 4.7 only, introduced v2.1.111 | ✅ COMPLETE (XHigh row added; default marker updated to "default on Opus 4.6/Sonnet 4.6"; Note section expanded with v2.1.111 xhigh default on Opus 4.7) |
+| 6 | HIGH | File Scope Move | Move `autoScrollEnabled` from General Settings (line 88) to Global Config Settings (`~/.claude.json`) table — official docs list it as a `~/.claude.json` key, not `settings.json`. Default `true`. Per Rule 1H. Adding to settings.json may trigger schema validation error | ✅ COMPLETE (removed from General Settings, added to Global Config Settings table between `autoInstallIdeExtension` and `editorMode` with default `true`) |
+| 7 | HIGH | Stale Annotation | Remove "(in v2.1.110 changelog, not yet on official settings page)" from `tui` description (line 89) — now officially documented. Update description per official docs: `"fullscreen"` or `"default"` | ✅ COMPLETE (annotation removed, description updated with values and v2.1.110 reference) |
+| 8 | HIGH | New Setting | Add `externalEditorContext` to Global Config Settings (`~/.claude.json`) table — confirmed on official settings page under "Global config settings" section. Per Rule 1A | ✅ COMPLETE (added to Global Config Settings table after `editorMode` with default `true`) |
+| 9 | HIGH | Stale Annotation | Remove "(not in official docs — unverified)" from `sandbox.network.deniedDomains` (line 388) — officially added in v2.1.113 changelog. Update description per official docs (takes precedence over `allowedDomains`). Per Rule 10B, unblocks after 11 consecutive ON HOLD runs | ✅ COMPLETE (annotation removed, description rewritten with precedence and glob support notes — RECURRING resolved, first seen 2026-03-05) |
+| 10 | MED | Example Update | Update Quick Reference example (lines 938–1023) to include `awaySummaryEnabled`, `tui: "fullscreen"`, and `effortLevel: "xhigh"` to showcase v2.1.111–v2.1.114 additions | ✅ COMPLETE (all 3 keys added to example; `effortLevel` bumped from `"medium"` to `"xhigh"`) |
+| 11 | MED | Header Setting Count | Verify "60+ settings" count still accurate after adding `awaySummaryEnabled` and `externalEditorContext`; env var count "175+" still reasonable | ✅ COMPLETE (both counts remain within stated ranges — net +2 settings, +1 env var, headers accurate as "60+" and "175+") |
+| 12 | LOW | Cross-Link | Add bidirectional cross-links for `CLAUDE_CODE_SIMPLE` and `CLAUDE_CODE_EFFORT_LEVEL` between settings report and `claude-cli-startup-flags.md`. Currently one-way; startup-flags file links to settings report but settings report does not link back | ✅ COMPLETE (added cross-reference links back to `./claude-cli-startup-flags.md#environment-variables` for both env vars) |
+| 13 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` still marked "in v2.1.85 changelog, not yet on official env-vars page" after 11+ consecutive runs. Per Rule 10B: consider resolving — either confirm via official docs or remove. Currently agent research confirms still absent from official docs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107, annotation still accurate) |
+| 14 | LOW | Suspect Key Recurrence | `OTEL_LOG_USER_PROMPTS`, `OTEL_LOG_TOOL_CONTENT` still changelog-only. Defer per Rule 8A | ✋ ON HOLD (kept — recurring from 2026-04-16 v2.1.110) |

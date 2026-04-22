@@ -141,7 +141,6 @@ No drift detected — frontmatter fields (13) and bundled skills (5) are fully s
 ## [2026-04-13 08:02 PM PKT] Claude Code v2.1.101
 
 No drift detected — frontmatter fields (13) and bundled skills (5) are fully synchronized with official docs.
-No drift detected — frontmatter fields (13) and bundled skills (5) are fully synchronized with official docs.
 
 ---
 
@@ -151,16 +150,14 @@ No drift detected — frontmatter fields (13) and bundled skills (5) are fully s
 |---|----------|------|--------|--------|
 | 1 | HIGH | New Field | Add `when_to_use` field to frontmatter table — additional context for when Claude should invoke the skill; appended to `description` in skill listing, counts toward 1,536-char cap | ✅ COMPLETE (added to frontmatter table after `description`, count updated 13→14) |
 
+---
+
 ## [2026-04-16 08:17 PM PKT] Claude Code v2.1.110
 
-| # | Priority | Type | Action | Status |
-|---|----------|------|--------|--------|
-| 1 | LOW | Version Check | Confirm skills report aligned with v2.1.110 | ✅ COMPLETE (no drift detected) |
+No drift detected — frontmatter fields (14) and bundled skills (5) are fully synchronized with official docs.
 
 ---
 
-## [2026-04-18 08:22 PM PKT] Claude Code v2.1.114 — No drift detected
+## [2026-04-18 07:53 PM PKT] Claude Code v2.1.114
 
-| # | Priority | Type | Action | Status |
-|---|----------|------|--------|--------|
-| 1 | INFO | Drift Check | Scanned v2.1.114 source for changes to best-practice/claude-skills.md — no changes detected | ✅ COMPLETE (no updates needed) |
+No drift detected — frontmatter fields (14) and bundled skills (5) are fully synchronized with official docs.

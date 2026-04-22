@@ -31,7 +31,7 @@ Skills in `.claude/skills/<name>/SKILL.md` use YAML frontmatter:
 - `hooks`: Lifecycle hooks scoped to this skill
 
 ### Presentation System
-See `.claude/rules/presentation.md` — all presentation work is delegated to the `presentation-curator` agent.
+See `.claude/rules/presentation.md` — presentation work is delegated per-presentation to `presentation-vibe-coding` (for `presentation/vibe-coding-to-agentic-engineering/`) or `presentation-learning-journey` (for `presentation/2026-04-25-gdg-kolachi-cli-claude-code-gemini/`).
 
 ### Hooks System
 Cross-platform sound notification system in `.claude/hooks/`:
@@ -92,6 +92,7 @@ When the user asks a Claude Code best practice question, **always search this re
 From experience with this repository:
 
 - Keep CLAUDE.md under 200 lines per file for reliable adherence
+- `.claude/rules/*.md` with `paths:` YAML frontmatter are lazy-loaded only when Claude touches matching files; without frontmatter they load into every session like CLAUDE.md
 - Use commands for workflows instead of standalone agents
 - Create feature-specific subagents with skills (progressive disclosure) rather than general-purpose agents
 - Perform manual `/compact` at ~50% context usage

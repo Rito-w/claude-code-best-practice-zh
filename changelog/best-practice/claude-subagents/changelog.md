@@ -179,7 +179,6 @@ No drift detected — report is fully in sync with official docs. All 16 frontma
 ## [2026-04-13 08:02 PM PKT] Claude Code v2.1.101
 
 No drift detected — report is fully in sync with official docs. All 16 frontmatter fields and 5 built-in agents match.
-No drift detected — report is fully in sync with official docs. All 16 frontmatter fields and 5 built-in agents match.
 
 ---
 
@@ -187,16 +186,14 @@ No drift detected — report is fully in sync with official docs. All 16 frontma
 
 No drift detected — report is fully in sync with official docs. All 16 frontmatter fields and 5 built-in agents match.
 
+---
+
 ## [2026-04-16 08:16 PM PKT] Claude Code v2.1.110
 
-| # | Priority | Type | Action | Status |
-|---|----------|------|--------|--------|
-| 1 | LOW | Version Check | Confirm subagents report aligned with v2.1.110 | ✅ COMPLETE (no drift detected) |
+No drift detected — report is fully in sync with official docs. All 16 frontmatter fields and 5 built-in agents match.
 
 ---
 
-## [2026-04-18 08:22 PM PKT] Claude Code v2.1.114 — No drift detected
+## [2026-04-18 07:53 PM PKT] Claude Code v2.1.114
 
-| # | Priority | Type | Action | Status |
-|---|----------|------|--------|--------|
-| 1 | INFO | Drift Check | Scanned v2.1.114 source for changes to best-practice/claude-subagents.md — no changes detected | ✅ COMPLETE (no updates needed) |
+No drift detected — report is fully in sync with official docs. All 16 frontmatter fields and 5 built-in agents match.

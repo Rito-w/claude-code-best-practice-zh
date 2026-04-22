@@ -1,5 +1,6 @@
 {
-    "permissions": {
+  "disableAllHooks": false,
+  "permissions": {
     "allow": [
       "Edit(*)",
       "Write(*)",
@@ -82,7 +83,6 @@
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80"
   },
   "enableAllProjectMcpServers": true,
-  "disableAllHooks": false,
   "hooks": {
     "PreToolUse": [
       {
