@@ -1,3 +1,4 @@
+<!-- 翻译标记：此文件已从英文翻译为中文 -->
 # Sub-agents 最佳实践
 
 ![Last Updated](https://img.shields.io/badge/Last_Updated-Apr%2026%2C%202026%201%3A10%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.119-blue?style=flat&labelColor=555)<br>
@@ -53,4 +54,4 @@ Claude Code subagents — frontmatter 字段和官方内置 agent 类型。
 
 - [创建自定义 subagents — Claude Code 文档](https://code.claude.com/docs/en/sub-agents)
 - [CLI 参考 — Claude Code 文档](https://code.claude.com/docs/en/cli-reference)
-- [Claude Code CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
+- [Claude Code 变更日志](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)

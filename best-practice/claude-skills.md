@@ -1,4 +1,5 @@
-# Skills Best Practice
+<!-- 翻译标记：此文件已从英文翻译为中文 -->
+# Skills 最佳实践
 
 ![Last Updated](https://img.shields.io/badge/Last_Updated-Apr%2026%2C%202026%201%3A09%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.119-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-skills-implementation.md)
@@ -47,12 +48,12 @@ Claude Code skills — frontmatter 字段和官方内置技能。
 | 4 | `loop` | 按固定间隔循环运行提示或 slash command（最长 3 天） |
 | 5 | `claude-api` | 使用 Claude API 或 Anthropic SDK 构建应用 — 在 `anthropic` / `@anthropic-ai/sdk` 导入时触发 |
 
-另见：[Official Skills Repository](https://github.com/anthropics/skills/tree/main/skills) 社区维护的可安装技能仓库。
+另见：[官方 Skills 仓库](https://github.com/anthropics/skills/tree/main/skills) 社区维护的可安装技能仓库。
 
 ---
 
 ## 来源
 
-- [Claude Code Skills — Docs](https://code.claude.com/docs/en/skills)
-- [Skills Discovery in Monorepos](../reports/claude-skills-for-larger-mono-repos.md)
-- [Claude Code CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
+- [Claude Code Skills 文档](https://code.claude.com/docs/en/skills)
+- [Monorepo 中的 Skills 发现](../reports/claude-skills-for-larger-mono-repos.md)
+- [Claude Code 变更日志](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
