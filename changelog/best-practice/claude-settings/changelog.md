@@ -463,3 +463,25 @@
 | 12 | LOW | Suspect Key Recurrence | `OTEL_LOG_USER_PROMPTS`, `OTEL_LOG_TOOL_CONTENT` still changelog-only. Defer per Rule 8A | ✋ ON HOLD (kept — recurring from 2026-04-16 v2.1.110) |
 | 13 | INVALID | Spurious Drift Claim | `claude-code-guide` agent reported `attribution.pr` as a NEW v2.1.119 setting. Verified against current report (line 149) — already documented in Attribution Settings table | ❌ INVALID (already in report) |
 | 14 | INVALID | Spurious Drift Claim | `claude-code-guide` agent claimed `sandbox.network.deniedDomains` was added v2.1.116. Workflow agent and report (line 386) both confirm v2.1.113 introduction (matches recent v2.1.114 changelog entry that resolved its prior unverified status). Report value retained | ❌ INVALID (agent contradicted by report-specific agent + prior changelog) |
+
+---
+
+## [2026-04-29 12:49 AM PKT] Claude Code v2.1.121
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|----------|------|--------|--------|
+| 1 | HIGH | 版本升级 | 更新报告版本 badge 从 v2.1.119 → v2.1.121，头部 "As of v2.1.119" → "As of v2.1.121" | ✅ COMPLETE |
+| 2 | HIGH | 新设置 | 添加 `sshConfigs` 到新的 Workspace & Teams 子章节 — 提供 Desktop 中 SSH 连接下拉 | ✅ COMPLETE |
+| 3 | HIGH | 新 MCP 选项 | 添加 `alwaysLoad` 到 MCP 设置 — 每服务器布尔选项，免除工具搜索延迟 | ✅ COMPLETE |
+| 4 | HIGH | 状态行字段 | 添加 `effort.level` 和 `thinking.enabled` 到状态行输入字段表（v2.1.121） | ✅ COMPLETE |
+| 5 | HIGH | 文件范围迁移 | 将 5 个设置键从 Global Config 迁移到 Display Settings 表，添加历史说明 | ✅ COMPLETE |
+| 6 | HIGH | 缺失环境变量 | 添加 `AI_AGENT` 到环境变量表 | ✅ COMPLETE |
+| 7 | HIGH | 缺失环境变量 | 添加 `OTEL_LOG_USER_PROMPTS` 到环境变量表（重复出现，现可操作） | ✅ COMPLETE |
+| 8 | MED | 权限行为 | 添加 v2.1.121 `--dangerously-skip-permissions` 排除说明到权限部分 | ✅ COMPLETE |
+| 9 | MED | 描述更新 | 更新 `language` 设置描述 — v2.1.121 也应用于终端标签标题 | ✅ COMPLETE |
+| 10 | MED | 有用命令 | 更新 `/effort` 行包含 `xhigh` 值 | ✅ COMPLETE |
+| 11 | LOW | Skill 变量说明 | 添加 `${CLAUDE_EFFORT}` skill 模板变量说明（v2.1.120） | ✅ COMPLETE |
+| 12 | LOW | 示例更新 | 更新快速参考示例展示 v2.1.121 功能 | ✅ COMPLETE |
+| 13 | LOW | 重复可疑键 | `OTEL_LOG_TOOL_DETAILS` 仍为 changelog-only，延期 | ✋ ON HOLD |
+| 14 | LOW | 重复可疑键 | `OTEL_LOG_TOOL_CONTENT` 仍为 changelog-only，延期 | ✋ ON HOLD |
+| 15 | HIGH | 死链修复 | 修复两个 `auto mode` 链接为绝对 URL | ✅ COMPLETE |

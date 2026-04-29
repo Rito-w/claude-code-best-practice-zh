@@ -175,3 +175,11 @@ No drift detected — frontmatter fields (14) and bundled skills (5) are fully s
 ## [2026-04-26 01:09 PM PKT] Claude Code v2.1.119
 
 No drift detected — frontmatter fields (15) and bundled skills (5) are fully synchronized with official docs.
+
+---
+
+## [2026-04-29 12:48 AM PKT] Claude Code v2.1.121
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|----------|------|--------|--------|
+| 1 | HIGH | 新 Skill | 添加 `fewer-permission-prompts` 到官方捆绑 skills 表 — 引入于 v2.1.112；官方命令参考页面将其标记为 `[Skill]` | ✅ COMPLETE（添加第 6 行到捆绑 skills 表，计数从 5→6） |

@@ -464,3 +464,17 @@ Tracks drift between the README CONCEPTS table and official Claude Code document
 | 15 | LOW | Verification | Ultrareview anchor `#track-a-running-review` confirmed on `/en/ultrareview` page | ✅ COMPLETE (stable since v2.1.118) |
 | 16 | LOW | Verification | claude-code-guide cross-check — corroborated dedicated agent's findings on Vim mode (v2.1.118), Theme (v2.1.118), Effort xhigh (v2.1.111+ Opus 4.7), Worktrees (v2.1.105+); no contradictions | ✅ COMPLETE (both agents aligned) |
 | 17 | LOW | Verification Checklist Update | Added new rule (#7) "Beta Badge Currency" to verification-checklist.md — covers re-evaluating beta badges against upstream docs page lifecycle | ✅ COMPLETE (rule added) |
+
+---
+
+## [2026-04-29 12:53 AM PKT] Claude Code v2.1.121
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|----------|------|--------|--------|
+| 1 | HIGH | 过期 URL | Commands URL `/slash-commands` 不在官方站点中 — 重定向到 `/skills`；规范命令参考是 `/en/commands` | ❌ INVALID（重复出现 20+ 次运行；用户选择保持原样） |
+| 2 | MED | 描述更新 | Ultrareview 行（第 44 行）未提及 v2.1.120 引入的 `claude ultrareview [target]` 非交互子命令 | ✅ COMPLETE |
+| 3 | MED | 描述更新 | MCP Servers 行（第 29 行）未提及 v2.1.121 添加的 `alwaysLoad` 设置 | ✅ COMPLETE |
+| 4 | MED | 描述更新 | Hooks 行（第 28 行）未提及 v2.1.121 添加的 `updatedToolOutput` 能力 | ✅ COMPLETE |
+| 5 | LOW | 描述更新 | Subagents 行（第 24 行）未提及 forked subagents 现可通过 `CLAUDE_CODE_FORK_SUBAGENT=1` 在外部构建中使用 | ✅ COMPLETE |
+| 6 | LOW | 缺失内联链接 | Settings 行（第 31 行）内联链接未覆盖 Auto Mode Config（`/auto-mode-config`） | ✅ COMPLETE |
+| 7-14 | LOW | 验证 | 所有外部 URL、本地路径、锚点均已验证稳定 | ✅ COMPLETE |

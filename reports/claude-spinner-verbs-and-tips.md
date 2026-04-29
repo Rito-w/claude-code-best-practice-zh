@@ -1,10 +1,9 @@
 <!-- 
  翻译来源：https://github.com/shanraisshan/claude-code-best-practice/blob/main/reports/claude-spinner-verbs-and-tips.md
- 翻译时间：2026-04-29 02:00 CST
+ 翻译时间：2026-04-30 02:00 CST
  翻译版本：v1.0
 -->
-
-# Claude Code: 旋转动画词
+# Claude Code：旋转动画
 
 Claude Code 加载动画下方显示的旋转文字和小贴士。提取自 `~/.local/share/claude/versions/2.1.121`。
 

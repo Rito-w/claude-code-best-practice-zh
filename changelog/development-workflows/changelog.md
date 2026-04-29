@@ -448,3 +448,15 @@
 | 11 | LOW | Count Verify | ECC counts 143→82 commands, 230→183 skills — 4th consecutive run via directory enumeration | ON HOLD (RECURRING from Apr 13/16/18/24; methodology persists — keeping current values until manual verification) |
 | 12 | LOW | Count Verify | GSD commands 122→85 — 4th consecutive lower count from API enumeration | ON HOLD (RECURRING from Apr 16/18/24; likely directory pagination — keeping 122 until verified) |
 | 13 | LOW | Count Verify | Superpowers agents 5→1 formal — agents/ has only code-reviewer.md; 4 implicit dispatch from skills | ON HOLD (keeping 5 per prior decision to count implicit dispatch roles) |
+
+---
+
+## [2026-04-29 12:48 AM PKT] 开发工作流更新
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|----------|------|--------|--------|
+| 1-7 | HIGH | Star 更新 | 更新 7 个项目 star 数（Superpowers 168k→171k, ECC 167k→169k, Spec Kit 91k→92k, gstack 84k→86k, GSD 57k→58k, OpenSpec 43k→44k, oh-my-claudecode 31k→32k） | COMPLETE |
+| 8-10 | HIGH | Count 更新 | 更新 gstack skills 41→42, BMAD skills 39→40, Matt Pocock skills 16→22 | COMPLETE |
+| 11-14 | HIGH | 工作流更新 | 更新 Spec Kit、Superpowers、Matt Pocock 工作流，替换 HumanLayer 工作流为实际 .claude/commands | COMPLETE |
+| 15 | MED | 工作流 | 更新 Compound Engineering — 用子循环替换 "repeat" | COMPLETE |
+| 16-18 | LOW | Count 验证 | 多个项目计数持续不一致，保持当前值直到手动验证 | ON HOLD（重复出现） |
