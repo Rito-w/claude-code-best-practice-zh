@@ -1,35 +1,52 @@
-<!-- 
- 翻译来源：https://github.com/shanraisshan/claude-code-best-practice/blob/main/changelog/skill-collections/changelog.md
- 翻译时间：2026-04-30 02:00 CST
- 翻译版本：v1.0
--->
-# Skill Collections 变更日志
+# Skill Collections Changelog
 
-**状态图例：**
+**Status Legend:**
 
-| 状态 | 含义 |
+| Status | Meaning |
 |--------|---------|
-| `COMPLETE (原因)` | 操作已执行并成功解决 |
-| `INVALID (原因)` | 发现不正确、不适用或有意为之 |
-| `ON HOLD (原因)` | 操作延期，等待外部依赖或用户决策 |
+| `COMPLETE (reason)` | Action was taken and resolved successfully |
+| `INVALID (reason)` | Finding was incorrect, not applicable, or intentional |
+| `ON HOLD (reason)` | Action deferred, waiting on external dependency or user decision |
 
 ---
 
-## [2026-04-28 04:39 PM PKT] Skill Collections 更新
+## [2026-04-28 04:39 PM PKT] Skill Collections Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | LOW | 首次运行 | 在 README 中创建 SKILL COLLECTIONS 部分，包含 5 个仓库：anthropics/skills (125k/17)、wshobson/agents (35k/152)、mattpocock/skills (33k/17)、K-Dense-AI/scientific-agent-skills (20k/134)、VoltAgent/awesome-agent-skills (19k/1,100+ curated) | COMPLETE (首次播种来自 research-agent 的调研结果，2026-04-28 会话) |
+| 1 | LOW | Initial Run | Created SKILL COLLECTIONS section in README with 5 repos: anthropics/skills (125k/17), wshobson/agents (35k/152), mattpocock/skills (33k/17), K-Dense-AI/scientific-agent-skills (20k/134), VoltAgent/awesome-agent-skills (19k/1,100+ curated) | COMPLETE (initial seeding from research-agent findings, 2026-04-28 session) |
 
 ---
 
-## [2026-04-29 12:52 AM PKT] Skill Collections 更新
+## [2026-04-29 12:52 AM PKT] Skill Collections Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | MEDIUM | Star | 更新 mattpocock/skills ★ 从 33k 到 36k（36,476 精确值） | NEW |
-| 2 | MEDIUM | Count | 更新 mattpocock/skills skill 数量从 17 到 18（新增 setup-matt-pocock-skills，deprecated/ 文件夹于 2026-04-28 重组） | NEW |
-| 3 | LOW | Star | 更新 wshobson/agents ★ 从 35k 到 34k（34,477 精确值 — 略有下降） | NEW |
-| 4 | MEDIUM | Sort | 将 mattpocock/skills 行移到 wshobson/agents 行上方（因 star 变化导致排名交换） | NEW |
-| 5 | LOW | Count | 更新 VoltAgent/awesome-agent-skills 精选数量从 1,100+ 到 930+（实际 README  bullet 解析；badge 高估约 170） | NEW |
-| 6 | LOW | No Change | anthropics/skills (125k/17) 和 K-Dense-AI/scientific-agent-skills (20k/134) — 数值匹配，无需编辑 | COMPLETE (已验证，无漂移) |
+| 1 | MEDIUM | Star | Update mattpocock/skills ★ from 33k to 36k (36,476 exact) | NEW |
+| 2 | MEDIUM | Count | Update mattpocock/skills skill count from 17 to 18 (added setup-matt-pocock-skills, deprecated/ folder reorganized 2026-04-28) | NEW |
+| 3 | LOW | Star | Update wshobson/agents ★ from 35k to 34k (34,477 exact — slight drop) | NEW |
+| 4 | MEDIUM | Sort | Move mattpocock/skills row above wshobson/agents row (rank swap due to star changes) | NEW |
+| 5 | LOW | Count | Update VoltAgent/awesome-agent-skills curated count from 1,100+ to 930+ (actual README bullet parse; badge overstates by ~170) | NEW |
+| 6 | LOW | No Change | anthropics/skills (125k/17) and K-Dense-AI/scientific-agent-skills (20k/134) — values match, no edit needed | COMPLETE (verified, no drift) |
+
+---
+
+## [2026-05-01 03:31 PM PKT] Skill Collections Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | MEDIUM | Star | Update anthropics/skills ★ from 125k to 127k (126,746 exact) | NEW |
+| 2 | HIGH | Star | Update mattpocock/skills ★ from 36k to 51k (50,819 exact — +15k surge over ~3 days, likely external amplification) | NEW |
+| 3 | LOW | Star | Update wshobson/agents ★ from 34k to 35k (34,595 exact) | NEW |
+| 4 | LOW | Star | Update VoltAgent/awesome-agent-skills ★ from 19k to 20k (19,729 exact) | NEW |
+| 5 | LOW | No Change | All 5 skill counts steady (anthropics 17, mattpocock 18, wshobson 152, scientific 134, voltagent 930-curated) | COMPLETE (verified, no drift) |
+| 6 | LOW | Sort | Order preserved — scientific (19,829) still > voltagent (19,729) by ~100 stars; no row reordering needed | COMPLETE (verified) |
+
+---
+
+## [2026-05-01 04:05 PM PKT] Skill Collections Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Add | Added addyosmani/agent-skills (27k stars / 21 SKILL.md files) at row 4, between wshobson/agents (35k) and scientific-agent-skills (20k); user-requested manual addition | COMPLETE (inserted into SKILL COLLECTIONS table) |
+| 2 | LOW | Note | Repo is dual-classified — also added to DEVELOPMENT WORKFLOWS table because it ships a full /spec → /plan → /build → /test → /review → /ship lifecycle, not just a SKILL.md library | COMPLETE (cross-referenced) |

@@ -451,12 +451,57 @@
 
 ---
 
-## [2026-04-29 12:48 AM PKT] 开发工作流更新
+## [2026-04-29 12:48 AM PKT] Development Workflows Update
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1-7 | HIGH | Star 更新 | 更新 7 个项目 star 数（Superpowers 168k→171k, ECC 167k→169k, Spec Kit 91k→92k, gstack 84k→86k, GSD 57k→58k, OpenSpec 43k→44k, oh-my-claudecode 31k→32k） | COMPLETE |
-| 8-10 | HIGH | Count 更新 | 更新 gstack skills 41→42, BMAD skills 39→40, Matt Pocock skills 16→22 | COMPLETE |
-| 11-14 | HIGH | 工作流更新 | 更新 Spec Kit、Superpowers、Matt Pocock 工作流，替换 HumanLayer 工作流为实际 .claude/commands | COMPLETE |
-| 15 | MED | 工作流 | 更新 Compound Engineering — 用子循环替换 "repeat" | COMPLETE |
-| 16-18 | LOW | Count 验证 | 多个项目计数持续不一致，保持当前值直到手动验证 | ON HOLD（重复出现） |
+| 1 | HIGH | Star Update | Update Superpowers ★ from 168k to 171k (171,334 actual — v5.0.7 momentum) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update Everything Claude Code ★ from 167k to 169k (169,230 actual — v1.10.0 desktop dashboard, ECC2 alpha) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update Spec Kit ★ from 91k to 92k (91,505 actual — v0.8.2 RAG/Chroma DB, 3 releases in 6 days) | COMPLETE (updated README table) |
+| 4 | HIGH | Star Update | Update gstack ★ from 84k to 86k (86,021 actual — v1.17.0.0) | COMPLETE (updated README table) |
+| 5 | HIGH | Star Update | Update GSD ★ from 57k to 58k (58,418 actual — v1.39.0-rc.4 minimal install profile, /gsd-edit-phase) | COMPLETE (updated README table) |
+| 6 | HIGH | Star Update | Update OpenSpec ★ from 43k to 44k (43,637 actual — v1.3.1 path canonicalization fixes) | COMPLETE (updated README table) |
+| 7 | HIGH | Star Update | Update oh-my-claudecode ★ from 31k to 32k (31,760 actual — v4.13.5 HUD rate limit fixes, auto-merge orchestrator) | COMPLETE (updated README table) |
+| 8 | HIGH | Count Update | Update gstack skills from 41 to 42 (42 root-level SKILL.md dirs confirmed; +plan-devex-review) | COMPLETE (updated README table) |
+| 9 | HIGH | Count Update | Update BMAD skills from 39 to 40 (28 bmm-skills + 12 core-skills; bmad-customize added Apr 21 in v6.5.0) | COMPLETE (updated README table) |
+| 10 | HIGH | Count Update | Update Matt Pocock skills from 16 to 22 (5 category subdirs: engineering 9, productivity 3, misc 4, personal 2, deprecated 4) | COMPLETE (updated README table) |
+| 11 | HIGH | Workflow | Update Spec Kit workflow — insert /speckit.clarify between /speckit.constitution and /speckit.specify | COMPLETE (updated README table) |
+| 12 | HIGH | Workflow | Update Superpowers workflow — insert using-git-worktrees between brainstorming and writing-plans | COMPLETE (updated README table) |
+| 13 | HIGH | Workflow | Rework Matt Pocock workflow — replace ralph-loop/feedback-loops/review with /triage, /diagnose, /zoom-out (reflects Apr 17/28 skill renames) | COMPLETE (updated README table) |
+| 14 | HIGH | Workflow | Replace HumanLayer /rpi:* workflow with actual .claude/commands: /create_plan → /validate_plan → /implement_plan → /iterate_plan(sub) → /local_review → /commit | COMPLETE (updated README table) |
+| 15 | MED | Workflow | Update Compound Engineering — replace "repeat" with sub-loops /ce-debug(sub), /ce-optimize(sub), /ce-compound-refresh(sub) | COMPLETE (updated README table) |
+| 16 | LOW | Count Verify | ECC counts 143→133 commands (mixed: 79 legacy + 72 synced active), 230→156 skills self-reported — 6th consecutive run | ON HOLD (RECURRING from Apr 13/16/18/24/26; methodology persists — keeping current values until manual verification) |
+| 17 | LOW | Count Verify | GSD commands 122→86 — 5th consecutive lower count from API enumeration | ON HOLD (RECURRING from Apr 16/18/24/26; likely directory pagination — keeping 122 until verified) |
+| 18 | LOW | Count Verify | oh-my-claudecode skills 46→38 — 2nd consecutive run with 38; possible v4.13.x consolidation | ON HOLD (RECURRING from Apr 26; keeping 46 until verified) |
+
+---
+
+## [2026-05-01 03:36 PM PKT] Development Workflows Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Star Update | Update Superpowers ★ from 171k to 175k (175,037 actual — v5.0.7 momentum, session-transcript PR rule) | COMPLETE (updated README table) |
+| 2 | HIGH | Star Update | Update Everything Claude Code ★ from 169k to 171k (171,200 actual — v1.10.0 hotfix wave Apr 30: loop-status, gateguard) | COMPLETE (updated README table) |
+| 3 | HIGH | Star Update | Update Matt Pocock Skills ★ from 36k to 51k (50,817 actual — viral surge +41% in 2 days, structured SKILL.md sections, list-skills script) | COMPLETE (updated README table) |
+| 4 | HIGH | Sort Order | Move Matt Pocock (51k) above BMAD (46k) and OpenSpec (45k) — viral jump from position 8 to position 6 | COMPLETE (updated README table) |
+| 5 | HIGH | Star Update | Update gstack ★ from 86k to 88k (87,550 actual — v1.21.1.0, browser-skills runtime, setup-gbrain federation) | COMPLETE (updated README table) |
+| 6 | HIGH | Star Update | Update Get Shit Done ★ from 58k to 59k (59,115 actual — v1.39.0 released today: minimal install profile, /gsd-edit-phase) | COMPLETE (updated README table) |
+| 7 | HIGH | Count Update | Update GSD commands from 122 to 65 (v1.39.0 consolidation: 31 micro-skills absorbed into 4 grouped parents — RESOLVED from Apr 16/18/24/26/29 ON HOLD) | COMPLETE (updated README table) |
+| 8 | HIGH | Workflow | Rename Matt Pocock /grill-me → /grill-with-docs in workflow chain (skill renamed in latest commits) | COMPLETE (updated README table) |
+| 9 | MED | Star Update | Update OpenSpec ★ from 44k to 45k (44,511 actual — v1.3.1, Kimi CLI skills support, sync tool ID lists) | COMPLETE (updated README table) |
+| 10 | MED | Count Update | Update gstack skills from 42 to 43 (43 SKILL.md dirs confirmed; +plan-devex-review and others net +1) | COMPLETE (updated README table) |
+| 11 | MED | Count Update | Update Compound Engineering agents from 51 to 49 (2 cli-readiness reviewer agents removed in commits today 2026-05-01) | COMPLETE (updated README table) |
+| 12 | MED | Count Update | Update Compound Engineering skills from 37 to 39 (ce-simplify-code, ce-strategy added; 38 compound-eng + 1 coding-tutor) | COMPLETE (updated README table) |
+| 13 | LOW | Count Update | Update oh-my-claudecode skills from 46 to 38 (RESOLVED from Apr 26/29 ON HOLD: 3rd consecutive run confirms v4.13.x consolidation removed 8 skills) | COMPLETE (updated README table) |
+| 14 | LOW | Count Update | Update Spec Kit commands from 9+ to 9 (exact count: analyze, checklist, clarify, constitution, implement, plan, specify, tasks, taskstoissues) | COMPLETE (updated README table) |
+| 15 | LOW | Count Verify | ECC commands 143→71, skills 230→182 — 7th consecutive run with directory-enumeration giving lower counts | ON HOLD (RECURRING from Apr 13/16/18/24/26/29; methodology persists — recommend manual verification) |
+| 16 | LOW | Count Verify | Superpowers agents 5→1 explicit — methodology change only (excludes implicit subagents dispatched by skills) | ON HOLD (RECURRING from Apr 18/26/29; keeping 5 per prior decision to count implicit dispatch roles) |
+
+---
+
+## [2026-05-01 04:05 PM PKT] Development Workflows Update
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Add | Added addyosmani/agent-skills (27k stars / 3 agents / 7 commands / 21 skills) at row 10, between oh-my-claudecode (32k) and Compound Engineering (16k); workflow chain `/spec → /plan → /build → /test → /review → /ship` (DEFINE → PLAN → BUILD → VERIFY → REVIEW → SHIP lifecycle); user-requested manual addition | COMPLETE (inserted into DEVELOPMENT WORKFLOWS table) |
+| 2 | LOW | Note | Repo also ships parallel `.gemini/commands/` equivalents and a `.claude-plugin/` marketplace entry (multi-agent-IDE); cross-listed in SKILL COLLECTIONS table for its 21 SKILL.md library | COMPLETE (cross-referenced) |

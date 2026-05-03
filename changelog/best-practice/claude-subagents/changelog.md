@@ -214,8 +214,14 @@ No drift detected — report is fully in sync with official docs. All 16 frontma
 
 ## [2026-04-29 12:49 AM PKT] Claude Code v2.1.121
 
-两个追踪维度无漂移 — 全部 16 个 frontmatter 字段和 5 个内置 agent 匹配。一个范围外的枚举值更新按用户请求应用。
+No drift detected on the two tracked dimensions — all 16 frontmatter fields and 5 built-in agents match. One out-of-scope enum-value update was applied at the user's request.
 
-| # | 优先级 | 类型 | 操作 | 状态 |
+| # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | LOW | 字段文档 | 更新 `effort` 字段描述 — 在 `high` 和 `max` 之间添加 `xhigh` 以匹配官方文档的枚举值列表 | ✅ COMPLETE（在第 33 行插入 `xhigh`；镜像 v2.1.91 模式，当 `auto` 被添加到 `permissionMode` 时） |
+| 1 | LOW | Field Docs | Update `effort` field description — add `xhigh` between `high` and `max` to match official docs' enum value list | ✅ COMPLETE (inserted `xhigh` on line 33; mirrors the v2.1.91 pattern when `auto` was added to `permissionMode`) |
+
+---
+
+## [2026-05-01 03:30 PM PKT] Claude Code v2.1.126
+
+No drift detected on the two tracked dimensions — all 16 frontmatter fields and 5 built-in agents match.

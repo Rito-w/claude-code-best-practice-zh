@@ -1,22 +1,15 @@
-<!-- 
- 翻译来源：https://github.com/shanraisshan/claude-code-best-practice/blob/main/reports/claude-spinner-verbs-and-tips.md
- 翻译时间：2026-04-30 02:00 CST
- 翻译版本：v1.0
--->
-# Claude Code：旋转动画
+# Claude Code: The Spinner
 
-Claude Code 加载动画下方显示的旋转文字和小贴士。提取自 `~/.local/share/claude/versions/2.1.121`。
+The rotating words and tips shown under Claude Code's spinner. Extracted from `~/.local/share/claude/versions/2.1.121`.
 
 <table width="100%">
 <tr>
-<td><a href="../">← 返回 Claude Code 最佳实践</a></td>
+<td><a href="../">← Back to Claude Code Best Practice</a></td>
 <td align="right"><img src="../!/claude-jumping.svg" alt="Claude" width="60" /></td>
 </tr>
 </table>
 
-## 旋转动词
-
-> 注：这些动词保留了原文的趣味性风格，不做翻译
+## Spinner words
 
 | # | Verb | # | Verb | # | Verb | # | Verb |
 |---:|---|---:|---|---:|---|---:|---|
@@ -68,49 +61,49 @@ Claude Code 加载动画下方显示的旋转文字和小贴士。提取自 `~/.
 | 46 | Determining | 93 | Ionizing | 140 | Schlepping | | |
 | 47 | Dilly-dallying | 94 | Jitterbugging | 141 | Scurrying | | |
 
-## 小贴士
+## Tips
 
-| ID | 内容 |
+| ID | Text |
 |---|---|
-| new-user-warmup | 从小功能或 Bug 修复开始，让 Claude 提出计划，并验证它建议的修改 |
-| default-permission-mode-config | 使用 /config 更改默认权限模式（包括 Plan Mode） |
-| git-worktrees | 使用 git worktrees 并行运行多个 Claude 会话 |
-| color-when-multi-clauding | 同时运行多个 Claude 会话？用 /color 和 /rename 来区分它们 |
-| memory-command | 使用 /memory 查看和管理 Claude 记忆 |
-| theme-command | 使用 /theme 更改颜色主题 |
-| colorterm-truecolor | 尝试设置环境变量 COLORTERM=truecolor 以获得更丰富的颜色 |
-| powershell-tool-env | 设置 CLAUDE_CODE_USE_POWERSHELL_TOOL=1 启用 PowerShell 工具（预览版） |
-| status-line | 使用 /statusline 设置自定义状态行，显示在输入框下方 |
-| prompt-queue | 在 Claude 工作时按 Enter 可以排队发送更多消息 |
-| enter-to-steer-in-relatime | 在 Claude 工作时发送消息来实时引导它 |
-| todo-list | 让 Claude 在处理复杂任务时创建待办列表来跟踪进度 |
-| ide-upsell-external-terminal | 将 Claude 连接到你的 IDE · /ide |
-| install-github-app | 运行 /install-github-app 直接在 GitHub Issues 和 PR 中标记 @claude |
-| install-slack-app | 运行 /install-slack-app 在 Slack 中使用 Claude |
-| permissions | 使用 /permissions 预先批准或拒绝 bash、edit 和 MCP 工具 |
-| drag-and-drop-images | 你知道吗？你可以直接把图片文件拖入终端 |
-| paste-images-mac | 使用 control+v（不是 cmd+v！）在 Claude Code 中粘贴图片 |
-| double-esc | 双击 Esc 可以回退对话到之前的时间点 |
-| double-esc-code-restore | 双击 Esc 可以回退代码和/或对话到之前的状态 |
-| continue | 运行 claude --continue 或 claude --resume 恢复之前的对话 |
-| rename-conversation | 用 /rename 给你的对话命名，方便之后在 /resume 中找到 |
-| custom-commands | 通过在项目的 .claude/skills/ 中添加 .md 文件来创建 Skill，或在 ~/.claude/skills/ 中添加全局 Skill |
-| custom-agents | 使用 /agents 优化特定任务，例如：软件架构师、代码编写者、代码审查者 |
-| agent-flag | 使用 --agent <agent_name> 直接与子 Agent 开始对话 |
-| desktop-app | 在本地或远程使用 Claude Code 桌面应用：clau.de/desktop |
-| web-app | 在云端运行任务，同时保持本地编码 · clau.de/web |
-| voice-mode | 使用 /voice 启用按住说话语音输入 |
-| no-flicker | 尝试无闪烁渲染，现已支持鼠标 · /tui fullscreen |
-| team-artifacts | 从团队发现状态中展示团队工件建议 |
-| plan-mode-for-complex-tasks | 在修改前使用 Plan Mode 处理复杂请求。按 <cycle-mode key> |
-| terminal-setup | 运行 /terminal-setup 启用方便的终端集成，如 Option+Enter 换行等 |
-| shift-enter | 按 Option+Enter（Apple Terminal）或 Shift+Enter 发送多行消息 |
-| shift-enter-setup | 运行 /terminal-setup 启用 Option+Enter（Apple Terminal）或 Shift+Enter 换行 |
-| vscode-command-install | 打开命令面板（Cmd+Shift+P）运行"Shell Command: Install '<editor>' command in PATH"启用 IDE 集成 |
-| shift-tab | 按 <cycle-mode key> 切换对话模式 |
-| image-paste | 使用 <image-paste key> 粘贴图片 |
-| desktop-shortcut | 在 Claude Code Desktop 中继续你的会话：<suggested shortcut> |
-| remote-control | 通过远程控制将此会话配对到你的手机 |
-| push-notif | 长时间任务完成时手机收到通知 — 在 <settings menu> 中启用推送通知 |
-| opusplan-mode-reminder | 你的默认模型设置是 Opus Plan Mode。按 <cycle-mode key> |
-| frontend-design-plugin | 在处理 HTML/CSS 时？安装 frontend-design 插件 |
+| new-user-warmup | Start with small features or bug fixes, tell Claude to propose a plan, and verify its suggested edits |
+| default-permission-mode-config | Use /config to change your default permission mode (including Plan Mode) |
+| git-worktrees | Use git worktrees to run multiple Claude sessions in parallel. |
+| color-when-multi-clauding | Running multiple Claude sessions? Use /color and /rename to tell them apart at a glance. |
+| memory-command | Use /memory to view and manage Claude memory |
+| theme-command | Use /theme to change the color theme |
+| colorterm-truecolor | Try setting environment variable COLORTERM=truecolor for richer colors |
+| powershell-tool-env | Set CLAUDE_CODE_USE_POWERSHELL_TOOL=1 to enable the PowerShell tool (preview) |
+| status-line | Use /statusline to set up a custom status line that will display beneath the input box |
+| prompt-queue | Hit Enter to queue up additional messages while Claude is working. |
+| enter-to-steer-in-relatime | Send messages to Claude while it works to steer Claude in real-time |
+| todo-list | Ask Claude to create a todo list when working on complex tasks to track progress and remain on track |
+| ide-upsell-external-terminal | Connect Claude to your IDE · /ide |
+| install-github-app | Run /install-github-app to tag @claude right from your Github issues and PRs |
+| install-slack-app | Run /install-slack-app to use Claude in Slack |
+| permissions | Use /permissions to pre-approve and pre-deny bash, edit, and MCP tools |
+| drag-and-drop-images | Did you know you can drag and drop image files into your terminal? |
+| paste-images-mac | Paste images into Claude Code using control+v (not cmd+v!) |
+| double-esc | Double-tap esc to rewind the conversation to a previous point in time |
+| double-esc-code-restore | Double-tap esc to rewind the code and/or conversation to a previous point in time |
+| continue | Run claude --continue or claude --resume to resume a conversation |
+| rename-conversation | Name your conversations with /rename to find them easily in /resume later |
+| custom-commands | Create skills by adding .md files to .claude/skills/ in your project or ~/.claude/skills/ for skills that work in any project |
+| custom-agents | Use /agents to optimize specific tasks. Eg. Software Architect, Code Writer, Code Reviewer |
+| agent-flag | Use --agent <agent_name> to directly start a conversation with a subagent |
+| desktop-app | Run Claude Code locally or remotely using the Claude desktop app: clau.de/desktop |
+| web-app | Run tasks in the cloud while you keep coding locally · clau.de/web |
+| voice-mode | Use /voice to enable push-to-talk dictation |
+| no-flicker | Try flicker-free rendering, now with mouse support · /tui fullscreen |
+| team-artifacts | Surfaces team artifact suggestions from team-discovery state |
+| plan-mode-for-complex-tasks | Use Plan Mode to prepare for a complex request before making changes. Press &lt;cycle-mode key&gt; |
+| terminal-setup | Run /terminal-setup to enable convenient terminal integration like Option+Enter for new line and more |
+| shift-enter | Press Option+Enter (Apple Terminal) or Shift+Enter to send a multi-line message |
+| shift-enter-setup | Run /terminal-setup to enable Option+Enter (Apple Terminal) or Shift+Enter for new lines |
+| vscode-command-install | Open the Command Palette (Cmd+Shift+P) and run "Shell Command: Install '&lt;editor&gt;' command in PATH" to enable IDE integration |
+| shift-tab | Hit &lt;cycle-mode key&gt; to switch chat modes |
+| image-paste | Use &lt;image-paste key&gt; to paste images |
+| desktop-shortcut | Continue your session in Claude Code Desktop with &lt;suggested shortcut&gt; |
+| remote-control | Pair this session to your phone via remote control |
+| push-notif | Get pinged on your phone when long tasks finish — enable push notifications in &lt;settings menu&gt; |
+| opusplan-mode-reminder | Your default model setting is Opus Plan Mode. Press &lt;cycle-mode key&gt; |
+| frontend-design-plugin | Working with HTML/CSS? Install the frontend-design plugin |
