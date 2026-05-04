@@ -148,11 +148,11 @@ Repos primarily known as curated libraries of `SKILL.md` files (distinct from fu
   <img src="!/claude-jumping.svg" alt="section divider" width="60" height="50">
 </p>
 
-## 🤖 AGENT COLLECTIONS
+## 🤖 代理集合（AGENT COLLECTIONS）
 
-Repos primarily known as curated libraries of subagent definitions (`.claude/agents/*.md`). Sorted by stars descending.
+主要以子代理定义库（`.claude/agents/*.md`）闻名的仓库。按星标降序排列。
 
-| Name | ★ | <img src="!/tags/a.svg" height="14"> |
+| 名称 | ★ | <img src="!/tags/a.svg" height="14"> |
 |------|---|---|
 | [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | 92k | 206 |
 | [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) | 19k | 148 |
