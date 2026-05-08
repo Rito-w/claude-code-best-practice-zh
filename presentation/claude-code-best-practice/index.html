@@ -468,17 +468,18 @@
             </svg>
 
             <!-- Two-line caption — teaser framing only, no harness -->
-            <p style="font-size: 1.8rem; font-weight: 700; color: #1a1a1a; margin: 12px 0 6px; letter-spacing: -0.02em; line-height: 1.2;">A horse. A model.</p>
-            <p style="font-size: 1.2rem; font-weight: 400; color: #C0392B; margin: 0; letter-spacing: 0.01em;">The model is the horse. Raw power, no direction.</p>
+            <p style="font-size: 1.8rem; font-weight: 700; color: #1a1a1a; margin: 12px 0 6px; letter-spacing: -0.02em; line-height: 1.2;">一匹马。一个模型。</p>
+            <p style="font-size: 1.2rem; font-weight: 400; color: #C0392B; margin: 0; letter-spacing: 0.01em;">模型就是这匹马。有原始力量，但没有方向。</p>
 
         </div>
     </div>
 
     <!-- ============================================================ -->
+    <!-- ============================================================ -->
     <!-- SLIDE 10: How LLMs Generate Text — Autoregressive Loop       -->
     <!-- ============================================================ -->
     <div class="slide" data-slide="10">
-        <h1>How an LLM generates text (autoregressive)</h1>
+        <h1>LLM 如何生成文本（自回归）</h1>
         <figure style="max-width: 1100px; width: 100%; margin: 24px auto 0;">
             <img
                 src="../assets/llm/llm-basic.svg"
@@ -486,7 +487,7 @@
                 style="width: 100%; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);"
             />
             <figcaption style="margin-top: 16px; font-size: 1.1rem; color: #1a1a1a; font-weight: 600; text-align: center;">
-                Each predicted token is appended to the input, then fed back into the LLM.
+                每个预测的 token 都会被追加到输入中，然后重新喂给 LLM。
             </figcaption>
         </figure>
     </div>
@@ -510,7 +511,7 @@
     <!-- SLIDE 12: Tokens In, Tokens Out — Full Picture               -->
     <!-- ============================================================ -->
     <div class="slide" data-slide="12">
-        <h1>How an LLM tokenizes input</h1>
+        <h1>LLM 如何对输入进行 token 化</h1>
         <figure style="max-width: 1100px; width: 100%; margin: 24px auto 0;">
             <img
                 src="../assets/llm/llm-advanced.svg"
@@ -518,7 +519,7 @@
                 style="width: 100%; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);"
             />
             <figcaption style="margin-top: 16px; font-size: 1.1rem; color: #1a1a1a; font-weight: 600; text-align: center;">
-                BPE chops words into subword tokens &mdash; same color = same word, gray = punctuation.
+                BPE 把单词切分成子词 token —— 相同颜色 = 同一个词，灰色 = 标点符号。
             </figcaption>
         </figure>
     </div>
@@ -527,7 +528,7 @@
     <!-- SLIDE 13: What the Model Actually Sees — Integer Token IDs  -->
     <!-- ============================================================ -->
     <div class="slide" data-slide="13">
-        <h1>What the LLM actually sees: integer token IDs</h1>
+        <h1>LLM 真正看到的是什么：整数 token ID</h1>
         <figure style="max-width: 1100px; width: 100%; margin: 24px auto 0;">
             <img
                 src="../assets/llm/llm-animation-tokenids.svg"
@@ -535,7 +536,7 @@
                 style="width: 100%; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);"
             />
             <figcaption style="margin-top: 16px; font-size: 1.1rem; color: #1a1a1a; font-weight: 600; text-align: center;">
-                Notice the comma is always ID&nbsp;11 &mdash; the same punctuation mark maps to the same integer, everywhere, every time.
+                注意逗号始终是 ID&nbsp;11 —— 同一个标点符号总是映射到同一个整数，无一例外。
             </figcaption>
         </figure>
     </div>
@@ -546,7 +547,7 @@
     <div class="slide" data-slide="14">
 
             <!-- Title -->
-            <h1>&#x1F4AC; Models are stateless</h1>
+            <h1>&#x1F4AC; Models are stateless（无状态）</h1>
 
             <!-- Dialog diagram — two-column conversation -->
             <div style="max-width: 700px; width: 100%; margin: 32px auto 28px;">
@@ -592,8 +593,8 @@
             </div>
 
             <!-- Caption strip — mirrors slide-12 pattern -->
-            <p style="font-size: 1.6rem; font-weight: 700; color: #1a1a1a; margin: 8px 0 4px; letter-spacing: -0.02em; line-height: 1.2; text-align: center;">Every turn is a fresh API call.</p>
-            <p style="font-size: 1.1rem; font-weight: 400; color: #C0392B; margin: 0; letter-spacing: 0.01em; text-align: center;">Memory only exists if the harness replays the transcript.</p>
+            <p style="font-size: 1.6rem; font-weight: 700; color: #1a1a1a; margin: 8px 0 4px; letter-spacing: -0.02em; line-height: 1.2; text-align: center;">每一轮对话都是一次全新的 API 调用。</p>
+            <p style="font-size: 1.1rem; font-weight: 400; color: #C0392B; margin: 0; letter-spacing: 0.01em; text-align: center;">记忆之所以存在，只是因为 harness 重放了对话记录。</p>
 
     </div>
 
@@ -1137,9 +1138,9 @@
             </div>
             <!-- Right column: summary, attribution, source -->
             <div style="display: flex; flex-direction: column; justify-content: flex-start; padding-top: 4px;">
-                <p style="font-size: 1rem; line-height: 1.6; color: #333; margin: 0;">Uncle Bob warns that <strong>&ldquo;vibe coding&rdquo; &mdash; generating code from prompts without understanding what the LLM produces &mdash; is hazardous for novices.</strong> LLMs are <em>mathematical functions</em> that predict the next most likely token via matrix multiplications, trained on internet text and GitHub code. They are powerful tools &mdash; but, as he puts it, <em>&ldquo;novices using power tools lose fingers.&rdquo;</em></p>
-                <p style="color: #666; margin: 20px 0 0; font-size: 1.05rem;"><strong>Robert C. &ldquo;Uncle Bob&rdquo; Martin</strong> &mdash; author of <em>Clean Code</em> &middot; <em>Clean Architecture</em> &middot; co-author of the Agile Manifesto.</p>
-                <p style="font-size: 0.78rem; margin: 12px 0 0;"><span style="color: #1a1a1a; font-weight: 600;">Source:</span> <a href="https://x.com/unclebobmartin/status/1923334334171197549/video/1" target="_blank" rel="noopener noreferrer" style="color: #0d47a1; text-decoration: underline;">Robert C. Martin on X</a></p>
+                <p style="font-size: 1rem; line-height: 1.6; color: #333; margin: 0;">Uncle Bob 警告说，<strong>"vibe coding"——仅凭提示词生成代码却不理解 LLM 的输出——对新手来说是危险的。</strong>LLM 是通过矩阵乘法预测下一个最可能 token 的<em>数学函数</em>，训练数据来自互联网文本和 GitHub 代码。它们是强大的工具——但正如他所说，<em>"新手使用电动工具会伤到手指。"</em></p>
+                <p style="color: #666; margin: 20px 0 0; font-size: 1.05rem;"><strong>Robert C. &ldquo;Uncle Bob&rdquo; Martin</strong> &mdash;《代码整洁之道》作者 · 《架构整洁之道》作者 · 敏捷宣言共同作者。</p>
+                <p style="font-size: 0.78rem; margin: 12px 0 0;"><span style="color: #1a1a1a; font-weight: 600;">来源：</span> <a href="https://x.com/unclebobmartin/status/1923334334171197549/video/1" target="_blank" rel="noopener noreferrer" style="color: #0d47a1; text-decoration: underline;">Robert C. Martin on X</a></p>
             </div>
         </div>
     </div>
