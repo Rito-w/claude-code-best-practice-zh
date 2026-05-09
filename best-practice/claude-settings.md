@@ -1,9 +1,9 @@
-# Settings Best Practice
+# Settings 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-May%2001%2C%202026%203%3A29%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.126-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-May%2009%2C%202026%206%3A58%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.138-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.claude/settings.json)
 
-A comprehensive guide to all available configuration options in Claude Code's `settings.json` files. As of v2.1.126, Claude Code exposes **60+ settings** and **175+ environment variables** (use the `"env"` field in `settings.json` to avoid wrapper scripts).
+Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.138，Claude Code 提供 **60+ 设置项**和 **175+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
 
 <table width="100%">
 <tr>
@@ -54,6 +54,15 @@ Within the managed tier, precedence is: server-managed > MDM/OS-level policies >
 
 > **Note (v2.1.126):** `/config` now persists changes to `~/.claude/settings.json` instead of holding them in memory only. Edits made through the interactive Config UI survive restarts.
 
+### 动态与父级策略（仅限 Managed）
+
+这些键位于 managed 层级，用于控制 managed 设置本身的计算和合并方式。它们不会出现在用户、项目或本地设置中。
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| `parentSettingsBehavior` | string | `"first-wins"` | 控制 SDK `managedSettings` 父级如何与本地 managed 文件合并。`"first-wins"` 保持现有优先级——第一个非空的 managed 源提供所有值。`"merge"` 将父级深度合并到本地 managed 文件之上，使管理员可以在 managed 基础之上叠加组织范围的策略 (v2.1.133) |
+| `policyHelper` | object | - | 在运行时动态计算 managed 设置的 managed 可执行程序。对象字段：`path`（字符串——helper 二进制的绝对路径）、`timeoutMs`（数字——超过此毫秒后中止 helper）、`refreshIntervalMs`（数字——超过此毫秒后重新运行 helper 以刷新策略）。输出解析为 JSON，视为 `managed-settings.json` 的内容。用于从外部系统（LDAP 组、资产数据库等）计算组织策略，无需重新部署静态文件 (v2.1.136) |
+
 **Important**:
 - `deny` rules have highest safety precedence and cannot be overridden by lower-priority allow/ask rules.
 - Managed settings may lock or override local behavior even if local files specify different values.
@@ -87,6 +96,7 @@ Within the managed tier, precedence is: server-managed > MDM/OS-level policies >
 | `disableDeepLinkRegistration` | string | - | Set to `"disable"` to prevent Claude Code from registering the `claude-cli://` protocol handler with the operating system on startup. Deep links let external tools open a Claude Code session with a pre-filled prompt via `claude-cli://open?q=...`. The `q` parameter supports multi-line prompts using URL-encoded newlines (`%0A`). Useful in environments where protocol handler registration is restricted or managed separately |
 | `showThinkingSummaries` | boolean | `false` | Show extended thinking summaries in interactive sessions. When unset or `false` (default in interactive mode), thinking blocks are redacted by the API and shown as a collapsed stub. Redaction only changes what you see, not what the model generates — to reduce thinking spend, lower the budget or disable thinking instead. Non-interactive mode (`-p`) and SDK callers always receive summaries regardless of this setting |
 | `disableSkillShellExecution` | boolean | `false` | Disable inline shell execution for `` !`...` `` and `` ```! `` blocks in skills and custom commands from user, project, plugin, or additional-directory sources. Commands are replaced with `[shell command execution disabled by policy]` instead of being run. Bundled and managed skills are not affected (v2.1.91) |
+| `skillOverrides` | string | - | 控制自动技能调用行为。值：`"off"`（完全不调用技能）、`"user-invocable-only"`（仅运行用户通过 `/skill-name` 明确调用的技能；禁用通过技能描述的自动发现）、`"name-only"`（仅按精确名称匹配技能；禁用基于描述的自动发现）。用于更严格地控制模型加载或运行哪些技能 (v2.1.129) |
 | `forceRemoteSettingsRefresh` | boolean | `false` | **(Managed only)** Block CLI startup until remote managed settings are freshly fetched. If the fetch fails, the CLI exits (fail-closed). Use in enterprise environments where policy enforcement must be up-to-date before any session begins (v2.1.92) |
 | `wslInheritsWindowsSettings` | boolean | `false` | **(Windows managed settings only)** When `true`, Claude Code on WSL reads managed settings from the Windows policy chain (HKLM registry + `C:\Program Files\ClaudeCode\managed-settings.json`) in addition to `/etc/claude-code`, with Windows sources taking priority. Only honored when set in the HKLM registry key or `C:\Program Files\ClaudeCode\managed-settings.json`, both of which require Windows admin to write. For HKCU policy to also apply on WSL, the flag must additionally be set in HKCU itself. Has no effect on native Windows (v2.1.118) |
 | `tui` | string | `"default"` | Rendering mode: `"fullscreen"` or `"default"`. Set via `/tui fullscreen` for flicker-free alt-screen rendering (v2.1.110) |
@@ -131,6 +141,7 @@ Configure how `--worktree` creates and manages git worktrees. Useful for reducin
 |-----|------|---------|-------------|
 | `worktree.symlinkDirectories` | array | `[]` | Directories to symlink from the main repository into each worktree to avoid duplicating large directories on disk |
 | `worktree.sparsePaths` | array | `[]` | Directories to check out in each worktree via git sparse-checkout (cone mode). Only the listed paths are written to disk |
+| `worktree.baseRef` | string | `"fresh"` | 新 worktree 的分支来源：`"fresh"` 从主分支 HEAD 的最新 fetch 创建 worktree；`"head"` 从调用仓库的当前 HEAD 分支。当你希望 worktree 继承你进行中的工作时使用 `"head"` (v2.1.133) |
 
 **Example:**
 ```json
@@ -236,7 +247,7 @@ Control what tools and operations Claude can perform.
 | `permissions.disableBypassPermissionsMode` | string | Prevent bypass mode activation |
 | `permissions.skipDangerousModePermissionPrompt` | boolean | Skip the confirmation prompt shown before entering bypass permissions mode via `--dangerously-skip-permissions` or `defaultMode: "bypassPermissions"`. Ignored when set in project settings (`.claude/settings.json`) to prevent untrusted repositories from auto-bypassing the prompt |
 | `allowManagedPermissionRulesOnly` | boolean | **(Managed only)** Only managed permission rules apply; user/project `allow`, `ask`, `deny` rules are ignored |
-| `autoMode` | object | Customize what the [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode) classifier blocks and allows. Contains `environment` (trusted infrastructure descriptions), `allow` (exceptions to block rules), and `soft_deny` (block rules) — all arrays of prose strings. **Not read from shared project settings** (`.claude/settings.json`) to prevent repo injection. Available in user, local, and managed settings. Setting `allow` or `soft_deny` **replaces** the entire default list for that section unless you include the literal string `"$defaults"` in the array — the sentinel inherits the built-in rules at that position so custom entries are added alongside them (v2.1.118). Run `claude auto-mode defaults` to see built-in rules before customizing |
+| `autoMode` | object | 自定义 [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode) 分类器阻止和允许的操作。包含 `environment`（受信任的基础设施描述）、`allow`（阻止规则的例外）、`soft_deny`（阻止规则）和 `hard_deny`（无条件阻止规则——与 `soft_deny` 同级但不能被 `allow` 例外或 `"$defaults"` 哨兵覆盖；v2.1.136）——均为散文字符串数组。**不从共享项目设置**（`.claude/settings.json`）中读取以防止仓库注入。可在用户、本地和 managed 设置中使用。设置 `allow`、`soft_deny` 或 `hard_deny` 会**替换**该部分的整个默认列表，除非你在数组中包含字面字符串 `"$defaults"`——该哨兵在该位置继承内置规则，使自定义条目与其并列 (v2.1.118)。在自定义之前运行 `claude auto-mode defaults` 查看内置规则 |
 | `disableAutoMode` | string | Set to `"disable"` to prevent [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode) from being activated. Removes `auto` from the `Shift+Tab` cycle and rejects `--permission-mode auto` at startup. Can be set at any settings level; most useful in managed settings where users cannot override it |
 | `useAutoModeDuringPlan` | boolean | Whether plan mode uses auto mode semantics when auto mode is available. Default: `true`. Not read from shared project settings (`.claude/settings.json`). Appears in `/config` as "Use auto mode during plan" |
 
@@ -418,6 +429,8 @@ Configure bash command sandboxing for security.
 | `sandbox.filesystem.allowRead` | array | `[]` | Paths to re-allow read access within `denyRead` regions. Takes precedence over `denyRead`. Arrays are merged across all settings scopes. Same path prefix conventions as `allowWrite` |
 | `sandbox.filesystem.allowManagedReadPathsOnly` | boolean | `false` | **(Managed only)** Only `allowRead` paths from managed settings are respected. `allowRead` entries from user, project, and local settings are ignored |
 | `sandbox.enableWeakerNetworkIsolation` | boolean | `false` | (macOS only) Allow access to system TLS trust (`com.apple.trustd.agent`); reduces security |
+| `sandbox.bwrapPath` | string | - | **（Linux/WSL 仅限 managed）** 用于创建沙盒的 `bwrap`（bubblewrap）二进制的自定义路径。当 `bwrap` 安装在非标准位置或通过 managed 镜像分发时使用。仅在 managed 设置中生效 (v2.1.133) |
+| `sandbox.socatPath` | string | - | **（Linux/WSL 仅限 managed）** 沙盒网络代理使用的 `socat` 二进制的自定义路径。当 `socat` 安装在非标准位置或通过 managed 镜像分发时使用。仅在 managed 设置中生效 (v2.1.133) |
 
 **Example:**
 ```json
@@ -803,6 +816,7 @@ Set environment variables for all Claude Code sessions.
 | `ANTHROPIC_DEFAULT_HAIKU_MODEL_DESCRIPTION` | Customize the Haiku entry description in the `/model` picker. Defaults to `Custom model (<model-id>)` |
 | `ANTHROPIC_DEFAULT_HAIKU_MODEL_SUPPORTED_CAPABILITIES` | Override capability detection for a pinned Haiku model. Comma-separated values (e.g., `effort,thinking`). Required when the pinned model supports features the auto-detection cannot confirm |
 | `CLAUDECODE` | Set to `1` in shell environments Claude Code spawns (Bash tool, tmux sessions). Not set in hooks or status line commands. Use to detect when a script is running inside a Claude Code shell |
+| `CLAUDE_CODE_SESSION_ID` | 只读。自动设置到 Bash 子进程环境中为当前 Claude Code 会话的 ID。从 Bash 命令、钩子或技能辅助程序中读取，以将日志、指标或遥测数据与特定会话关联，无需解析转储路径 (v2.1.132) |
 | `AI_AGENT` | Set automatically by Claude Code in subprocess environments (Bash tool, hooks, MCP stdio servers). Generic flag identifying the parent process as an AI agent — useful for tools that adapt behavior when invoked from any AI agent rather than checking each agent-specific variable like `CLAUDECODE` *(in v2.1.120 changelog, not yet on official env-vars page)* |
 | `CLAUDE_CODE_SKIP_FAST_MODE_NETWORK_ERRORS` | Set to `1` to allow fast mode when the organization status check fails due to a network error. Useful when a corporate proxy blocks the status endpoint |
 | `CLAUDE_CODE_USE_BEDROCK` | Use AWS Bedrock (`1` to enable) |
@@ -936,8 +950,13 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_NO_FLICKER` | Set to `1` to enable flicker-free alt-screen rendering. Eliminates visual flicker during fullscreen redraws (v2.1.88) |
 | `CLAUDE_CODE_SCROLL_SPEED` | Mouse wheel scroll multiplier for fullscreen rendering. Increase for faster scrolling, decrease for finer control |
 | `CLAUDE_CODE_DISABLE_VIRTUAL_SCROLL` | Set to `1` to disable virtual scrolling in fullscreen rendering and render every message in the transcript. Use if scrolling in fullscreen mode shows blank regions where messages should appear |
+| `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN` | 设为 `1` 完全退出 alternate-screen（全屏）渲染器并使用经典滚动回渲染器。当终端复用器、录制工具或辅助功能工具不能干净地处理 alt-screen 缓冲区时有用 (v2.1.132) |
 | `CLAUDE_CODE_DISABLE_MOUSE` | Set to `1` to disable mouse tracking in fullscreen rendering. Useful when mouse events interfere with terminal multiplexers or accessibility tools |
 | `CLAUDE_CODE_HIDE_CWD` | Set to `1` to hide the current working directory in the Claude Code startup logo banner. Useful in screen recordings, demos, or shared sessions where the CWD path leaks information about the host or project layout (v2.1.119) |
+| `CLAUDE_CODE_FORCE_SYNC_OUTPUT` | 设为 `1` 强制 Claude Code 写入终端的输出同步刷新。默认为异步/缓冲输出以提高性能。当终端输出与子进程输出交错或乱序时用作调试辅助 (v2.1.129) |
+| `CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE` | 控制基于包管理器的 Claude Code 后台自动更新检查。设为 `0` 禁用后台检查（Claude Code 不会轮询包管理器获取更新版本）；设为 `1`（默认）保持后台检查启用。独立于 `DISABLE_AUTOUPDATER`，后者控制 npm 注册表自动更新器 (v2.1.129) |
+| `CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY` | 设为 `1` 选择从配置的 LLM 网关获取可用模型列表（例如 Bedrock/Vertex 前面的企业代理）。启用后，`/model` 选择器从网关的发现端点填充，而非内置别名列表。当你的网关暴露用户应该选择的精选模型子集时使用 (v2.1.129) |
+| `CLAUDE_CODE_ENABLE_FEEDBACK_SURVEY_FOR_OTEL` | 设为 `1` 重新启用面向 OpenTelemetry 企业的会话内质量调查。配置 `OTEL_*` 环境变量或 `feedbackSurveyRate` 时默认抑制调查，以避免将调查数据泄漏到企业遥测管道中。当管理员希望采样调查数据尽管部署了 OTel 时使用 (v2.1.136) |
 | `CLAUDE_CODE_ACCESSIBILITY` | Set to `1` to keep native terminal cursor visible for screen readers and accessibility tools |
 | `CLAUDE_CODE_SYNTAX_HIGHLIGHT` | Set to `0` to disable syntax highlighting in diff output |
 | `CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL` | Skip automatic IDE extension installation (`1` to skip) |
