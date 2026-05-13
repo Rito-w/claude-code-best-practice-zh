@@ -1,6 +1,6 @@
 # Commands 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-May%2009%2C%202026%206%3A58%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.138-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-May%2012%2C%202026%2011%3A39%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.139-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-commands-implementation.md)
 
 Claude Code commands —— frontmatter 字段和官方内置 slash commands。
@@ -36,7 +36,7 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 
 ---
 
-## ![Official](../!/tags/official.svg) **(76)**
+## ![Official](../!/tags/official.svg) **(80)**
 
 | # | Command | Tag | Description |
 |---|---------|-----|-------------|
