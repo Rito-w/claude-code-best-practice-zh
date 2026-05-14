@@ -10,6 +10,27 @@ Tracks updates to the AGENT COLLECTIONS table in `README.md`.
 
 ---
 
+## [2026-05-14 08:48 PM PKT] Agent Collections Update
+
+| # | Priority | Type  | Action                                                                                        | Status                                                                                                                                                                                        |
+|---|----------|-------|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | MED      | Count | Update msitarzewski/agency-agents agents from 198 to 188                                      | COMPLETE (recursive tree: 188 .md files across domain dirs; conf 0.88; RECURRING methodological variation — boundary between agent defs and workflow/example docs varies per run)              |
+| 2 | HIGH     | Count | Update VoltAgent/awesome-claude-code-subagents agents from 189 to 146                         | COMPLETE (recursive tree: 146 .md files under categories/; conf 0.92; RECURRING large-swing oscillation — prior 189 run may have counted differently; recent additions noted April 2026)       |
+| 3 | LOW      | Sort  | Verify sort order (97k > 20k — stars descending)                                              | COMPLETE (msitarzewski 97k > VoltAgent 20k — order preserved; RECURRING)                                                                                                                     |
+
+---
+
+## [2026-05-13 08:46 PM PKT] Agent Collections Update
+
+| # | Priority | Type  | Action                                                                                      | Status                                                                                                                                                                  |
+|---|----------|-------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | HIGH     | Star  | Update msitarzewski/agency-agents ★ from 96k to 97k                                         | COMPLETE (GitHub API: 96,722 exact; crosses k-boundary; RECURRING daily increase pattern)                                                                               |
+| 2 | MED      | Count | msitarzewski/agency-agents agents 198 → ~164                                                | INVALID (confidence 0.80; research agent used 14 category dirs vs prior run's 19; RECURRING methodological variation — excludes strategy/, examples/, integrations/ dirs) |
+| 3 | MED      | Count | VoltAgent/awesome-claude-code-subagents agents 189 → ~131–151                               | INVALID (confidence 0.78; README badge 131+ stale vs tree count 151; RECURRING methodology oscillation — no confirmed net decrease in agent files)                       |
+| 4 | LOW      | Sort  | Verify sort order (97k > 20k — stars descending)                                            | COMPLETE (msitarzewski 97k > VoltAgent 20k — order preserved; RECURRING)                                                                                                |
+
+---
+
 ## [2026-05-12 08:47 PM PKT] Agent Collections Update
 
 | # | Priority | Type  | Action                                                                | Status                                                                                                                                                |
