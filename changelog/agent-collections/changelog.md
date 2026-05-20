@@ -10,6 +10,61 @@ Tracks updates to the AGENT COLLECTIONS table in `README.md`.
 
 ---
 
+## [2026-05-20 08:47 PM PKT] Agent Collections Update
+
+| # | Priority | Type  | Action                                                                                          | Status                                                                                                                                                                    |
+|---|----------|-------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | HIGH     | Star  | Update msitarzewski/agency-agents ★ from 101k to 103k                                           | COMPLETE (GitHub page: ~103,000 exact; crosses two k-boundaries; NEW — two-day jump from 101k)                                                                            |
+| 2 | LOW      | Count | msitarzewski/agency-agents agents 144 → 181 (HTML scrape, conf 0.65)                            | INVALID (RECURRING methodological variation; git tree API blocked (403); no commits since April 12; May 19 git-tree run confirmed 144 at conf 0.96 — higher-confidence run takes precedence) |
+| 3 | LOW      | Count | VoltAgent/awesome-claude-code-subagents agents 151 → 144 (HTML scrape, conf 0.82)               | INVALID (RECURRING oscillation 144↔151; no commits since April 20; historical pattern shows repeated 144↔151 flip; no confirmed real change)                              |
+| 4 | LOW      | Sort  | Verify sort order (103k > 20k — stars descending)                                               | COMPLETE (order preserved; RECURRING)                                                                                                                                     |
+
+---
+
+## [2026-05-19 08:50 PM PKT] Agent Collections Update
+
+| # | Priority | Type  | Action                                                                                          | Status                                                                                                                                                                    |
+|---|----------|-------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | HIGH     | Star  | Update msitarzewski/agency-agents ★ from 100k to 101k                                           | COMPLETE (GitHub API: 101,089 exact; crosses k-boundary to 101k; NEW — milestone crossing)                                                                                |
+| 2 | MED      | Count | Update msitarzewski/agency-agents agents from 188 to 144                                        | COMPLETE (README self-declares 144; git tree confirms 144 across 10 category dirs; conf 0.96; no commits since April 12; prior 188 used broader methodology — RECURRING correction) |
+| 3 | LOW      | Count | VoltAgent/awesome-claude-code-subagents agents 151 vs 185 (+34)                                  | INVALID (RECURRING methodological variation; no commits in last 30 days — last commit April 20; 185 vs 151 is within oscillation range 145-189; no confirmed real change)  |
+| 4 | LOW      | Sort  | Verify sort order (101k > 20k — stars descending)                                               | COMPLETE (order preserved; RECURRING)                                                                                                                                     |
+
+---
+
+## [2026-05-18 08:46 PM PKT] Agent Collections Update
+
+| # | Priority | Type  | Action                                                                                          | Status                                                                                                                                                                    |
+|---|----------|-------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | HIGH     | Star  | Update msitarzewski/agency-agents ★ from 99k to 100k                                           | COMPLETE (GitHub HTML: ~99,800 exact; crosses k-boundary to 100k; NEW — first 100k milestone crossing)                                                                    |
+| 2 | LOW      | Count | msitarzewski/agency-agents agents 188 vs 184 (−4)                                              | INVALID (RECURRING methodological variation; no commits in last 30 days — last commit April 11-12; −4 within ±10 oscillation range; no change applied)                    |
+| 3 | LOW      | Count | VoltAgent/awesome-claude-code-subagents agents 151 vs 149 (−2)                                  | INVALID (RECURRING within ±3 margin; no commits in last 30 days — last activity April 19-20; −2 within oscillation threshold; no change applied)                          |
+| 4 | LOW      | Sort  | Verify sort order (100k > 20k — stars descending)                                               | COMPLETE (order preserved; RECURRING)                                                                                                                                     |
+
+---
+
+## [2026-05-17 08:47 PM PKT] Agent Collections Update
+
+| # | Priority | Type  | Action                                                                                              | Status                                                                                                                                                                     |
+|---|----------|-------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | HIGH     | Star  | Update msitarzewski/agency-agents ★ from 98k to 99k                                                | COMPLETE (GitHub API: 98,908 exact; crosses k-boundary; NEW — first 99k crossing)                                                                                          |
+| 2 | LOW      | Count | VoltAgent/awesome-claude-code-subagents agents 151 → 144                                           | INVALID (RECURRING oscillation; no commits in last 30 days — last commit April 19-20; 144↔151 prior pattern; no confirmed real change)                                     |
+| 3 | LOW      | Count | msitarzewski/agency-agents agents 188 vs research range 144-184                                    | INVALID (RECURRING methodological variation; conf 0.60; README self-declares 144-147; per-dir enumeration ~184; no commits last 30 days; no change applied)                |
+| 4 | LOW      | Sort  | Verify sort order (99k > 20k — stars descending)                                                   | COMPLETE (order preserved; RECURRING)                                                                                                                                      |
+
+---
+
+
+## [2026-05-16 08:47 PM PKT] Agent Collections Update
+
+| # | Priority | Type  | Action                                                                                                      | Status                                                                                                                                                           |
+|---|----------|-------|-------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1 | MED      | Count | Update VoltAgent/awesome-claude-code-subagents agents from 146 to 151                                       | COMPLETE (per-directory enumeration: 151 .md files across 10 category dirs; conf 0.88; 2 confirmed new files: ui-ux-tester.md, codebase-orchestrator.md Apr 19-20; NEW — net +5 exceeds ±3 oscillation threshold) |
+| 2 | LOW      | Count | msitarzewski/agency-agents agents 188 → 185                                                                 | INVALID (RECURRING methodological variation; conf 0.82; ±10 possible range; prior runs show 144–188 oscillation; no confirmed net change) |
+| 3 | LOW      | Sort  | Verify sort order (98k > 20k — stars descending)                                                            | COMPLETE (order preserved; RECURRING) |
+
+---
+
 ## [2026-05-15 08:47 PM PKT] Agent Collections Update
 
 | # | Priority | Type  | Action                                                                                                         | Status                                                                                                                                                                                               |

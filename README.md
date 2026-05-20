@@ -1,7 +1,7 @@
 # claude-code-best-practice
 from vibe coding to agentic engineering - practice makes claude perfect
 
-![updated with Claude Code](https://img.shields.io/badge/updated_with_Claude_Code-v2.1.140%20(May%2015%2C%202026%208%3A47%20PM%20PKT)-white?style=flat&labelColor=555) <a href="https://github.com/shanraisshan/claude-code-best-practice/stargazers"><img src="https://img.shields.io/github/stars/shanraisshan/claude-code-best-practice?style=flat&label=%E2%98%85&labelColor=555&color=white" alt="GitHub Stars"></a><br>
+![updated with Claude Code](https://img.shields.io/badge/updated_with_Claude_Code-v2.1.144%20(May%2020%2C%202026%208%3A48%20PM%20PKT)-white?style=flat&labelColor=555) <a href="https://github.com/shanraisshan/claude-code-best-practice/stargazers"><img src="https://img.shields.io/github/stars/shanraisshan/claude-code-best-practice?style=flat&label=%E2%98%85&labelColor=555&color=white" alt="GitHub Stars"></a><br>
 
 [![Best Practice](!/tags/best-practice.svg)](best-practice/) [![Implemented](!/tags/implemented.svg)](implementation/) [![Orchestration Workflow](!/tags/orchestration-workflow.svg)](orchestration-workflow/orchestration-workflow.md) [![Claude](!/tags/claude.svg)](https://code.claude.com/docs) [![Boris](!/tags/boris-cherny.svg)](#-tips-and-tricks) [![Community](!/tags/community.svg)](#-subscribe) ![Click on these badges below to see the actual sources](!/tags/click-badges.svg)<br>
 <img src="!/tags/a.svg" height="14"> = Agents · <img src="!/tags/c.svg" height="14"> = Commands · <img src="!/tags/s.svg" height="14"> = Skills
@@ -121,31 +121,6 @@ All major workflows converge on the same architectural pattern: **Research → P
 
 > *Note: yellow tags are sub-loops — steps that repeat inside a parent step (e.g. per task, per story, or until a verify condition passes).*
 
-<p align="center">
-  <img src="!/claude-jumping.svg" alt="section divider" width="60" height="50">
-</p>
-
-## 🔀 CROSS-MODEL WORKFLOWS
-
-将 Claude Code 与其他模型配合使用 — Codex、Gemini、GPT、Kimi、DeepSeek、本地模型 — 通过三种机制：
-
-- **Plugin** — 另一个模型的 CLI 在 Claude Code 内部运行（如 `/codex:review`）
-- **MCP** — Claude Code 通过 Model Context Protocol 调用另一个模型作为工具
-- **Router** — Claude Code 的 API 端点被替换为不同的提供商
-
-方法论：[Cross-Model (Claude Code + Codex) Workflow](development-workflows/cross-model-workflow/cross-model-workflow.md) [![Implemented](!/tags/implemented.svg)](development-workflows/cross-model-workflow/cross-model-workflow.md) — 手动双终端流程：Claude 中 Plan，Codex 中 QA-Review。
-
-| 名称 | ★ | 类型 | 桥接到 | 功能 |
-|------|---|------|--------|------|
-| [musistudio/claude-code-router](https://github.com/musistudio/claude-code-router) | 34k | Router | OpenRouter, DeepSeek, Ollama, Gemini, Kimi, Qwen, Groq, +more | 将 Claude Code 的 API 路由到任何兼容的提供商，支持按任务选择模型 |
-| [router-for-me/CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) | 32k | Router | Gemini CLI, Codex, Claude Code, Antigravity | 将每个 CLI 封装为 OpenAI/Gemini/Claude/Codex 兼容的 API 服务 |
-| [openai/codex-plugin-cc](https://github.com/openai/codex-plugin-cc) | 18k | Plugin | Codex / GPT-5 | OpenAI 官方插件：在 Claude Code 中使用 `/codex:review`、`/codex:adversarial-review`、`/codex:rescue` |
-| [BeehiveInnovations/pal-mcp-server](https://github.com/BeehiveInnovations/pal-mcp-server) | 12k | MCP | Gemini, OpenAI, Azure, Grok, Ollama, OpenRouter (50+ 模型) | 多模型 MCP 服务器（前身为 `zen-mcp-server`）— 将其他模型作为 Claude 工具调用 |
-
-<p align="center">
-  <img src="!/claude-jumping.svg" alt="section divider" width="60" height="50">
-</p>
-
 ### Others
 - [RPI](development-workflows/rpi/rpi-workflow.md) [![Implemented](!/tags/implemented.svg)](development-workflows/rpi/rpi-workflow.md)
 - [Ralph Wiggum Loop](https://www.youtube.com/watch?v=eAtvoGlpeRU) [![Implemented](!/tags/implemented.svg)](https://github.com/shanraisshan/ralph-wiggum-self-evolving-loop)
@@ -188,24 +163,24 @@ Repos primarily known as curated libraries of `SKILL.md` files (distinct from fu
 | [anthropics/skills](https://github.com/anthropics/skills) | 133k | 17 |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | 76k | 24 |
 | [wshobson/agents](https://github.com/wshobson/agents) | 35k | 153 |
-| [impeccable](https://github.com/pbakaus/impeccable) | 27k | 1（附带 7 个设计领域参考）|
+| [impeccable](https://github.com/pbakaus/impeccable) | 27k | 1 (with 7 design domain references) |
 | [agent-skills](https://github.com/addyosmani/agent-skills) | 27k | 21 |
 | [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | 21k | 1,100+ (curated list) |
 | [scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 21k | 135 |
-| [claude-skills](https://github.com/alirezarezvani/claude-skills) | 15k | 246（覆盖 9 个领域）|
+| [claude-skills](https://github.com/alirezarezvani/claude-skills) | 15k | 246 (across 9 domains) |
 
 <p align="center">
   <img src="!/claude-jumping.svg" alt="section divider" width="60" height="50">
 </p>
 
-## 🤖 代理集合（AGENT COLLECTIONS）
+## 🤖 AGENT COLLECTIONS
 
-主要以子代理定义库（`.claude/agents/*.md`）闻名的仓库。按星标降序排列。
+Repos primarily known as curated libraries of subagent definitions (`.claude/agents/*.md`). Sorted by stars descending.
 
-| 名称 | ★ | <img src="!/tags/a.svg" height="14"> |
+| Name | ★ | <img src="!/tags/a.svg" height="14"> |
 |------|---|---|
-| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | 98k | 188 |
-| [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) | 20k | 146 |
+| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | 103k | 144 |
+| [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) | 20k | 151 |
 
 <p align="center">
   <img src="!/claude-jumping.svg" alt="section divider" width="60" height="50">
