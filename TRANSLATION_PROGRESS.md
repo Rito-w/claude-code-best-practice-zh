@@ -1,5 +1,17 @@
 
 ---
+## 2026-05-22 02:00 — 每日巡检
+- 源仓库最新提交：eadee94 (May 21, 2026 12:05 AM PKT) — Claude Code v2.1.145
+- 变更：14 个文件更新（自上次同步 56125ec / v2.1.144）
+  - **README.md**: 版本徽章 v2.1.144→v2.1.145；Checkpointing Location `git-based` → `file-edit tracking`；workflow/skill 仓库 star 计数更新
+  - **best-practice/claude-commands.md**: 版本更新；`effort` 字段新增 `xhigh`；`/extra-usage` → `/usage-credits` 重命名；`/feedback` 新增 `/share` 别名
+  - **best-practice/claude-settings.md**: 60+→80+ 设置项；新增 `claudeMdExcludes`、`autoMemoryEnabled`、`worktree.bgIsolation`；PowerShell 工具权限；`acceptEdits`/`bypassPermissions` 描述更新；symlink 解析规则；复合命令/进程包装器语义；5+ 新环境变量；`/usage-credits` 快速参考
+  - **best-practice/claude-skills.md**: 3 个新官方技能（`run`、`verify`、`run-skill-generator`），6→9
+  - **best-practice/claude-subagents.md**: 版本徽章更新
+  - **Changelogs**: 8 个 changelog 文件同步上游
+- 翻译覆盖率：100% (116/116)
+
+---
 ## 2026-05-01 02:00 — 每日巡检
 - 源仓库最新提交：83d5583 (Apr 30, 2026 18:54 PKT)
 - 变更：5 个文件更新（自上次同步 6f45aa5）

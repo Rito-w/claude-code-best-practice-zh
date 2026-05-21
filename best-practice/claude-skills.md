@@ -1,6 +1,6 @@
 # Skills Best Practice
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-May%2012%2C%202026%2011%3A39%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.139-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-May%2021%2C%202026%2012%3A04%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.145-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-skills-implementation.md)
 
 Claude Code skills — frontmatter fields and official bundled skills.
@@ -36,7 +36,7 @@ Claude Code skills — frontmatter fields and official bundled skills.
 
 ---
 
-## ![Official](../!/tags/official.svg) **(6)**
+## ![Official](../!/tags/official.svg) **(9)**
 
 | # | Skill | Description |
 |---|-------|-------------|
@@ -46,6 +46,9 @@ Claude Code skills — frontmatter fields and official bundled skills.
 | 4 | `loop` | Run a prompt or slash command on a recurring interval (up to 3 days) |
 | 5 | `claude-api` | Build apps with the Claude API or Anthropic SDK — triggers on `anthropic` / `@anthropic-ai/sdk` imports |
 | 6 | `fewer-permission-prompts` | Scan transcripts for common read-only Bash/MCP calls and add a prioritized allowlist to `.claude/settings.json` to reduce permission prompts |
+| 7 | `run` | 启动并驱动项目应用，以便在实际应用中查看变更效果（而非仅依赖测试）。需要 v2.1.145 |
+| 8 | `verify` | 构建并运行应用以确认代码变更达到预期效果，而不回退到测试或类型检查。需要 v2.1.145 |
+| 9 | `run-skill-generator` | 教会 `/run` 和 `/verify` 如何构建和启动项目 — 在 `.claude/skills/run-<name>/` 中记录每个项目的启动方案。需要 v2.1.145 |
 
 See also: [Official Skills Repository](https://github.com/anthropics/skills/tree/main/skills) for community-maintained installable skills.
 

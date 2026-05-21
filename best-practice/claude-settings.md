@@ -1,9 +1,9 @@
 # Settings 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-May%2012%2C%202026%2011%3A39%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.139-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-May%2021%2C%202026%2012%3A27%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.145-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.claude/settings.json)
 
-Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.139，Claude Code 提供 **60+ 设置项**和 **180+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
+Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.145，Claude Code 提供 **80+ 设置项**和 **180+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
 
 <table width="100%">
 <tr>
@@ -80,6 +80,7 @@ Within the managed tier, precedence is: server-managed > MDM/OS-level policies >
 | `model` | string | `"default"` | Override default model. Accepts aliases (`sonnet`, `opus`, `haiku`) or full model IDs |
 | `agent` | string | - | Set the default agent for the main conversation. Value is the agent name from `.claude/agents/`. Also available via `--agent` CLI flag |
 | `language` | string | `"english"` | Claude's preferred response language. Also sets the voice dictation language and the terminal tab title (v2.1.121) |
+| `claudeMdExcludes` | array | - | 加载 [memory](https://code.claude.com/docs/en/memory) 时跳过的 `CLAUDE.md` 文件的 glob 模式或绝对路径。模式匹配绝对文件路径。仅适用于用户、项目和本地 memory；无法排除托管策略文件。示例：`["**/vendor/**/CLAUDE.md"]` |
 | `cleanupPeriodDays` | number | `30` | Age cutoff for the startup cleanup sweep (minimum 1). Inactive session transcripts and orphaned subagent worktrees are deleted; as of v2.1.117 the sweep also covers `~/.claude/tasks/`, `~/.claude/shell-snapshots/`, and `~/.claude/backups/`. Setting to `0` is rejected with a validation error. To disable transcript writes in non-interactive mode (`-p`), use `--no-session-persistence` or `persistSession: false` SDK option |
 | `autoUpdatesChannel` | string | `"latest"` | Release channel: `"stable"` or `"latest"` |
 | `minimumVersion` | string | - | Prevent the auto-updater from downgrading below a specific version. Automatically set when switching to the stable channel and choosing to stay on the current version until stable catches up. Used with `autoUpdatesChannel` |
@@ -123,6 +124,7 @@ Store plan and auto-memory files in custom locations.
 |-----|------|---------|-------------|
 | `plansDirectory` | string | `~/.claude/plans` | Directory where `/plan` outputs are stored |
 | `autoMemoryDirectory` | string | - | Custom directory for auto-memory storage. Accepts `~/`-expanded paths. Not accepted in project settings (`.claude/settings.json`) to prevent redirecting memory writes to sensitive locations; accepted from policy, local, and user settings |
+| `autoMemoryEnabled` | boolean | `true` | 启用 [auto memory](https://code.claude.com/docs/en/memory)。设为 `false` 时，Claude 不会读取或写入 auto-memory 目录。也可在会话中通过 `/memory` 切换，或通过 `CLAUDE_CODE_DISABLE_AUTO_MEMORY` 环境变量禁用 |
 
 **Example:**
 ```json
@@ -142,6 +144,7 @@ Configure how `--worktree` creates and manages git worktrees. Useful for reducin
 | `worktree.symlinkDirectories` | array | `[]` | Directories to symlink from the main repository into each worktree to avoid duplicating large directories on disk |
 | `worktree.sparsePaths` | array | `[]` | Directories to check out in each worktree via git sparse-checkout (cone mode). Only the listed paths are written to disk |
 | `worktree.baseRef` | string | `"fresh"` | 新 worktree 的分支来源：`"fresh"` 从主分支 HEAD 的最新 fetch 创建 worktree；`"head"` 从调用仓库的当前 HEAD 分支。当你希望 worktree 继承你进行中的工作时使用 `"head"` (v2.1.133) |
+| `worktree.bgIsolation` | string | `"worktree"` | [后台会话](https://code.claude.com/docs/en/agent-view)的隔离模式。`"worktree"`（默认）在主 checkout 中调用 `EnterWorktree` 前阻止 `Edit`/`Write`；`"none"` 允许后台任务直接编辑工作副本 (v2.1.143) |
 
 **Example:**
 ```json
@@ -256,9 +259,9 @@ Control what tools and operations Claude can perform.
 | Mode | Behavior |
 |------|----------|
 | `"default"` | Standard permission checking with prompts |
-| `"acceptEdits"` | Auto-accept file edits without asking |
+| `"acceptEdits"` | 自动接受文件编辑 **和工作目录或 `additionalDirectories` 中路径的常见文件系统命令**（`mkdir`、`touch`、`mv`、`cp` 等） |
 | `"dontAsk"` | Auto-denies tools unless pre-approved via `/permissions` or `permissions.allow` rules |
-| `"bypassPermissions"` | Skip all permission checks (dangerous). Writes to protected paths (`.git`, `.claude`, `.vscode`, `.idea`, `.husky`) still prompt. As of v2.1.121, writes to `.claude/commands/`, `.claude/agents/`, `.claude/skills/`, and `.claude/worktrees/` are explicitly exempt from the protected-paths prompt because Claude routinely writes there when creating skills, subagents, and commands. **v2.1.126** further extends the exemption: writes to `.claude/`, `.git/`, `.vscode/`, and shell config files (e.g., `.bashrc`, `.zshrc`) no longer prompt under `--dangerously-skip-permissions`. Catastrophic removal commands still prompt as a safety net |
+| `"bypassPermissions"` | 跳过所有权限检查（危险）。写入受保护路径（`.git`、`.claude`、`.vscode`、`.idea`、`.husky`）仍会提示。截至 v2.1.121，写入 `.claude/commands/`、`.claude/agents/`、`.claude/skills/` 和 `.claude/worktrees/` 明确豁免受保护路径提示，因为 Claude 在创建 skills、子代理和 commands 时会常规写入这些地方。**v2.1.126** 进一步扩展豁免：在 `--dangerously-skip-permissions` 下写入 `.claude/`、`.git/`、`.vscode/` 和 shell 配置文件（如 `.bashrc`、`.zshrc`）不再提示。针对文件系统根目录或 home 目录的删除命令（`rm -rf /`、`rm -rf ~`）仍会提示，作为防止模型错误的断路器 |
 | `"auto"` | Auto-approves tool calls with background safety checks that verify actions align with your request. Research preview. Classifier auto-approves read-only and file edits; sends everything else through a safety check. Falls back to prompting after 3 consecutive or 20 total blocks. In the default `Shift+Tab` permission-mode cycle since v2.1.111 (the `--enable-auto-mode` flag was removed in v2.1.111 — start in this mode with `--permission-mode auto`). Configure with the `autoMode` setting |
 | `"plan"` | Read-only exploration mode |
 
@@ -267,6 +270,7 @@ Control what tools and operations Claude can perform.
 | Tool | Syntax | Examples |
 |------|--------|----------|
 | `Bash` | `Bash(command pattern)` | `Bash(npm run *)`, `Bash(* install)`, `Bash(git * main)` |
+| `PowerShell` | `PowerShell(cmd *)` | `PowerShell(Get-ChildItem *)`, `PowerShell(git commit *)` — 与 Bash 形状相同；常见别名会被规范化（`gci`/`ls`/`dir` → `Get-ChildItem`），且会解析 PowerShell AST，因此 `|`/`;`/`&&`/`||` 链的每个子命令都必须匹配 |
 | `Read` | `Read(path pattern)` | `Read(.env)`, `Read(./secrets/**)` |
 | `Edit` | `Edit(path pattern)` | `Edit(src/**)`, `Edit(*.ts)` |
 | `Write` | `Write(path pattern)` | `Write(*.md)`, `Write(./docs/**)` |
@@ -289,12 +293,16 @@ Control what tools and operations Claude can perform.
 | `/` | Relative to project root | `Edit(/src/**)` |
 | `./` or none | Relative path (current directory) | `Read(.env)`, `Read(*.ts)` |
 
+**Symlink 解析：** 权限规则同时检查 symlink 路径和其解析目标。**允许**规则仅在 symlink 和目标 *都* 匹配时生效 — 允许目录内的 symlink 指向外部仍会提示。**拒绝**规则在 symlink 或目标 *任一* 匹配时生效 — 指向被拒绝文件的 symlink 本身也被拒绝。
+
 **Bash wildcard notes:**
 - `*` can appear at **any position**: prefix (`Bash(* install)`), suffix (`Bash(npm *)`), or middle (`Bash(git * main)`)
 - **Word boundary:** `Bash(ls *)` (space before `*`) matches `ls -la` but NOT `lsof`; `Bash(ls*)` (no space) matches both
 - `Bash(*)` is treated as equivalent to `Bash` (matches all bash commands)
 - Permission rules support output redirections: `Bash(python:*)` matches `python script.py > output.txt`
 - The legacy `:*` suffix syntax (e.g., `Bash(npm:*)`) is equivalent to ` *` but is deprecated
+- **复合命令：** shell 运算符（`&&`、`||`、`;`、`|`、`|&`、`&` 和换行）将命令拆分，每个子命令必须独立匹配 — `Bash(safe-cmd *)` **不**授权 `safe-cmd && other-cmd`
+- **进程包装器：** `timeout`、`time`、`nice`、`nohup` 和 `stdbuf` 在匹配前会被剥离（因此 `Bash(npm test *)` 也匹配 `timeout 30 npm test`）； bare `xargs`（无标志）也会被剥离。执行包装器 `watch`、`setsid`、`ionice`、`flock` 和带 `-exec`/`-delete` 的 `find` 始终会提示，无法通过前缀规则批准
 
 **Example:**
 ```json
@@ -523,6 +531,8 @@ Configure Claude Code plugins and marketplaces.
 }
 ```
 
+> **注意 (v2.1.144)：** `/model` 仅更改**当前会话**的模型。在 `/model` 选择器中按 `d` 可将选择设为默认。`model` 设置和 `ANTHROPIC_MODEL` 继续控制持久默认值。
+
 ### Model Overrides
 
 Map Anthropic model IDs to provider-specific model IDs for Bedrock, Vertex, or Foundry deployments.
@@ -707,6 +717,7 @@ The status line command receives a JSON object on stdin. For the full JSON schem
 | `worktree.branch` | Git branch name for the worktree. Absent for hook-based worktrees |
 | `worktree.original_cwd` | Directory before entering the worktree |
 | `worktree.original_branch` | Git branch checked out before entering the worktree. Absent for hook-based worktrees |
+| `github` | 当前分支检测到时的 GitHub 仓库和 pull-request 信息 — 仓库标识和关联的 PR (v2.1.145) |
 
 ### File Suggestion Configuration
 
@@ -798,6 +809,7 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_OAUTH_TOKEN` | OAuth access token for Claude.ai authentication. Alternative to `/login` for SDK and automated environments. Takes precedence over keychain-stored credentials |
 | `CLAUDE_CODE_OAUTH_REFRESH_TOKEN` | OAuth refresh token for Claude.ai authentication. When set, `claude auth login` exchanges this token directly instead of opening a browser. Requires `CLAUDE_CODE_OAUTH_SCOPES` |
 | `CLAUDE_CODE_OAUTH_SCOPES` | Space-separated OAuth scopes the refresh token was issued with (e.g., `"user:profile user:inference user:sessions:claude_code"`). Required when `CLAUDE_CODE_OAUTH_REFRESH_TOKEN` is set |
+| `ANTHROPIC_WORKSPACE_ID` | [workload identity federation](https://platform.claude.com/docs/en/manage-claude/workload-identity-federation) 的工作区 ID。当联合规则范围超过一个工作区时设置，以便 token 交换知道目标工作区 (v2.1.141) |
 | `ANTHROPIC_BASE_URL` | Custom API endpoint |
 | `ANTHROPIC_BEDROCK_BASE_URL` | Override Bedrock endpoint URL |
 | `ANTHROPIC_BEDROCK_MANTLE_BASE_URL` | Override the Bedrock Mantle endpoint URL. See [Mantle endpoint](https://code.claude.com/docs/en/amazon-bedrock#use-the-mantle-endpoint) |
@@ -824,6 +836,7 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_USE_FOUNDRY` | Use Microsoft Foundry (`1` to enable) |
 | `CLAUDE_CODE_USE_MANTLE` | Use the Bedrock [Mantle endpoint](https://code.claude.com/docs/en/amazon-bedrock#use-the-mantle-endpoint) (`1` to enable) |
 | `CLAUDE_CODE_USE_POWERSHELL_TOOL` | Set to `1` to enable the PowerShell tool on Windows (opt-in preview). When enabled, Claude can run PowerShell commands natively instead of routing through Git Bash. Only supported on native Windows, not WSL (v2.1.84) |
+| `CLAUDE_CODE_POWERSHELL_RESPECT_EXECUTION_POLICY` | 设为 `1` 时，Claude Code 在生成 PowerShell 用于工具调用、钩子和状态行命令时不再传递 `-ExecutionPolicy Bypass`，而是遵循机器的有效执行策略。默认情况下 Claude Code 在进程范围内绕过执行策略，以便 `.ps1` 脚本和模块导入在默认 Restricted 的 Windows 上正常工作。从不覆盖组策略 `MachinePolicy`/`UserPolicy` (v2.1.143) |
 | `CLAUDE_CODE_REMOTE` | Read-only. Set automatically to `true` when Claude Code is running as a cloud session. Read this from a hook or setup script to detect whether you are in a cloud environment |
 | `CLAUDE_CODE_REMOTE_SESSION_ID` | Read-only. Set automatically in cloud sessions to the current session's ID. Read this to construct a link back to the session transcript |
 | `CLAUDE_REMOTE_CONTROL_SESSION_NAME_PREFIX` | Prefix for auto-generated Remote Control session names. Defaults to the machine hostname |
@@ -869,6 +882,7 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_PLUGIN_SEED_DIR` | Path to one or more read-only plugin seed directories, separated by `:` on Unix or `;` on Windows. Bundle pre-populated plugins into a container image. Claude Code registers marketplaces from these directories at startup and uses pre-cached plugins without re-cloning |
 | `ENABLE_CLAUDEAI_MCP_SERVERS` | Enable Claude.ai MCP servers |
 | `CLAUDE_CODE_EFFORT_LEVEL` | Set effort level: `low`, `medium`, `high`, `xhigh` (Opus 4.7 only, v2.1.111), `max` (Opus 4.6 only), or `auto` (use model default). Takes precedence over `/effort` and the `effortLevel` setting. Also configurable as a startup-only var — see [CLI Startup Flags](./claude-cli-startup-flags.md#environment-variables) |
+| `CLAUDE_EFFORT` | 只读。注入到 Bash 工具子进程和钩子处理器中，携带当前激活的努力级别，以便 shell 脚本和钩子适配当前层级（`CLAUDE_CODE_EFFORT_LEVEL` 的配套变量；v2.1.133）。在 skill 文件中使用 `${CLAUDE_EFFORT}` *（在 changelog 中，不在官方 env-vars 页面 — 只读，不可用户配置）* |
 | `CLAUDE_CODE_MAX_TURNS` | Maximum agentic turns before stopping *(not in official docs — unverified)* |
 | `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` | Equivalent of setting `DISABLE_AUTOUPDATER`, `DISABLE_FEEDBACK_COMMAND`, `DISABLE_ERROR_REPORTING`, and `DISABLE_TELEMETRY` |
 | `CLAUDE_CODE_SKIP_SETTINGS_SETUP` | Skip first-run settings setup flow *(not in official docs — unverified)* |
@@ -877,6 +891,7 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_DISABLE_MCP` | Disable all MCP servers (`1` to disable) *(not in official docs — unverified)* |
 | `CLAUDE_CODE_MAX_OUTPUT_TOKENS` | Max output tokens per response. Default: 32,000 (64,000 for Opus 4.6 as of v2.1.77). Upper bound: 64,000 (128,000 for Opus 4.6 and Sonnet 4.6 as of v2.1.77) |
 | `CLAUDE_CODE_DISABLE_FAST_MODE` | Disable fast mode entirely (`1` to disable) |
+| `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` | 设为 `1` 将 [fast mode](https://code.claude.com/docs/en/fast-mode) 固定为 Claude Opus 4.6 而非默认 Opus 4.7。设置后 `/fast` 在 Opus 4.6 上运行；不设置时 `/fast` 在 Opus 4.7 上运行 (v2.1.142) |
 | `CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK` | Set to `1` to disable the non-streaming fallback when a streaming request fails mid-stream. Streaming errors propagate to the retry layer instead. Useful when a proxy or gateway causes the fallback to produce duplicate tool execution (v2.1.83) |
 | `CLAUDE_ENABLE_STREAM_WATCHDOG` | Abort stalled streams (`1` to enable) |
 | `CLAUDE_CODE_ENABLE_FINE_GRAINED_TOOL_STREAMING` | Enable fine-grained tool streaming (`1` to enable) |
@@ -910,6 +925,7 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_CLIENT_KEY_PASSPHRASE` | Passphrase for encrypted mTLS key |
 | `CLAUDE_CODE_CERT_STORE` | Comma-separated list of CA certificate sources for TLS connections: `bundled` (Mozilla CA set shipped with Claude Code) and/or `system` (OS trust store). Default: `bundled,system`. The native binary distribution is required for system store integration; on the Node.js runtime, only the bundled set is used regardless of this value (v2.1.101) |
 | `CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS` | Plugin marketplace git clone timeout in ms (default: 120000) |
+| `CLAUDE_CODE_PLUGIN_PREFER_HTTPS` | 设为 `1` 时通过 HTTPS（而非 SSH）克隆 GitHub `owner/repo` 简写插件源。适用于插件安装/更新和 `/plugin marketplace add`/`update`。在没有为 `github.com` 配置 SSH 密钥的 CI 运行器或容器中很有用 (v2.1.141) |
 | `CLAUDE_CODE_PLUGIN_CACHE_DIR` | Override the plugins root directory |
 | `CLAUDE_CODE_DISABLE_OFFICIAL_MARKETPLACE_AUTOINSTALL` | Skip auto-adding the official marketplace (`1` to disable) |
 | `CLAUDE_CODE_SYNC_PLUGIN_INSTALL` | Wait for plugin install to complete before first query (`1` to enable) |
@@ -923,7 +939,7 @@ Set environment variables for all Claude Code sessions.
 | `DISABLE_LOGIN_COMMAND` | Hide the `/login` command (`1` to disable) |
 | `DISABLE_LOGOUT_COMMAND` | Hide the `/logout` command (`1` to disable) |
 | `DISABLE_UPGRADE_COMMAND` | Hide the `/upgrade` command (`1` to disable) |
-| `DISABLE_EXTRA_USAGE_COMMAND` | Hide the `/extra-usage` command (`1` to disable) |
+| `DISABLE_EXTRA_USAGE_COMMAND` | 隐藏 `/extra-usage` 命令 — v2.1.144 中重命名为 `/usage-credits`，但此环境变量名称保持不变（`1` 以禁用） |
 | `DISABLE_INSTALL_GITHUB_APP_COMMAND` | Hide the `/install-github-app` command (`1` to disable) |
 | `DISABLE_NON_ESSENTIAL_MODEL_CALLS` | Disable flavor text and non-essential model calls *(not in official docs — unverified)* |
 | `CLAUDE_CODE_DEBUG_LOGS_DIR` | Override debug log file directory path |
@@ -1024,6 +1040,7 @@ Set environment variables for all Claude Code sessions.
 | `/keybindings` | Configure custom keyboard shortcuts |
 | `/skills` | View and manage skills |
 | `/permissions` | View and manage permission rules |
+| `/usage-credits` | 查看剩余用量额度和限制。v2.1.144 从 `/extra-usage` 重命名（旧名称仍可用） |
 | `--doctor` | Diagnose configuration issues |
 | `--debug` | Debug mode with hook execution details |
 
@@ -1047,11 +1064,14 @@ Set environment variables for all Claude Code sessions.
   "includeGitInstructions": true,
   "defaultShell": "bash",
   "plansDirectory": "./plans",
+  "claudeMdExcludes": ["**/vendor/**/CLAUDE.md"],
   "effortLevel": "xhigh",
 
   "worktree": {
     "symlinkDirectories": ["node_modules"],
-    "sparsePaths": ["packages/my-app", "shared/utils"]
+    "sparsePaths": ["packages/my-app", "shared/utils"],
+    "baseRef": "fresh",
+    "bgIsolation": "worktree"
   },
 
   "modelOverrides": {

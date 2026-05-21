@@ -1,6 +1,6 @@
 # Commands 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-May%2012%2C%202026%2011%3A39%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.139-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-May%2021%2C%202026%2012%3A06%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.145-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-commands-implementation.md)
 
 Claude Code commands —— frontmatter 字段和官方内置 slash commands。
@@ -28,7 +28,7 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 | `paths` | string/list | 否 | 限制此技能激活时机的 glob 模式。接受逗号分隔的字符串或 YAML 列表。设置后，Claude 仅在处理匹配模式的文件时自动加载此技能 |
 | `allowed-tools` | string | 否 | 此命令激活时无需权限提示即可使用的工具 |
 | `model` | string | 否 | 运行此命令时使用的模型（如 `haiku`、`sonnet`、`opus`） |
-| `effort` | string | 否 | 调用时覆盖模型努力级别（`low`、`medium`、`high`、`max`） |
+| `effort` | string | 否 | 调用时覆盖模型努力级别（`low`、`medium`、`high`、`xhigh`、`max`） |
 | `context` | string | 否 | 设为 `fork` 在隔离的子代理上下文中运行命令 |
 | `agent` | string | 否 | 设置 `context: fork` 时的子代理类型（默认：`general-purpose`） |
 | `shell` | string | 否 | `` !`command` `` 块使用的 shell——接受 `bash`（默认）或 `powershell`。需要设置 `CLAUDE_CODE_USE_POWERSHELL_TOOL=1` |
@@ -61,13 +61,13 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 | 19 | `/voice [hold\|tap\|off]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 切换语音听写，或以特定模式启用。需要 Claude.ai 账号 |
 | 20 | `/context [all]` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 以彩色网格可视化当前上下文使用情况。显示对上下文密集型工具、内存膨胀和容量警告的优化建议。传入 `all` 在全屏中展开每项详细分解 |
 | 21 | `/cost` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | `/usage` 的别名 |
-| 22 | `/extra-usage` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 配置额外用量以在达到速率限制时继续工作 |
-| 23 | `/insights` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 生成分析报告，分析你的 Claude Code 会话，包括项目区域、交互模式和摩擦点 |
-| 24 | `/stats` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | `/usage` 的别名。在 Stats 标签页打开 |
-| 25 | `/status` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 打开设置界面（Status 标签页），显示版本、模型、账号和连接状态。在 Claude 响应时也可使用，无需等待当前响应完成 |
-| 26 | `/usage` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 显示会话费用、套餐用量限制和活动统计。`/cost` 和 `/stats` 是其别名 |
+| 22 | `/insights` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 生成分析报告，分析你的 Claude Code 会话，包括项目区域、交互模式和摩擦点 |
+| 23 | `/stats` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | `/usage` 的别名。在 Stats 标签页打开 |
+| 24 | `/status` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 打开设置界面（Status 标签页），显示版本、模型、账号和连接状态。在 Claude 响应时也可使用，无需等待当前响应完成 |
+| 25 | `/usage` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 显示会话费用、套餐用量限制和活动统计。`/cost` 和 `/stats` 是其别名 |
+| 26 | `/usage-credits` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 配置用量额度以在达到限制时继续工作。原 `/extra-usage`，v2.1.145 重命名 |
 | 27 | `/doctor` | ![Debug](https://img.shields.io/badge/Debug-E74C3C?style=flat) | 诊断并验证 Claude Code 安装和设置。结果显示状态图标。按 `f` 让 Claude 修复报告的问题 |
-| 28 | `/feedback [report]` | ![Debug](https://img.shields.io/badge/Debug-E74C3C?style=flat) | 提交关于 Claude Code 的反馈。别名：`/bug` |
+| 28 | `/feedback [report]` | ![Debug](https://img.shields.io/badge/Debug-E74C3C?style=flat) | 提交反馈、报告 bug 或分享对话。别名：`/bug`、`/share` |
 | 29 | `/heapdump` | ![Debug](https://img.shields.io/badge/Debug-E74C3C?style=flat) | 将 JavaScript 堆快照和内存使用分析写入 `~/Desktop`，用于诊断高内存使用。在提交内存增长 bug 报告时有用 |
 | 30 | `/help` | ![Debug](https://img.shields.io/badge/Debug-E74C3C?style=flat) | 显示帮助和可用命令 |
 | 31 | `/powerup` | ![Debug](https://img.shields.io/badge/Debug-E74C3C?style=flat) | 通过快速交互式课程和动画演示了解 Claude Code 功能 |
