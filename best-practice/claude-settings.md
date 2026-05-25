@@ -1,9 +1,9 @@
 # Settings 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-May%2021%2C%202026%2012%3A27%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.145-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-May%2025%2C%202026%204%3A28%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.150-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.claude/settings.json)
 
-Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.145，Claude Code 提供 **80+ 设置项**和 **180+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
+Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.150，Claude Code 提供 **80+ 设置项**和 **180+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
 
 <table width="100%">
 <tr>
@@ -81,6 +81,7 @@ Within the managed tier, precedence is: server-managed > MDM/OS-level policies >
 | `agent` | string | - | Set the default agent for the main conversation. Value is the agent name from `.claude/agents/`. Also available via `--agent` CLI flag |
 | `language` | string | `"english"` | Claude's preferred response language. Also sets the voice dictation language and the terminal tab title (v2.1.121) |
 | `claudeMdExcludes` | array | - | 加载 [memory](https://code.claude.com/docs/en/memory) 时跳过的 `CLAUDE.md` 文件的 glob 模式或绝对路径。模式匹配绝对文件路径。仅适用于用户、项目和本地 memory；无法排除托管策略文件。示例：`["**/vendor/**/CLAUDE.md"]` |
+| `claudeMd` | string | - | **（仅托管）** 以组织托管 [memory](https://code.claude.com/docs/en/memory) 形式注入的 CLAUDE.md 风格指令。仅在托管或策略设置中生效；在用户、项目和本地设置中被忽略。示例：`"Always run make lint before committing."` |
 | `cleanupPeriodDays` | number | `30` | Age cutoff for the startup cleanup sweep (minimum 1). Inactive session transcripts and orphaned subagent worktrees are deleted; as of v2.1.117 the sweep also covers `~/.claude/tasks/`, `~/.claude/shell-snapshots/`, and `~/.claude/backups/`. Setting to `0` is rejected with a validation error. To disable transcript writes in non-interactive mode (`-p`), use `--no-session-persistence` or `persistSession: false` SDK option |
 | `autoUpdatesChannel` | string | `"latest"` | Release channel: `"stable"` or `"latest"` |
 | `minimumVersion` | string | - | Prevent the auto-updater from downgrading below a specific version. Automatically set when switching to the stable channel and choosing to stay on the current version until stable catches up. Used with `autoUpdatesChannel` |
@@ -98,6 +99,8 @@ Within the managed tier, precedence is: server-managed > MDM/OS-level policies >
 | `showThinkingSummaries` | boolean | `false` | Show extended thinking summaries in interactive sessions. When unset or `false` (default in interactive mode), thinking blocks are redacted by the API and shown as a collapsed stub. Redaction only changes what you see, not what the model generates — to reduce thinking spend, lower the budget or disable thinking instead. Non-interactive mode (`-p`) and SDK callers always receive summaries regardless of this setting |
 | `disableSkillShellExecution` | boolean | `false` | Disable inline shell execution for `` !`...` `` and `` ```! `` blocks in skills and custom commands from user, project, plugin, or additional-directory sources. Commands are replaced with `[shell command execution disabled by policy]` instead of being run. Bundled and managed skills are not affected (v2.1.91) |
 | `skillOverrides` | string | - | 控制自动技能调用行为。值：`"off"`（完全不调用技能）、`"user-invocable-only"`（仅运行用户通过 `/skill-name` 明确调用的技能；禁用通过技能描述的自动发现）、`"name-only"`（仅按精确名称匹配技能；禁用基于描述的自动发现）。用于更严格地控制模型加载或运行哪些技能 (v2.1.129) |
+| `maxSkillDescriptionChars` | number | `1536` | 每个技能在 [技能列表](https://code.claude.com/docs/en/skills) 中 `description` 和 `when_to_use` 文本合并后的字符上限。超出此长度的文本将被截断 (v2.1.105) |
+| `skillListingBudgetFraction` | number | `0.01` | 预留用于每轮可见 [技能列表](https://code.claude.com/docs/en/skills) 的模型上下文窗口比例（`0.01` = 1%）。当列表超出预算时，最少使用的技能描述将折叠为纯名称，Claude 仍可调用但看不到说明 (v2.1.105) |
 | `forceRemoteSettingsRefresh` | boolean | `false` | **(Managed only)** Block CLI startup until remote managed settings are freshly fetched. If the fetch fails, the CLI exits (fail-closed). Use in enterprise environments where policy enforcement must be up-to-date before any session begins (v2.1.92) |
 | `wslInheritsWindowsSettings` | boolean | `false` | **(Windows managed settings only)** When `true`, Claude Code on WSL reads managed settings from the Windows policy chain (HKLM registry + `C:\Program Files\ClaudeCode\managed-settings.json`) in addition to `/etc/claude-code`, with Windows sources taking priority. Only honored when set in the HKLM registry key or `C:\Program Files\ClaudeCode\managed-settings.json`, both of which require Windows admin to write. For HKCU policy to also apply on WSL, the flag must additionally be set in HKCU itself. Has no effect on native Windows (v2.1.118) |
 | `tui` | string | `"default"` | Rendering mode: `"fullscreen"` or `"default"`. Set via `/tui fullscreen` for flicker-free alt-screen rendering (v2.1.110) |
@@ -360,6 +363,7 @@ Configure Model Context Protocol servers for extended capabilities.
 | `allowedMcpServers` | array | Managed only | Allowlist with name/command/URL matching |
 | `deniedMcpServers` | array | Managed only | Blocklist with matching |
 | `allowManagedMcpServersOnly` | boolean | Managed only | Only allow MCP servers explicitly listed in managed allowlist |
+| `allowAllClaudeAiMcps` | boolean | 仅托管 | 将 claude.ai 云端 MCP 连接器与 `managed-mcp.json` 一起加载。启用后，claude.ai 托管的 MCP 连接器将与管理员部署的托管 MCP 服务器一同可用 *（v2.1.150 更新日志中出现，尚未在官方设置页面）* |
 | `channelsEnabled` | boolean | Managed only | Allow [channels](https://code.claude.com/docs/en/channels) for Team and Enterprise users. When unset or `false`, channel message delivery is blocked regardless of `--channels` flag |
 | `allowedChannelPlugins` | array | Managed only | Allowlist of channel plugins that may push messages. Replaces the default Anthropic allowlist when set. Undefined = fall back to the default, empty array = block all channel plugins. Requires `channelsEnabled: true`. Each entry is an object with `marketplace` and `plugin` fields (v2.1.84) |
 
@@ -469,6 +473,7 @@ Configure Claude Code plugins and marketplaces.
 | `enabledPlugins` | object | Any | Enable/disable specific plugins |
 | `extraKnownMarketplaces` | object | Project | Add custom plugin marketplaces (team sharing via `.claude/settings.json`) |
 | `strictKnownMarketplaces` | array | Managed only | Allowlist of permitted marketplaces |
+| `strictPluginOnlyCustomization` | boolean \| array | 仅托管 | 阻止来自用户和项目来源的技能、Agent、hooks 和 MCP 服务器，使其只能来自插件或托管设置。`true` 锁定全部四个表面；数组如 `["skills", "hooks"]` 仅锁定指定表面 |
 | `skippedMarketplaces` | array | Any | Marketplaces user declined to install *(in JSON schema, not on official settings page)* |
 | `skippedPlugins` | array | Any | Plugins user declined to install *(in JSON schema, not on official settings page)* |
 | `pluginConfigs` | object | Any | Per-plugin MCP server configs (keyed by `plugin@marketplace`) *(in JSON schema, not on official settings page)* |
@@ -517,8 +522,8 @@ Configure Claude Code plugins and marketplaces.
 | Alias | Description |
 |-------|-------------|
 | `"default"` | Recommended for your account type |
-| `"sonnet"` | Latest Sonnet model (Claude Sonnet 4.6) |
-| `"opus"` | Latest Opus model (Claude Opus 4.6) |
+| `"sonnet"` | Latest Sonnet model (Claude Sonnet 4.6（Anthropic API；第三方提供商为 4.5）) |
+| `"opus"` | Latest Opus model (Claude Opus 4.7（Anthropic API；Bedrock/Vertex/Foundry 为 4.6）。自 v2.1.142 起也是快速模式默认值) |
 | `"haiku"` | Fast Haiku model |
 | `"sonnet[1m]"` | Sonnet with 1M token context |
 | `"opus[1m]"` | Opus with 1M token context (default on Max, Team, and Enterprise since v2.1.75) |
@@ -540,6 +545,10 @@ Map Anthropic model IDs to provider-specific model IDs for Bedrock, Vertex, or F
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `effortLevel` | string | - | Persist the effort level across sessions. Accepts `"low"`, `"medium"`, `"high"`, or `"xhigh"` (Opus 4.7 only, v2.1.111). Written automatically when you run `/effort low`, `/effort medium`, `/effort high`, or `/effort xhigh`. Supported on Opus 4.6, Sonnet 4.6, and Opus 4.7. Unsupported levels fall back to the highest supported level on the active model |
+  "maxSkillDescriptionChars": 1536,
+  "skillListingBudgetFraction": 0.01,
+  "disableAgentView": false,
+  "syntaxHighlightingDisabled": false,
 | `modelOverrides` | object | - | Map model picker entries to provider-specific IDs (e.g., Bedrock inference profile ARNs). Each key is a model picker entry name, each value is the provider model ID |
 
 **Example:**
@@ -605,6 +614,7 @@ Configure via `env` key:
 | `spinnerTipsOverride` | object | - | Custom spinner tips with `tips` (string array) and optional `excludeDefault` (boolean). When `excludeDefault` is `true`, only custom tips show; when `false` or absent, custom tips merge with built-in tips. As of v2.1.121, `excludeDefault: true` also suppresses time-based spinner tips |
 | `respectGitignore` | boolean | `true` | Respect .gitignore in file picker |
 | `prefersReducedMotion` | boolean | `false` | Reduce animations and motion effects in the UI |
+| `syntaxHighlightingDisabled` | boolean | `false` | 禁用 diff、代码块和文件预览中的语法高亮。与 `CLAUDE_CODE_SYNTAX_HIGHLIGHT` 环境变量不同，后者仅控制 diff 输出 |
 | `fileSuggestion` | object | - | Custom file suggestion command (see File Suggestion Configuration below) |
 | `autoScrollEnabled` | boolean | `true` | Auto-scroll the conversation in fullscreen mode. Set to `false` to disable automatic scrolling (v2.1.110). Versions before v2.1.119 stored this in `~/.claude.json` |
 | `editorMode` | string | `"normal"` | Key binding mode for the input prompt: `"normal"` or `"vim"`. Appears in `/config` as **Editor mode**. Versions before v2.1.119 stored this in `~/.claude.json` |
@@ -623,7 +633,7 @@ These IDE-related preferences are stored in `~/.claude.json`, **not** `settings.
 |-----|------|---------|-------------|
 | `autoConnectIde` | boolean | `false` | Automatically connect to a running IDE when Claude Code starts from an external terminal. Appears in `/config` as **Auto-connect to IDE (external terminal)** when running outside a VS Code or JetBrains terminal |
 | `autoInstallIdeExtension` | boolean | `true` | Automatically install the Claude Code IDE extension when running from a VS Code terminal. Appears in `/config` as **Auto-install IDE extension**. Can also be disabled via `CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL` env var |
-| `externalEditorContext` | boolean | `true` | Include additional context about the external editor when available. Set to `false` to disable |
+| `externalEditorContext` | boolean | `false` | 用 `Ctrl+G` 打开外部编辑器时，将 Claude 的上一次回复作为 `#` 注释上下文预填。设为 `true` 启用 |
 
 ### Workspace & Teams
 
@@ -854,6 +864,7 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_MAX_CONTEXT_TOKENS` | Override the context window size Claude Code assumes for the active model. Only takes effect when `DISABLE_COMPACT` is also set. Use when routing to a model through `ANTHROPIC_BASE_URL` whose context window does not match the built-in size for its name |
 | `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR` | Keep cwd between bash calls (`1` to enable) |
 | `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` | Disable background tasks (`1` to disable) |
+| `CLAUDE_CODE_DISABLE_AGENT_VIEW` | 设为 `1` 可关闭后台 Agent 和 Agent 视图（`claude agents`、`--bg`、`/background`、按需监督器）。`disableAgentView` 设置的环境变量等效项 *（在官方设置页面引用；未在环境变量页面列出）* |
 | `ENABLE_TOOL_SEARCH` | MCP tool search threshold (e.g., `auto:5`) |
 | `ENABLE_PROMPT_CACHING_1H` | Opt into 1-hour prompt cache TTL. Replaces the deprecated `ENABLE_PROMPT_CACHING_1H_BEDROCK` *(in v2.1.108 changelog, not yet on official env-vars page)* |
 | `FORCE_PROMPT_CACHING_5M` | Force 5-minute prompt cache TTL *(in v2.1.108 changelog, not yet on official env-vars page)* |

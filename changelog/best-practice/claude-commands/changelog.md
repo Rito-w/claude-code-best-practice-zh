@@ -312,3 +312,13 @@ No priority action items — report is fully in sync with official documentation
 | 2 | MED | New Alias | Add `/share` alias to `/feedback` and broaden description to "Submit feedback, report a bug, or share your conversation. Aliases: `/bug`, `/share`" | ✅ COMPLETE (updated description at #29 in Debug tag) |
 | 3 | LOW | Changed Value | Add `xhigh` to the `effort` frontmatter field's options list (`low`, `medium`, `high`, `xhigh`, `max`) | ✅ COMPLETE (added `xhigh` to effort field row; value-list sync, not a field add/remove) |
 | 4 | LOW | Scope Decision | 9 bundled skills (`/batch`, `/claude-api`, `/debug`, `/fewer-permission-prompts`, `/loop`, `/run`, `/run-skill-generator`, `/simplify`, `/verify`) in upstream unified table excluded per report scope | ❌ INVALID (recurring from v2.1.107/119/139 — report intentionally scoped to built-in commands only) |
+
+---
+
+## [2026-05-25 04:25 PM PKT] Claude Code v2.1.150
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | LOW | 范围决定 | 9 个捆绑技能（`/batch`、`/claude-api`、`/code-review`、`/debug`、`/fewer-permission-prompts`、`/loop`、`/run`、`/run-skill-generator`、`/verify`）在上游统一表中按报告范围排除；`/simplify` 在 v2.1.147 重命名为 → `/code-review`（仍然是捆绑技能，保持排除） | ❌ 无效（从 v2.1.107/119/139/145 循环 — 报告故意只包含内置命令） |
+
+_无跟踪漂移：frontmatter 字段 15/15 与官方文档匹配，内置命令 80/80 匹配。版本徽章 v2.1.145 → v2.1.150。_

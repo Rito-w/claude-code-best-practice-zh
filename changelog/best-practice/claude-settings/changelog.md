@@ -600,3 +600,27 @@
 | 23 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_CONTENT` still changelog-only. Defer per Rule 8A | ON HOLD (kept — recurring from 2026-04-16 v2.1.110) |
 | 24 | INVALID | Ownership Boundary (no-op) | Cross-checked all env vars in `claude-cli-startup-flags.md` (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS, CLAUDE_CODE_TMPDIR, CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD, DISABLE_AUTOUPDATER, CLAUDE_CODE_EFFORT_LEVEL, USE_BUILTIN_RIPGREP, CLAUDE_CODE_SIMPLE, CLAUDE_BASH_NO_LOGIN, CCR_FORCE_BUNDLE) against the settings report. No duplication-without-cross-reference found; shared vars correctly carry cross-reference links both ways | ❌ INVALID (no boundary violation — Rule 5B passes) |
 | 25 | INVALID | Hyperlink Validation (no-op) | All report hyperlinks validated: 12 ToC anchors resolve to headings; external URLs (settings, env-vars, permissions, schemastore via 301, feiskyer repo, shipyard blog, GitHub changelog) all return valid pages. `json.schemastore.org` still 301-redirects to `www.schemastore.org` (working) — leave as-is per v2.1.119 #8 decision | ❌ INVALID (no broken links — Rules 9A/9B/9C pass) |
+
+---
+
+## [2026-05-25 04:28 PM PKT] Claude Code v2.1.150
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | 版本升级 | 更新报告版本徽章从 v2.1.145 → v2.1.150，标题"截至 v2.1.145" → "截至 v2.1.150" | ✅ 完成 |
+| 2 | HIGH | 新设置 | 添加 `allowAllClaudeAiMcps` 到 MCP 设置表 — 仅托管布尔值，将 claude.ai 云端 MCP 连接器与 `managed-mcp.json` 一起加载。v2.1.150 更新日志中出现（尚未在官方设置页面）— 按规则 1F 标注 | ✅ 完成 — 新增 |
+| 3 | MED | 新设置 | 添加 `disableAgentView` 到通用设置 — 布尔值，任何范围（通常托管）。关闭后台 Agent 和 Agent 视图（`claude agents`、`--bg`、`/background`、按需监督器）。等同于 `CLAUDE_CODE_DISABLE_AGENT_VIEW=1` | ✅ 完成 — 新增 |
+| 4 | MED | 新设置 | 添加 `strictPluginOnlyCustomization` 到插件设置表 — 仅托管，布尔值或数组（`["skills","hooks"]`）。阻止技能/Agent/hooks/MCP 来自用户+项目来源 | ✅ 完成 — 新增 |
+| 5 | MED | 新设置 | 添加 `maxSkillDescriptionChars` 到通用设置 — 整数，默认 `1536`，任何范围（最低版本 2.1.105）。技能列表中 description+when_to_use 文本的每技能字符上限 | ✅ 完成 — 新增 |
+| 6 | MED | 新设置 | 添加 `skillListingBudgetFraction` 到通用设置 — 数字，默认 `0.01`（1%），任何范围（最低版本 2.1.105）。预留用于技能列表的上下文窗口比例 | ✅ 完成 — 新增 |
+| 7 | MED | 新设置 | 添加 `claudeMd` 到核心配置（memory）— 字符串，仅托管。以组织托管 memory 形式注入的 CLAUDE.md 风格指令；在用户/项目/本地设置中被忽略 | ✅ 完成 — 新增 |
+| 8 | MED | 新设置 | 添加 `syntaxHighlightingDisabled` 到显示设置 — 布尔值，默认 `false`，任何范围。禁用 diff、代码块和文件预览中的语法高亮 | ✅ 完成 — 新增 |
+| 9 | MED | 行为变更 | 修复 `externalEditorContext`：默认值 `true` → **`false`**，描述更新为"用 Ctrl+G 打开外部编辑器时预填 Claude 上次回复作为注释上下文" | ✅ 完成 — 新增 |
+| 10 | MED | 描述更新 | 更新模型别名：`opus` 改为平台依赖（Anthropic API 4.7 / Bedrock-Vertex-Foundry 4.6）；`sonnet` 同理。Opus 4.7 是最新版 + 快速模式默认值（v2.1.142） | ✅ 完成 — 循环更新（首次见于 v2.1.145 #17） |
+| 11 | LOW | 新环境变量 | 添加 `CLAUDE_CODE_DISABLE_AGENT_VIEW` 到环境变量表 — `disableAgentView` 设置的等效项 | ✅ 完成 — 新增 |
+| 12 | LOW | 检查清单 | 添加规则 1I（技能设置键完整性）— `maxSkillDescriptionChars`/`skillListingBudgetFraction` 自 v2.1.105 起存在但从未被发现 | ✅ 完成 |
+| 13 | LOW | 示例更新 | 在 Quick Reference 完整示例中展示新键（`maxSkillDescriptionChars`、`skillListingBudgetFraction`、`disableAgentView`、`syntaxHighlightingDisabled`） | ✅ 完成 — 新增 |
+| 14 | LOW | 怀疑键循环 | `OTEL_LOG_TOOL_DETAILS` 仍"在 v2.1.85 更新日志中，尚未在官方环境变量页面"，持续 19+ 次运行 | ✋ 搁置 |
+| 15 | LOW | 怀疑键循环 | `OTEL_LOG_TOOL_CONTENT` 仍仅更新日志 | ✋ 搁置 |
+| 16 | INVALID | 虚假漂移声明 | `claude-code-guide` Agent 标记 `NO_COLOR`/`FORCE_COLOR` 为缺失环境变量 — 已验证官方页面未记录 | ❌ 无效 |
+| 17 | INVALID | 虚假漂移声明 | `additionaleventDirectory` 和 `teammateDefaultModel` — WebFetch 摘要转录噪音 | ❌ 无效 |

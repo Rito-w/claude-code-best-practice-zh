@@ -132,3 +132,5 @@ Rules that verify all hyperlinks in the report are valid.
 | 9A | Local File Links | Verify all relative file links resolve to existing files | exists | local filesystem | 2026-03-05 | Initial checklist — file moves can break relative links |
 | 9B | External URL Links | Verify all external URLs return valid pages (not 404 or error) | exists | HTTP response | 2026-03-05 | Initial checklist — external docs pages can be restructured or removed |
 | 9C | Anchor Links | Verify all internal anchor links point to existing headings within the same file | exists | file headings | 2026-03-05 | Initial checklist — section renames can break anchor links |
+
+| 1I | 技能设置键 | 对于官方设置页面上的每个技能相关 `settings.json` 键（`skillOverrides`、`disableSkillShellExecution`、`maxSkillDescriptionChars`、`skillListingBudgetFraction` 及未来任何技能列表/技能预算键），验证其出现在报告中。技能*内容*已外部化，但技能*settings.json 键*仍在本报告范围内 | 字段级 | 设置文档页面 | 2026-05-25 | v2.1.150 运行发现 `maxSkillDescriptionChars`（默认 `1536`）和 `skillListingBudgetFraction`（默认 `0.01`）缺失 — 自 v2.1.105 起存在但从未在约 45 个版本的审计中被发现 |

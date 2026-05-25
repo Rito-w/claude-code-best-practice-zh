@@ -552,3 +552,17 @@ Tracks drift between the README CONCEPTS table and official Claude Code document
 | 9 | LOW | Verification | Beta Badge Currency (rule #7) — `/en/fast-mode` confirms "research preview" `<Note>` banner; README `![beta]` on Fast Mode accurate | ✅ COMPLETE (no demotions warranted) |
 | 10 | LOW | Verification | Anchors (`#organize-rules-with-clauderules`, `#run-parallel-...-worktrees`, `#eliminate-prompts-with-auto-mode`, `#bundled-skills`, `#track-a-running-review`) — stable since v2.1.113/v2.1.139 | ✅ COMPLETE (stable) |
 | 11 | LOW | Verification | claude-code-guide cross-check — independent 80-concept sweep corroborated coverage; surfaced Auto Dream + MCP Tool Search as possible Memory/MCP sub-links and re-surfaced platform surfaces (RECURRING INVALID). Its version numbers were unreliable (e.g. "MCP introduced Dec 2024", fuzzy v-numbers) — deferred to dedicated agent + live fetches for all dates; no contradictions affecting CONCEPTS | ✅ COMPLETE (agents aligned; guide's fuzzy versioning noted, not used) |
+
+---
+
+## [2026-05-25 04:27 PM PKT] Claude Code v2.1.150
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | 错误位置（新增） | Simplify & Batch 行（第 70 行）名称和位置 `/simplify`、`/batch` 已过时 — `/simplify` 在 v2.1.147 中**重命名为 `/code-review`**。三重确认：更新日志*"将 `/simplify` 重命名为 `/code-review`…传 `--comment` 作为内联 GitHub PR 评论发布"*；`/en/skills` 捆绑技能列表现为 `/code-review, /batch, /debug, /loop, /claude-api`（无 `/simplify`） | ✅ 完成（用户选择"Bundled Skills"重命名；第 70 行名称 `Simplify & Batch` → `Bundled Skills`，位置 `/simplify`, `/batch` → `/code-review`, `/batch`） |
+| 2 | LOW | 可选内联链接（新增） | Code Review 行（第 59 行，云端 GitHub App）可添加内联链接到本地 `/code-review` 命令（`/en/commands`） | ✅ 完成（用户批准；添加 `[Local /code-review](https://code.claude.com/docs/en/commands)`） |
+| 3 | HIGH | 过期 URL（循环） | Commands URL `/slash-commands` 不在官方站点地图中 — 重定向到 `/skills` | ❌ 无效（从 2026-03-10 循环；URL 仍通过重定向解析；用户选择保持原样） |
+| 4 | MED | 缺失概念（循环） | 专门 Agent 和 claude-code-guide Agent 重新标记 Sessions、IDE 集成等为缺失行 | ❌ 无效（循环 — 用户认为所有平台/运行时表面均已覆盖） |
+| 5 | LOW | Beta 徽章有效期 | 重新评估 beta 徽章与上游生命周期 — 所有徽章准确 | ✅ 完成 |
+| 6 | LOW | 验证 | 最新版本确认为 v2.1.150 | ✅ 完成 |
+| 7-11 | LOW | 验证 | 本地文件、外部 URL、锚点、检查清单更新、交叉检查 | ✅ 完成 |

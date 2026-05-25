@@ -205,3 +205,12 @@ No drift detected — frontmatter fields (15) and bundled skills (6) are fully s
 | 1 | HIGH | New Skill | Add `run` to official bundled skills table — launch and drive the project's app to see a change working (requires v2.1.145) | ✅ COMPLETE (added as row 7, count updated 6→9) |
 | 2 | HIGH | New Skill | Add `verify` to official bundled skills table — build and run the app to confirm a change works without falling back to tests/type checks (requires v2.1.145) | ✅ COMPLETE (added as row 8, count updated 6→9) |
 | 3 | HIGH | New Skill | Add `run-skill-generator` to official bundled skills table — teaches `/run` and `/verify` how to build/launch the project, records a per-project recipe at `.claude/skills/run-<name>/` (requires v2.1.145) | ✅ COMPLETE (added as row 9, count updated 6→9) |
+
+---
+
+## [2026-05-25 04:25 PM PKT] Claude Code v2.1.150
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | 重命名技能 | 将 `simplify`（第 1 行）重命名为 `code-review`；更新描述 — `/simplify` 在 v2.1.147 中已重命名为 `/code-review`，现在以选定努力程度审查当前 diff 中的正确性 bug（`--comment` 将发现作为内联 PR 评论发布） | ✅ 完成（重命名第 1 行为 `code-review` 并重写描述；捆绑技能数量保持 9） |
+| 2 | LOW | 技能命名 | Agent 标记 `fewer-permission-prompts`（报告第 6 行）vs 更新日志名称 `less-permission-prompts`（v2.1.111）— 验证哪个是规范名称 | ❌ 无效（实时 `/` 技能菜单确认 `fewer-permission-prompts` 是实际名称；报告正确） |

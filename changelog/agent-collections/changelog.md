@@ -246,3 +246,26 @@ Tracks updates to the AGENT COLLECTIONS table in `README.md`.
 | 4 | MED      | Count | Update VoltAgent/awesome-claude-code-subagents agents from 148 to 144  | COMPLETE (recursive tree count under categories/, excluding tools/) |
 | 5 | LOW      | Sort  | Verify sort order (stars descending)                                   | COMPLETE (msitarzewski 93k > VoltAgent 19k — order preserved) |
 | 6 | MED      | Rule  | Confirm 10k+ stars threshold for table inclusion                       | COMPLETE (user confirmed; both listed repos pass — msitarzewski 93k, VoltAgent 19k; saved as feedback memory for future runs) |
+
+---
+
+## [2026-05-25 08:47 PM PKT] Agent Collections 更新
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | Star | VoltAgent/awesome-claude-code-subagents ★ 从 20k 更新到 21k | ✅ 完成（GitHub API: 20,508 精确；20.508k 在 .5 边界舍入到 21k；新增 — 首个 21k 里程碑） |
+| 2 | MED | 数量 | VoltAgent/awesome-claude-code-subagents Agent 从 151 更新到 154 | ✅ 完成（README 自报"154+"；跨 10 个目录枚举：154 个 .md 文件；PR #256/#247/#238 于 5 月 25 日合并新增 Agent） |
+| 3 | LOW | 数量 | msitarzewski/agency-agents Agent 144 vs 184（置信度 0.88） | ❌ 无效（循环方法振荡；自 4 月 12 日以来无提交；144↔184 边界在 Agent 定义和工作流/策略文档之间变化） |
+| 4 | LOW | Star | msitarzewski/agency-agents ★ 不变（105k = 104,981） | ❌ 无效（无需变更） |
+| 5 | LOW | 排序 | 验证排序（105k > 21k — 星数降序） | ✅ 完成（顺序保持；循环） |
+
+---
+
+## [2026-05-24 08:46 PM PKT] Agent Collections 更新
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | Star | msitarzewski/agency-agents ★ 从 104k 更新到 105k | ✅ 完成（GitHub API: 104,690 精确；跨越 k 边界到 105k；新增 — 里程碑跨越） |
+| 2 | LOW | 数量 | msitarzewski/agency-agents Agent 144 vs 169（置信度 0.88） | ❌ 无效（循环方法变化；自 4 月 12 日以来无提交） |
+| 3 | LOW | 数量 | VoltAgent/awesome-claude-code-subagents Agent 151 vs 142（置信度 0.91） | ❌ 无效（循环振荡；在 142-152 历史范围内；5 月 20 日维护性提交） |
+| 4 | LOW | 排序 | 验证排序（105k > 20k — 星数降序） | ✅ 完成（顺序保持；循环） |

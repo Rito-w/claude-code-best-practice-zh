@@ -103,3 +103,20 @@
 | 8 | MEDIUM | Sort | Swap K-Dense-AI (24,924) above VoltAgent (22,473) — K-Dense-AI reclaims higher rank with ~2,450 star lead | RECURRING (reverses VoltAgent-up swap logged 2026-05-12) |
 | 9 | LOW | No Change | anthropics & mattpocock active skill counts steady (17, 24); VoltAgent curated count steady (1,100+) | COMPLETE (verified, no drift) |
 | 10 | LOW | No Change | Manual entries untouched — impeccable (27k/1), addyosmani/agent-skills (27k/21), alirezarezvani/claude-skills (15k/246) — out of 5-repo research scope | COMPLETE (verified, manual entries preserved) |
+
+---
+
+## [2026-05-25 04:27 PM PKT] Skill Collections 更新
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | Star | mattpocock/skills ★ 从 97k 更新到 104k（约 104,000 — +7k，连续第四次放大事件） | 循环（2026-05-01 +15k, 2026-05-12 +25k, 2026-05-20 +21k 记录） |
+| 2 | MEDIUM | Star | anthropics/skills ★ 从 138k 更新到 140k（约 140,000） | 循环 |
+| 3 | MEDIUM | 数量 | VoltAgent/awesome-agent-skills 策展数量从 1,100+ 更新到 1,424+ | 循环 |
+| 4 | LOW | Star | K-Dense-AI/scientific-agent-skills ★ 从 25k 更新到 26k（25,800 精确 — +1k） | 循环 |
+| 5 | LOW | Star | VoltAgent/awesome-agent-skills ★ 从 22k 更新到 23k（约 23,000 — +1k） | 循环 |
+| 6 | LOW | 无变更 | wshobson/agents ★ 稳定在 36k，技能稳定在 155 | ✅ 完成 |
+| 7 | LOW | 无变更 | 技能数量稳定 — anthropics 17, mattpocock 24（活跃）, K-Dense-AI 138 | ✅ 完成 |
+| 8 | LOW | 排序 | 顺序保持 — K-Dense-AI（26k）保持在两个 27k 手动行下方、VoltAgent（23k）上方 | ✅ 完成 |
+| 9 | LOW | 无变更 | 手动条目未改动 — impeccable（27k/1）, addyosmani/agent-skills（27k/21）, alirezarezvani/claude-skills（15k/246） | ✅ 完成 |
+| 10 | LOW | 备注 | anthropics & mattpocock 星数从 GitHub HTML 读取（k 缩写），非精确 API 计数 | ✅ 完成 |

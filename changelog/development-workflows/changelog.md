@@ -557,3 +557,24 @@
 | 15 | LOW | Count Verify | BMAD agents 0→6/30 — methodology shift (counting bmad-agent-* personas as agents) | ON HOLD (RECURRING from May 12; keeping 0 to preserve trend continuity) |
 | 16 | LOW | Count Verify | oh-my-claudecode commands 0→27 — agent found 27 .md in commands/ but workflow methodology treats skills as the command surface | ON HOLD (keeping 0 per established methodology) |
 | 17 | LOW | Sort Order | No re-sort needed — stars-descending order preserved: Superpowers 200k > ECC 188k > Spec Kit 104k > gstack 100k > Matt Pocock 97k > GSD 63k > OpenSpec 50k > BMAD 48k > omc 34k > agent-skills 27k > Compound 17k > HumanLayer 11k | COMPLETE (verified order unchanged) |
+
+---
+
+## [2026-05-25 04:31 PM PKT] Development Workflows 更新
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | Star 更新 | Superpowers ★ 从 200k 更新到 206k（205,730 实际 — v5.1.0 Codex 插件同步） | ✅ 完成 |
+| 2 | HIGH | Star 更新 | Everything Claude Code ★ 从 188k 更新到 192k（191,589 实际 — v2.0.0-rc.1） | ✅ 完成 |
+| 3 | HIGH | Star 更新 | Spec Kit ★ 从 104k 更新到 106k（105,688 实际 — v0.8.11-0.8.13） | ✅ 完成 |
+| 4 | HIGH | Star 更新 | Matt Pocock Skills ★ 从 97k 更新到 104k（104,487 实际 — +7k） | ✅ 完成 |
+| 5 | HIGH | 排序 | Matt Pocock（104,487）移至 gstack（102,000）上方 — 第 5→4 行 | ✅ 完成 |
+| 6 | HIGH | Star 更新 | gstack ★ 从 100k 更新到 102k（102,000 实际 — v1.44.0.0） | ✅ 完成 |
+| 7 | MED | Star 更新 | Get Shit Done ★ 从 63k 更新到 64k（63,696 实际 — v1.42-1.43） | ✅ 完成 |
+| 8 | MED | Star 更新 | OpenSpec ★ 从 50k 更新到 51k（50,600 实际 — v1.3.1） | ✅ 完成 |
+| 9 | MED | Star 更新 | oh-my-claudecode ★ 从 34k 更新到 35k（34,795 实际 — v4.14.x） | ✅ 完成 |
+| 10 | MED | 工作流 | 更新 Spec Kit 工作流 — 在 /speckit.tasks 和 /speckit.implement 之间插入 /speckit.analyze | ✅ 完成 |
+| 11 | MED | 数量更新 | Compound Engineering Agent 从 49 更新到 43（v3.8.x 移除 6 个 reviewer Agent） | ✅ 完成 |
+| 12 | MED | 数量更新 | Get Shit Done 命令从 67 更新到 96（v1.42-1.43 特性增量） | ✅ 完成 |
+| 13 | LOW | 数量更新 | gstack 技能从 48 更新到 47（AGENTS.md 权威目录列出 47 个根级 SKILL.md 目录） | ✅ 完成 |
+| 14-20 | LOW | 备注/验证 | GSD 已弃用标记、HumanLayer 转型、Compound/Matt Pocock/ECC/Superpowers 数量验证 | ON HOLD |
