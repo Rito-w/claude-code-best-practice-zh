@@ -624,3 +624,16 @@
 | 15 | LOW | 怀疑键循环 | `OTEL_LOG_TOOL_CONTENT` 仍仅更新日志 | ✋ 搁置 |
 | 16 | INVALID | 虚假漂移声明 | `claude-code-guide` Agent 标记 `NO_COLOR`/`FORCE_COLOR` 为缺失环境变量 — 已验证官方页面未记录 | ❌ 无效 |
 | 17 | INVALID | 虚假漂移声明 | `additionaleventDirectory` 和 `teammateDefaultModel` — WebFetch 摘要转录噪音 | ❌ 无效 |
+
+---
+
+## [2026-06-01 10:42 AM PKT] Claude Code v2.1.159
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | 版本升级 | 更新报告版本徽章从 v2.1.150 → v2.1.159，标题"截至 v2.1.150" → "截至 v2.1.159" | ✅ 完成 |
+| 2 | HIGH | 新设置 | 添加 `ultracode` 到通用设置 — 会话级布尔值（不持久化）。设为 `true` 时，Harness 为每个实质性任务默认编写并运行工作流，最大化彻底性。通过 `/effort ultracode`、`--settings` 或 SDK 设置 | ✅ 完成 — 新增 (v2.1.154) |
+| 3 | MED | 新设置 | 添加 `disableWorkflows` 到通用设置 — 布尔值，任何范围。禁用动态工作流（`/workflows`）和捆绑工作流 slash 命令。等同于 `CLAUDE_CODE_DISABLE_WORKFLOWS` 环境变量 | ✅ 完成 — 新增 (v2.1.154) |
+| 4 | MED | 新设置 | 添加 `workflowKeywordTriggerEnabled` 到通用设置 — 布尔值，默认 `true`。输入 "workflow" 是否可触发动态工作流。设为 `false` 需要显式 `/workflows` 调用 | ✅ 完成 — 新增 (v2.1.157) |
+| 5 | MED | 环境变量 | 添加 `CLAUDE_CODE_DISABLE_WORKFLOWS` 到环境变量表 — `disableWorkflows` 设置的等效项 | ✅ 完成 — 新增 |
+| 6 | LOW | 描述更新 | 环境变量计数 180+ → 200+ | ✅ 完成 — 更新 |

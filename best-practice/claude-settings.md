@@ -1,9 +1,9 @@
 # Settings 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-May%2025%2C%202026%204%3A28%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.150-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2001%2C%202026%2010%3A42%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.159-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.claude/settings.json)
 
-Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.150，Claude Code 提供 **80+ 设置项**和 **180+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
+Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.159，Claude Code 提供 **80+ 设置项**和 **200+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
 
 <table width="100%">
 <tr>

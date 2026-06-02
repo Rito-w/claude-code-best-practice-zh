@@ -1,5 +1,17 @@
 
 ---
+## 2026-06-02 20:49 — 每日巡检
+- 源仓库最新提交：89ed5d7 (Jun 02, 2026 06:38 UTC) — Claude Code v2.1.160
+- 变更：自上次同步 v2.1.150 (May 27) 以来的增量更新
+  - **README.md**: 版本徽章 v2.1.150→v2.1.160
+  - **best-practice/claude-commands.md**: 版本更新；frontmatter 字段 15→16（新增 `disallowed-tools`）；官方命令 80→82；新增 4 个命令（`/background`、`/goal`、`/stop`、`/workflows`）；`/effort` 新增 `ultracode` 级别；`/clear` 移除 `[name]` 参数；`/context` 移除 `[all]` 参数
+  - **best-practice/claude-subagents.md**: 版本徽章更新
+  - **best-practice/claude-settings.md**: 版本 v2.1.150→v2.1.159；环境变量计数 180+→200+
+  - **best-practice/claude-skills.md**: 版本徽章更新
+  - **Changelogs**: 3 个 changelog 文件同步上游
+- 翻译覆盖率：100% (116/116)
+
+---
 ## 2026-05-22 02:00 — 每日巡检
 - 源仓库最新提交：eadee94 (May 21, 2026 12:05 AM PKT) — Claude Code v2.1.145
 - 变更：14 个文件更新（自上次同步 56125ec / v2.1.144）

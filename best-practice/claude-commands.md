@@ -1,6 +1,6 @@
 # Commands 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-May%2025%2C%202026%204%3A25%20PM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.150-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2002%2C%202026%2011%3A08%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.160-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-commands-implementation.md)
 
 Claude Code commands —— frontmatter 字段和官方内置 slash commands。
@@ -14,7 +14,7 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 
 ---
 
-## Frontmatter 字段 (15)
+## Frontmatter 字段 (16)
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
@@ -27,8 +27,9 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 | `user-invocable` | boolean | 否 | 设为 `false` 从 `/` 菜单中隐藏——命令仅作为背景知识 |
 | `paths` | string/list | 否 | 限制此技能激活时机的 glob 模式。接受逗号分隔的字符串或 YAML 列表。设置后，Claude 仅在处理匹配模式的文件时自动加载此技能 |
 | `allowed-tools` | string | 否 | 此命令激活时无需权限提示即可使用的工具 |
+| `disallowed-tools` | string/list | 否 | 从此命令可用工具池中移除的工具。发送下一条消息时清除。与 `allowed-tools` 相反 |
 | `model` | string | 否 | 运行此命令时使用的模型（如 `haiku`、`sonnet`、`opus`） |
-| `effort` | string | 否 | 调用时覆盖模型努力级别（`low`、`medium`、`high`、`xhigh`、`max`） |
+| `effort` | string | 否 | 调用时覆盖模型努力级别（`low`、`medium`、`high`、`xhigh`、`max`、`ultracode`） |
 | `context` | string | 否 | 设为 `fork` 在隔离的子代理上下文中运行命令 |
 | `agent` | string | 否 | 设置 `context: fork` 时的子代理类型（默认：`general-purpose`） |
 | `shell` | string | 否 | `` !`command` `` 块使用的 shell——接受 `bash`（默认）或 `powershell`。需要设置 `CLAUDE_CODE_USE_POWERSHELL_TOOL=1` |
@@ -36,7 +37,7 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 
 ---
 
-## ![Official](../!/tags/official.svg) **(80)**
+## ![Official](../!/tags/official.svg) **(82)**
 
 | # | Command | Tag | Description |
 |---|---------|-----|-------------|
@@ -59,7 +60,7 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 | 17 | `/theme` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 更改颜色主题。包括亮色和暗色变体、色盲友好（daltonized）主题、使用终端调色板的 ANSI 主题、跟随终端亮暗模式的 "Auto (match terminal)" 选项，以及从 `~/.claude/themes/` 或插件加载的自定义主题。选择 "New custom theme…" 创建自己的主题 |
 | 18 | `/tui [default\|fullscreen]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 设置终端 UI 渲染器并重新启动 Claude Code 且保持当前对话不变。`default` 使用内联渲染；`fullscreen` 使用 alt-screen TUI |
 | 19 | `/voice [hold\|tap\|off]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 切换语音听写，或以特定模式启用。需要 Claude.ai 账号 |
-| 20 | `/context [all]` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 以彩色网格可视化当前上下文使用情况。显示对上下文密集型工具、内存膨胀和容量警告的优化建议。传入 `all` 在全屏中展开每项详细分解 |
+| 20 | `/context` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 以彩色网格可视化当前上下文使用情况。显示对上下文密集型工具、内存膨胀和容量警告的优化建议 |
 | 21 | `/cost` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | `/usage` 的别名 |
 | 22 | `/insights` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 生成分析报告，分析你的 Claude Code 会话，包括项目区域、交互模式和摩擦点 |
 | 23 | `/stats` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | `/usage` 的别名。在 Stats 标签页打开 |
@@ -84,7 +85,7 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 | 42 | `/reload-plugins` | ![Extensions](https://img.shields.io/badge/Extensions-16A085?style=flat) | 重新加载所有活动插件以应用待处理的更改，无需重启。报告每个重新加载组件的数量并标记任何加载错误 |
 | 43 | `/skills` | ![Extensions](https://img.shields.io/badge/Extensions-16A085?style=flat) | 列出可用技能。按 `t` 按 token 数排序 |
 | 44 | `/memory` | ![Memory](https://img.shields.io/badge/Memory-3498DB?style=flat) | 编辑 `CLAUDE.md` 记忆文件，启用或禁用自动记忆，以及查看自动记忆条目 |
-| 45 | `/effort [low\|medium\|high\|xhigh\|max\|auto]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 设置模型努力级别。可用级别取决于模型，包括 `low`、`medium`、`high`、`xhigh` 和 `max`（仅会话级）。不带参数时打开交互式滑块选择级别。`auto` 重置为模型默认值。立即生效，无需等待当前响应完成 |
+| 45 | `/effort [low\|medium\|high\|xhigh\|max\|ultracode]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 设置模型努力级别。可用级别取决于模型，包括 `low`、`medium`、`high`、`xhigh`、`max`（仅会话级）和 `ultracode`（结合 `xhigh` 推理与自动工作流编排；仅会话级）。不带参数时打开交互式滑块选择级别。`auto` 重置为模型默认值。立即生效，无需等待当前响应完成 |
 | 46 | `/fast [on\|off]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 切换快速模式开或关 |
 | 47 | `/model [model]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 选择或更改 AI 模型。对支持的模型，使用左右箭头调整努力级别。更改立即生效，无需等待当前响应完成。在已有输出的对话中途切换时，Claude 会在应用更改前发出警告 |
 | 48 | `/passes` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 与朋友分享一周免费 Claude Code。仅在你的账号符合条件时可见 |
@@ -107,15 +108,19 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 | 65 | `/schedule [description]` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 创建、更新、列出或运行例程。Claude 会以对话方式引导你完成设置。别名：`/routines` |
 | 66 | `/teleport` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 将网页端的 Claude Code 会话拉入此终端：打开选择器，然后获取分支和对话。也可用作 `/tp`。需要 claude.ai 订阅 |
 | 67 | `/web-setup` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 使用本地 `gh` CLI 凭据将你的 GitHub 账号连接到网页端 Claude Code。如果 GitHub 未连接，`/schedule` 会自动提示进行此操作 |
-| 68 | `/branch [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 在此点创建当前对话的分支。别名：`/fork`。设置 `CLAUDE_CODE_FORK_SUBAGENT` 时，`/fork` 改为生成分叉子代理，不再是此命令的别名 |
-| 69 | `/btw <question>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 问一个快速附带问题，不添加到对话中 |
-| 70 | `/clear [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 以空上下文开始新对话。传入可选名称在 `/resume` 选择器中标记之前的对话。之前的对话仍可在 `/resume` 中访问。要在继续同一对话的同时释放上下文，请改用 `/compact`。别名：`/reset`、`/new` |
-| 71 | `/compact [instructions]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 压缩对话，可选聚焦指令 |
-| 72 | `/exit` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 退出 CLI。别名：`/quit` |
-| 73 | `/recap` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 按需生成当前会话的一行摘要，不影响正在进行的对话 |
-| 74 | `/rename [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 重命名当前会话并在提示栏显示名称。不带名称时根据对话历史自动生成 |
-| 75 | `/resume [session]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 通过 ID 或名称恢复对话，或打开会话选择器。别名：`/continue` |
-| 76 | `/rewind` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将对话和/或代码回退到之前的某个点，或从选定消息生成摘要。参见检查点机制。别名：`/checkpoint`、`/undo` |
+| 68 | `/background [prompt]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 分离当前会话以作为后台代理运行，释放此终端。别名：`/bg` |
+| 69 | `/branch [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 在此点创建当前对话的分支。别名：`/fork`。设置 `CLAUDE_CODE_FORK_SUBAGENT` 时，`/fork` 改为生成分叉子代理，不再是此命令的别名 |
+| 70 | `/btw <question>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 问一个快速附带问题，不添加到对话中 |
+| 71 | `/clear` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 以空上下文开始新对话。之前的对话仍可在 `/resume` 中访问。要在继续同一对话的同时释放上下文，请改用 `/compact`。别名：`/reset`、`/new` |
+| 72 | `/compact [instructions]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 压缩对话，可选聚焦指令 |
+| 73 | `/exit` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 退出 CLI。别名：`/quit` |
+| 74 | `/recap` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 按需生成当前会话的一行摘要，不影响正在进行的对话 |
+| 75 | `/rename [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 重命名当前会话并在提示栏显示名称。不带名称时根据对话历史自动生成 |
+| 76 | `/resume [session]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 通过 ID 或名称恢复对话，或打开会话选择器。别名：`/continue` |
+| 77 | `/rewind` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将对话和/或代码回退到之前的某个点，或从选定消息生成摘要。参见检查点机制。别名：`/checkpoint`、`/undo` |
+| 78 | `/goal [condition\|clear]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 设定目标——Claude 持续工作直到条件满足。传入 `clear` 移除现有目标 |
+| 79 | `/stop` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 停止当前后台会话。保留转录和工作树 |
+| 80 | `/workflows` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 打开工作流进度视图，以监控、暂停、恢复或保存运行中和已完成的工作流 |
 
 `/debug` 等捆绑技能也可能出现在 slash 命令菜单中，但它们不是内置命令。
 

@@ -322,3 +322,21 @@ No priority action items — report is fully in sync with official documentation
 | 1 | LOW | 范围决定 | 9 个捆绑技能（`/batch`、`/claude-api`、`/code-review`、`/debug`、`/fewer-permission-prompts`、`/loop`、`/run`、`/run-skill-generator`、`/verify`）在上游统一表中按报告范围排除；`/simplify` 在 v2.1.147 重命名为 → `/code-review`（仍然是捆绑技能，保持排除） | ❌ 无效（从 v2.1.107/119/139/145 循环 — 报告故意只包含内置命令） |
 
 _无跟踪漂移：frontmatter 字段 15/15 与官方文档匹配，内置命令 80/80 匹配。版本徽章 v2.1.145 → v2.1.150。_
+
+---
+
+## [2026-06-02 11:08 AM PKT] Claude Code v2.1.160
+
+| # | 优先级 | 类型 | 操作 | 状态 |
+|---|--------|------|------|------|
+| 1 | HIGH | New Field | Add `disallowed-tools` to frontmatter table — tools removed from Claude's available pool while command is active (inverse of `allowed-tools`) | ✅ COMPLETE (added as 10th field in frontmatter table; count 15 → 16) |
+| 2 | HIGH | New Command | Add `/background [prompt]` to Session tag — detach current session to run as a background agent. Alias: `/bg` | ✅ COMPLETE (added as #68 in Session tag) |
+| 3 | HIGH | New Command | Add `/goal [condition\|clear]` to Session tag — Claude keeps working across turns until condition met. Pass `clear` to remove | ✅ COMPLETE (added as #78 in Session tag) |
+| 4 | HIGH | New Command | Add `/stop` to Session tag — stop current background session, keeping transcript and worktree | ✅ COMPLETE (added as #79 in Session tag) |
+| 5 | HIGH | New Command | Add `/workflows` to Session tag — open workflow progress view to watch, pause, resume, or save workflows | ✅ COMPLETE (added as #80 in Session tag) |
+| 6 | MED | Changed Value | Add `ultracode` to `effort` frontmatter field options and `/effort` command (`low`, `medium`, `high`, `xhigh`, `max`, `ultracode`) | ✅ COMPLETE (updated both frontmatter field row and command #45; `ultracode` combines `xhigh` reasoning with automatic workflow orchestration) |
+| 7 | MED | Changed Command | Remove `[name]` parameter from `/clear` command — simplified description | ✅ COMPLETE (updated command #71) |
+| 8 | MED | Changed Command | Remove `[all]` parameter from `/context` command — simplified description | ✅ COMPLETE (updated command #20) |
+| 9 | LOW | Scope Decision | 9 个捆绑技能在上游统一表中按报告范围排除（与 v2.1.150 相同） | ❌ 无效（循环 — 报告故意只包含内置命令） |
+
+_无跟踪漂移：frontmatter 字段 16/16 与官方文档匹配，内置命令 82/82 匹配。版本徽章 v2.1.150 → v2.1.160。_
