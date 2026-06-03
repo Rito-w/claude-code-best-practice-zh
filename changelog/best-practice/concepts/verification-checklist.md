@@ -68,10 +68,10 @@ Rules for verifying CONCEPTS table accuracy. Each rule is checked during every w
 - **Date added**: 2026-05-21
 - **Origin**: Checkpointing Location read `automatic (git-based)` for every prior run, but `/en/checkpointing` explicitly states checkpoints track file-editing-tool changes (not git, not bash) and are "not a replacement for version control" — *"checkpoints as 'local undo' and Git as 'permanent history'."* Existing rule #5 (Description Currency) only inspects the Description column, so a factual error in the Location column went unchecked indefinitely
 
-### 9. 捆绑技能/命令重命名跟踪
-- **类别**: 描述准确性（Location 列）
-- **检查内容**: 在 CONCEPTS/Hot **Location** 列中命名的任何斜杠命令或捆绑技能（如 `/simplify`、`/code-review`、`/loop`、`/batch`、`/goal`、`/ultrareview`）仍以该确切名称存在 — 即未被重命名或在近期版本中移除
-- **深度**: 扫描最近 N 个版本的 CHANGELOG 中"renamed"、"removed"或"deprecated"命令/技能事件；交叉检查当前 `/en/commands` 参考和 `/en/skills#bundled-skills` 列表以获取实际当前命令名称
-- **对比来源**: `https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md` + `https://code.claude.com/docs/en/commands` + `https://code.claude.com/docs/en/skills#bundled-skills`
-- **添加日期**: 2026-05-25
-- **来源**: `/simplify` 在 v2.1.147 中重命名为 `/code-review` — 这是一个**仅更新日志事件**，文档页面列表检查（规则 #1/#3）和 claude-code-guide 95 概念扫描均未发现；只有原始 CHANGELOG 读取捕获到它
+### 9. Bundled Skill / Command Rename Tracking
+- **Category**: Description Accuracy (Location column)
+- **What to check**: Any slash command or bundled skill named in a CONCEPTS/Hot **Location** column (e.g. `/simplify`, `/code-review`, `/loop`, `/batch`, `/goal`, `/ultrareview`) still exists under that exact name — i.e. it was not renamed or removed in a recent version
+- **Depth**: Scan the last N versions of the CHANGELOG for "renamed", "removed", or "deprecated" command/skill events; cross-check the current `/en/commands` reference and the `/en/skills#bundled-skills` list for the actual current command names
+- **Source to compare against**: `https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md` + `https://code.claude.com/docs/en/commands` + `https://code.claude.com/docs/en/skills#bundled-skills`
+- **Date added**: 2026-05-25
+- **Origin**: `/simplify` was renamed to `/code-review` in v2.1.147 — a **changelog-only event** that the docs-page-listing checks (rules #1/#3) and the claude-code-guide 95-concept sweep both missed; only a raw-CHANGELOG read caught it. Rules #5/#8 inspect Location *characterization* against docs page bodies but don't systematically scan the changelog for command renames, so a renamed command in a Location column could persist indefinitely

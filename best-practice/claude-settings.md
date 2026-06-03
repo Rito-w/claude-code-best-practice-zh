@@ -1,9 +1,9 @@
 # Settings 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2001%2C%202026%2010%3A42%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.159-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2002%2C%202026%2010%3A48%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.160-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.claude/settings.json)
 
-Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.159，Claude Code 提供 **80+ 设置项**和 **200+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
+Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.160，Claude Code 提供 **80+ 设置项**和 **200+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
 
 <table width="100%">
 <tr>
@@ -262,7 +262,7 @@ Control what tools and operations Claude can perform.
 | Mode | Behavior |
 |------|----------|
 | `"default"` | Standard permission checking with prompts |
-| `"acceptEdits"` | 自动接受文件编辑 **和工作目录或 `additionalDirectories` 中路径的常见文件系统命令**（`mkdir`、`touch`、`mv`、`cp` 等） |
+| `"acceptEdits"` | 自动接受文件编辑 **和工作目录或 `additionalDirectories` 中路径的常见文件系统命令**（`mkdir`、`touch`、`mv`、`cp` 等）。**v2.1.160：** 写入构建工具配置文件（`.npmrc`、`.yarnrc*`、`bunfig.toml`、`.bazelrc`、`.pre-commit-config.yaml`、`.devcontainer/` 等，这些文件会授予代码执行权限）和 shell 启动文件（`.zshenv`、`.zlogin`、`.bash_login`）以及 `~/.config/git/` 之前始终会提示 |
 | `"dontAsk"` | Auto-denies tools unless pre-approved via `/permissions` or `permissions.allow` rules |
 | `"bypassPermissions"` | 跳过所有权限检查（危险）。写入受保护路径（`.git`、`.claude`、`.vscode`、`.idea`、`.husky`）仍会提示。截至 v2.1.121，写入 `.claude/commands/`、`.claude/agents/`、`.claude/skills/` 和 `.claude/worktrees/` 明确豁免受保护路径提示，因为 Claude 在创建 skills、子代理和 commands 时会常规写入这些地方。**v2.1.126** 进一步扩展豁免：在 `--dangerously-skip-permissions` 下写入 `.claude/`、`.git/`、`.vscode/` 和 shell 配置文件（如 `.bashrc`、`.zshrc`）不再提示。针对文件系统根目录或 home 目录的删除命令（`rm -rf /`、`rm -rf ~`）仍会提示，作为防止模型错误的断路器 |
 | `"auto"` | Auto-approves tool calls with background safety checks that verify actions align with your request. Research preview. Classifier auto-approves read-only and file edits; sends everything else through a safety check. Falls back to prompting after 3 consecutive or 20 total blocks. In the default `Shift+Tab` permission-mode cycle since v2.1.111 (the `--enable-auto-mode` flag was removed in v2.1.111 — start in this mode with `--permission-mode auto`). Configure with the `autoMode` setting |
@@ -902,7 +902,7 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_CODE_DISABLE_MCP` | Disable all MCP servers (`1` to disable) *(not in official docs — unverified)* |
 | `CLAUDE_CODE_MAX_OUTPUT_TOKENS` | Max output tokens per response. Default: 32,000 (64,000 for Opus 4.6 as of v2.1.77). Upper bound: 64,000 (128,000 for Opus 4.6 and Sonnet 4.6 as of v2.1.77) |
 | `CLAUDE_CODE_DISABLE_FAST_MODE` | Disable fast mode entirely (`1` to disable) |
-| `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` | 设为 `1` 将 [fast mode](https://code.claude.com/docs/en/fast-mode) 固定为 Claude Opus 4.6 而非默认 Opus 4.7。设置后 `/fast` 在 Opus 4.6 上运行；不设置时 `/fast` 在 Opus 4.7 上运行 (v2.1.142) |
+| `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` | **v2.1.160 已移除** — 此环境变量现在是无操作（no-op）。无论是否设置此变量，fast mode 都运行在默认模型上。此前用于将 [fast mode](https://code.claude.com/docs/en/fast-mode) 固定为 Claude Opus 4.6 而非默认 (v2.1.142–v2.1.159) |
 | `CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK` | Set to `1` to disable the non-streaming fallback when a streaming request fails mid-stream. Streaming errors propagate to the retry layer instead. Useful when a proxy or gateway causes the fallback to produce duplicate tool execution (v2.1.83) |
 | `CLAUDE_ENABLE_STREAM_WATCHDOG` | Abort stalled streams (`1` to enable) |
 | `CLAUDE_CODE_ENABLE_FINE_GRAINED_TOOL_STREAMING` | Enable fine-grained tool streaming (`1` to enable) |

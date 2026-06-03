@@ -210,7 +210,34 @@ No drift detected — frontmatter fields (15) and bundled skills (6) are fully s
 
 ## [2026-05-25 04:25 PM PKT] Claude Code v2.1.150
 
-| # | 优先级 | 类型 | 操作 | 状态 |
-|---|--------|------|------|------|
-| 1 | HIGH | 重命名技能 | 将 `simplify`（第 1 行）重命名为 `code-review`；更新描述 — `/simplify` 在 v2.1.147 中已重命名为 `/code-review`，现在以选定努力程度审查当前 diff 中的正确性 bug（`--comment` 将发现作为内联 PR 评论发布） | ✅ 完成（重命名第 1 行为 `code-review` 并重写描述；捆绑技能数量保持 9） |
-| 2 | LOW | 技能命名 | Agent 标记 `fewer-permission-prompts`（报告第 6 行）vs 更新日志名称 `less-permission-prompts`（v2.1.111）— 验证哪个是规范名称 | ❌ 无效（实时 `/` 技能菜单确认 `fewer-permission-prompts` 是实际名称；报告正确） |
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Renamed Skill | Rename `simplify` (row 1) to `code-review`; update description — `/simplify` was renamed to `/code-review` in v2.1.147, now reviews the current diff for correctness bugs at a chosen effort level (`--comment` posts findings as inline PR comments) | ✅ COMPLETE (renamed row 1 to `code-review` and rewrote description; bundled skill count stays 9) |
+| 2 | LOW | Skill Naming | Agent flagged `fewer-permission-prompts` (report row 6) vs changelog name `less-permission-prompts` (v2.1.111) — verify which is canonical | ❌ INVALID (live `/` skill menu in this session confirms `fewer-permission-prompts` is the shipping name; report row 6 is correct, no change) |
+
+---
+
+## [2026-06-01 12:01 AM PKT] Claude Code v2.1.158
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | New Field | Add `disallowed-tools` to frontmatter table — tools removed from Claude's available pool while the skill is active (accepts space/comma-separated string or YAML list; clears on next message). Introduced v2.1.152, reaffirmed v2.1.157. Update count 15→16 | ✅ COMPLETE (added `disallowed-tools` row after `allowed-tools`, count updated 15→16) |
+| 2 | HIGH | New Skill | Add `simplify` to official bundled skills table — cleanup-only review (reuse, simplification, efficiency, abstraction level), four review agents in parallel; from v2.1.154 it does NOT hunt for correctness bugs (use `/code-review` for that). Update count 9→10 | ✅ COMPLETE (added as row 10, count updated 9→10) |
+
+---
+
+## [2026-06-01 10:11 AM PKT] Claude Code v2.1.159
+
+No drift detected — frontmatter fields (16) and bundled skills (10) are fully synchronized with official docs.
+
+---
+
+## [2026-06-02 10:03 AM PKT] Claude Code v2.1.160
+
+No drift detected — frontmatter fields (16) and bundled skills (10) are fully synchronized with official docs.
+
+---
+
+## [2026-06-03 10:03 AM PKT] Claude Code v2.1.161
+
+No drift detected — frontmatter fields (16) and bundled skills (10) are fully synchronized with official docs.
