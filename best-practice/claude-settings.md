@@ -1,6 +1,6 @@
 # Settings 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2005%2C%202026%2010%3A47%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.165-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2005%2C%202026%2010%3A48%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.165-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.claude/settings.json)
 
 Claude Code `settings.json` 文件中所有可用配置选项的综合指南。截至 v2.1.160，Claude Code 提供 **80+ 设置项**和 **200+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免使用包装脚本）。
@@ -62,6 +62,8 @@ Within the managed tier, precedence is: server-managed > MDM/OS-level policies >
 |-----|------|---------|-------------|
 | `parentSettingsBehavior` | string | `"first-wins"` | 控制 SDK `managedSettings` 父级如何与本地 managed 文件合并。`"first-wins"` 保持现有优先级——第一个非空的 managed 源提供所有值。`"merge"` 将父级深度合并到本地 managed 文件之上，使管理员可以在 managed 基础之上叠加组织范围的策略 (v2.1.133) |
 | `policyHelper` | object | - | 在运行时动态计算 managed 设置的 managed 可执行程序。对象字段：`path`（字符串——helper 二进制的绝对路径）、`timeoutMs`（数字——超过此毫秒后中止 helper）、`refreshIntervalMs`（数字——超过此毫秒后重新运行 helper 以刷新策略）。输出解析为 JSON，视为 `managed-settings.json` 的内容。用于从外部系统（LDAP 组、资产数据库等）计算组织策略，无需重新部署静态文件 (v2.1.136) |
+| `requiredMinimumVersion` | string | - | **(Managed only)** 如果安装版本低于此最低版本，阻止 Claude Code 启动。CLI 退出并提示用户升级。与 `minimumVersion`（控制自动更新最低版本）互补——此项在启动时强制执行。示例：`"2.1.163"` *(v2.1.163 changelog 中，尚未在官方设置页面上)* |
+| `requiredMaximumVersion` | string | - | **(Managed only)** 如果安装版本超过此最高版本，阻止 Claude Code 启动。版本过新时 CLI 退出。与 `requiredMinimumVersion` 配合使用可在托管环境中锁定特定版本范围。示例：`"2.1.165"` *(v2.1.163 changelog 中，尚未在官方设置页面上)* |
 
 **Important**:
 - `deny` rules have highest safety precedence and cannot be overridden by lower-priority allow/ask rules.
@@ -86,7 +88,7 @@ Within the managed tier, precedence is: server-managed > MDM/OS-level policies >
 | `autoUpdatesChannel` | string | `"latest"` | Release channel: `"stable"` or `"latest"` |
 | `minimumVersion` | string | - | Prevent the auto-updater from downgrading below a specific version. Automatically set when switching to the stable channel and choosing to stay on the current version until stable catches up. Used with `autoUpdatesChannel` |
 | `alwaysThinkingEnabled` | boolean | `false` | Enable extended thinking by default for all sessions |
-| `skipWebFetchPreflight` | boolean | `false` | Skip WebFetch blocklist check before fetching URLs *(in JSON schema, not on official settings page)* |
+| `skipWebFetchPreflight` | boolean | `false` | 跳过 WebFetch 域名安全检查（该检查在获取前会将每个请求的主机名发送到 `api.anthropic.com`）。在阻止发往 Anthropic 的出站流量的环境中设为 `true`，如具有严格出站限制的 Bedrock、Vertex AI 或 Foundry 部署 |
 | `availableModels` | array | - | Restrict which models users can select via `/model`, `--model`, Config tool, or `ANTHROPIC_MODEL`. Does not affect the Default option. Example: `["sonnet", "haiku"]` |
 | `fastModePerSessionOptIn` | boolean | `false` | Require users to opt in to fast mode each session |
 | `defaultShell` | string | `"bash"` | Default shell for input-box `!` commands. Accepts `"bash"` (default) or `"powershell"`. Setting `"powershell"` routes interactive `!` commands through PowerShell on Windows. Requires `CLAUDE_CODE_USE_POWERSHELL_TOOL=1` (v2.1.84). **v2.1.120:** When PowerShell is available, it is used as the fallback shell on Windows even without Git for Windows installed. **v2.1.126:** When PowerShell is enabled, it is treated as the *primary* shell instead of defaulting to Bash. PowerShell 7 detection now also covers Microsoft Store installs, MSI installs not on PATH, and `.NET` global tool installs |
@@ -838,7 +840,7 @@ Set environment variables for all Claude Code sessions.
 | `ANTHROPIC_DEFAULT_HAIKU_MODEL_DESCRIPTION` | Customize the Haiku entry description in the `/model` picker. Defaults to `Custom model (<model-id>)` |
 | `ANTHROPIC_DEFAULT_HAIKU_MODEL_SUPPORTED_CAPABILITIES` | Override capability detection for a pinned Haiku model. Comma-separated values (e.g., `effort,thinking`). Required when the pinned model supports features the auto-detection cannot confirm |
 | `CLAUDECODE` | Set to `1` in shell environments Claude Code spawns (Bash tool, tmux sessions). Not set in hooks or status line commands. Use to detect when a script is running inside a Claude Code shell |
-| `CLAUDE_CODE_SESSION_ID` | 只读。自动设置到 Bash 子进程环境中为当前 Claude Code 会话的 ID。从 Bash 命令、钩子或技能辅助程序中读取，以将日志、指标或遥测数据与特定会话关联，无需解析转储路径 (v2.1.132) |
+| `CLAUDE_CODE_SESSION_ID` | 只读。自动设置到 Bash 子进程环境中为当前 Claude Code 会话的 ID。从 Bash 命令、钩子或技能辅助程序中读取，以将日志、指标或遥测数据与特定会话关联，无需解析转储路径 (v2.1.132) *(not in official docs — unverified)* |
 | `AI_AGENT` | Set automatically by Claude Code in subprocess environments (Bash tool, hooks, MCP stdio servers). Generic flag identifying the parent process as an AI agent — useful for tools that adapt behavior when invoked from any AI agent rather than checking each agent-specific variable like `CLAUDECODE` *(in v2.1.120 changelog, not yet on official env-vars page)* |
 | `CLAUDE_CODE_SKIP_FAST_MODE_NETWORK_ERRORS` | Set to `1` to allow fast mode when the organization status check fails due to a network error. Useful when a corporate proxy blocks the status endpoint |
 | `CLAUDE_CODE_USE_BEDROCK` | Use AWS Bedrock (`1` to enable) |
@@ -865,6 +867,9 @@ Set environment variables for all Claude Code sessions.
 | `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR` | Keep cwd between bash calls (`1` to enable) |
 | `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` | Disable background tasks (`1` to disable) |
 | `CLAUDE_CODE_DISABLE_AGENT_VIEW` | 设为 `1` 可关闭后台 Agent 和 Agent 视图（`claude agents`、`--bg`、`/background`、按需监督器）。`disableAgentView` 设置的环境变量等效项 *（在官方设置页面引用；未在环境变量页面列出）* |
+| `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` | 启用实验性 Agent Teams 功能（`1` 启用）。允许在会话中生成协调的子代理团队 |
+| `CLAUDE_CODE_DISABLE_WORKFLOWS` | 设为 `1` 禁用[动态工作流](https://code.claude.com/docs/en/workflows)（`/workflows`）及捆绑工作流 slash 命令。`disableWorkflows` 设置的环境变量等效项 |
+| `CLAUDE_CODE_ENABLE_AUTO_MODE` | 设为 `1` 使 [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode) 在 Amazon Bedrock、Google Cloud Vertex AI 和 Microsoft Foundry 上可用。对 Anthropic API 无效，auto mode 默认已启用 (v2.1.158) |
 | `ENABLE_TOOL_SEARCH` | MCP tool search threshold (e.g., `auto:5`) |
 | `ENABLE_PROMPT_CACHING_1H` | Opt into 1-hour prompt cache TTL. Replaces the deprecated `ENABLE_PROMPT_CACHING_1H_BEDROCK` *(in v2.1.108 changelog, not yet on official env-vars page)* |
 | `FORCE_PROMPT_CACHING_5M` | Force 5-minute prompt cache TTL *(in v2.1.108 changelog, not yet on official env-vars page)* |
