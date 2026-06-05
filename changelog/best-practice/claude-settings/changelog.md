@@ -680,3 +680,32 @@
 | 3 | HIGH | Removed Env Var | Mark `CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE` as REMOVED in v2.1.160 — "the environment variable is now a no-op" per changelog | ✅ COMPLETE (marked REMOVED with no-op annotation; v2.1.160 attribution added) — RESOLVED (from 2026-06-01 v2.1.159, where it was INVALID per Rule 8A; v2.1.160 changelog now explicitly states "now a no-op") |
 | 4 | MED | Changed Description | Update `workflowKeywordTriggerEnabled` description: trigger keyword renamed from "workflow" to "ultracode" in v2.1.160 per official changelog | ✅ COMPLETE (description updated; "ultracode" keyword noted with v2.1.160 attribution) — NEW |
 | 5 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 20+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+
+---
+
+## [2026-06-03 10:48 AM PKT] Claude Code v2.1.161
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Version Bump | 更新报告版本徽章 v2.1.160 → v2.1.161，标题 "As of v2.1.160" → "As of v2.1.161" | ✅ COMPLETE（徽章和标题在 Phase 2.6 更新）— NEW |
+| 2 | HIGH | Changed Description | 更新 `CLAUDE_CODE_ENABLE_TASKS` — 官方 env-vars 页面现在描述为控制 Task tools vs 旧版 TodoWrite（v2.1.142 起默认 Task tools；设为 `0` 回退）| ✅ COMPLETE（按官方 env-vars 页面更新描述）— NEW |
+| 3 | HIGH | Changed Description | 更新 `CLAUDE_CODE_ENABLE_FINE_GRAINED_TOOL_STREAMING` — Anthropic API 上默认启用；设为 `0` 退出。此前描述为 "`1` 启用"（行为反转） | ✅ COMPLETE（按官方 env-vars 页面更新描述）— NEW |
+| 4 | MED | Annotation Fix | 为 `CLAUDE_CODE_SESSION_ID` 添加 "not in official docs — unverified" 注释 — 确认不在官方 /en/env-vars 页面上 | ✅ COMPLETE（添加注释）— NEW |
+| 5 | LOW | Ownership Boundary | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` 在两个文件中；`claude-cli-startup-flags.md` 缺少交叉引用注释 | ✅ COMPLETE（向 CLI flags 文件添加交叉引用注释）— NEW |
+| 6 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` 仍在 changelog-only，不在官方 env-vars 页面（连续 23+ 次） | ✋ ON HOLD（保留 — 从 v2.1.107 开始重复出现） |
+
+---
+
+## [2026-06-04 10:47 AM PKT] Claude Code v2.1.162
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Version Bump | 更新报告版本徽章 v2.1.161 → v2.1.162，标题 "As of v2.1.161" → "As of v2.1.162" | ✅ COMPLETE（徽章和标题在 Phase 2.6 更新）— NEW |
+| 2 | HIGH | Changed Description | 更新 `bypassPermissions` 描述：此前报告称受保护路径（`.git`、`.claude`、`.vscode`、`.idea`、`.husky`）"仍会提示" — 官方权限页面确认所有基于路径的提示现已跳过。新增豁免路径：`.config/git`、`.cargo`、`.devcontainer`、`.yarn`、`.mvn`。仅 `rm -rf /` 和 `rm -rf ~` 仍会提示 | ✅ COMPLETE（描述修正；新增路径；保留 v2.1.121/v2.1.126 历史）— NEW |
+| 3 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` 仍在 changelog-only，不在官方 env-vars 页面（连续 24+ 次） | ✋ ON HOLD（保留 — 从 v2.1.107 开始重复出现） |
+
+---
+
+## [2026-06-05 10:47 AM PKT] Claude Code v2.1.165
+
+无优先级行动项——报告与官方文档完全同步。

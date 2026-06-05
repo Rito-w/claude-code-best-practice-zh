@@ -643,3 +643,37 @@ Tracks drift between the README CONCEPTS table and official Claude Code document
 | 10 | LOW | Verification | Anchors stable: `#organize-rules-with-clauderules` on /memory, `#eliminate-prompts-with-auto-mode` on /permission-modes, `#bundled-skills` on /skills, `#track-a-running-review` on /ultrareview, `#run-a-bundled-workflow` on /workflows | ✅ COMPLETE (all stable) |
 | 11 | LOW | Verification | Agent contradiction resolved: workflow-concepts-agent marked Ultrareview Location "CORRECT" but own WebFetch of `/en/ultrareview` revealed explicit canonical-invocation change statement — agent's Location-accuracy pass checked path/command existence but not canonical-vs-alias distinction; rule #8 caught it | ✅ COMPLETE (contradiction resolved in favor of direct docs evidence) |
 | 12 | LOW | Verification | claude-code-guide cross-check — independent 32-concept sweep; no NEW actionable findings beyond what dedicated agent surfaced; re-surfaced platform surfaces (RECURRING INVALID); no contradictions | ✅ COMPLETE (agents aligned; guide had limited novel findings this run) |
+
+---
+
+## [2026-06-04 09:43 AM PKT] Claude Code v2.1.162
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Stale URL (recurring) | Commands URL `/slash-commands` 不在官方站点地图（145 页）中 — 重定向到 `/skills`；规范命令参考为 `/en/commands` | ❌ INVALID（从 2026-03-10 重复出现；URL 仍可通过重定向解析；用户选择保持原样，连续 29+ 次） |
+| 2 | MED | Missing Concept (recurring) | Dedicated + claude-code-guide agents 重新标记 Sessions、IDE Integration、Desktop App、Output Styles、Permissions、Sandboxing、Headless Mode、Context Window、.claude Directory、Prompt Library、Platforms & Integrations 为缺失独立行 | ❌ INVALID（从 2026-03-10/03-17/04-08/05-01/05-12/05-21/05-25/06-01/06-02/06-03 重复出现；用户认为均为平台/运行时层面或已作为 Settings/Memory 子链接覆盖 — 不作为独立概念） |
+| 3 | LOW | Verification | 通过原始 CHANGELOG.md 确认最新版本 v2.1.162 — bug 修复和 UX 优化（消息流式传输、auto-mode 消息、MCP 工具过滤、终端调整大小）；无 CONCEPTS 级别内容 | ✅ COMPLETE（版本已验证；徽章更新 v2.1.161 → v2.1.162） |
+| 4 | LOW | Verification | 所有 40+ 外部 CONCEPTS URL 已针对 llms.txt 站点地图（145 页）验证 — 仅重复的 `/slash-commands` 重定向标记；其余 URL 均解析到预期的规范页面 | ✅ COMPLETE（无新增失效 URL） |
+| 5 | LOW | Verification | 所有 22+ 本地徽章/链接目标文件验证通过 | ✅ COMPLETE（无缺失本地文件） |
+| 6 | LOW | Verification | Beta Badge Currency — Auto Mode、Dynamic Workflows、Ultrareview 等均确认仍为 research preview | ✅ COMPLETE（所有 README beta 徽章准确） |
+| 7 | LOW | Verification | 命令重命名扫描 — v2.1.162 CHANGELOG 无命令/技能重命名 | ✅ COMPLETE |
+| 8 | LOW | Verification | Anchors 稳定 | ✅ COMPLETE |
+| 9 | LOW | Verification | Run Agents in Parallel hub 页面（`/en/agents`）— 比较页面，非 CONCEPTS 级别 | ✅ COMPLETE |
+| 10 | LOW | Verification | claude-code-guide 交叉检查 — 独立 85 概念扫描确认所有现有 CONCEPTS 覆盖 | ✅ COMPLETE（无新增漂移） |
+
+---
+
+## [2026-06-05 09:43 AM PKT] Claude Code v2.1.163
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Stale URL (recurring) | Commands URL `/slash-commands` 不在官方站点地图（144 页）中 — 重定向到 `/skills` | ❌ INVALID（从 2026-03-10 重复出现；连续 30+ 次） |
+| 2 | MED | Missing Concept (recurring) | 同前 | ❌ INVALID（从 2026-03-10 起重复出现，连续 11+ 次） |
+| 3 | LOW | Verification | 通过原始 CHANGELOG.md 确认最新版本 v2.1.163 — `/plugin list` 新增 `--enabled`/`--disabled` 过滤器、`requiredMinimumVersion`/`requiredMaximumVersion` 托管设置、Stop/SubagentStop `hookSpecificOutput.additionalContext`、技能 `\$` 转义语法；无 CONCEPTS 级别内容 | ✅ COMPLETE（版本已验证；徽章更新 v2.1.162 → v2.1.163） |
+| 4 | LOW | Verification | 所有 40+ 外部 CONCEPTS URL 已针对 llms.txt 站点地图（144 页）验证 | ✅ COMPLETE |
+| 5 | LOW | Verification | 所有 22+ 本地徽章/链接目标文件验证通过 | ✅ COMPLETE |
+| 6 | LOW | Verification | Beta Badge Currency — Auto Mode、Dynamic Workflows、Ultrareview、Fast Mode、Channels 均确认仍为 research preview | ✅ COMPLETE |
+| 7 | LOW | Verification | 命令重命名扫描 — v2.1.163 CHANGELOG 无命令/技能重命名 | ✅ COMPLETE |
+| 8 | LOW | Verification | Anchors 稳定 | ✅ COMPLETE |
+| 9 | LOW | Verification | Location 列事实准确性 — Checkpointing `automatic (file-edit tracking)` 已针对 `/en/checkpointing` 确认 | ✅ COMPLETE |
+| 10 | LOW | Verification | claude-code-guide 交叉检查 — 独立 84 概念扫描；仍列出 `/simplify`（v2.1.147 已重命名为 `/code-review` — 已知盲点）；无新增可执行项 | ✅ COMPLETE |

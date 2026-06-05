@@ -352,3 +352,18 @@ No priority action items — report is fully in sync with official documentation
 ## [2026-06-03 11:07 AM PKT] Claude Code v2.1.161
 
 No priority action items — report is fully in sync with official documentation (16 frontmatter fields, 82 built-in commands).
+
+---
+
+## [2026-06-04 11:07 AM PKT] Claude Code v2.1.162
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | New Command | 在 Session 标签添加 `/fork <directive>` — 生成分叉子代理，继承完整对话并按指令工作，你可以继续操作（v2.1.161 起独立；此前为 `/branch` 别名） | ✅ COMPLETE（添加为 Session 组 #76；移除 `/branch` 行中的别名引用；下游行 76-82 重编号为 77-83；计数更新 82 → 83） |
+| 2 | MED | Changed Description | 更新 `/terminal-setup` — 将 "Windsurf" 替换为 "Devin Desktop"（v2.1.162 重命名） | ✅ COMPLETE（更新 Config 标签 #17 的描述） |
+
+---
+
+## [2026-06-05 11:07 AM PKT] Claude Code v2.1.165
+
+无优先级行动项——报告与官方文档完全同步（16 个 frontmatter 字段，83 个内置命令）。

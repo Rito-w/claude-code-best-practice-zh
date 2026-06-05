@@ -1,6 +1,6 @@
 # Commands 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2003%2C%202026%2011%3A07%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.161-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2005%2C%202026%2011%3A07%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.165-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-commands-implementation.md)
 
 Claude Code commands —— frontmatter 字段和官方内置 slash commands。
@@ -56,7 +56,7 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 | 13 | `/sandbox` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 切换沙盒模式。仅在支持的平台可用 |
 | 14 | `/statusline` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 配置 Claude Code 状态栏。描述你想要的效果，或不带参数运行以根据 shell 提示自动配置 |
 | 15 | `/stickers` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 订购 Claude Code 贴纸 |
-| 16 | `/terminal-setup` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 配置 Shift+Enter 等终端快捷键。仅在需要它的终端中可见，如 VS Code、Cursor、Windsurf、Alacritty 或 Zed |
+| 16 | `/terminal-setup` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 配置 Shift+Enter 等终端快捷键。仅在需要它的终端中可见，如 VS Code、Cursor、Devin Desktop、Alacritty 或 Zed |
 | 17 | `/theme` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 更改颜色主题。包括亮色和暗色变体、色盲友好（daltonized）主题、使用终端调色板的 ANSI 主题、跟随终端亮暗模式的 "Auto (match terminal)" 选项，以及从 `~/.claude/themes/` 或插件加载的自定义主题。选择 "New custom theme…" 创建自己的主题 |
 | 18 | `/tui [default\|fullscreen]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 设置终端 UI 渲染器并重新启动 Claude Code 且保持当前对话不变。`default` 使用内联渲染；`fullscreen` 使用 alt-screen TUI |
 | 19 | `/voice [hold\|tap\|off]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 切换语音听写，或以特定模式启用。需要 Claude.ai 账号 |
@@ -109,18 +109,19 @@ Claude Code commands —— frontmatter 字段和官方内置 slash commands。
 | 66 | `/teleport` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 将网页端的 Claude Code 会话拉入此终端：打开选择器，然后获取分支和对话。也可用作 `/tp`。需要 claude.ai 订阅 |
 | 67 | `/web-setup` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 使用本地 `gh` CLI 凭据将你的 GitHub 账号连接到网页端 Claude Code。如果 GitHub 未连接，`/schedule` 会自动提示进行此操作 |
 | 68 | `/background [prompt]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 分离当前会话以作为后台代理运行，释放此终端。别名：`/bg` |
-| 69 | `/branch [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 在此点创建当前对话的分支。别名：`/fork`。设置 `CLAUDE_CODE_FORK_SUBAGENT` 时，`/fork` 改为生成分叉子代理，不再是此命令的别名 |
+| 69 | `/branch [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 在此点创建当前对话的分支 |
 | 70 | `/btw <question>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 问一个快速附带问题，不添加到对话中 |
 | 71 | `/clear` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 以空上下文开始新对话。之前的对话仍可在 `/resume` 中访问。要在继续同一对话的同时释放上下文，请改用 `/compact`。别名：`/reset`、`/new` |
 | 72 | `/compact [instructions]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 压缩对话，可选聚焦指令 |
 | 73 | `/exit` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 退出 CLI。别名：`/quit` |
-| 74 | `/recap` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 按需生成当前会话的一行摘要，不影响正在进行的对话 |
-| 75 | `/rename [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 重命名当前会话并在提示栏显示名称。不带名称时根据对话历史自动生成 |
-| 76 | `/resume [session]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 通过 ID 或名称恢复对话，或打开会话选择器。别名：`/continue` |
-| 77 | `/rewind` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将对话和/或代码回退到之前的某个点，或从选定消息生成摘要。参见检查点机制。别名：`/checkpoint`、`/undo` |
-| 78 | `/goal [condition\|clear]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 设定目标——Claude 持续工作直到条件满足。传入 `clear` 移除现有目标 |
-| 79 | `/stop` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 停止当前后台会话。保留转录和工作树 |
-| 80 | `/workflows` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 打开工作流进度视图，以监控、暂停、恢复或保存运行中和已完成的工作流 |
+| 74 | `/fork <directive>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 生成分叉子代理：继承完整对话的后台子代理，按指令工作，你可以继续操作 |
+| 75 | `/goal [condition\|clear]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 设定目标——Claude 持续工作直到条件满足。传入 `clear` 移除现有目标 |
+| 76 | `/recap` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 按需生成当前会话的一行摘要，不影响正在进行的对话 |
+| 77 | `/rename [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 重命名当前会话并在提示栏显示名称。不带名称时根据对话历史自动生成 |
+| 78 | `/resume [session]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 通过 ID 或名称恢复对话，或打开会话选择器。别名：`/continue` |
+| 79 | `/rewind` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将对话和/或代码回退到之前的某个点，或从选定消息生成摘要。参见检查点机制。别名：`/checkpoint`、`/undo` |
+| 80 | `/stop` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 停止当前后台会话。保留转录和工作树 |
+| 81 | `/workflows` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 打开工作流进度视图，以监控、暂停、恢复或保存运行中和已完成的工作流 |
 
 `/debug` 等捆绑技能也可能出现在 slash 命令菜单中，但它们不是内置命令。
 
