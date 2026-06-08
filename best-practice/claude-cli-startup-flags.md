@@ -208,14 +208,14 @@ These startup-only environment variables are set in your shell before launching 
 
 | Variable | Description |
 |----------|-------------|
-| `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` | Enable experimental agent teams |
-| `CLAUDE_CODE_TMPDIR` | Override temp directory for internal files. Also configurable via `env` key — see [Settings Reference](./claude-settings.md#environment-variables-via-env) |
-| `CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1` | Enable additional directory CLAUDE.md loading |
+| `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` | 启用实验性代理团队。也可通过 `env` 键配置——参见 [Settings Reference](./claude-settings.md#environment-variables) |
+| `CLAUDE_CODE_TMPDIR` | 覆盖内部文件的临时目录。也可通过 `env` 键配置——参见 [Settings Reference](./claude-settings.md#environment-variables-via-env) |
+| `CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1` | 启用额外目录 CLAUDE.md 加载。也可通过 `env` 键配置——参见 [Settings Reference](./claude-settings.md#environment-variables-via-env) |
 | `DISABLE_AUTOUPDATER=1` | 禁用自动更新。也可通过 `env` 键配置——参见 [Settings Reference](./claude-settings.md#environment-variables-via-env) |
-| `CLAUDE_CODE_EFFORT_LEVEL` | Control thinking depth — see [Settings Reference](./claude-settings.md#environment-variables-via-env) |
-| `USE_BUILTIN_RIPGREP=0` | Use system ripgrep instead of built-in (Alpine Linux) |
-| `CLAUDE_CODE_SIMPLE` | Enable simple mode (Bash + Edit tools only). Also configurable via `env` key — see [Settings Reference](./claude-settings.md#environment-variables-via-env) |
-| `CLAUDE_BASH_NO_LOGIN=1` | Skip login shell for BashTool |
+| `CLAUDE_CODE_EFFORT_LEVEL` | 控制推理深度——参见 [Settings Reference](./claude-settings.md#environment-variables-via-env) |
+| `USE_BUILTIN_RIPGREP=0` | 使用系统 ripgrep 而非内置版本（Alpine Linux） |
+| `CLAUDE_CODE_SIMPLE` | 启用简单模式（仅 Bash + Edit 工具）。也可通过 `env` 键配置——参见 [Settings Reference](./claude-settings.md#environment-variables-via-env) |
+| `CLAUDE_BASH_NO_LOGIN=1` | 跳过 BashTool 的登录 shell |
 | `CCR_FORCE_BUNDLE=1` | 强制在使用 `claude --remote` 时打包/上传本地仓库。也可通过 `env` 键配置——参见 [Settings Reference](./claude-settings.md#environment-variables-via-env) |
 
 For environment variables configurable via the `"env"` key in `settings.json` (including `MAX_THINKING_TOKENS`, `CLAUDE_CODE_SHELL`, `CLAUDE_CODE_ENABLE_TASKS`, `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS`, `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`, and more), see the [Claude Settings Reference](./claude-settings.md#environment-variables-via-env).
