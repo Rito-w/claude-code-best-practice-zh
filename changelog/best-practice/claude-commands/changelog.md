@@ -359,11 +359,37 @@ No priority action items — report is fully in sync with official documentation
 
 | # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | New Command | 在 Session 标签添加 `/fork <directive>` — 生成分叉子代理，继承完整对话并按指令工作，你可以继续操作（v2.1.161 起独立；此前为 `/branch` 别名） | ✅ COMPLETE（添加为 Session 组 #76；移除 `/branch` 行中的别名引用；下游行 76-82 重编号为 77-83；计数更新 82 → 83） |
-| 2 | MED | Changed Description | 更新 `/terminal-setup` — 将 "Windsurf" 替换为 "Devin Desktop"（v2.1.162 重命名） | ✅ COMPLETE（更新 Config 标签 #17 的描述） |
+| 1 | HIGH | New Command | Add `/fork <directive>` to Session tag — Spawn a forked subagent that inherits the full conversation and works on the directive while you keep going (standalone since v2.1.161; previously alias of `/branch`) | ✅ COMPLETE (added as #76 in Session tag; alias reference removed from `/branch` row; downstream rows 76-82 renumbered to 77-83; count updated 82 → 83) |
+| 2 | MED | Changed Description | Update `/terminal-setup` — replace "Windsurf" with "Devin Desktop" (renamed in v2.1.162) | ✅ COMPLETE (updated description at #17 in Config tag) |
 
 ---
 
 ## [2026-06-05 11:07 AM PKT] Claude Code v2.1.165
 
-无优先级行动项——报告与官方文档完全同步（16 个 frontmatter 字段，83 个内置命令）。
+No priority action items — report is fully in sync with official documentation (16 frontmatter fields, 83 built-in commands).
+
+---
+
+## [2026-06-06 11:05 AM PKT] Claude Code v2.1.167
+
+No priority action items — report is fully in sync with official documentation (16 frontmatter fields, 83 built-in commands).
+
+---
+
+## [2026-06-07 11:04 AM PKT] Claude Code v2.1.168
+
+No priority action items — report is fully in sync with official documentation (16 frontmatter fields, 83 built-in commands).
+
+---
+
+## [2026-06-08 11:05 AM PKT] Claude Code v2.1.168
+
+No priority action items — report is fully in sync with official documentation (16 frontmatter fields, 83 built-in commands).
+
+---
+
+## [2026-06-09 11:04 AM PKT] Claude Code v2.1.169
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | New Command | Add `/cd [path]` to Session tag — Move the session to a new working directory without breaking the prompt cache | ✅ COMPLETE (added as #73 in Session tag; downstream rows 73–83 renumbered to 74–84; count updated 83 → 84) |

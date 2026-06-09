@@ -1,6 +1,6 @@
 # Commands 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2008%2C%202026%2011%3A05%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.168-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2009%2C%202026%2011%3A04%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.169-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-commands-implementation.md)
 
 Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
@@ -37,7 +37,7 @@ Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
 
 ---
 
-## ![Official](../!/tags/official.svg) **(83)**
+## ![Official](../!/tags/official.svg) **(84)**
 
 | # | 命令 | 标签 | 描述 |
 |---|---------|-----|-------------|
@@ -113,17 +113,18 @@ Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
 | 70 | `/background [prompt]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将当前会话分离为后台代理运行，释放此终端。别名：`/bg` |
 | 71 | `/branch [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 在此点创建当前对话的分支 |
 | 72 | `/btw <question>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 快速提问一个附带问题，不会添加到主对话中 |
-| 73 | `/clear` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 开始一个清空上下文的新对话。之前的对话仍可在 `/resume` 中访问。要在继续同一对话的同时释放上下文，请使用 `/compact`。别名：`/reset`、`/new` |
-| 74 | `/compact [instructions]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 压缩对话，可附带聚焦指令 |
-| 75 | `/exit` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 退出 CLI。别名：`/quit` |
-| 76 | `/fork <directive>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 启动一个分叉的子代理：一个继承完整对话并在后台按照指令工作的子代理，同时你继续进行操作 |
-| 77 | `/goal [condition\|clear]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 设置一个目标 — Claude 会持续工作直到条件满足。传入 `clear` 以移除现有目标 |
-| 78 | `/recap` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 按需生成当前会话的一行摘要，不影响正在进行的对话 |
-| 79 | `/rename [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 重命名当前会话并在提示栏显示名称。不带名称时，根据对话历史自动生成一个 |
-| 80 | `/resume [session]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 通过 ID 或名称恢复一个对话，或打开会话选择器。别名：`/continue` |
-| 81 | `/rewind` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将对话和/或代码回退到之前的某个点，或从选定的消息开始摘要。参见检查点功能。别名：`/checkpoint`、`/undo` |
-| 82 | `/stop` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 停止当前后台会话。保留工作区和对话记录 |
-| 83 | `/workflows` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 打开工作流进度视图，以监视、暂停、恢复或保存正在运行和已完成的工作流 |
+| 73 | `/cd [path]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将工作目录切换到新路径，而不会破坏提示缓存 |
+| 74 | `/clear` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 开始一个清空上下文的新对话。之前的对话仍可在 `/resume` 中访问。要在继续同一对话的同时释放上下文，请使用 `/compact`。别名：`/reset`、`/new` |
+| 75 | `/compact [instructions]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 压缩对话，可附带聚焦指令 |
+| 76 | `/exit` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 退出 CLI。别名：`/quit` |
+| 77 | `/fork <directive>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 启动一个分叉的子代理：一个继承完整对话并在后台按照指令工作的子代理，同时你继续进行操作 |
+| 78 | `/goal [condition\|clear]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 设置一个目标 — Claude 会持续工作直到条件满足。传入 `clear` 以移除现有目标 |
+| 79 | `/recap` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 按需生成当前会话的一行摘要，不影响正在进行的对话 |
+| 80 | `/rename [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 重命名当前会话并在提示栏显示名称。不带名称时，根据对话历史自动生成一个 |
+| 81 | `/resume [session]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 通过 ID 或名称恢复一个对话，或打开会话选择器。别名：`/continue` |
+| 82 | `/rewind` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将对话和/或代码回退到之前的某个点，或从选定的消息开始摘要。参见检查点功能。别名：`/checkpoint`、`/undo` |
+| 83 | `/stop` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 停止当前后台会话。保留工作区和对话记录 |
+| 84 | `/workflows` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 打开工作流进度视图，以监视、暂停、恢复或保存正在运行和已完成的工作流 |
 
 捆绑技能如 `/debug` 也可能出现在斜杠命令菜单中，但它们不是内置命令。
 
