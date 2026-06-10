@@ -110,6 +110,7 @@
 | `disableWorkflows` | boolean | `false` | 设为 `true` 以禁用 [动态工作流](https://code.claude.com/docs/en/workflows)（`/workflows`）和内置的工作流斜杠命令。可在任何范围设置。等效于 `CLAUDE_CODE_DISABLE_WORKFLOWS` 环境变量。工作流于 v2.1.154 引入 |
 | `workflowKeywordTriggerEnabled` | boolean | `true` | 在提示中输入单词 "ultracode" 是否触发 [动态工作流](https://code.claude.com/docs/en/workflows)。设为 `false` 以要求显式 `/workflows` 调用。Ultracode、`/workflows` 和已保存的工作流命令不受此设置影响。在 `/config` 中显示为 **Workflow keyword trigger**（v2.1.157；触发词在 v2.1.160 中从 workflow 改名为 ultracode） |
 | `ultracode` | boolean | - | **（仅会话 — 不持久化）** 当为 `true` 时，Harness 默认为每个实质性任务编写并运行工作流，以最大化彻底性而不考虑 token 成本。出现在官方"可用设置"列表中，但仅作用域于会话：通过 `/effort ultracode`、`--settings` 或 SDK 设置，而非写入 `settings.json`（v2.1.154） |
+| `disableBundledSkills` | boolean | `false` | 隐藏 Claude Code 的内置能力（bundled skills）。设为 `true` 时，模型无法调用内置技能。与 `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` 环境变量配对使用。适用于需要严格插件定制的场景 *(v2.1.170 changelog 中，尚未出现在官方设置页面)* |
 | `feedbackSurveyRate` | number | - | 当符合条件时出现会话质量调查的概率（0–1）。企业管理员可控制调查展示频率。示例：`0.05` = 5% 的合格会话 |
 
 **示例：**
@@ -892,6 +893,7 @@ MCP 服务器也可以通过在工具的 `_meta` 对象中包含 `"anthropic/alw
 | `CLAUDE_CODE_DISABLE_AGENT_VIEW` | 设置为 `1` 以关闭后台 agent 和 agent 视图（`claude agents`、`--bg`、`/background`、按需监督器）。环境变量等效于 `disableAgentView` 设置 *（在官方设置页面上引用；未列在环境变量页面上）* |
 | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` | 启用实验性 agent 团队功能（`1` 启用）。允许在会话中生成协调的子 agent 团队 |
 | `CLAUDE_CODE_DISABLE_WORKFLOWS` | 设置为 `1` 以禁用 [动态工作流](https://code.claude.com/docs/en/workflows)（`/workflows`）和内置的工作流斜杠命令。环境变量等效于 `disableWorkflows` 设置 |
+| `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` | 设置为 `1` 以隐藏 Claude Code 的内置能力（bundled skills）。`disableBundledSkills` 设置的环境变量等效 *(在 v2.1.170 变更日志中，尚未在官方环境变量页面)* |
 | `CLAUDE_CODE_ENABLE_AUTO_MODE` | 设置为 `1` 以在 Amazon Bedrock、Google Cloud Vertex AI 和 Microsoft Foundry 上启用 [自动模式](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode)。对 Anthropic API 无效，因为自动模式默认可用（v2.1.158） |
 | `ENABLE_TOOL_SEARCH` | MCP 工具搜索阈值（如 `auto:5`） |
 | `ENABLE_PROMPT_CACHING_1H` | 选择加入 1 小时提示缓存 TTL。替换已弃用的 `ENABLE_PROMPT_CACHING_1H_BEDROCK` *（在 v2.1.108 变更日志中，尚未在官方环境变量页面）* |
