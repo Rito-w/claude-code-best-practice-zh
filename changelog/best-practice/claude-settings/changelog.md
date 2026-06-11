@@ -687,12 +687,12 @@
 
 | # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Version Bump | 更新报告版本徽章 v2.1.160 → v2.1.161，标题 "As of v2.1.160" → "As of v2.1.161" | ✅ COMPLETE（徽章和标题在 Phase 2.6 更新）— NEW |
-| 2 | HIGH | Changed Description | 更新 `CLAUDE_CODE_ENABLE_TASKS` — 官方 env-vars 页面现在描述为控制 Task tools vs 旧版 TodoWrite（v2.1.142 起默认 Task tools；设为 `0` 回退）| ✅ COMPLETE（按官方 env-vars 页面更新描述）— NEW |
-| 3 | HIGH | Changed Description | 更新 `CLAUDE_CODE_ENABLE_FINE_GRAINED_TOOL_STREAMING` — Anthropic API 上默认启用；设为 `0` 退出。此前描述为 "`1` 启用"（行为反转） | ✅ COMPLETE（按官方 env-vars 页面更新描述）— NEW |
-| 4 | MED | Annotation Fix | 为 `CLAUDE_CODE_SESSION_ID` 添加 "not in official docs — unverified" 注释 — 确认不在官方 /en/env-vars 页面上 | ✅ COMPLETE（添加注释）— NEW |
-| 5 | LOW | Ownership Boundary | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` 在两个文件中；`claude-cli-startup-flags.md` 缺少交叉引用注释 | ✅ COMPLETE（向 CLI flags 文件添加交叉引用注释）— NEW |
-| 6 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` 仍在 changelog-only，不在官方 env-vars 页面（连续 23+ 次） | ✋ ON HOLD（保留 — 从 v2.1.107 开始重复出现） |
+| 1 | HIGH | Version Bump | Update report version badge from v2.1.160 → v2.1.161 and header "As of v2.1.160" → "As of v2.1.161" | ✅ COMPLETE (badge and header updated in Phase 2.6) — NEW |
+| 2 | HIGH | Changed Description | Update `CLAUDE_CODE_ENABLE_TASKS` — official env-vars page now describes it as controlling Task tools vs legacy TodoWrite (default Task tools since v2.1.142; set to `0` to revert). Prior description referred to non-interactive mode task tracking | ✅ COMPLETE (description updated per official env-vars page) — NEW |
+| 3 | HIGH | Changed Description | Update `CLAUDE_CODE_ENABLE_FINE_GRAINED_TOOL_STREAMING` — enabled by default on Anthropic API; set to `0` to opt out. Prior description said "`1` to enable" (inverted behavior) | ✅ COMPLETE (description updated per official env-vars page) — NEW |
+| 4 | MED | Annotation Fix | Add "not in official docs — unverified" annotation to `CLAUDE_CODE_SESSION_ID` — confirmed NOT on official /en/env-vars page per Rule 5D | ✅ COMPLETE (annotation added) — NEW |
+| 5 | LOW | Ownership Boundary | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` in both files; `claude-cli-startup-flags.md` lacks cross-reference note | ✅ COMPLETE (cross-reference note added to CLI flags file) — NEW |
+| 6 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` still changelog-only, not on official env-vars page after 23+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
 
 ---
 
@@ -700,12 +700,92 @@
 
 | # | Priority | Type | Action | Status |
 |---|----------|------|--------|--------|
-| 1 | HIGH | Version Bump | 更新报告版本徽章 v2.1.161 → v2.1.162，标题 "As of v2.1.161" → "As of v2.1.162" | ✅ COMPLETE（徽章和标题在 Phase 2.6 更新）— NEW |
-| 2 | HIGH | Changed Description | 更新 `bypassPermissions` 描述：此前报告称受保护路径（`.git`、`.claude`、`.vscode`、`.idea`、`.husky`）"仍会提示" — 官方权限页面确认所有基于路径的提示现已跳过。新增豁免路径：`.config/git`、`.cargo`、`.devcontainer`、`.yarn`、`.mvn`。仅 `rm -rf /` 和 `rm -rf ~` 仍会提示 | ✅ COMPLETE（描述修正；新增路径；保留 v2.1.121/v2.1.126 历史）— NEW |
-| 3 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` 仍在 changelog-only，不在官方 env-vars 页面（连续 24+ 次） | ✋ ON HOLD（保留 — 从 v2.1.107 开始重复出现） |
+| 1 | HIGH | Version Bump | Update report version badge from v2.1.161 → v2.1.162 and header "As of v2.1.161" → "As of v2.1.162" | ✅ COMPLETE (badge and header updated in Phase 2.6) — NEW |
+| 2 | HIGH | Changed Description | Update `bypassPermissions` description: report said protected paths (`.git`, `.claude`, `.vscode`, `.idea`, `.husky`) "still prompt" — official permissions page confirms all path-based prompts are now skipped. Added new exempt paths: `.config/git`, `.cargo`, `.devcontainer`, `.yarn`, `.mvn`. Only `rm -rf /` and `rm -rf ~` still prompt | ✅ COMPLETE (description corrected; new paths added; v2.1.121/v2.1.126 history preserved) — NEW |
+| 3 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` still changelog-only, not on official env-vars page after 24+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
 
 ---
 
-## [2026-06-05 10:47 AM PKT] Claude Code v2.1.165
+## [2026-06-05 10:48 AM PKT] Claude Code v2.1.163
 
-无优先级行动项——报告与官方文档完全同步。
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Version Bump | Update report version badge from v2.1.162 → v2.1.163 and header "As of v2.1.162" → "As of v2.1.163" | ✅ COMPLETE (badge and header updated in Phase 2.6) — NEW |
+| 2 | HIGH | New Setting | Add `requiredMinimumVersion` (managed-only) to Managed-only policy keys table — prevents CLI from starting below a specified version floor (v2.1.163 changelog) | ✅ COMPLETE (added to managed-only policy keys table with changelog annotation) — NEW |
+| 3 | HIGH | New Setting | Add `requiredMaximumVersion` (managed-only) to Managed-only policy keys table — prevents CLI from starting above a specified version ceiling (v2.1.163 changelog) | ✅ COMPLETE (added to managed-only policy keys table with changelog annotation) — NEW |
+| 4 | HIGH | Annotation Fix | Remove stale annotation from `skipWebFetchPreflight` — key is now confirmed on official settings page with full description (use case: Bedrock/Vertex/Foundry restrictive egress environments) | ✅ COMPLETE (stale annotation removed; description updated to match official docs) — NEW |
+| 5 | HIGH | Annotation Fix | Remove stale annotation from `CLAUDE_CODE_ENABLE_AUTO_MODE` — key is now confirmed on official env-vars page; description updated to match official wording and fix stale link | ✅ COMPLETE (stale annotation removed; description and link updated per official env-vars page) — NEW |
+| 6 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 25+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+
+---
+
+## [2026-06-06 10:42 AM PKT] Claude Code v2.1.167
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Version Bump | Update report version badge from v2.1.163 → v2.1.167 and header "As of v2.1.163" → "As of v2.1.167" | ✅ COMPLETE (badge and header updated in Phase 2.6) — NEW |
+| 2 | HIGH | New Setting | Add `fallbackModel` to Model Overrides table — configure up to 3 fallback models tried sequentially when the primary model is unavailable (v2.1.166) | ✅ COMPLETE (added to Model Overrides table) — NEW |
+| 3 | HIGH | Permission Syntax | Document glob pattern support in deny rules — `"*"` in the tool-name position of a deny rule matches ALL tools (v2.1.166). Added note to Permission section | ✅ COMPLETE (note added to Tool Permission Syntax section) — NEW |
+| 4 | MED | Annotation Fix | Remove stale annotation from `requiredMinimumVersion` and `requiredMaximumVersion` — both keys are now confirmed on official settings page (were annotated "not yet on official settings page" from v2.1.163 run) | ✅ COMPLETE (stale annotations removed from both keys) — RESOLVED (from 2026-06-05 v2.1.163) |
+| 5 | MED | Missing Env Var | Add `OTEL_RESOURCE_ATTRIBUTES` to OTEL environment variables table — allows key=value pairs as labels on OpenTelemetry metric data points (v2.1.162) | ✅ COMPLETE (added after `OTEL_LOG_RAW_API_BODIES`) — NEW |
+| 6 | MED | Ownership Boundary | Add cross-reference for `CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD` in settings report (Rule 5B) — var is in both files without a cross-reference | ✅ COMPLETE (cross-reference note added in both files) — NEW |
+| 7 | LOW | Annotation Fix | Upgrade `CLAUDE_CODE_SESSION_ID` annotation from "not in official docs — unverified" to "in v2.1.163 changelog for stdio MCP servers on --resume" | ✅ COMPLETE (annotation upgraded) — NEW |
+| 8 | LOW | Example Update | Fix Quick Reference `"effortLevel": "xhigh"` paired with `"model": "sonnet"` — xhigh is Opus 4.7/4.8 only; Sonnet tops out at `high` | ✅ COMPLETE (changed to `"high"`) — NEW |
+| 9 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 26+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+
+---
+
+## [2026-06-07 10:34 AM PKT] Claude Code v2.1.168
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Version Bump | Update report version badge from v2.1.167 → v2.1.168 and header "As of v2.1.167" → "As of v2.1.168" | ✅ COMPLETE (badge synced in Phase 2.6; body header text still reads v2.1.167 — flagged as action item #2) — NEW |
+| 2 | MED | Changed Description | Update `MAX_THINKING_TOKENS` env var (line 1050) — v2.1.166 changelog: `MAX_THINKING_TOKENS=0` (and `--thinking disabled`) now disables thinking on models that think by default. Report description only says "Maximum extended thinking tokens per response" | ✋ ON HOLD (awaiting user approval) — NEW |
+| 3 | MED | Header Count | Header line 6 still says "As of v2.1.167" — update to v2.1.168 to match badge | ✋ ON HOLD (awaiting user approval) — NEW |
+| 4 | LOW | Sandbox Predicate Note | Optionally note v2.1.166 fix: `allowedMcpServers`/`deniedMcpServers` predicates now match with `${VAR}` references. Behavior/bug-fix detail, not a new key | ✋ ON HOLD (awaiting user approval — low value, bug-fix detail) — NEW |
+| 5 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 27+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+| 6 | INVALID | Spurious Drift Claim | Re-verified `fallbackModel` (report line 561, type `array`) against v2.1.166 changelog ("up to three fallback models") — report is accurate, including the 3-model cap. No change | ❌ INVALID (report already correct) — NEW |
+| 7 | INVALID | Spurious Drift Claim | Deny-rule glob `"*"` (v2.1.166) already documented in report line 296. No change | ❌ INVALID (already in report) — NEW |
+
+---
+
+## [2026-06-07 10:45 AM PKT] Claude Code v2.1.168
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | MED | Changed Description | Update `MAX_THINKING_TOKENS` env var description — add that `=0` disables extended thinking on Anthropic API (or use `--thinking disabled`). Previously only said "Maximum extended thinking tokens per response" | ✅ COMPLETE (description expanded in claude-settings.md) — RESOLVED (from 2026-06-07 10:34 AM PKT) |
+| 2 | MED | Header Update | Fix header line 6: "As of v2.1.167" → "As of v2.1.168" to match badge and current version | ✅ COMPLETE (header updated in claude-settings.md) — RESOLVED (from 2026-06-07 10:34 AM PKT) |
+| 3 | LOW | MCP Timeout Note | Add note to MCP section: per-server `timeout` values < 1000ms are ignored and fall back to `MCP_TOOL_TIMEOUT` global default (v2.1.162 changelog) | ✅ COMPLETE (note added as version-tagged callout in MCP section) — NEW |
+| 4 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 28+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+
+---
+
+## [2026-06-08 10:36 AM PKT] Claude Code v2.1.168
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | LOW | New Env Var (Changelog) | Add `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT` to env vars table — forces the effort parameter on all models (v2.1.154 changelog). NOT on official /en/env-vars page; annotate as changelog-only per Rule 5D/8A | ✋ ON HOLD (awaiting user approval — changelog-only, low value) — NEW |
+| 2 | LOW | New Env Var (Changelog) | Add `OTEL_METRICS_INCLUDE_ENTRYPOINT` to OTEL env vars table — includes session entrypoint as a metric attribute (v2.1.161 changelog). NOT on official /en/env-vars page; annotate as changelog-only per Rule 5D/8A | ✋ ON HOLD (awaiting user approval — changelog-only, low value) — NEW |
+| 3 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 29+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+
+---
+
+## [2026-06-08 10:44 AM PKT] Claude Code v2.1.168
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | LOW | New Env Var (Changelog) | Add `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT` to env vars table — forces the effort parameter on all models (v2.1.154 changelog). Annotated as changelog-only per Rule 5D/8A | ✅ COMPLETE (added after `CLAUDE_EFFORT` row with changelog-only annotation) |
+| 2 | LOW | New Env Var (Changelog) | Add `OTEL_METRICS_INCLUDE_ENTRYPOINT` to OTEL env vars table — includes session entrypoint as a metric attribute (v2.1.161 changelog). Annotated as changelog-only per Rule 5D/8A | ✅ COMPLETE (added after `OTEL_TRACES_EXPORTER` row with changelog-only annotation) |
+| 3 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 29+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+
+---
+
+## [2026-06-09 10:39 AM PKT] Claude Code v2.1.169
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Version Bump | Update report version badge from v2.1.168 → v2.1.169 and header "As of v2.1.168" → "As of v2.1.169" | ✅ COMPLETE (badge and header updated in Phase 2.6) — NEW |
+| 2 | HIGH | New Setting | Add `disableBundledSkills` (boolean, default `false`) to General Settings table — conceals Claude Code's built-in capabilities from the model. Paired with `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` env var. Changelog-only (not yet on official settings page); annotated per Rule 1F (v2.1.169) | ✅ COMPLETE (added after `ultracode` row with changelog-only annotation) — NEW |
+| 3 | MED | New Env Var | Add `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` to Common Environment Variables table — env-var equivalent of `disableBundledSkills` setting. Changelog-only per Rule 5D/8A (v2.1.169) | ✅ COMPLETE (added after `CLAUDE_CODE_ENABLE_AUTO_MODE` with changelog-only annotation) — NEW |
+| 4 | MED | Ownership Question | `CLAUDE_CODE_SAFE_MODE` (v2.1.169, paired with `--safe-mode` startup flag) — determined to be a startup-only variable; belongs in `claude-cli-startup-flags.md`, not in `claude-settings.md`. Per Rule 13 (env vars split across two files) | ✋ ON HOLD (out of scope for this report — add to `claude-cli-startup-flags.md` in a separate run) — NEW |
+| 5 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 30+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |

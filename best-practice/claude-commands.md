@@ -1,6 +1,6 @@
 # Commands 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2010%2C%202026%2011%3A04%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.170-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2011%2C%202026%2011%3A09%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.173-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-commands-implementation.md)
 
 Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
@@ -37,7 +37,7 @@ Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
 
 ---
 
-## ![Official](../!/tags/official.svg) **(84)**
+## ![Official](../!/tags/official.svg) **(85)**
 
 | # | 命令 | 标签 | 描述 |
 |---|---------|-----|-------------|
@@ -87,44 +87,45 @@ Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
 | 44 | `/reload-skills` | ![Extensions](https://img.shields.io/badge/Extensions-16A085?style=flat) | 重新扫描技能和命令目录，使会话期间在磁盘上添加或更改的技能无需重启即可生效。报告可用技能数量以及新增或移除的数量 |
 | 45 | `/skills` | ![Extensions](https://img.shields.io/badge/Extensions-16A085?style=flat) | 列出可用技能。按 `t` 按 token 数排序 |
 | 46 | `/memory` | ![Memory](https://img.shields.io/badge/Memory-3498DB?style=flat) | 编辑 `CLAUDE.md` 记忆文件、启用或禁用自动记忆，以及查看自动记忆条目 |
-| 47 | `/effort [low\|medium\|high\|xhigh\|max\|ultracode]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 设置模型的努力级别。可用级别取决于所选模型，包括 `low`、`medium`、`high`、`xhigh`、`max`（仅当前会话）和 `ultracode`（结合 `xhigh` 推理与自动工作流编排；仅当前会话）。不带参数时打开交互式滑块来选择级别。`auto` 重置为模型默认值。立即生效，无需等待当前回复完成 |
-| 48 | `/fast [on\|off]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 开启或关闭快速模式 |
-| 49 | `/model [model]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 选择或更改 AI 模型。对于支持的模型，使用左右箭头调整努力级别。更改立即生效，无需等待当前回复完成。在已有输出的对话中途切换时，Claude 会在应用更改前发出警告 |
-| 50 | `/passes` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 与朋友分享一周免费的 Claude Code 使用权限。仅在你的账号符合条件时可见 |
-| 51 | `/plan [description]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 直接从提示进入计划模式。可选传入描述以进入计划模式并立即开始该任务，例如 `/plan fix the auth bug` |
-| 52 | `/ultraplan <prompt>` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 在 ultraplan 会话中起草计划，在浏览器中审阅，然后远程执行或发送回终端 |
-| 53 | `/add-dir <path>` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 为当前会话添加工作目录以进行文件访问。大多数 `.claude/` 配置不会从添加的目录中发现 |
-| 54 | `/diff` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 打开交互式 diff 查看器，显示未提交的更改和每轮 diff。使用左右箭头在当前 git diff 和各个 Claude 轮次之间切换，使用上下方向键浏览文件 |
-| 55 | `/init` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 使用 `CLAUDE.md` 指南初始化项目。设置 `CLAUDE_CODE_NEW_INIT=1` 可进行交互式流程，同时引导配置技能、钩子和个人记忆文件 |
-| 56 | `/review` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 在当前会话中本地审阅 pull request。如需更深入的云端审阅，请参阅 `/ultrareview` |
-| 57 | `/security-review` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 分析当前分支上的待处理更改中的安全漏洞。审查 git diff 并识别注入、认证问题和数据泄露等风险 |
-| 58 | `/team-onboarding` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 从你的 Claude Code 使用历史中生成团队入职指南。分析过去 30 天的会话、命令和 MCP 服务器使用情况 |
-| 59 | `/ultrareview [PR]` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 在云端沙箱中对指定的 pull request 进行深度多代理代码审查。生成带有优先级排序的结构化审查结果；是对本地 `/review` 命令的补充 |
-| 60 | `/autofix-pr [prompt]` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 在 web 会话中启动一个 Claude Code 来监视当前分支的 PR，并在 CI 失败或审查者留下评论时推送修复。通过 `gh pr view` 从你检出的分支检测开放的 PR；要监视不同的 PR，先检出该分支。需要 `gh` CLI 和 Claude Code web 版的访问权限 |
-| 61 | `/desktop` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 在 Claude Code 桌面应用中继续当前会话。仅支持 macOS 和 Windows。别名：`/app` |
-| 62 | `/install-github-app` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 为仓库设置 Claude GitHub Actions 应用。引导你选择仓库并配置集成 |
-| 63 | `/install-slack-app` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 安装 Claude Slack 应用。打开浏览器以完成 OAuth 流程 |
-| 64 | `/mobile` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 显示二维码以下载 Claude 移动应用。别名：`/ios`、`/android` |
-| 65 | `/remote-control` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 使此会话可从 claude.ai 进行远程控制。别名：`/rc` |
-| 66 | `/remote-env` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 配置使用 `--remote` 启动的 web 会话的默认远程环境 |
-| 67 | `/schedule [description]` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 创建、更新、列出或运行例行任务。Claude 会通过交互式对话引导你完成设置。别名：`/routines` |
-| 68 | `/teleport` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 将 web 会话中的 Claude Code 拉取到当前终端：打开选择器，然后获取分支和对话。也可用 `/tp`。需要 claude.ai 订阅 |
-| 69 | `/web-setup` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 使用本地 `gh` CLI 凭据将你的 GitHub 账号连接到 Claude Code web 版。如果 GitHub 未连接，`/schedule` 会自动提示进行此操作 |
-| 70 | `/background [prompt]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将当前会话分离为后台代理运行，释放此终端。别名：`/bg` |
-| 71 | `/branch [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 在此点创建当前对话的分支 |
-| 72 | `/btw <question>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 快速提问一个附带问题，不会添加到主对话中 |
-| 73 | `/cd [path]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将工作目录切换到新路径，而不会破坏提示缓存 |
-| 74 | `/clear` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 开始一个清空上下文的新对话。之前的对话仍可在 `/resume` 中访问。要在继续同一对话的同时释放上下文，请使用 `/compact`。别名：`/reset`、`/new` |
-| 75 | `/compact [instructions]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 压缩对话，可附带聚焦指令 |
-| 76 | `/exit` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 退出 CLI。别名：`/quit` |
-| 77 | `/fork <directive>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 启动一个分叉的子代理：一个继承完整对话并在后台按照指令工作的子代理，同时你继续进行操作 |
-| 78 | `/goal [condition\|clear]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 设置一个目标 — Claude 会持续工作直到条件满足。传入 `clear` 以移除现有目标 |
-| 79 | `/recap` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 按需生成当前会话的一行摘要，不影响正在进行的对话 |
-| 80 | `/rename [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 重命名当前会话并在提示栏显示名称。不带名称时，根据对话历史自动生成一个 |
-| 81 | `/resume [session]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 通过 ID 或名称恢复一个对话，或打开会话选择器。别名：`/continue` |
-| 82 | `/rewind` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将对话和/或代码回退到之前的某个点，或从选定的消息开始摘要。参见检查点功能。别名：`/checkpoint`、`/undo` |
-| 83 | `/stop` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 停止当前后台会话。保留工作区和对话记录 |
-| 84 | `/workflows` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 打开工作流进度视图，以监视、暂停、恢复或保存正在运行和已完成的工作流 |
+| 47 | `/advisor [model|off]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 启用或禁用 advisor 工具，该工具在任务的关键时刻咨询第二个模型以获取指导。接受模型名称（`opus`、`sonnet`、`fable`）或完整模型 ID；不带参数时打开选择器。使用 `off` 禁用 |
+| 48 | `/effort [low\|medium\|high\|xhigh\|max\|ultracode]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 设置模型的努力级别。可用级别取决于所选模型，包括 `low`、`medium`、`high`、`xhigh`、`max`（仅当前会话）和 `ultracode`（结合 `xhigh` 推理与自动工作流编排；仅当前会话）。不带参数时打开交互式滑块来选择级别。`auto` 重置为模型默认值。立即生效，无需等待当前回复完成 |
+| 49 | `/fast [on\|off]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 开启或关闭快速模式 |
+| 50 | `/model [model]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 选择或更改 AI 模型。对于支持的模型，使用左右箭头调整努力级别。更改立即生效，无需等待当前回复完成。在已有输出的对话中途切换时，Claude 会在应用更改前发出警告 |
+| 51 | `/passes` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 与朋友分享一周免费的 Claude Code 使用权限。仅在你的账号符合条件时可见 |
+| 52 | `/plan [description]` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 直接从提示进入计划模式。可选传入描述以进入计划模式并立即开始该任务，例如 `/plan fix the auth bug` |
+| 53 | `/ultraplan <prompt>` | ![Model](https://img.shields.io/badge/Model-E67E22?style=flat) | 在 ultraplan 会话中起草计划，在浏览器中审阅，然后远程执行或发送回终端 |
+| 54 | `/add-dir <path>` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 为当前会话添加工作目录以进行文件访问。大多数 `.claude/` 配置不会从添加的目录中发现 |
+| 55 | `/diff` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 打开交互式 diff 查看器，显示未提交的更改和每轮 diff。使用左右箭头在当前 git diff 和各个 Claude 轮次之间切换，使用上下方向键浏览文件 |
+| 56 | `/init` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 使用 `CLAUDE.md` 指南初始化项目。设置 `CLAUDE_CODE_NEW_INIT=1` 可进行交互式流程，同时引导配置技能、钩子和个人记忆文件 |
+| 57 | `/review` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 在当前会话中本地审阅 pull request。如需更深入的云端审阅，请参阅 `/ultrareview` |
+| 58 | `/security-review` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 分析当前分支上的待处理更改中的安全漏洞。审查 git diff 并识别注入、认证问题和数据泄露等风险 |
+| 59 | `/team-onboarding` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 从你的 Claude Code 使用历史中生成团队入职指南。分析过去 30 天的会话、命令和 MCP 服务器使用情况 |
+| 60 | `/ultrareview [PR]` | ![Project](https://img.shields.io/badge/Project-27AE60?style=flat) | 在云端沙箱中对指定的 pull request 进行深度多代理代码审查。生成带有优先级排序的结构化审查结果；是对本地 `/review` 命令的补充 |
+| 61 | `/autofix-pr [prompt]` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 在 web 会话中启动一个 Claude Code 来监视当前分支的 PR，并在 CI 失败或审查者留下评论时推送修复。通过 `gh pr view` 从你检出的分支检测开放的 PR；要监视不同的 PR，先检出该分支。需要 `gh` CLI 和 Claude Code web 版的访问权限 |
+| 62 | `/desktop` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 在 Claude Code 桌面应用中继续当前会话。仅支持 macOS 和 Windows。别名：`/app` |
+| 63 | `/install-github-app` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 为仓库设置 Claude GitHub Actions 应用。引导你选择仓库并配置集成 |
+| 64 | `/install-slack-app` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 安装 Claude Slack 应用。打开浏览器以完成 OAuth 流程 |
+| 65 | `/mobile` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 显示二维码以下载 Claude 移动应用。别名：`/ios`、`/android` |
+| 66 | `/remote-control` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 使此会话可从 claude.ai 进行远程控制。别名：`/rc` |
+| 67 | `/remote-env` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 配置使用 `--remote` 启动的 web 会话的默认远程环境 |
+| 68 | `/schedule [description]` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 创建、更新、列出或运行例行任务。Claude 会通过交互式对话引导你完成设置。别名：`/routines` |
+| 69 | `/teleport` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 将 web 会话中的 Claude Code 拉取到当前终端：打开选择器，然后获取分支和对话。也可用 `/tp`。需要 claude.ai 订阅 |
+| 70 | `/web-setup` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 使用本地 `gh` CLI 凭据将你的 GitHub 账号连接到 Claude Code web 版。如果 GitHub 未连接，`/schedule` 会自动提示进行此操作 |
+| 71 | `/background [prompt]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将当前会话分离为后台代理运行，释放此终端。别名：`/bg` |
+| 72 | `/branch [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 在此点创建当前对话的分支 |
+| 73 | `/btw <question>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 快速提问一个附带问题，不会添加到主对话中 |
+| 74 | `/cd [path]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将工作目录切换到新路径，而不会破坏提示缓存 |
+| 75 | `/clear` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 开始一个清空上下文的新对话。之前的对话仍可在 `/resume` 中访问。要在继续同一对话的同时释放上下文，请使用 `/compact`。别名：`/reset`、`/new` |
+| 76 | `/compact [instructions]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 压缩对话，可附带聚焦指令 |
+| 77 | `/exit` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 退出 CLI。别名：`/quit` |
+| 78 | `/fork <directive>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 启动一个分叉的子代理：一个继承完整对话并在后台按照指令工作的子代理，同时你继续进行操作 |
+| 79 | `/goal [condition\|clear]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 设置一个目标 — Claude 会持续工作直到条件满足。传入 `clear` 以移除现有目标 |
+| 80 | `/recap` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 按需生成当前会话的一行摘要，不影响正在进行的对话 |
+| 81 | `/rename [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 重命名当前会话并在提示栏显示名称。不带名称时，根据对话历史自动生成一个 |
+| 82 | `/resume [session]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 通过 ID 或名称恢复一个对话，或打开会话选择器。别名：`/continue` |
+| 83 | `/rewind` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将对话和/或代码回退到之前的某个点，或从选定的消息开始摘要。参见检查点功能。别名：`/checkpoint`、`/undo` |
+| 84 | `/stop` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 停止当前后台会话。保留工作区和对话记录 |
+| 85 | `/workflows` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 打开工作流进度视图，以监视、暂停、恢复或保存正在运行和已完成的工作流 |
 
 捆绑技能如 `/debug` 也可能出现在斜杠命令菜单中，但它们不是内置命令。
 

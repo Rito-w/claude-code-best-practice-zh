@@ -1,6 +1,6 @@
 # Settings 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2008%2C%202026%2010%3A44%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.168-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2009%2C%202026%2010%3A40%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.169-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.claude/settings.json)
 
 本指南全面介绍 Claude Code `settings.json` 文件中所有可用的配置选项。截至 v2.1.168，Claude Code 开放了 **80+ 设置项** 和 **200+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免编写包装脚本）。

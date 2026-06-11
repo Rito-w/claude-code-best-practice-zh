@@ -43,3 +43,18 @@
 - 已提交：ccea5ba
 - 翻译覆盖率：100% (106/106)
 - 无新增文件需翻译
+
+---
+
+## 2026-06-12 02:00 — 每日巡检
+- 源仓库最新提交：ef3195a (Jun 11, 2026 06:35 UTC) — Claude Code v2.1.173
+- 变更：自上次同步 v2.1.160 (Jun 02) 以来的增量更新
+  - **README.md**: 版本徽章 v2.1.170→v2.1.172；star 数据更新（Superpowers 220k→224k, ECC 209k→213k, Matt Pocock 120k→125k, Spec Kit 110k→111k, gstack 108k→109k, OpenSpec 53k→54k, Compound Engineering 20k→21k）；新增 Advisor 功能行
+  - **best-practice/claude-commands.md**: 版本 v2.1.170→v2.1.173；命令数 84→85；新增 `/advisor` 命令（#47）；后续命令重新编号
+  - **best-practice/claude-settings.md**: 版本 v2.1.168→v2.1.169
+  - **best-practice/claude-skills.md**: 版本 v2.1.170→v2.1.172
+  - **best-practice/claude-subagents.md**: 版本徽章更新
+  - **best-practice/claude-cli-startup-flags.md**: 版本徽章更新
+  - **.claude/hooks/HOOKS-README.md**: 同步上游更新
+  - **Changelogs**: 8 个 changelog 文件同步上游
+- 翻译覆盖率：100% (122/122)
