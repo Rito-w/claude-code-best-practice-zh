@@ -1,9 +1,9 @@
 # Settings 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2009%2C%202026%2010%3A40%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.169-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2011%2C%202026%2010%3A43%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.172-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../.claude/settings.json)
 
-本指南全面介绍 Claude Code `settings.json` 文件中所有可用的配置选项。截至 v2.1.168，Claude Code 开放了 **80+ 设置项** 和 **200+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免编写包装脚本）。
+本指南全面介绍 Claude Code `settings.json` 文件中所有可用的配置选项。截至 v2.1.172，Claude Code 开放了 **80+ 设置项** 和 **200+ 环境变量**（使用 `settings.json` 中的 `"env"` 字段可避免编写包装脚本）。
 
 <table width="100%">
 <tr>
@@ -112,6 +112,7 @@
 | `ultracode` | boolean | - | **（仅会话 — 不持久化）** 当为 `true` 时，Harness 默认为每个实质性任务编写并运行工作流，以最大化彻底性而不考虑 token 成本。出现在官方"可用设置"列表中，但仅作用域于会话：通过 `/effort ultracode`、`--settings` 或 SDK 设置，而非写入 `settings.json`（v2.1.154） |
 | `disableBundledSkills` | boolean | `false` | 隐藏 Claude Code 的内置能力（bundled skills）。设为 `true` 时，模型无法调用内置技能。与 `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` 环境变量配对使用。适用于需要严格插件定制的场景 *(v2.1.170 changelog 中，尚未出现在官方设置页面)* |
 | `feedbackSurveyRate` | number | - | 当符合条件时出现会话质量调查的概率（0–1）。企业管理员可控制调查展示频率。示例：`0.05` = 5% 的合格会话 |
+| `advisorModel` | string | - | 服务器端 advisor 工具使用的模型。接受模型别名（`opus`、`sonnet`、`fable`）或完整模型 ID。未设置时，advisor 使用会话模型。需要 v2.1.98+ |
 
 **示例：**
 ```json
@@ -291,6 +292,7 @@
 | `Agent` | `Agent(name)` | `Agent(researcher)`、`Agent(*)` — 作用域限于子 agent 生成 |
 | `Skill` | `Skill(skill-name)` 或 `Skill(prefix *)` | `Skill(weather-fetcher)`、`Skill(weather *)` 匹配 `weather-fetcher`/`weather-svg-creator`（v2.1.139） |
 | `MCP` | `mcp__server__tool` 或 `MCP(server:tool)` | `mcp__memory__*`、`MCP(github:*)` |
+| `Cd` | `Cd(path pattern)` | `Cd(/home/*)`、`Cd(~/projects/*)` — 控制 `/cd` 命令可以导航到哪些目录 |
 
 **评估顺序：** 规则按以下顺序评估：首先是 deny 规则，然后是 ask，最后是 allow。第一个匹配的规则生效。
 
@@ -544,6 +546,7 @@ MCP 服务器也可以通过在工具的 `_meta` 对象中包含 `"anthropic/alw
 | `"sonnet[1m]"` | 带 1M token 上下文的 Sonnet |
 | `"opus[1m]"` | 带 1M token 上下文的 Opus（自 v2.1.75 起为 Max、Team 和 Enterprise 的默认值） |
 | `"opusplan"` | 规划时使用 Opus，执行时使用 Sonnet |
+| `"fable"` | Claude Fable 5 — 长时推理模型。仅限 Anthropic API（v2.1.170+） |
 
 **示例：**
 ```json
@@ -1054,6 +1057,10 @@ MCP 服务器也可以通过在工具的 `_meta` 对象中包含 `"anthropic/alw
 | `ANTHROPIC_DEFAULT_SONNET_MODEL_NAME` | 在 Bedrock/Vertex/Foundry 上使用固定模型时，自定义 `/model` 选择器中 Sonnet 条目标签。默认为模型 ID |
 | `ANTHROPIC_DEFAULT_SONNET_MODEL_DESCRIPTION` | 自定义 `/model` 选择器中 Sonnet 条目的描述。默认为 `Custom model (<model-id>)` |
 | `ANTHROPIC_DEFAULT_SONNET_MODEL_SUPPORTED_CAPABILITIES` | 覆盖固定 Sonnet 模型的能力检测。以逗号分隔的值（如 `effort,thinking`）。当固定模型支持自动检测无法确认的功能时需要 |
+| `ANTHROPIC_DEFAULT_FABLE_MODEL` | 覆盖 Fable 模型别名（如 `claude-fable-5`） |
+| `ANTHROPIC_DEFAULT_FABLE_MODEL_NAME` | 自定义在 Bedrock/Vertex/Foundry 上使用固定模型时 `/model` 选择器中的 Fable 条目标签。默认为模型 ID |
+| `ANTHROPIC_DEFAULT_FABLE_MODEL_DESCRIPTION` | 自定义 `/model` 选择器中的 Fable 条目描述。默认为 `Custom model (<model-id>)` |
+| `ANTHROPIC_DEFAULT_FABLE_MODEL_SUPPORTED_CAPABILITIES` | 覆盖固定 Fable 模型的能力检测。以逗号分隔的值（如 `effort,thinking`）。当固定模型支持自动检测无法确认的功能时需要 |
 | `MAX_THINKING_TOKENS` | 每次响应的最大扩展思考 token。设置为 `0` 以在 Anthropic API 上完全禁用扩展思考（等效于 `--thinking disabled`）。仅在使用固定思考预算时适用 — 在自适应思考模型（Opus 4.7+）上，努力级别控制思考深度 |
 | `CLAUDE_CODE_AUTO_COMPACT_WINDOW` | 设置用于自动压缩计算的 token 上下文容量。默认为模型的上下文窗口（标准 200K，扩展上下文模型 1M）。在 1M 模型上使用较低值（如 `500000`）将其视为 500K 用于压缩。上限为实际上下文窗口。`CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` 作为此值的百分比应用。设置此项将压缩阈值与状态行的 `used_percentage` 解耦 |
 | `DISABLE_AUTO_COMPACT` | 禁用自动上下文压缩（`1` 禁用）。手动 `/compact` 仍然有效 *（不在官方文档中 — 未经验证）* |
@@ -1110,6 +1117,7 @@ MCP 服务器也可以通过在工具的 `_meta` 对象中包含 `"anthropic/alw
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "model": "sonnet",
+  "advisorModel": "fable",
   "agent": "code-reviewer",
   "language": "english",
   "cleanupPeriodDays": 30,

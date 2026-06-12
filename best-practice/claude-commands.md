@@ -1,6 +1,6 @@
 # Commands 最佳实践
 
-![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2011%2C%202026%2011%3A09%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.173-blue?style=flat&labelColor=555)<br>
+![Last Updated](https://img.shields.io/badge/Last_Updated-Jun%2012%2C%202026%2011%3A08%20AM%20PKT-white?style=flat&labelColor=555) ![Version](https://img.shields.io/badge/Claude_Code-v2.1.175-blue?style=flat&labelColor=555)<br>
 [![Implemented](https://img.shields.io/badge/Implemented-2ea44f?style=flat)](../implementation/claude-commands-implementation.md)
 
 Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
@@ -46,7 +46,7 @@ Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
 | 3 | `/setup-bedrock` | ![Auth](https://img.shields.io/badge/Auth-2980B9?style=flat) | 通过交互式向导配置 Amazon Bedrock 认证、区域和模型固定。仅在设置 `CLAUDE_CODE_USE_BEDROCK=1` 时可见。首次使用 Bedrock 的用户也可以从登录界面访问此向导 |
 | 4 | `/setup-vertex` | ![Auth](https://img.shields.io/badge/Auth-2980B9?style=flat) | 通过交互式向导配置 Google Vertex AI 认证、项目、区域和模型固定。仅在设置 `CLAUDE_CODE_USE_VERTEX=1` 时可见。首次使用 Vertex AI 的用户也可以从登录界面访问此向导 |
 | 5 | `/upgrade` | ![Auth](https://img.shields.io/badge/Auth-2980B9?style=flat) | 打开升级页面以切换到更高级别的计划 |
-| 6 | `/color [color\|default]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 设置当前会话的提示栏颜色。可用颜色：`red`、`blue`、`green`、`yellow`、`purple`、`orange`、`pink`、`cyan`。使用 `default` 重置 |
+| 6 | `/color [color\|default]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 设置当前会话的提示栏颜色。可用颜色：`red`、`blue`、`green`、`yellow`、`purple`、`orange`、`pink`、`cyan`。使用 `default` 重置。不带参数运行可随机选择颜色 |
 | 7 | `/config` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 打开设置界面以调整主题、模型、输出风格和其他偏好设置。别名：`/settings` |
 | 8 | `/focus` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 切换聚焦视图，仅显示最近的提示、工具调用摘要和最终回复。有助于在长时间会话中减少视觉干扰。仅在全屏渲染模式下可用 |
 | 9 | `/keybindings` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 打开或创建你的按键绑定配置文件 |
@@ -61,7 +61,7 @@ Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
 | 18 | `/theme` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 更改颜色主题。包括明暗变体、色盲友好（去色）主题、使用终端调色板的 ANSI 主题、跟随终端明暗模式的"自动（匹配终端）"选项，以及从 `~/.claude/themes/` 或插件加载的自定义主题。选择"新建自定义主题…"来创建你自己的主题 |
 | 19 | `/tui [default\|fullscreen]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 设置终端 UI 渲染器并使用当前对话重新启动 Claude Code。`default` 使用内联渲染；`fullscreen` 使用替代屏幕 TUI |
 | 20 | `/voice [hold\|tap\|off]` | ![Config](https://img.shields.io/badge/Config-F39C12?style=flat) | 切换语音输入，或以特定模式启用。需要 Claude.ai 账号 |
-| 21 | `/context` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 将当前上下文使用情况可视化为彩色网格。显示对上下文密集工具、内存膨胀的优化建议和容量警告 |
+| 21 | `/context [all]` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 将当前上下文使用情况可视化为彩色网格。显示对上下文密集工具、内存膨胀的优化建议和容量警告。传入 `all` 展开完整详情 |
 | 22 | `/cost` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | `/usage` 的别名 |
 | 23 | `/insights` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | 生成分析报告，涵盖 Claude Code 会话的项目领域、交互模式和摩擦点 |
 | 24 | `/stats` | ![Context](https://img.shields.io/badge/Context-8E44AD?style=flat) | `/usage` 的别名。在 Stats 标签页打开 |
@@ -107,15 +107,15 @@ Claude Code 命令 — frontmatter 字段和官方内置斜杠命令。
 | 64 | `/install-slack-app` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 安装 Claude Slack 应用。打开浏览器以完成 OAuth 流程 |
 | 65 | `/mobile` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 显示二维码以下载 Claude 移动应用。别名：`/ios`、`/android` |
 | 66 | `/remote-control` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 使此会话可从 claude.ai 进行远程控制。别名：`/rc` |
-| 67 | `/remote-env` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 配置使用 `--remote` 启动的 web 会话的默认远程环境 |
+| 67 | `/remote-env` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 选择云端代理的默认环境 |
 | 68 | `/schedule [description]` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 创建、更新、列出或运行例行任务。Claude 会通过交互式对话引导你完成设置。别名：`/routines` |
 | 69 | `/teleport` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 将 web 会话中的 Claude Code 拉取到当前终端：打开选择器，然后获取分支和对话。也可用 `/tp`。需要 claude.ai 订阅 |
 | 70 | `/web-setup` | ![Remote](https://img.shields.io/badge/Remote-5D6D7E?style=flat) | 使用本地 `gh` CLI 凭据将你的 GitHub 账号连接到 Claude Code web 版。如果 GitHub 未连接，`/schedule` 会自动提示进行此操作 |
 | 71 | `/background [prompt]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将当前会话分离为后台代理运行，释放此终端。别名：`/bg` |
 | 72 | `/branch [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 在此点创建当前对话的分支 |
 | 73 | `/btw <question>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 快速提问一个附带问题，不会添加到主对话中 |
-| 74 | `/cd [path]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将工作目录切换到新路径，而不会破坏提示缓存 |
-| 75 | `/clear` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 开始一个清空上下文的新对话。之前的对话仍可在 `/resume` 中访问。要在继续同一对话的同时释放上下文，请使用 `/compact`。别名：`/reset`、`/new` |
+| 74 | `/cd <path>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 将工作目录切换到新路径，而不会破坏提示缓存 |
+| 75 | `/clear [name]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 开始一个清空上下文的新对话。传入可选的 `name` 为之前的对话命名，方便通过 `/resume` 检索。要在继续同一对话的同时释放上下文，请使用 `/compact`。别名：`/reset`、`/new` |
 | 76 | `/compact [instructions]` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 压缩对话，可附带聚焦指令 |
 | 77 | `/exit` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 退出 CLI。别名：`/quit` |
 | 78 | `/fork <directive>` | ![Session](https://img.shields.io/badge/Session-4A90D9?style=flat) | 启动一个分叉的子代理：一个继承完整对话并在后台按照指令工作的子代理，同时你继续进行操作 |
