@@ -781,3 +781,40 @@ Tracks drift between the README CONCEPTS table and official Claude Code document
 | 9 | LOW | Verification | Anchors stable: `#organize-rules-with-clauderules` on /memory, `#eliminate-prompts-with-auto-mode` on /permission-modes, `#bundled-skills` on /skills, `#track-a-running-review` on /ultrareview, `#run-a-bundled-workflow` on /workflows | ✅ COMPLETE (all stable) |
 | 10 | LOW | Verification | Location Column Factual Accuracy (rule #8) — Checkpointing `automatic (file-edit tracking)` confirmed; Dynamic Workflows Location confirmed; Advisor Location `/advisor`, `advisorModel`, `--advisor` verified against docs | ✅ COMPLETE (Locations accurate) |
 | 11 | LOW | Verification | claude-code-guide cross-check — independent 40+ concept sweep corroborated all existing CONCEPTS coverage; surfaced Advisor as missing (corroborated by own research); re-surfaced platform/runtime surfaces (RECURRING INVALID); no contradictions | ✅ COMPLETE (agents aligned; Advisor gap actioned) |
+<<<<<<< HEAD
+=======
+
+---
+
+## [2026-06-12 09:36 AM PKT] Claude Code v2.1.175
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Stale URL (recurring) | Commands URL `/slash-commands` not in official sitemap — redirects to `/skills`; canonical commands reference is `/en/commands` | ❌ INVALID (RECURRING from 2026-03-10; URL still resolves via redirect; user has chosen to keep as-is across 37+ runs) |
+| 2 | MED | Missing Concept (recurring) | Dedicated + claude-code-guide agents re-flagged VS Code, JetBrains, Desktop App, Sessions, Headless Mode, Prompt Library, Context Window, Tools Reference, Analytics, Prompt Caching as missing standalone rows | ❌ INVALID (RECURRING from 2026-03-10 through 2026-06-11; user considers all platform/runtime surfaces or covered as Settings/Memory sub-links — not standalone concepts) |
+| 3 | LOW | Verification | Latest version confirmed v2.1.175 via raw CHANGELOG.md — v2.1.173–v2.1.175 contain bug fixes and minor admin settings (`enforceAvailableModels`, `wheelScrollAccelerationEnabled`, Fable 5 model name fixes); no CONCEPTS-worthy features | ✅ COMPLETE (version verified; badge bumped v2.1.172 → v2.1.175 in Phase 2.6) |
+| 4 | LOW | Verification | All 40+ external CONCEPTS URLs validated against llms.txt sitemap — only recurring `/slash-commands` redirect flagged; all other URLs resolve to expected canonical pages | ✅ COMPLETE (no NEW broken URLs) |
+| 5 | LOW | Verification | All 22+ local badge/link target files validated — `best-practice/`, `implementation/`, `reports/`, `.claude/`, `.mcp.json`, `CLAUDE.md`, `orchestration-workflow/` targets all exist | ✅ COMPLETE (no missing local files) |
+| 6 | LOW | Verification | Beta Badge Currency (rule #7) — Auto Mode, Dynamic Workflows, Ultrareview, Ultraplan, No Flicker Mode, Fast Mode, Channels, Computer Use, Code Review, Chrome, Agent Teams, Agent View, Routines, Voice Dictation, Advisor confirmed research preview / experimental on their respective docs pages | ✅ COMPLETE (all README beta badges accurate; no demotions warranted) |
+| 7 | LOW | Verification | Command rename scan (rule #9) — v2.1.173–v2.1.175 CHANGELOG contains no command/skill renames; `/code-review`, `/code-review ultra`, `/batch`, `/advisor` all current | ✅ COMPLETE (no rename drift) |
+| 8 | LOW | Verification | Anchors stable: `#organize-rules-with-clauderules` on /memory, `#eliminate-prompts-with-auto-mode` on /permission-modes, `#bundled-skills` on /skills, `#track-a-running-review` on /ultrareview, `#run-a-bundled-workflow` on /workflows | ✅ COMPLETE (all stable) |
+| 9 | LOW | Verification | Location Column Factual Accuracy (rule #8) — Checkpointing `automatic (file-edit tracking)` confirmed; Dynamic Workflows Location confirmed; Advisor Location `/advisor`, `advisorModel`, `--advisor` verified | ✅ COMPLETE (Locations accurate) |
+| 10 | LOW | Verification | claude-code-guide cross-check — independent 46-concept sweep corroborated all existing CONCEPTS coverage; re-surfaced platform/runtime surfaces (RECURRING INVALID); no contradictions with workflow-concepts-agent findings | ✅ COMPLETE (agents aligned; no drift detected) |
+
+---
+
+## [2026-06-13 09:40 AM PKT] Claude Code v2.1.176
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | Stale URL (recurring) | Commands URL `/slash-commands` not in official sitemap (173 pages) — redirects to `/skills`; canonical commands reference is `/en/commands` | ❌ INVALID (RECURRING from 2026-03-10; URL still resolves via redirect; user has chosen to keep as-is across 38+ runs) |
+| 2 | MED | Missing Concept (recurring) | Dedicated + claude-code-guide agents re-flagged Sessions, IDE Integration, Desktop App, Output Styles, Permissions, Sandboxing, Headless Mode, Context Window, .claude Directory, Prompt Library, Platforms & Integrations as missing standalone rows | ❌ INVALID (RECURRING from 2026-03-10 through 2026-06-12; user considers all platform/runtime surfaces or covered as Settings/Memory sub-links — not standalone concepts) |
+| 3 | LOW | Verification | Latest version confirmed v2.1.176 via raw CHANGELOG.md — session title `language` setting, `footerLinksRegexes` setting, bug fixes; nothing CONCEPTS-worthy | ✅ COMPLETE (version verified; badge bumped v2.1.175 → v2.1.176 in Phase 2.6) |
+| 4 | LOW | Verification | All 40+ external CONCEPTS URLs validated against llms.txt sitemap — only recurring `/slash-commands` redirect flagged; all other URLs resolve to expected canonical pages | ✅ COMPLETE (no NEW broken URLs) |
+| 5 | LOW | Verification | All 22+ local badge/link target files validated — `best-practice/`, `implementation/`, `reports/`, `.claude/`, `.mcp.json`, `CLAUDE.md`, `orchestration-workflow/` targets all exist | ✅ COMPLETE (no missing local files) |
+| 6 | LOW | Verification | Beta Badge Currency (rule #7) — Auto Mode, Dynamic Workflows, Ultrareview, Ultraplan, No Flicker Mode, Fast Mode, Channels, Computer Use, Code Review, Chrome, Agent Teams, Agent View, Routines, Voice Dictation, Advisor confirmed research preview / experimental on their respective docs pages | ✅ COMPLETE (all README beta badges accurate; no demotions warranted) |
+| 7 | LOW | Verification | Command rename scan (rule #9) — v2.1.175–v2.1.176 CHANGELOG contains no command/skill renames; `/code-review`, `/code-review ultra`, `/batch`, `/advisor` all current | ✅ COMPLETE (no rename drift) |
+| 8 | LOW | Verification | Anchors stable: `#organize-rules-with-clauderules` on /memory, `#eliminate-prompts-with-auto-mode` on /permission-modes, `#bundled-skills` on /skills, `#track-a-running-review` on /ultrareview, `#run-a-bundled-workflow` on /workflows | ✅ COMPLETE (all stable) |
+| 9 | LOW | Verification | Location Column Factual Accuracy (rule #8) — Checkpointing `automatic (file-edit tracking)` confirmed; Dynamic Workflows Location confirmed; Advisor Location `/advisor`, `advisorModel`, `--advisor` verified | ✅ COMPLETE (Locations accurate) |
+| 10 | LOW | Verification | claude-code-guide cross-check — independent concept sweep corroborated all existing CONCEPTS coverage; re-surfaced platform/runtime surfaces (RECURRING INVALID); no contradictions with workflow-concepts-agent findings | ✅ COMPLETE (agents aligned; no drift detected) |
+>>>>>>> upstream/main

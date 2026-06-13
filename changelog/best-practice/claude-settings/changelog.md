@@ -789,3 +789,36 @@
 | 3 | MED | New Env Var | Add `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` to Common Environment Variables table — env-var equivalent of `disableBundledSkills` setting. Changelog-only per Rule 5D/8A (v2.1.169) | ✅ COMPLETE (added after `CLAUDE_CODE_ENABLE_AUTO_MODE` with changelog-only annotation) — NEW |
 | 4 | MED | Ownership Question | `CLAUDE_CODE_SAFE_MODE` (v2.1.169, paired with `--safe-mode` startup flag) — determined to be a startup-only variable; belongs in `claude-cli-startup-flags.md`, not in `claude-settings.md`. Per Rule 13 (env vars split across two files) | ✋ ON HOLD (out of scope for this report — add to `claude-cli-startup-flags.md` in a separate run) — NEW |
 | 5 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 30+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+<<<<<<< HEAD
+=======
+
+---
+
+## [2026-06-11 10:43 AM PKT] Claude Code v2.1.172
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | New Setting | Add `advisorModel` (string, unset, any scope) to General Settings table — model for server-side advisor tool; accepts alias (opus, sonnet, fable) or full model ID. Confirmed on official settings page (min v2.1.98) | ✅ COMPLETE (added after `feedbackSurveyRate` row) — NEW |
+| 2 | HIGH | Version Bump | Update report version badge from v2.1.169 → v2.1.172 and header "As of v2.1.169" → "As of v2.1.172" | ✅ COMPLETE (badge and header updated in Phase 2.6) — NEW |
+| 3 | HIGH | New Permission Rule | Add `Cd` to Tool Permission Syntax table — controls `/cd` command directory access; confirmed on official permissions page (v2.1.169+) | ✅ COMPLETE (added after `MCP` row) — NEW |
+| 4 | HIGH | New Env Vars | Add 4 `ANTHROPIC_DEFAULT_FABLE_MODEL*` vars (override, name, description, supported capabilities) for Fable 5 model pinning on Bedrock/Vertex/Foundry; confirmed on official env-vars page (v2.1.170) | ✅ COMPLETE (added after `ANTHROPIC_DEFAULT_SONNET_MODEL_SUPPORTED_CAPABILITIES`) — NEW |
+| 5 | HIGH | Model Alias | Add `fable` to Model Aliases table — Claude Fable 5, Anthropic API only (v2.1.170+); confirmed on official settings page | ✅ COMPLETE (added after `opusplan` row) — NEW |
+| 6 | HIGH | Example Update | Update Quick Reference example: add `advisorModel` field to showcase v2.1.172 feature | ✅ COMPLETE (updated example) — NEW |
+| 7 | INVALID | Rule 8A Rejection | `DISABLE_PROMPT_CACHING_FABLE` — pattern-implied from Haiku/Sonnet/Opus siblings but NOT explicitly listed on official /en/env-vars page. Per Rule 8A, pattern inference is insufficient — not added | ❌ INVALID (not on official env-vars page; pattern only — Rule 8A) — NEW |
+| 8 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 31+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+
+---
+
+## [2026-06-12 10:46 AM PKT] Claude Code v2.1.175
+
+| # | Priority | Type | Action | Status |
+|---|----------|------|--------|--------|
+| 1 | HIGH | New Setting | Add `enforceAvailableModels` (managed-only boolean, v2.1.175) to General Settings after `availableModels` — enforces the `availableModels` allowlist on the Default model option | ✅ COMPLETE (added after `availableModels` row) — NEW |
+| 2 | HIGH | New Setting | Add `wheelScrollAccelerationEnabled` (boolean, v2.1.174) to Display Settings table — disables mouse-wheel scroll acceleration in fullscreen mode | ✅ COMPLETE (added after `preferredNotifChannel` row) — NEW |
+| 3 | HIGH | Version Bump | Update report version badge from v2.1.172 → v2.1.175 and header "As of v2.1.172" → "As of v2.1.175" | ✅ COMPLETE (badge and header updated in Phase 2.6) — NEW |
+| 4 | MED | Missing Env Var | Add `API_FORCE_IDLE_TIMEOUT` to env vars table near `API_TIMEOUT_MS` — override 5-minute idle timeout for streaming; confirmed on official /en/env-vars page (v2.1.169) | ✅ COMPLETE (added after `API_TIMEOUT_MS` row) — NEW |
+| 5 | MED | Missing Env Var | Add `CLAUDE_CODE_DISABLE_ADVISOR_TOOL` to env vars table near other DISABLE_ vars — disable the advisor tool and `/advisor` command; confirmed on official /en/env-vars page (min v2.1.98) | ✅ COMPLETE (added after `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` row) — NEW |
+| 6 | MED | Changed Description | Update `availableModels` — add v2.1.172 note that it also constrains subagent model picker and `advisorModel` picker; add `enforceAvailableModels` cross-reference | ✅ COMPLETE (description updated in General Settings table) — NEW |
+| 7 | LOW | Changed Description | Fix `CLAUDE_CODE_EFFORT_LEVEL` — "xhigh (Opus 4.7 only, v2.1.111)" → "xhigh (Opus 4.7 and 4.8, v2.1.111)" | ✅ COMPLETE (updated in env vars table) — NEW |
+| 8 | LOW | Suspect Key Recurrence | `OTEL_LOG_TOOL_DETAILS` — still NOT on official /en/env-vars page after 32+ consecutive runs | ✋ ON HOLD (kept — recurring from 2026-04-14 v2.1.107) |
+>>>>>>> upstream/main
